@@ -4,10 +4,5 @@ import { readdirSync } from 'fs';
 
 export default defineNuxtConfig({
   modules: ['@nuxt/content'],
-  debug: true,
-  // generate: {
-  //   async routes() {
-
-  //   },
-  // }
+  debug: true
 })
