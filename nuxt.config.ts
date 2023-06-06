@@ -3,6 +3,6 @@ import { resolve } from 'path';
 import { readdirSync } from 'fs';
 
 export default defineNuxtConfig({
-  modules: ['@nuxt/content'],
+  modules: ['@nuxtjs/tailwindcss', '@nuxt/content'],
   debug: true
 })

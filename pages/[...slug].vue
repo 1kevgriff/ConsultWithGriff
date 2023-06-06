@@ -1,5 +1,5 @@
 <template>
-  <main>
+  <main class="Layout">
     <ContentRenderer :value="data">
       <template #empty>
         <p>No content found.</p>
