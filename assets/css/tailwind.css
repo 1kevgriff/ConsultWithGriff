@@ -1,3 +1,33 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+blockquote
+{
+ @apply text-gray-500 text-lg font-medium italic;
+}
+
+h1 {
+  @apply text-4xl font-bold text-gray-800;
+}
+
+h2 {
+    @apply text-3xl font-bold text-gray-800;
+}
+
+h3 {
+    @apply text-2xl font-bold text-gray-800;
+}
+
+h4 {
+    @apply text-xl font-bold text-gray-800;
+}
+
+h5 {
+    @apply text-lg font-bold text-gray-800;
+}
+
+pre > code {
+    @apply rounded-lg p-4 w-1/2 mx-auto block overflow-auto;
+    @apply bg-gray-100;
+}

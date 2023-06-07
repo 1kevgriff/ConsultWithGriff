@@ -25,7 +25,7 @@ I needed a way in Azure Logic Apps to easily convert an Epoch Date into a readab
 
 Converting the time is pretty straight-forward, Epoch time is just the number of seconds since 1970-01-01 and Azure Logic Apps has a handy `addToTime` method we can use.
 
-```javascript
+```js
 addToTime('1970-01-01T00:00:00Z', [EPOCH TIME HERE], 'second')
 ```
 
