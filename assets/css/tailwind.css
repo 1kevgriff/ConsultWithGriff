@@ -4,11 +4,7 @@
 
 blockquote
 {
- @apply text-gray-500 text-lg font-medium italic;
-}
-
-h1 {
-  @apply text-4xl font-bold text-gray-800;
+ @apply text-lg italic font-medium text-gray-500;
 }
 
 h2 {
@@ -28,6 +24,6 @@ h5 {
 }
 
 pre > code {
-    @apply rounded-lg p-4 w-1/2 mx-auto block overflow-auto;
+    @apply block w-1/2 p-4 mx-auto overflow-auto rounded-lg;
     @apply bg-gray-100;
 }

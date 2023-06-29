@@ -1,20 +1,16 @@
 <template>
-    <div class="h-screen grid grid-cols-1 md:grid-cols-2 overflow-hidden">
-      <div class="h-screen overflow-auto sticky top-0 bg-primary-green">
-        <Header />
-      </div>
-      <div class="overflow-y-scroll bg-white">
-        <!-- Content -->
-        <div class="p-4">
-          <slot />
-        </div>
-      </div>
-    </div>
-  </template>
-  
+  <div>
+    <div class="w-full h-3 bg-gradient-to-r from-green-300 to-green-500"></div>
+    <Header />
 
+    <!-- Main content -->
+    <div class="container w-3/4 mx-auto">
+      <slot />
+    </div>
+
+  </div>
+</template>
 <script lang="ts" setup>
 </script>
 
-<style>
-</style>
+<style></style>

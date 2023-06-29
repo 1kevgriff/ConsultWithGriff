@@ -11,5 +11,9 @@
     "@nuxtjs/tailwindcss": "^6.7.0",
     "nuxt": "^3.3.3"
   },
-  "dependencies": {}
+  "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^6.4.0",
+    "@fortawesome/free-brands-svg-icons": "^6.4.0",
+    "@fortawesome/vue-fontawesome": "^3.0.3"
+  }
 }

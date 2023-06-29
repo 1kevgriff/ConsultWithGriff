@@ -12,5 +12,8 @@ export default defineNuxtConfig({
       preload: ['json', 'js', 'ts', 'html', 'css', 'vue', 'csharp']
     }
   },
+  css: [
+    '@fortawesome/fontawesome-svg-core/styles.css'
+  ],
   debug: true
 });
