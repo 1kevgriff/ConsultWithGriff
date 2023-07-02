@@ -8,6 +8,7 @@
       <slot />
     </div>
 
+    <Footer />
   </div>
 </template>
 <script lang="ts" setup>
