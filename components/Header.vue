@@ -1,11 +1,11 @@
 <template>
   <!-- Sidebar -->
-  <div class="flex">
-    <h1 class="text-4xl">Kevin W. Griffin</h1>
-    <nav class="hidden sm:block">
-      <RouterLink :to="{ name: 'articles' }">Articles</RouterLink>
-      <RouterLink :to="{ name: 'articles' }">Courses</RouterLink>
-      <RouterLink :to="{ name: 'articles' }">Consulting</RouterLink>
+  <div class="flex w-full container">
+    <h1 class="text-4xl w-1/4">Kevin W. Griffin</h1>
+    <nav class="hidden sm:block w-3/4ßß">
+      <RouterLink :to="{ name: 'articles' }" class="px-3">Articles</RouterLink>
+      <RouterLink :to="{ name: 'articles' }" class="px-3">Courses</RouterLink>
+      <RouterLink :to="{ name: 'articles' }" class="px-3">Consulting</RouterLink>
     </nav>
   </div>
 </template>
