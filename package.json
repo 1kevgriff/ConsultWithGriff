@@ -1,7 +1,10 @@
 {
-  "name": "src",
+  "name": "ConsultWithGriff",
   "type": "module",
   "version": "0.0.1",
+  "engines": {
+    "node": ">=18.14.1"
+  },
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
