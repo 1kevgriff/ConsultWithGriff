@@ -8,3 +8,12 @@ h2 {
 h3 {
     @apply text-xl text-blue-500;
 }
+
+#post-body img {
+    @apply mx-auto my-5 shadow-lg;
+}
+
+pre.astro-code
+{
+    @apply my-5 text-lg;
+}
