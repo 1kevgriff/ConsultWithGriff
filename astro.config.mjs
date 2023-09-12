@@ -8,5 +8,12 @@ import tailwind from "@astrojs/tailwind";
 // https://astro.build/config
 export default defineConfig({
   site: 'https://consultwithgriff.com',
-  integrations: [mdx(), sitemap(), vue(), tailwind()]
+  integrations: [mdx(), sitemap(), vue(), tailwind({
+    applyBaseStyles: false
+  })],
+  markdown: {
+    shikiConfig: {
+      theme: "github-dark"
+    }
+  }
 });

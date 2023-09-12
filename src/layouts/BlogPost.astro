@@ -5,6 +5,8 @@ import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import FormattedDate from "../components/FormattedDate.astro";
 
+import '../styles/base.css';
+
 type Props = CollectionEntry<"articles">["data"];
 
 const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
@@ -17,7 +19,7 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
 
   <body class="bg-gray-100">
     <Header />
-    <main class="container mx-auto p-4">
+    <main class="container mx-auto p-4 w-full lg:w-3/4">
       <article class="bg-white rounded-lg shadow-lg p-6">
         {
           heroImage && (
@@ -41,7 +43,9 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
             }
           </div>
           <hr class="my-4" />
-          <slot />
+          <article>
+            <slot />
+          </article>
         </div>
       </article>
     </main>
