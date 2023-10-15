@@ -6,6 +6,9 @@ import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
 import { Image } from "astro:assets";
 
 import KevinRockOn from "../assets/kevin_rockon.png";
+
+import LatestPost from "../components/LatestPost.astro";
+import LatestPodcast from "../components/LatestPodcast.astro";
 ---
 
 <!doctype html>
@@ -15,8 +18,22 @@ import KevinRockOn from "../assets/kevin_rockon.png";
   </head>
   <body>
     <Header title={SITE_TITLE} />
-    <main>
-      <Image src={KevinRockOn} alt="Kevin Rock On" width="500"  />
+    <main class="container">
+      <section class="flex w-3/4 m-auto">
+        <Image
+          class="w-1/2"
+          src={KevinRockOn}
+          alt="Kevin Rock On"
+          width="500"
+        />
+        <div class="w-1/2">
+          <h3>Hey y'all. I'm <span class="font-bold text-green-500">Kevin</span>.</h3>
+          <p>I'm a software developer focused to helping businesses build and scale with .NET and Azure.</p>
+          <p>Check out my YouTube channel and Podcast</p>
+        </div>
+      </section>
+      <LatestPost />
+      <LatestPodcast />
     </main>
     <Footer />
   </body>
