@@ -1,19 +1,27 @@
 {
-  "private": true,
-  "scripts": {
-    "build": "nuxt build",
-    "dev": "nuxt dev",
-    "generate": "nuxt generate",
-    "preview": "nuxt preview"
+  "name": "ConsultWithGriff",
+  "type": "module",
+  "version": "0.0.1",
+  "engines": {
+    "node": ">=18.14.1"
   },
-  "devDependencies": {
-    "@nuxt/content": "^2.5.2",
-    "@nuxtjs/tailwindcss": "^6.7.0",
-    "nuxt": "^3.3.3"
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
   },
   "dependencies": {
-    "@fortawesome/fontawesome-svg-core": "^6.4.0",
-    "@fortawesome/free-brands-svg-icons": "^6.4.0",
-    "@fortawesome/vue-fontawesome": "^3.0.3"
+    "@astrojs/mdx": "^1.0.0",
+    "@astrojs/rss": "^3.0.0",
+    "@astrojs/sitemap": "^3.0.0",
+    "@astrojs/tailwind": "^5.0.0",
+    "@astrojs/vue": "^3.0.0",
+    "@notionhq/client": "^2.2.13",
+    "astro": "^3.0.3",
+    "dotenv": "^16.3.1",
+    "tailwindcss": "^3.3.3",
+    "vue": "^3.3.4"
   }
 }

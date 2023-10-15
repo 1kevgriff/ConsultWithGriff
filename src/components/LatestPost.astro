@@ -1,0 +1,16 @@
+---
+import { getCollection } from "astro:content";
+
+const allPosts = await getCollection("articles");
+const latestPost = allPosts.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())[0];
+//console.log(latestPost);
+---
+
+<section class="flex w-full">
+    <h2 class="w-1/2 text-right mr-5">Latest Post</h2>
+    <div class="w-1/2 ml-5">
+        <a href={latestPost.slug}>{latestPost.data.title}</a>
+        <p class="text-sm italic">{latestPost.data.description}</p>
+    </div>
+</section>
+

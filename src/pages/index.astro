@@ -1,0 +1,40 @@
+---
+import BaseHead from "../components/BaseHead.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
+import { Image } from "astro:assets";
+
+import KevinRockOn from "../assets/kevin_rockon.png";
+
+import LatestPost from "../components/LatestPost.astro";
+import LatestPodcast from "../components/LatestPodcast.astro";
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+  </head>
+  <body>
+    <Header title={SITE_TITLE} />
+    <main class="container">
+      <section class="flex w-3/4 m-auto">
+        <Image
+          class="w-1/2"
+          src={KevinRockOn}
+          alt="Kevin Rock On"
+          width="500"
+        />
+        <div class="w-1/2">
+          <h3>Hey y'all. I'm <span class="font-bold text-green-500">Kevin</span>.</h3>
+          <p>I'm a software developer focused to helping businesses build and scale with .NET and Azure.</p>
+          <p>Check out my YouTube channel and Podcast</p>
+        </div>
+      </section>
+      <LatestPost />
+      <LatestPodcast />
+    </main>
+    <Footer />
+  </body>
+</html>
