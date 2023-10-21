@@ -5,7 +5,7 @@ import Footer from "../components/Footer.astro";
 import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
 import { Image } from "astro:assets";
 
-import KevinRockOn from "../assets/kevin_rockon.png";
+import KevinRockOn from "../assets/KevinSpeaking.png";
 
 import LatestPost from "../components/LatestPost.astro";
 import LatestPodcast from "../components/LatestPodcast.astro";
@@ -18,22 +18,27 @@ import LatestPodcast from "../components/LatestPodcast.astro";
   </head>
   <body>
     <Header title={SITE_TITLE} />
-    <main class="container">
-      <section class="flex w-3/4 m-auto">
-        <Image
-          class="w-1/2"
-          src={KevinRockOn}
-          alt="Kevin Rock On"
-          width="500"
-        />
-        <div class="w-1/2">
-          <h3>Hey y'all. I'm <span class="font-bold text-green-500">Kevin</span>.</h3>
-          <p>I'm a software developer focused to helping businesses build and scale with .NET and Azure.</p>
-          <p>Check out my YouTube channel and Podcast</p>
+    <main class="w-full">
+      <div class="border-b">
+        <div class="container-full ">
+          <section class="flex w-1/2 m-auto">
+            <Image
+              class="w-1/2"
+              src={KevinRockOn}
+              alt="Kevin Rock On"
+              width="500"
+            />
+            <div class="w-1/2">
+              <h3>Hey y'all. I'm <span class="font-bold text-highlight">Kevin</span>.</h3>
+              <p>I'm a .NET guy focued on architecting, building, and maintaining solutions for small to mid-sized businesses.  I'm also a <a href="https://www.youtube.com/c/swiftkick">YouTuber</a>, the host of the <a href="https://podcast.multithreadedincome.com">Multithreaded Income Podcast</a>, organizer of Hampton Roads .NET and Hampton Roads Auzre, and the founder of RevolutionConf.</p>
+              <p>I'm also a huge fan of Roller Coasters.</p>
+            </div>
+          </section>
         </div>
-      </section>
-      <LatestPost />
-      <LatestPodcast />
+        <div class="container pt-5">
+          <LatestPost />
+        </div>
+      <!-- <LatestPodcast /> -->
     </main>
     <Footer />
   </body>
