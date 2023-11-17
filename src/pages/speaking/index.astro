@@ -4,32 +4,7 @@ import Header from "../../components/Header.astro";
 import Footer from "../../components/Footer.astro";
 import { SITE_TITLE, SITE_DESCRIPTION } from "../../consts";
 
-import { Client } from "@notionhq/client";
-
-const notion = new Client({ auth: import.meta.env.NOTION_API_KEY });
-const databaseId = import.meta.env.NOTION_DATABASE_ID;
-
 const speaking = [];
-
-async function queryDatabase(databaseId) {
-    console.log("queryDatabase");
-    try {
-        const response = await notion.databases.query({
-            database_id: databaseId
-          });  
-          console.log(response.results);
-
-          speaking = response.results.map((page) => {
-            return { EventName: page.properties['Event Name']};
-          });
-         console.log(speaking);
-        return response.results;
-    } catch (error){
-        console.log(error.body);
-    }
-}
-
-await queryDatabase(databaseId);
 ---
 
 <!doctype html>
