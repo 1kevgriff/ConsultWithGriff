@@ -119,8 +119,6 @@ What does this look like if you hit the endpoint?
 }
 ```
 
-`cta: `
-
 ## Okay, cool - but that's just testing uptime and connectivity
 
 You're right!  These health check examples are just a starting point, but each one of them are customizable.

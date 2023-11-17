@@ -28,8 +28,6 @@ It was during the amazing Visual Studio 2021 launch video, I saw mention of the 
 
 Maybe this was the tool that would help us go live with .NET 6?
 
-`cta: `
-
 ## Getting Started with Upgrade Assistant
 
 All tools should be as straight forward to install as the .NET Upgrade Assistant.  We'll assume you already have the .NET 6 SDK and Runtimes installed on your machine.  

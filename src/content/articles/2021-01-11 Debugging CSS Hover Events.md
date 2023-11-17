@@ -28,5 +28,3 @@ setTimeout(() => {debugger;}, 5000)
 Adjust the time accordingly, but you should have 5 seconds to cause the mouse-over or hover event to occur.  The debugger will kick in, preventing future updates to the DOM until you continue.
 
 Yay!  You can now inspect the proper elements and make your changes.
-
-`cta: `

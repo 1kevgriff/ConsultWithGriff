@@ -39,8 +39,6 @@ YouTube Primary Server:
 Twitch Primary Server ([find yours](https://stream.twitch.tv/ingests/)):  
 `rtmp://iad05.contribute.live-video.net/app/{stream_key}`
 
-`cta: `
-
 ## Step 3: Setting up FFMPEG and GO LIVE 🔴
 
 Here is the command I'm using to setup FFMPEG:

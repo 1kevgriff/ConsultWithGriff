@@ -30,6 +30,3 @@ addToTime('1970-01-01T00:00:00Z', [EPOCH TIME HERE], 'second')
 ```
 
 And ta-da!  Your Epoch Time is now in a much easier to use format!
-
-`cta: `
-

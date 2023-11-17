@@ -44,8 +44,6 @@ What if the client misses a series of messages?  Do we send just the last one?  
 
 Would you like me to go on?
 
-`cta: `
-
 ## Large problems don't have easy solutions
 
 This is exactly why message acknowledgment isn't built into SignalR.  It's a very large problem that is solved in a variety of different ways, and the level of guarantee is really dependent on you and your use case.  
