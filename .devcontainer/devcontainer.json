@@ -4,5 +4,13 @@
 		"ghcr.io/devcontainers/features/azure-cli:1": {},
 		"ghcr.io/stuartleeks/dev-container-features/azure-cli-persistence:0": {},
 		"ghcr.io/jlaundry/devcontainer-features/azure-functions-core-tools:1": {}
+	},
+	"customizations": {
+		"vscode": {
+			"extensions": [
+				"astro-build.astro-vscode",
+				"ms-azuretools.vscode-docker"
+			]
+		}
 	}
 }
