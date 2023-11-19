@@ -15,5 +15,8 @@ export default defineConfig({
     shikiConfig: {
       theme: "github-dark"
     }
+  },
+  redirects: {
+    'sitemap.xml' : 'sitemap-index.xml'
   }
 });
