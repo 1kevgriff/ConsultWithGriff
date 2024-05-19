@@ -1891,24 +1891,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ConsultWithGriff@workspace:.":
-  version: 0.0.0-use.local
-  resolution: "ConsultWithGriff@workspace:."
-  dependencies:
-    "@astrojs/mdx": "npm:^3.0.0"
-    "@astrojs/rss": "npm:^4.0.0"
-    "@astrojs/sitemap": "npm:^3.0.1"
-    "@astrojs/tailwind": "npm:^5.0.0"
-    "@astrojs/vue": "npm:^4.0.0"
-    "@notionhq/client": "npm:^2.2.13"
-    astro: "npm:^4.0.0"
-    dotenv: "npm:^16.3.1"
-    sharp: "npm:^0.33.4"
-    tailwindcss: "npm:^3.3.3"
-    vue: "npm:^3.3.4"
-  languageName: unknown
-  linkType: soft
-
 "abbrev@npm:^2.0.0":
   version: 2.0.0
   resolution: "abbrev@npm:2.0.0"
@@ -2530,6 +2512,24 @@ __metadata:
   checksum: 10c0/390c08d2a67a7a106d39499c002d827d2874966d938012453fd7ca34cd306881e2b9d604f657fa7a8e6e4896d67f39ebc09bf1bfd8da8ff318e0fb7a8752c534
   languageName: node
   linkType: hard
+
+"consultwithgriff@workspace:.":
+  version: 0.0.0-use.local
+  resolution: "consultwithgriff@workspace:."
+  dependencies:
+    "@astrojs/mdx": "npm:^3.0.0"
+    "@astrojs/rss": "npm:^4.0.0"
+    "@astrojs/sitemap": "npm:^3.0.1"
+    "@astrojs/tailwind": "npm:^5.0.0"
+    "@astrojs/vue": "npm:^4.0.0"
+    "@notionhq/client": "npm:^2.2.13"
+    astro: "npm:^4.0.0"
+    dotenv: "npm:^16.3.1"
+    sharp: "npm:^0.33.4"
+    tailwindcss: "npm:^3.3.3"
+    vue: "npm:^3.3.4"
+  languageName: unknown
+  linkType: soft
 
 "convert-source-map@npm:^2.0.0":
   version: 2.0.0
