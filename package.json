@@ -4,7 +4,7 @@
   "type": "module",
   "version": "1.0.0",
   "engines": {
-    "node": ">=20.13.1"
+    "node": ">=20.11.1"
   },
   "scripts": {
     "dev": "astro dev",
