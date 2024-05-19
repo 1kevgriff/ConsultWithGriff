@@ -25,12 +25,6 @@ jobs:
       - name: Set YARN version
         run: yarn set version stable
 
-      - name: Setup Yarn
-        uses: actions/setup-node@v3
-        with:
-          node-version: '18.20.2'
-          cache: 'yarn'
-
       - name: Install dependencies
         run: yarn install
 
