@@ -1,12 +1,8 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "extends": [
-    "config:recommended"
-  ],
+  "extends": ["config:recommended"],
   "timezone": "America/New_York",
-  "schedule": [
-    "before 6am on Monday"
-  ],
+  "schedule": ["before 6am on Monday"],
   "automerge": false,
   "rangeStrategy": "bump",
   "packageRules": [
@@ -18,11 +14,11 @@
     },
     {
       "groupName": "Astro monorepo",
-      "matchPackagePatterns": ["^astro", "^@astrojs/"]
+      "matchPackageNames": ["/^astro/", "/^@astrojs//"]
     },
     {
       "groupName": "TailwindCSS",
-      "matchPackagePatterns": ["^tailwindcss", "^@tailwindcss/"]
+      "matchPackageNames": ["/^tailwindcss/", "/^@tailwindcss//"]
     }
   ],
   "vulnerabilityAlerts": {
