@@ -1,16 +1,70 @@
 ---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
 
+// Get the latest blog post
+const allPosts = await getCollection('blog');
+const sortedPosts = allPosts.sort((a, b) => {
+  return new Date(b.data.date).getTime() - new Date(a.data.date).getTime();
+});
+const latestPost = sortedPosts[0];
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<BaseLayout title="Home" description="Kevin W. Griffin | Developer, Training, Entrepreneur">
+  <div class="flex flex-col justify-between py-16 mx-auto hero container-inner sm:flex-row">
+    <div class="w-full text-4xl font-bold text-center sm:w-4/5 sm:text-left">
+      <div class="leading-tight">Hey there! I'm Kevin!</div>
+      <div class="leading-tight text-green-700">
+        I'm a Microsoft MVP focused in ASP.NET (Core), Microsoft Azure, and Web Development.
+      </div>
+    </div>
+    <div class="mt-8 sm:mt-0">
+      <img src="/kevin_rockon.jpg" width="500" alt="Kevin Griffin" class="mx-auto sm:mx-0" />
+    </div>
+  </div>
+  <!-- end hero -->
+
+  <div class="p-5 mx-auto mb-5 bg-opacity-50 border-4 border-green-700 container-inner">
+    <h3 class="mb-5 text-2xl font-bold text-center text-green-700">
+      Have you seen my latest article?
+    </h3>
+    <p class="mb-3 text-center">
+      <a href={`/blog/${latestPost.id}`}>{latestPost.data.title}</a>
+    </p>
+    <p class="px-4 border-l-4 border-green-700">
+      {latestPost.data.excerpt || latestPost.data.summary}
+    </p>
+  </div>
+
+  <div class="mx-auto container-inner">
+    <p class="pb-6 text-lg sm:text-xl">
+      This is pretty exciting! You have found my little piece of the internet, and I'm so humbled
+      that you stopped by.
+    </p>
+    <p class="pb-6 text-lg sm:text-xl">
+      A little bit about me: I'm a husband and father of three amazing little boys. My background
+      is originally in Computer Science (BS in CS from Old Dominion University), but nowadays I am
+      an independent software consultant that helps businesses move into the 21st Century with
+      their tech stacks.
+    </p>
+    <p class="pb-12 text-lg sm:text-xl">
+      I'm a 16-time Microsoft MVP, with a focus in building web applications with ASP.NET Core and
+      Microsoft Azure. I do regular trainings for private customers on a variety of topics, so if
+      that is something that you're looking for, please contact me!
+    </p>
+  </div>
+
+  <div class="newsletter bg-background-tertiary">
+    <div class="pb-4 mx-auto overflow-x-hidden container-inner">
+      <svg width="725" height="166" xmlns="http://www.w3.org/2000/svg">
+        <g fill="none" fill-rule="evenodd">
+          <g opacity=".515">
+            <path
+              d="M1.848 165.696a1.848 1.848 0 1 1 0-3.696 1.848 1.848 0 0 1 0 3.696zm370 0a1.848 1.848 0 1 1 0-3.696 1.848 1.848 0 0 1 0 3.696z"
+              opacity=".503"></path>
+          </g>
+        </g>
+      </svg>
+    </div>
+  </div>
+</BaseLayout>

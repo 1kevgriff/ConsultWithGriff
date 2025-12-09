@@ -1,0 +1,31 @@
+---
+import { getCollection, render } from 'astro:content';
+import type { GetStaticPaths } from 'astro';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+export const getStaticPaths: GetStaticPaths = async () => {
+  const docsEntries = await getCollection('docs');
+  return docsEntries.map((entry) => ({
+    params: { slug: entry.id },
+    props: { entry },
+  }));
+};
+
+const { entry } = Astro.props;
+const { Content } = await render(entry);
+
+const canonicalUrl = `https://consultwithgriff.com/docs/${entry.id}`;
+---
+
+<BaseLayout title={entry.data.title} description={entry.data.excerpt}>
+  <Fragment slot="head">
+    <link rel="canonical" href={canonicalUrl} />
+  </Fragment>
+
+  <div class="container-inner mx-auto my-16">
+    <h1 class="text-4xl font-bold leading-tight">{entry.data.title}</h1>
+    <div class="markdown-body">
+      <Content />
+    </div>
+  </div>
+</BaseLayout>
