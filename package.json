@@ -20,7 +20,7 @@
     "@remark-embedder/core": "^3.0.3",
     "@remark-embedder/transformer-oembed": "^5.0.1",
     "@tailwindcss/vite": "^4.1.17",
-    "astro": "^5.15.4",
+    "astro": "^5.16.4",
     "astro-font": "^1.1.0",
     "rehype-shiki": "^0.0.9",
     "remark-external-links": "^9.0.1",
@@ -29,7 +29,7 @@
     "tailwindcss": "^4.1.17"
   },
   "devDependencies": {
-    "@astrojs/check": "^0.9.5",
+    "@astrojs/check": "^0.9.6",
     "@typescript-eslint/parser": "^8.49.0",
     "eslint": "^9.39.1",
     "eslint-plugin-astro": "^1.5.0",
