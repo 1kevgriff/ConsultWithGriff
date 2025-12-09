@@ -23,7 +23,7 @@
     "astro": "^5.15.4",
     "astro-font": "^1.1.0",
     "rehype-shiki": "^0.0.9",
-    "remark-external-links": "^9.0.1",
+    "remark-external-links": "^10.0.0",
     "remark-frontmatter": "^5.0.0",
     "remark-gfm": "^4.0.1",
     "tailwindcss": "^4.1.17"
