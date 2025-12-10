@@ -1,0 +1,63 @@
+---
+// Button component with Navy + Gold design system
+// Supports primary (gold) and secondary (navy outline) variants
+
+export interface Props {
+  variant?: 'primary' | 'secondary';
+  href?: string;
+  size?: 'sm' | 'md' | 'lg';
+  class?: string;
+  type?: 'button' | 'submit' | 'reset';
+}
+
+const {
+  variant = 'primary',
+  href,
+  size = 'md',
+  class: className = '',
+  type = 'button',
+} = Astro.props;
+
+// Size classes
+const sizeClasses = {
+  sm: 'px-4 py-2 text-sm',
+  md: 'px-6 py-3 text-base',
+  lg: 'px-8 py-4 text-lg',
+};
+
+// Variant classes
+const variantClasses = {
+  primary:
+    'bg-gold text-navy font-bold rounded-xl transition-all duration-200 hover:bg-gold-warm hover:shadow-gold focus:outline-none focus:ring-4 focus:ring-gold focus:ring-opacity-50',
+  secondary:
+    'bg-transparent border-2 border-navy text-navy font-bold rounded-xl transition-all duration-200 hover:bg-navy hover:text-white focus:outline-none focus:ring-4 focus:ring-navy focus:ring-opacity-30',
+};
+
+const buttonClasses = `${sizeClasses[size]} ${variantClasses[variant]} ${className} inline-block text-center no-underline`;
+
+// Determine if this should be a link or button
+const Tag = href ? 'a' : 'button';
+---
+
+{
+  href ? (
+    <a href={href} class={buttonClasses}>
+      <slot />
+    </a>
+  ) : (
+    <button type={type} class={buttonClasses}>
+      <slot />
+    </button>
+  )
+}
+
+<style>
+  /* Remove default link styling for buttons */
+  a {
+    text-decoration: none !important;
+  }
+
+  a:hover {
+    text-decoration: none !important;
+  }
+</style>

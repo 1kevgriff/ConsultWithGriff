@@ -1,0 +1,62 @@
+---
+// Header component with Navy + Gold design system
+const currentPath = Astro.url.pathname;
+
+const navItems = [
+  { href: '/consulting', label: 'Consulting' },
+  { href: '/articles', label: 'Articles' },
+  { href: '/courses', label: 'Courses' },
+  { href: '/contact', label: 'Contact' },
+];
+
+// Helper to check if current path matches nav item
+const isActive = (href: string) => {
+  if (href === '/') return currentPath === '/';
+  return currentPath.startsWith(href);
+};
+---
+
+<header class="bg-navy sticky top-0 z-50 shadow-md">
+  <nav class="container flex flex-wrap items-center justify-between py-6 px-4 mx-auto lg:px-8">
+    <!-- Logo/Brand -->
+    <div>
+      <h1 class="text-2xl font-bold">
+        <a href="/" class="text-white hover:text-gold no-underline transition-colors">
+          Kevin W. Griffin
+        </a>
+      </h1>
+    </div>
+
+    <!-- Navigation Links -->
+    <ul
+      class="items-center flex-grow block w-full mt-8 font-semibold tracking-wide uppercase lg:flex lg:flex-initial lg:w-auto lg:mt-0 lg:space-x-8"
+    >
+      {
+        navItems.map((item) => (
+          <li class="mb-6 lg:mb-0">
+            <a
+              href={item.href}
+              class:list={[
+                'text-white hover:text-gold transition-colors no-underline',
+                { 'text-gold border-b-2 border-gold': isActive(item.href) },
+              ]}
+            >
+              {item.label}
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </nav>
+</header>
+
+<style>
+  /* Remove default link styling for header */
+  header a {
+    text-decoration: none;
+  }
+
+  header a:hover {
+    text-decoration: none;
+  }
+</style>

@@ -1,6 +1,9 @@
 ---
 import { getCollection } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
+import Hero from '../components/Hero.astro';
+import Card from '../components/Card.astro';
+import Button from '../components/Button.astro';
 
 // Get the latest blog post
 const allPosts = await getCollection('blog');
@@ -10,61 +13,127 @@ const sortedPosts = allPosts.sort((a, b) => {
 const latestPost = sortedPosts[0];
 ---
 
-<BaseLayout title="Home" description="Kevin W. Griffin | Developer, Training, Entrepreneur">
-  <div class="flex flex-col justify-between py-16 mx-auto hero container-inner sm:flex-row">
-    <div class="w-full text-4xl font-bold text-center sm:w-4/5 sm:text-left">
-      <div class="leading-tight">Hey there! I'm Kevin!</div>
-      <div class="leading-tight text-green-700">
-        I'm a Microsoft MVP focused in ASP.NET (Core), Microsoft Azure, and Web Development.
+<BaseLayout
+  title="Kevin W. Griffin - Azure & .NET Architect"
+  description="Independent software consultant specializing in ASP.NET Core, Microsoft Azure, and modern web development. 16-time Microsoft MVP."
+>
+  <!-- Hero Section -->
+  <Hero
+    title="Azure & .NET Architect for High-Performing Teams"
+    subtitle="I help startups and small/medium companies design, modernize, and scale their .NET and Azure systems — and I teach developers how to do the same."
+    imageSrc="/kevin_rockon.jpg"
+    imageAlt="Kevin W. Griffin"
+    primaryCTA={{ text: 'Work With Me', href: '/consulting' }}
+    secondaryCTA={{ text: 'View Courses', href: '/courses' }}
+  />
+
+  <!-- Latest Article Highlight -->
+  <section class="py-16 bg-gray-50">
+    <div class="container mx-auto px-4 lg:px-8">
+      <Card variant="white" class="max-w-4xl mx-auto">
+        <div class="flex items-start gap-4">
+          <div class="flex-shrink-0">
+            <div class="w-2 h-full bg-gold rounded-full"></div>
+          </div>
+          <div class="flex-1">
+            <h2 class="text-2xl font-bold text-navy mb-4">Latest Article</h2>
+            <h3 class="text-xl font-semibold mb-3">
+              <a href={`/blog/${latestPost.id}`} class="text-navy hover:text-gold transition-colors">
+                {latestPost.data.title}
+              </a>
+            </h3>
+            <p class="text-gray-700 leading-relaxed mb-4">
+              {latestPost.data.excerpt || latestPost.data.summary}
+            </p>
+            <Button href={`/blog/${latestPost.id}`} variant="primary" size="sm">
+              Read More
+            </Button>
+          </div>
+        </div>
+      </Card>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section class="py-20 bg-white">
+    <div class="container mx-auto px-4 lg:px-8">
+      <div class="max-w-4xl mx-auto">
+        <h2 class="text-3xl lg:text-4xl font-bold text-navy mb-8 text-center">
+          Hi, I'm Kevin Griffin
+        </h2>
+
+        <div class="space-y-6 text-lg text-gray-700 leading-relaxed">
+          <p>
+            Thanks for stopping by! I'm a husband and father of three amazing boys, and an
+            independent software consultant helping businesses modernize their technology stacks.
+          </p>
+
+          <p>
+            With a BS in Computer Science from Old Dominion University and as a{' '}
+            <strong class="text-navy">16-time Microsoft MVP</strong>, I specialize in building
+            scalable web applications with <strong class="text-navy">ASP.NET Core</strong> and{' '}
+            <strong class="text-navy">Microsoft Azure</strong>.
+          </p>
+
+          <p>
+            I provide hands-on training for teams on modern .NET development, cloud architecture,
+            and best practices. If you're looking to level up your team's skills or need expert
+            guidance on your next project, I'd love to help.
+          </p>
+        </div>
+
+        <div class="mt-10 text-center">
+          <Button href="/contact" variant="primary" size="lg">
+            Get In Touch
+          </Button>
+        </div>
       </div>
     </div>
-    <div class="mt-8 sm:mt-0">
-      <img src="/kevin_rockon.jpg" width="500" alt="Kevin Griffin" class="mx-auto sm:mx-0" />
+  </section>
+
+  <!-- Services Section -->
+  <section class="py-20 bg-navy-light">
+    <div class="container mx-auto px-4 lg:px-8">
+      <h2 class="text-3xl lg:text-4xl font-bold text-white mb-12 text-center">
+        How I Can Help
+      </h2>
+
+      <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+        <Card variant="navy" class="text-center">
+          <div class="text-gold text-5xl mb-4">💼</div>
+          <h3 class="text-xl font-bold mb-3">Consulting</h3>
+          <p class="text-gray-200 mb-4">
+            Expert guidance on architecture, Azure cloud solutions, and .NET development for your
+            projects.
+          </p>
+          <a href="/consulting" class="text-gold hover:text-gold-warm font-semibold">
+            Learn More →
+          </a>
+        </Card>
+
+        <Card variant="navy" class="text-center">
+          <div class="text-gold text-5xl mb-4">🎓</div>
+          <h3 class="text-xl font-bold mb-3">Training</h3>
+          <p class="text-gray-200 mb-4">
+            Private team training on ASP.NET Core, Azure, SignalR, and modern development practices.
+          </p>
+          <a href="/courses" class="text-gold hover:text-gold-warm font-semibold">
+            View Courses →
+          </a>
+        </Card>
+
+        <Card variant="navy" class="text-center">
+          <div class="text-gold text-5xl mb-4">🎤</div>
+          <h3 class="text-xl font-bold mb-3">Speaking</h3>
+          <p class="text-gray-200 mb-4">
+            Engaging technical talks on .NET, Azure, and software architecture for conferences and
+            user groups.
+          </p>
+          <a href="/contact" class="text-gold hover:text-gold-warm font-semibold">
+            Book Me →
+          </a>
+        </Card>
+      </div>
     </div>
-  </div>
-  <!-- end hero -->
-
-  <div class="p-5 mx-auto mb-5 bg-opacity-50 border-4 border-green-700 container-inner">
-    <h3 class="mb-5 text-2xl font-bold text-center text-green-700">
-      Have you seen my latest article?
-    </h3>
-    <p class="mb-3 text-center">
-      <a href={`/blog/${latestPost.id}`}>{latestPost.data.title}</a>
-    </p>
-    <p class="px-4 border-l-4 border-green-700">
-      {latestPost.data.excerpt || latestPost.data.summary}
-    </p>
-  </div>
-
-  <div class="mx-auto container-inner">
-    <p class="pb-6 text-lg sm:text-xl">
-      This is pretty exciting! You have found my little piece of the internet, and I'm so humbled
-      that you stopped by.
-    </p>
-    <p class="pb-6 text-lg sm:text-xl">
-      A little bit about me: I'm a husband and father of three amazing little boys. My background
-      is originally in Computer Science (BS in CS from Old Dominion University), but nowadays I am
-      an independent software consultant that helps businesses move into the 21st Century with
-      their tech stacks.
-    </p>
-    <p class="pb-12 text-lg sm:text-xl">
-      I'm a 16-time Microsoft MVP, with a focus in building web applications with ASP.NET Core and
-      Microsoft Azure. I do regular trainings for private customers on a variety of topics, so if
-      that is something that you're looking for, please contact me!
-    </p>
-  </div>
-
-  <div class="newsletter bg-background-tertiary">
-    <div class="pb-4 mx-auto overflow-x-hidden container-inner">
-      <svg width="725" height="166" xmlns="http://www.w3.org/2000/svg">
-        <g fill="none" fill-rule="evenodd">
-          <g opacity=".515">
-            <path
-              d="M1.848 165.696a1.848 1.848 0 1 1 0-3.696 1.848 1.848 0 0 1 0 3.696zm370 0a1.848 1.848 0 1 1 0-3.696 1.848 1.848 0 0 1 0 3.696z"
-              opacity=".503"></path>
-          </g>
-        </g>
-      </svg>
-    </div>
-  </div>
+  </section>
 </BaseLayout>

@@ -2,6 +2,7 @@
 import { getCollection } from 'astro:content';
 import type { GetStaticPaths } from 'astro';
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import Card from '../../components/Card.astro';
 
 export const getStaticPaths: GetStaticPaths = async ({ paginate }) => {
   const allPosts = await getCollection('blog');
@@ -21,75 +22,113 @@ const canonicalUrl =
     : 'https://consultwithgriff.com/articles/';
 ---
 
-<BaseLayout title="Articles" description="Kevin W. Griffin | Developer, Training, Entrepreneur">
+<BaseLayout
+  title="Articles by Kevin W. Griffin"
+  description="Technical articles on ASP.NET Core, Azure, .NET development, and modern web architecture."
+>
   <Fragment slot="head">
     <link rel="canonical" href={canonicalUrl} />
   </Fragment>
 
-  <div class="py-16 mx-auto container-inner">
-    {
-      page.data.map((post) => {
-        const formattedDate = new Date(post.data.date).toLocaleDateString('en-US', {
-          year: 'numeric',
-          month: 'long',
-          day: 'numeric',
-        });
-        const readingTime = post.data.timeToRead || 5;
+  <!-- Page Header -->
+  <section class="bg-navy text-white py-16">
+    <div class="container mx-auto px-4 lg:px-8">
+      <div class="max-w-4xl mx-auto text-center">
+        <h1 class="text-4xl lg:text-5xl font-bold mb-4">Articles</h1>
+        <p class="text-xl text-gray-200">
+          Technical insights on .NET, Azure, and modern software development
+        </p>
+      </div>
+    </div>
+  </section>
 
-        return (
-          <div class="mb-12 border-b border-gray-400 post">
-            <h2 class="text-3xl font-bold">
-              <a href={`/blog/${post.id}`} class="text-copy-primary hover:text-green-600">
-                {post.data.title}
-              </a>
-            </h2>
-            <div class="mb-4 text-copy-secondary">
-              <span>{formattedDate}</span>
-              <span>&nbsp;&middot;&nbsp;</span>
-              <span>{readingTime} min read</span>
+  <!-- Articles List -->
+  <section class="py-16 bg-white">
+    <div class="container mx-auto px-4 lg:px-8">
+      <div class="max-w-4xl mx-auto space-y-8">
+        {
+          page.data.map((post) => {
+            const formattedDate = new Date(post.data.date).toLocaleDateString('en-US', {
+              year: 'numeric',
+              month: 'long',
+              day: 'numeric',
+            });
+            const readingTime = post.data.timeToRead || 5;
+
+            return (
+              <Card variant="white">
+                <article>
+                  <h2 class="text-3xl font-bold mb-3">
+                    <a
+                      href={`/blog/${post.id}`}
+                      class="text-navy hover:text-gold transition-colors"
+                    >
+                      {post.data.title}
+                    </a>
+                  </h2>
+
+                  <div class="mb-4 text-gray-600 flex items-center gap-2">
+                    <time datetime={post.data.date.toString()}>{formattedDate}</time>
+                    <span>•</span>
+                    <span>{readingTime} min read</span>
+                  </div>
+
+                  <p class="mb-4 text-lg text-gray-700 leading-relaxed">
+                    {post.data.excerpt || post.data.summary || post.data.description}
+                  </p>
+
+                  <a
+                    href={`/blog/${post.id}`}
+                    class="font-semibold text-gold hover:text-gold-warm transition-colors inline-flex items-center gap-2"
+                  >
+                    Read More
+                    <span aria-hidden="true">→</span>
+                  </a>
+                </article>
+              </Card>
+            );
+          })
+        }
+      </div>
+
+      <!-- Pagination -->
+      {
+        page.lastPage > 1 && (
+          <div class="flex justify-between items-center mt-12 max-w-4xl mx-auto">
+            <a
+              href={page.url.prev || '/articles'}
+              class:list={[
+                'px-6 py-3 rounded-lg font-semibold transition-all',
+                {
+                  'bg-gray-200 text-gray-400 cursor-not-allowed': !page.url.prev,
+                  'bg-navy text-white hover:bg-navy-light': page.url.prev,
+                },
+              ]}
+              aria-disabled={!page.url.prev}
+            >
+              ← Previous
+            </a>
+
+            <div class="text-gray-700 font-medium">
+              Page {page.currentPage} of {page.lastPage}
             </div>
 
-            <div class="mb-4 text-lg">
-              {post.data.excerpt || post.data.summary || post.data.description}
-            </div>
-
-            <div class="mb-8">
-              <a href={`/blog/${post.id}`} class="font-bold uppercase text-green-600 hover:text-green-700">
-                Read More
-              </a>
-            </div>
+            <a
+              href={page.url.next || `/articles/${page.currentPage}`}
+              class:list={[
+                'px-6 py-3 rounded-lg font-semibold transition-all',
+                {
+                  'bg-gray-200 text-gray-400 cursor-not-allowed': !page.url.next,
+                  'bg-navy text-white hover:bg-navy-light': page.url.next,
+                },
+              ]}
+              aria-disabled={!page.url.next}
+            >
+              Next →
+            </a>
           </div>
-        );
-      })
-    }
-
-    <!-- Pagination -->
-    {
-      page.lastPage > 1 && (
-        <div class="flex justify-between text-xl items-center">
-          <a
-            href={page.url.prev || '/articles'}
-            class:list={[
-              { 'text-gray-400 hover:text-gray-400 cursor-not-allowed': !page.url.prev },
-              { 'text-green-600 hover:text-green-700': page.url.prev },
-            ]}
-          >
-            ← Prev
-          </a>
-          <div class="text-base">
-            Page {page.currentPage} of {page.lastPage}
-          </div>
-          <a
-            href={page.url.next || `/articles/${page.currentPage}`}
-            class:list={[
-              { 'text-gray-400 hover:text-gray-400 cursor-not-allowed': !page.url.next },
-              { 'text-green-600 hover:text-green-700': page.url.next },
-            ]}
-          >
-            Next →
-          </a>
-        </div>
-      )
-    }
-  </div>
+        )
+      }
+    </div>
+  </section>
 </BaseLayout>
