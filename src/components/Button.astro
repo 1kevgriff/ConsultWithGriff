@@ -52,12 +52,14 @@ const Tag = href ? 'a' : 'button';
 }
 
 <style>
-  /* Remove default link styling for buttons */
+  /* Override global link styling for buttons */
   a {
+    color: inherit !important;
     text-decoration: none !important;
   }
 
   a:hover {
+    color: inherit !important;
     text-decoration: none !important;
   }
 </style>
