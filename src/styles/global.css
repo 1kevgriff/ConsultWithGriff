@@ -1,5 +1,37 @@
 @import 'tailwindcss';
 
+/* Navy + Gold Design System - Tailwind v4 Theme */
+@theme {
+  /* Navy Color Palette */
+  --color-navy: #0C1B33;
+  --color-navy-light: #1B3C59;
+  --color-navy-50: #F0F4F8;
+  --color-navy-100: #D9E2EC;
+  --color-navy-200: #BCCCDC;
+  --color-navy-300: #9FB3C8;
+  --color-navy-400: #829AB1;
+  --color-navy-500: #627D98;
+  --color-navy-600: #486581;
+  --color-navy-700: #334E68;
+  --color-navy-800: #243B53;
+  --color-navy-900: #1B3C59;
+  --color-navy-950: #0C1B33;
+
+  /* Gold Color Palette */
+  --color-gold: #F5C518;
+  --color-gold-warm: #FFB400;
+  --color-gold-50: #FFFBEB;
+  --color-gold-100: #FEF3C7;
+  --color-gold-200: #FDE68A;
+  --color-gold-300: #FCD34D;
+  --color-gold-400: #FFB400;
+  --color-gold-500: #F5C518;
+  --color-gold-600: #D4A017;
+  --color-gold-700: #B8860B;
+  --color-gold-800: #9A7209;
+  --color-gold-900: #7C5E08;
+}
+
 /* Navy + Gold Design System - Theme Variables */
 
 /* Light Mode (Default) */
