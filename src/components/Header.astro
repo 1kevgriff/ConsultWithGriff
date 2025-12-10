@@ -21,7 +21,7 @@ const isActive = (href: string) => {
     <!-- Logo/Brand -->
     <div>
       <h1 class="text-2xl font-bold">
-        <a href="/" class="text-white hover:text-gold no-underline transition-colors">
+        <a href="/" class="!text-white hover:!text-gold no-underline transition-colors">
           Kevin W. Griffin
         </a>
       </h1>
@@ -37,8 +37,8 @@ const isActive = (href: string) => {
             <a
               href={item.href}
               class:list={[
-                'text-white hover:text-gold transition-colors no-underline',
-                { 'text-gold border-b-2 border-gold': isActive(item.href) },
+                '!text-white hover:!text-gold transition-colors no-underline',
+                { '!text-gold border-b-2 border-gold': isActive(item.href) },
               ]}
             >
               {item.label}

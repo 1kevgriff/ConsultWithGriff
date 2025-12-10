@@ -38,11 +38,11 @@ const socialLinks = [
     <div class="mb-8 lg:mb-0">
       <div class="mb-2 text-lg">Copyright {currentYear}. All rights reserved.</div>
       <div class="flex space-x-4">
-        <a href="/rss.xml" class="font-normal text-white hover:text-gold transition-colors no-underline">
+        <a href="/rss.xml" class="font-normal !text-white hover:!text-gold transition-colors no-underline">
           RSS Feed
         </a>
         <span class="text-gray-400">|</span>
-        <a href="/sitemap.xml" class="font-normal text-white hover:text-gold transition-colors no-underline">
+        <a href="/sitemap.xml" class="font-normal !text-white hover:!text-gold transition-colors no-underline">
           Sitemap
         </a>
       </div>
@@ -57,7 +57,7 @@ const socialLinks = [
               href={social.href}
               target={social.href.startsWith('http') ? '_blank' : undefined}
               rel={social.href.startsWith('http') ? 'noopener noreferrer' : undefined}
-              class="text-white hover:text-gold transition-colors"
+              class="!text-white hover:!text-gold transition-colors"
               aria-label={social.name}
             >
               <svg
