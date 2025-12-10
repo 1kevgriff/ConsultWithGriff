@@ -391,7 +391,7 @@
     { "route": "/the-zen-of-free-labor/", "redirect": "/", "statusCode": 301 }
   ],
   "navigationFallback": {
-    "rewrite": "/404/index.html",
+    "rewrite": "/404.html",
     "exclude": [
       "/images/*",
       "/assets/*",
@@ -400,7 +400,7 @@
   },
   "responseOverrides": {
     "404": {
-      "rewrite": "/404/index.html"
+      "rewrite": "/404.html"
     }
   }
 }

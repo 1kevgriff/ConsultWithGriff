@@ -1,0 +1,39 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="404: Page Not Found | Kevin W. Griffin"
+  description="The page you're looking for doesn't exist."
+>
+  <main class="container mx-auto px-4 py-16">
+    <div class="max-w-2xl mx-auto text-center">
+      <div class="mb-8">
+        <img src="/404.svg" alt="404 Error" class="w-64 h-64 mx-auto" />
+      </div>
+
+      <h1 class="text-4xl font-bold mb-4 text-copy-primary">
+        404: Page Not Found
+      </h1>
+
+      <p class="text-lg mb-8 text-copy-secondary">
+        Sorry, the page you're looking for doesn't exist or has been moved.
+      </p>
+
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a
+          href="/"
+          class="inline-block px-6 py-3 bg-green-700 text-white font-bold rounded hover:bg-green-800 transition-colors"
+        >
+          Go to Homepage
+        </a>
+        <a
+          href="/articles"
+          class="inline-block px-6 py-3 border-2 border-green-700 text-green-700 font-bold rounded hover:bg-green-50 transition-colors"
+        >
+          Browse Articles
+        </a>
+      </div>
+    </div>
+  </main>
+</BaseLayout>
