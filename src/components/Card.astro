@@ -1,0 +1,30 @@
+---
+// Card component with Navy + Gold design system
+// Used for service cards, blog post previews, etc.
+
+export interface Props {
+  variant?: 'white' | 'light' | 'navy';
+  hover?: boolean;
+  class?: string;
+}
+
+const { variant = 'white', hover = true, class: className = '' } = Astro.props;
+
+// Variant classes
+const variantClasses = {
+  white: 'bg-white border border-gray-200',
+  light: 'bg-gray-50 border border-gray-200',
+  navy: 'bg-navy text-white border border-navy-light',
+};
+
+// Hover effect classes
+const hoverClasses = hover
+  ? 'transition-all duration-200 hover:shadow-lg hover:-translate-y-1'
+  : '';
+
+const cardClasses = `${variantClasses[variant]} ${hoverClasses} ${className} rounded-lg p-6 shadow`;
+---
+
+<div class={cardClasses}>
+  <slot />
+</div>

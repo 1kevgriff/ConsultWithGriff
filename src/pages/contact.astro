@@ -1,27 +1,86 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import Card from '../components/Card.astro';
 ---
 
-<BaseLayout title="Contact Me" description="Kevin W. Griffin | Developer, Training, Entrepreneur">
-  <div class="py-16 mx-auto container-inner">
-    <h1 class="text-4xl font-bold leading-tight">Contact Me</h1>
+<BaseLayout
+  title="Contact Kevin W. Griffin"
+  description="Get in touch with Kevin W. Griffin for consulting, training, or speaking opportunities."
+>
+  <!-- Page Header -->
+  <section class="bg-navy text-white py-16">
+    <div class="container mx-auto px-4 lg:px-8">
+      <div class="max-w-4xl mx-auto text-center">
+        <h1 class="text-4xl lg:text-5xl font-bold mb-4">Let's Work Together</h1>
+        <p class="text-xl text-gray-200">
+          Looking for consulting, training, or a speaker for your event? I'd love to hear from you.
+        </p>
+      </div>
+    </div>
+  </section>
 
-    <p class="pb-3">
-      I know how it goes. You're cruising around the internet, find this
-      awesome dude Kevin, and you want to reach out to him... err, me.
-    </p>
-    <p class="pb-3">There are a couple ways:</p>
+  <!-- Contact Options -->
+  <section class="py-20 bg-white">
+    <div class="container mx-auto px-4 lg:px-8">
+      <div class="max-w-4xl mx-auto grid md:grid-cols-2 gap-8">
+        <!-- Email Card -->
+        <Card variant="white">
+          <div class="text-center">
+            <div class="text-gold text-5xl mb-4">✉️</div>
+            <h2 class="text-2xl font-bold text-navy mb-3">Email Me</h2>
+            <p class="text-gray-700 mb-4">
+              The best way to reach me for business inquiries, consulting, or training opportunities.
+            </p>
+            <a
+              href="mailto:hello@consultwithgriff.com"
+              class="text-gold hover:text-gold-warm font-semibold text-lg transition-colors"
+            >
+              hello@consultwithgriff.com
+            </a>
+          </div>
+        </Card>
 
-    <h2 class="pt-6 text-2xl font-bold">Twitter</h2>
-    <p>
-      One of the quickest ways to reach out is to send me a direct message on
-      Twitter. I can be contacted at
-      <a href="https://twitter.com/1kevgriff" class="text-blue-600 hover:text-blue-800">@1kevgriff</a>.
-    </p>
-    <h2 class="pt-6 text-2xl font-bold">Email</h2>
-    <p>
-      A solid fallback is to
-      <a href="mailto:connect@consultwithgriff.com" class="text-blue-600 hover:text-blue-800">email</a> me.
-    </p>
-  </div>
+        <!-- Twitter Card -->
+        <Card variant="white">
+          <div class="text-center">
+            <div class="text-gold text-5xl mb-4">🐦</div>
+            <h2 class="text-2xl font-bold text-navy mb-3">Follow on Twitter</h2>
+            <p class="text-gray-700 mb-4">
+              Connect with me on Twitter for tech insights, .NET tips, and industry discussions.
+            </p>
+            <a
+              href="https://twitter.com/1kevgriff"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="text-gold hover:text-gold-warm font-semibold text-lg transition-colors"
+            >
+              @1kevgriff
+            </a>
+          </div>
+        </Card>
+      </div>
+
+      <!-- Additional Info -->
+      <div class="max-w-3xl mx-auto mt-16 text-center">
+        <h3 class="text-2xl font-bold text-navy mb-6">What I Can Help With</h3>
+        <div class="grid sm:grid-cols-3 gap-6 text-gray-700">
+          <div>
+            <div class="text-3xl mb-2">💼</div>
+            <p class="font-semibold">Consulting</p>
+            <p class="text-sm">Architecture & Azure solutions</p>
+          </div>
+          <div>
+            <div class="text-3xl mb-2">🎓</div>
+            <p class="font-semibold">Training</p>
+            <p class="text-sm">Private team workshops</p>
+          </div>
+          <div>
+            <div class="text-3xl mb-2">🎤</div>
+            <p class="font-semibold">Speaking</p>
+            <p class="text-sm">Conference & user group talks</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 </BaseLayout>

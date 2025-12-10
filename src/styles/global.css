@@ -1,23 +1,85 @@
 @import 'tailwindcss';
 
-/* Theme Variables - Light Mode */
-.theme-light {
-  --bg-background-primary: white;
-  --bg-background-secondary: #f7fafc;
-  --bg-background-tertiary: #e2e8f0;
-  --bg-background-form: #f7fafc;
-  --text-copy-primary: #2d3748;
-  --text-copy-secondary: #4a5568;
+/* Navy + Gold Design System - Tailwind v4 Theme */
+@theme {
+  /* Navy Color Palette */
+  --color-navy: #0C1B33;
+  --color-navy-light: #1B3C59;
+  --color-navy-50: #F0F4F8;
+  --color-navy-100: #D9E2EC;
+  --color-navy-200: #BCCCDC;
+  --color-navy-300: #9FB3C8;
+  --color-navy-400: #829AB1;
+  --color-navy-500: #627D98;
+  --color-navy-600: #486581;
+  --color-navy-700: #334E68;
+  --color-navy-800: #243B53;
+  --color-navy-900: #1B3C59;
+  --color-navy-950: #0C1B33;
+
+  /* Gold Color Palette */
+  --color-gold: #F5C518;
+  --color-gold-warm: #FFB400;
+  --color-gold-50: #FFFBEB;
+  --color-gold-100: #FEF3C7;
+  --color-gold-200: #FDE68A;
+  --color-gold-300: #FCD34D;
+  --color-gold-400: #FFB400;
+  --color-gold-500: #F5C518;
+  --color-gold-600: #D4A017;
+  --color-gold-700: #B8860B;
+  --color-gold-800: #9A7209;
+  --color-gold-900: #7C5E08;
 }
 
-/* Theme Variables - Dark Mode */
+/* Navy + Gold Design System - Theme Variables */
+
+/* Light Mode (Default) */
+.theme-light {
+  /* Backgrounds - Neutral palette */
+  --bg-background-primary: white;
+  --bg-background-secondary: #F8F9FA; /* Background Light */
+  --bg-background-tertiary: #E5E7EB; /* Gray 200 */
+  --bg-background-form: #F8F9FA;
+
+  /* Text - Navy tones for high contrast */
+  --text-copy-primary: #111827; /* Text Dark - high contrast */
+  --text-copy-secondary: #6B7280; /* Gray 500 - secondary text */
+
+  /* Navy colors */
+  --color-navy: #0C1B33; /* Deep Navy - primary brand */
+  --color-navy-light: #1B3C59; /* Azure Steel - secondary navy */
+
+  /* Gold accents */
+  --color-gold: #F5C518; /* Premium Gold - primary accent */
+  --color-gold-warm: #FFB400; /* Amber Gold - warm accent */
+
+  /* Additional neutrals */
+  --color-gray-700: #3F4752;
+}
+
+/* Dark Mode - Navy-based theme */
 .theme-dark {
-  --bg-background-primary: #0d2438;
-  --bg-background-secondary: #102c44;
-  --bg-background-tertiary: #1e3951;
-  --bg-background-form: #1e3951;
-  --text-copy-primary: #cbd5e0;
-  --text-copy-secondary: #e2e8f0;
+  /* Backgrounds - Navy tones */
+  --bg-background-primary: #0C1B33; /* Deep Navy */
+  --bg-background-secondary: #1B3C59; /* Azure Steel */
+  --bg-background-tertiary: #3F4752; /* Gray 700 */
+  --bg-background-form: #1B3C59;
+
+  /* Text - Light for contrast on navy */
+  --text-copy-primary: #F8F9FA; /* Background Light - inverted */
+  --text-copy-secondary: #E5E7EB; /* Gray 200 - inverted */
+
+  /* Navy colors (same as light) */
+  --color-navy: #0C1B33;
+  --color-navy-light: #1B3C59;
+
+  /* Gold accents (same as light) */
+  --color-gold: #F5C518;
+  --color-gold-warm: #FFB400;
+
+  /* Additional neutrals */
+  --color-gray-700: #3F4752;
 }
 
 /* Custom Utilities */
@@ -37,7 +99,7 @@
 }
 
 .checkmark {
-  background-image: url("data:image/svg+xml,%3Csvg width='20' height='20' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M2.93 17.07A10 10 0 1 1 17.07 2.93 10 10 0 0 1 2.93 17.07zm12.73-1.41A8 8 0 1 0 4.34 4.34a8 8 0 0 0 11.32 11.32zM6.7 9.29L9 11.6l4.3-4.3 1.4 1.42L9 14.4l-3.7-3.7 1.4-1.42z' fill='%2338a169'/%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg width='20' height='20' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M2.93 17.07A10 10 0 1 1 17.07 2.93 10 10 0 0 1 2.93 17.07zm12.73-1.41A8 8 0 1 0 4.34 4.34a8 8 0 0 0 11.32 11.32zM6.7 9.29L9 11.6l4.3-4.3 1.4 1.42L9 14.4l-3.7-3.7 1.4-1.42z' fill='%23F5C518'/%3E%3C/svg%3E");
   background-repeat: no-repeat;
   background-size: 100% 100%;
   display: inline-block;
@@ -56,13 +118,23 @@
   }
 }
 
-/* Custom Link Styling */
-a {
-  color: #2f855a;
+/* Custom Link Styling - Navy + Gold theme */
+/* Only apply to content links, not header/footer/button components */
+main a:not([data-astro-cid-vnzlvqnm]),
+.markdown-body a,
+article a {
+  color: #0C1B33; /* Deep Navy for links */
+  text-decoration: underline;
+  text-decoration-color: #F5C518; /* Gold underline */
+  text-underline-offset: 3px;
+  transition: all 0.2s ease;
 }
 
-a:hover {
-  color: #276749;
+main a:not([data-astro-cid-vnzlvqnm]):hover,
+.markdown-body a:hover,
+article a:hover {
+  color: #F5C518; /* Gold on hover */
+  text-decoration-color: #0C1B33; /* Navy underline on hover */
 }
 
 /* GitHub Markdown Styles */

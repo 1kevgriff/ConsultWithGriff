@@ -65,18 +65,35 @@ const metaDescription =
     <link rel="canonical" href={`${siteUrl}${postPath}`} />
   </Fragment>
 
-  <div class="mx-auto my-16 container-inner">
-    <h1 class="text-4xl font-bold leading-tight">{entry.data.title}</h1>
-    <div class="mb-4 text-xl text-gray-600">{formattedDate}</div>
+  <article class="max-w-4xl mx-auto px-4 lg:px-8 py-16">
+    <!-- Article Header -->
+    <header class="mb-12">
+      <h1 class="text-4xl lg:text-5xl font-bold text-navy leading-tight mb-6">
+        {entry.data.title}
+      </h1>
+      <div class="flex items-center gap-4 text-gray-600">
+        <time datetime={entry.data.date.toString()} class="text-lg">
+          {formattedDate}
+        </time>
+        <span>•</span>
+        <span class="text-lg">{readingTime} min read</span>
+      </div>
+    </header>
 
-    <div class="mb-8 markdown-body">
+    <!-- Article Content -->
+    <div class="prose prose-lg max-w-none markdown-body">
       <Content />
     </div>
 
-    <div class="mb-8">
-      <a href="/articles" class="font-bold uppercase text-green-600 hover:text-green-700">
-        Back to Article Listing
+    <!-- Back Link -->
+    <footer class="mt-16 pt-8 border-t border-gray-200">
+      <a
+        href="/articles"
+        class="inline-flex items-center gap-2 font-semibold text-gold hover:text-gold-warm transition-colors"
+      >
+        <span aria-hidden="true">←</span>
+        Back to Articles
       </a>
-    </div>
-  </div>
+    </footer>
+  </article>
 </BaseLayout>
