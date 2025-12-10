@@ -119,7 +119,10 @@
 }
 
 /* Custom Link Styling - Navy + Gold theme */
-a {
+/* Only apply to content links, not header/footer/button components */
+main a:not([data-astro-cid-vnzlvqnm]),
+.markdown-body a,
+article a {
   color: #0C1B33; /* Deep Navy for links */
   text-decoration: underline;
   text-decoration-color: #F5C518; /* Gold underline */
@@ -127,7 +130,9 @@ a {
   transition: all 0.2s ease;
 }
 
-a:hover {
+main a:not([data-astro-cid-vnzlvqnm]):hover,
+.markdown-body a:hover,
+article a:hover {
   color: #F5C518; /* Gold on hover */
   text-decoration-color: #0C1B33; /* Navy underline on hover */
 }
