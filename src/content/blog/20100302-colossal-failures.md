@@ -16,7 +16,7 @@ Recently, I ran across a session by Adam Savage talking about Colossal Failures.
 
 *Note: the original video is dead, but this is close to it.*
 
-`youtube:https://www.youtube.com/watch?v=i5sbUi3_w3w`
+https://www.youtube.com/watch?v=i5sbUi3_w3w
 
 (If you can't see the video above, please view in your browser and not in an RSS reader)
 

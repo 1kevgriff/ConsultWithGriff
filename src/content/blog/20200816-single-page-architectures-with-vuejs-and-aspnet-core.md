@@ -24,7 +24,7 @@ Thanks so much for attending my session on building Single Page Architectures wi
 
 Here is a replay of this talk that I did at NDC London 2020:
 
-`youtube:https://www.youtube.com/watch?v=DH2yUVQDB0I`
+https://www.youtube.com/watch?v=DH2yUVQDB0I
 
 ## Links and Resources
 

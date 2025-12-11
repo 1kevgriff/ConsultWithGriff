@@ -15,7 +15,7 @@ categories:
 
 Thanks for attending The Dev Talk Show!  If you missed the episode, catch the replay at:
 
-`youtube:https://www.youtube.com/embed/emuUvQfJpeU`
+https://www.youtube.com/embed/emuUvQfJpeU
 
 # Links to Resources
 

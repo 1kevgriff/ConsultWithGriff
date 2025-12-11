@@ -18,7 +18,7 @@ Thanks for attending 21st Century Background Services with Azure Logic Apps and 
 
 ## Replays
 
-`youtube:https://www.youtube.com/watch?v=iibGXI2YHRw`  
+https://www.youtube.com/watch?v=iibGXI2YHRw  
 
 ## Links to Resources
 
