@@ -1,0 +1,29 @@
+---
+// YouTube embed component for blog posts
+// Responsive 16:9 aspect ratio container
+
+export interface Props {
+  videoId: string;
+  title?: string;
+}
+
+const { videoId, title = 'YouTube video player' } = Astro.props;
+---
+
+<div class="youtube-embed my-8">
+  <div class="relative pb-[56.25%] h-0 overflow-hidden rounded-lg shadow-lg">
+    <iframe
+      class="absolute top-0 left-0 w-full h-full"
+      src={`https://www.youtube.com/embed/${videoId}`}
+      title={title}
+      frameborder="0"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+      allowfullscreen></iframe>
+  </div>
+</div>
+
+<style>
+  .youtube-embed {
+    max-width: 100%;
+  }
+</style>
