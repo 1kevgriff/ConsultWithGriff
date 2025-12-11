@@ -336,3 +336,14 @@ article a:hover {
   margin: 2rem auto;
   max-width: 900px;
 }
+
+/* Table of Contents - Active State Styling */
+[data-toc-link].active {
+  @apply text-navy border-l-2 border-gold bg-gold-50/50 -ml-0.5;
+}
+
+/* Smooth Scroll Behavior */
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 100px; /* Accounts for sticky header */
+}

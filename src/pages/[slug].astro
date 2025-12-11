@@ -2,6 +2,7 @@
 import { getCollection, render } from 'astro:content';
 import type { GetStaticPaths } from 'astro';
 import BaseLayout from '../layouts/BaseLayout.astro';
+import TableOfContents from '../components/TableOfContents.astro';
 
 export const getStaticPaths: GetStaticPaths = async () => {
   const blogEntries = await getCollection('blog');
@@ -21,7 +22,10 @@ export const getStaticPaths: GetStaticPaths = async () => {
 };
 
 const { entry, type } = Astro.props;
-const { Content, remarkPluginFrontmatter } = await render(entry);
+const { Content, headings, remarkPluginFrontmatter } = await render(entry);
+
+// Extract headings for TOC - Astro provides headings directly from render()
+const tocHeadings = headings.filter((h) => h.depth === 2 || h.depth === 3);
 
 // Build canonical URL and metadata
 const siteUrl = 'https://consultwithgriff.com';
@@ -87,23 +91,41 @@ if (type === 'blog') {
     )}
   </Fragment>
 
-  <div class="mx-auto my-16 container-inner">
-    <h1 class="text-4xl font-bold leading-tight">{entry.data.title}</h1>
+  <div class="mx-auto my-16 max-w-7xl px-4">
+    <div class="flex gap-8">
+      <!-- Main Content -->
+      <article class="flex-1 min-w-0 max-w-3xl">
+        <h1 class="text-4xl font-bold leading-tight">{entry.data.title}</h1>
 
-    {type === 'blog' && (
-      <div class="mb-4 text-xl text-gray-600">{formattedDate}</div>
-    )}
+        <div class="mb-8 markdown-body">
+          <Content />
+        </div>
 
-    <div class="mb-8 markdown-body">
-      <Content />
+        {type === 'blog' && (
+          <div class="mb-8">
+            <a href="/articles" class="font-bold uppercase text-green-600 hover:text-green-700">
+              Back to Article Listing
+            </a>
+          </div>
+        )}
+      </article>
+
+      <!-- TOC Sidebar (Desktop Only) -->
+      {type === 'blog' && tocHeadings.length > 0 && (
+        <aside class="hidden lg:block w-64 flex-shrink-0">
+          <TableOfContents
+            headings={tocHeadings}
+            formattedDate={formattedDate}
+            readingTime={readingTime}
+          />
+        </aside>
+      )}
     </div>
-
-    {type === 'blog' && (
-      <div class="mb-8">
-        <a href="/articles" class="font-bold uppercase text-green-600 hover:text-green-700">
-          Back to Article Listing
-        </a>
-      </div>
-    )}
   </div>
 </BaseLayout>
+
+{type === 'blog' && tocHeadings.length > 0 && (
+  <script>
+    import '../scripts/toc-highlight.ts';
+  </script>
+)}

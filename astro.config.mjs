@@ -3,6 +3,7 @@ import { defineConfig } from 'astro/config';
 import remarkGfm from 'remark-gfm';
 import remarkExternalLinks from 'remark-external-links';
 import remarkYoutube from 'remark-youtube';
+import rehypeSlug from 'rehype-slug';
 
 import tailwindcss from '@tailwindcss/vite';
 
@@ -21,6 +22,7 @@ export default defineConfig({
       ],
       remarkYoutube,
     ],
+    rehypePlugins: [rehypeSlug],
     shikiConfig: {
       theme: 'material-theme-palenight',
       wrap: false,
