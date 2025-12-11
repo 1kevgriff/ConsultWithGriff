@@ -38,14 +38,14 @@ const latestPost = sortedPosts[0];
           <div class="flex-1">
             <h2 class="text-2xl font-bold text-navy mb-4">Latest Article</h2>
             <h3 class="text-xl font-semibold mb-3">
-              <a href={`/blog/${latestPost.id}`} class="text-navy hover:text-gold transition-colors">
+              <a href={`/${latestPost.data.permalink}`} class="text-navy hover:text-gold transition-colors">
                 {latestPost.data.title}
               </a>
             </h3>
             <p class="text-gray-700 leading-relaxed mb-4">
               {latestPost.data.excerpt || latestPost.data.summary}
             </p>
-            <Button href={`/blog/${latestPost.id}`} variant="primary" size="sm">
+            <Button href={`/${latestPost.data.permalink}`} variant="primary" size="sm">
               Read More
             </Button>
           </div>

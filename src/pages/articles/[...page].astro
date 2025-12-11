@@ -60,7 +60,7 @@ const canonicalUrl =
                 <article>
                   <h2 class="text-3xl font-bold mb-3">
                     <a
-                      href={`/blog/${post.id}`}
+                      href={`/${post.data.permalink}`}
                       class="text-navy hover:text-gold transition-colors"
                     >
                       {post.data.title}
@@ -78,7 +78,7 @@ const canonicalUrl =
                   </p>
 
                   <a
-                    href={`/blog/${post.id}`}
+                    href={`/${post.data.permalink}`}
                     class="font-semibold text-gold hover:text-gold-warm transition-colors inline-flex items-center gap-2"
                   >
                     Read More

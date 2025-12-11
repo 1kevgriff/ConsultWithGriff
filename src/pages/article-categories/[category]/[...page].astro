@@ -58,7 +58,7 @@ const canonicalUrl = `https://consultwithgriff.com/article-categories/${category
         return (
           <div class="mb-12 border-b border-gray-400 post">
             <h2 class="text-3xl font-bold">
-              <a href={`/blog/${post.id}`} class="text-copy-primary hover:text-green-600">
+              <a href={`/${post.data.permalink}`} class="text-copy-primary hover:text-green-600">
                 {post.data.title}
               </a>
             </h2>
@@ -71,7 +71,7 @@ const canonicalUrl = `https://consultwithgriff.com/article-categories/${category
             <div class="mb-4 text-lg">{post.data.summary}</div>
 
             <div class="mb-8">
-              <a href={`/blog/${post.id}`} class="font-bold uppercase text-green-600 hover:text-green-700">
+              <a href={`/${post.data.permalink}`} class="font-bold uppercase text-green-600 hover:text-green-700">
                 Read More
               </a>
             </div>
