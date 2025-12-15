@@ -1,0 +1,277 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Hero from '../components/Hero.astro';
+import Card from '../components/Card.astro';
+import Button from '../components/Button.astro';
+
+const pageTitle = 'Professional .NET & Azure Courses | Kevin Griffin';
+const pageDescription =
+  'Online courses and training from 16-time Microsoft MVP Kevin Griffin. Learn ASP.NET Core, SignalR, HangFire, Azure Application Insights, and more.';
+---
+
+<BaseLayout title={pageTitle} description={pageDescription}>
+  <Fragment slot="head">
+    <link rel="canonical" href="https://consultwithgriff.com/courses" />
+  </Fragment>
+
+  <!-- Hero Section -->
+  <Hero
+    title="Level Up Your .NET Skills"
+    subtitle="Learn from a 16-time Microsoft MVP with courses designed for real-world developers. From SignalR to Azure, build the skills that matter."
+    imageSrc="/kevin_rockon.jpg"
+    imageAlt="Kevin W. Griffin - Microsoft MVP & Course Instructor"
+    primaryCTA={{ text: 'View All Courses', href: '#courses' }}
+    secondaryCTA={{ text: 'Work With Me', href: '/consulting' }}
+  />
+
+  <!-- Featured Courses Section -->
+  <section class="py-20 bg-gray-50" id="courses">
+    <div class="container mx-auto px-4 lg:px-8">
+      <div class="max-w-6xl mx-auto">
+        <h2 class="text-3xl lg:text-4xl font-bold text-navy mb-4 text-center">Featured Courses</h2>
+        <p class="text-xl text-gray-700 mb-12 text-center max-w-3xl mx-auto">
+          In-depth, practical courses that help you master the technologies you use every day.
+        </p>
+
+        <div class="grid lg:grid-cols-2 gap-8 mb-16">
+          <!-- SignalR Mastery -->
+          <Card variant="white" class="flex flex-col">
+            <div class="mb-6">
+              <div class="relative pb-[56.25%] h-0 overflow-hidden rounded-lg mb-4">
+                <iframe
+                  class="absolute top-0 left-0 w-full h-full"
+                  src="https://www.youtube.com/embed/oqSPvW5FsYk"
+                  title="SignalR Mastery Course Preview"
+                  frameborder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowfullscreen></iframe>
+              </div>
+            </div>
+
+            <h3 class="text-2xl font-bold text-navy mb-4">SignalR Mastery</h3>
+
+            <div class="flex-grow mb-6">
+              <p class="text-gray-700 mb-4 leading-relaxed">
+                SignalR is a library for .NET which allows developers to add real-time capabilities
+                to their applications. It provides a framework for managing connections from various
+                clients, including web pages, mobile apps, desktop applications, and more. It
+                handles all of the grunt work.
+              </p>
+
+              <p class="text-gray-700 leading-relaxed">
+                In this course, we'll take a structured look at how SignalR works and how you can
+                harness it within your .NET applications.
+              </p>
+            </div>
+
+            <div class="mt-auto">
+              <Button
+                href="https://www.udemy.com/course/signalr-mastery/?referralCode=6FADDFBDCF244A8E106A"
+                variant="primary"
+                size="md"
+                class="w-full sm:w-auto"
+              >
+                Enroll on Udemy
+              </Button>
+            </div>
+          </Card>
+
+          <!-- HangFire Course -->
+          <Card variant="white" class="flex flex-col">
+            <div class="mb-6">
+              <a
+                href="https://www.udemy.com/course/building-background-services-in-net-with-hangfire/?referralCode=ADE705B8BB4A44749A7D"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <img
+                  src="/images/hangfire-thumbnail.png"
+                  alt="Building Background Services in .NET with HangFire"
+                  class="w-full rounded-lg shadow-md hover:shadow-lg transition-shadow"
+                />
+              </a>
+            </div>
+
+            <h3 class="text-2xl font-bold text-navy mb-4">
+              Building Background Services in .NET with HangFire
+            </h3>
+
+            <div class="flex-grow mb-6">
+              <p class="text-gray-700 mb-4 leading-relaxed">
+                This comprehensive course teaches you how to build background services in .NET using
+                HangFire, a powerful open-source library that makes it easy to create and manage
+                background jobs.
+              </p>
+
+              <p class="text-gray-700 mb-4 leading-relaxed">
+                Throughout the course, you'll learn from a Microsoft MVP with over 15 years of
+                experience in software development, who will guide you through the entire process,
+                from setting up HangFire to building and managing background jobs.
+              </p>
+
+              <h4 class="font-semibold text-navy mb-2">What You'll Learn:</h4>
+              <ul class="list-disc list-inside text-gray-700 space-y-1 text-sm">
+                <li>Create and manage background jobs using the HangFire dashboard</li>
+                <li>Schedule recurring jobs that run automatically</li>
+                <li>Handle errors during job execution</li>
+                <li>Scale background services for large volumes of jobs</li>
+                <li>Best practices for building efficient background services</li>
+              </ul>
+            </div>
+
+            <div class="mt-auto">
+              <Button
+                href="https://www.udemy.com/course/building-background-services-in-net-with-hangfire/?referralCode=ADE705B8BB4A44749A7D"
+                variant="primary"
+                size="md"
+                class="w-full sm:w-auto"
+              >
+                Enroll on Udemy
+              </Button>
+            </div>
+          </Card>
+        </div>
+
+        <!-- Free Courses Section -->
+        <div class="bg-navy-light rounded-2xl p-8 lg:p-12">
+          <h3 class="text-2xl lg:text-3xl font-bold text-white mb-8 text-center">
+            Free Courses on YouTube
+          </h3>
+
+          <div class="grid md:grid-cols-2 gap-8">
+            <!-- Building APIs with ASP.NET Core -->
+            <Card variant="navy">
+              <h4 class="text-xl font-bold mb-3">Building APIs with ASP.NET Core</h4>
+              <p class="text-gray-200 mb-4 leading-relaxed">
+                As web applications grow in popularity and we see a greater uptick in web
+                frameworks, creating robust application programming interfaces (APIs) for internal
+                and external use is becoming increasingly more important.
+              </p>
+              <p class="text-gray-200 mb-6 leading-relaxed">
+                This course will teach developers the fundamentals of building APIs with ASP.NET
+                Core, including testing, validation, and designing interfaces that will allow them
+                to be good API citizens.
+              </p>
+              <Button
+                href="https://www.youtube.com/playlist?list=PL4z_hOgrhWyCqR8e4EVWdw9N-Kog2r3jL"
+                variant="primary"
+                size="sm"
+                class="bg-gold text-navy hover:bg-gold-warm"
+              >
+                Watch Free on YouTube
+              </Button>
+            </Card>
+
+            <!-- Application Insights -->
+            <Card variant="navy">
+              <h4 class="text-xl font-bold mb-3">
+                Monitoring and Troubleshooting with Application Insights
+              </h4>
+              <p class="text-gray-200 mb-4 leading-relaxed">
+                This course covers the fundamentals for tracking the performance and health of your
+                applications with Application Insights on Azure.
+              </p>
+              <p class="text-gray-200 mb-6 leading-relaxed">
+                We'll begin with how to provision an Application Insights instance on Azure
+                followed by how to configure your applications to send telemetry data. You'll learn
+                to investigate application failures, analyze poor performance, and write KQL (Kusto
+                Query Language) queries.
+              </p>
+              <Button
+                href="https://www.youtube.com/playlist?list=PL4z_hOgrhWyCCSQQhaka9MO3hswfFUFeq"
+                variant="primary"
+                size="sm"
+                class="bg-gold text-navy hover:bg-gold-warm"
+              >
+                Watch Free on YouTube
+              </Button>
+            </Card>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why Learn From Me Section -->
+  <section class="py-20 bg-white">
+    <div class="container mx-auto px-4 lg:px-8">
+      <div class="max-w-4xl mx-auto">
+        <h2 class="text-3xl font-bold text-navy mb-8 text-center">Why Learn From Me?</h2>
+
+        <div class="grid md:grid-cols-3 gap-8">
+          <div class="text-center">
+            <div class="text-4xl mb-3">🏆</div>
+            <h3 class="font-bold text-navy mb-2">16-Time Microsoft MVP</h3>
+            <p class="text-gray-700">
+              Recognized for expertise in .NET development for 16 consecutive years.
+            </p>
+          </div>
+
+          <div class="text-center">
+            <div class="text-4xl mb-3">👥</div>
+            <h3 class="font-bold text-navy mb-2">Thousands of Students</h3>
+            <p class="text-gray-700">
+              My courses have helped developers worldwide level up their skills.
+            </p>
+          </div>
+
+          <div class="text-center">
+            <div class="text-4xl mb-3">💡</div>
+            <h3 class="font-bold text-navy mb-2">Real-World Experience</h3>
+            <p class="text-gray-700">
+              I teach what actually works in production, not just theory.
+            </p>
+          </div>
+        </div>
+
+        <div class="mt-12 text-center">
+          <Card variant="light">
+            <p class="text-lg text-gray-700 leading-relaxed mb-6">
+              I believe the best way to learn is by building real things. My courses focus on
+              practical, hands-on learning with projects you can apply to your work immediately.
+              No fluff, no filler - just the skills you need to build better software.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+              <Button href="/articles" variant="secondary" size="md">
+                Read My Articles
+              </Button>
+              <Button href="/consulting" variant="primary" size="md">
+                Need Custom Training?
+              </Button>
+            </div>
+          </Card>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="py-20 bg-gold">
+    <div class="container mx-auto px-4 lg:px-8">
+      <div class="max-w-3xl mx-auto text-center">
+        <h2 class="text-3xl lg:text-4xl font-bold text-navy mb-6">
+          Looking for Custom Team Training?
+        </h2>
+        <p class="text-xl text-navy mb-8">
+          I offer private workshops tailored to your team's specific needs. ASP.NET Core, Azure,
+          SignalR, or modern development practices - let's build a custom training program together.
+        </p>
+
+        <Button
+          href="/consulting"
+          variant="primary"
+          size="lg"
+          class="bg-navy text-gold border-2 border-navy hover:bg-navy-light"
+        >
+          Discuss Custom Training
+        </Button>
+
+        <p class="text-sm text-navy mt-6 opacity-80">
+          Or <a href="mailto:connect@consultwithgriff.com" class="underline hover:text-navy-light">
+            send me an email
+          </a> to explore training options.
+        </p>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

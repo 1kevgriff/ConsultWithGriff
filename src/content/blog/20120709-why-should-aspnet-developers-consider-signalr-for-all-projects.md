@@ -42,7 +42,7 @@ As far as clients are concerned, JavaScript is the main way.  In fact, when I d
 
 I would be a bad blogger if I just left you hanging.  Here’s my 5 minute SignalR demo for you:
 
-`youtube:https://www.youtube.com/watch?v=tEBaDo_sFfA`
+https://www.youtube.com/watch?v=tEBaDo_sFfA
 
 The video does a really good job of showing you all the steps.  There are two parts to a basic SignalR application.  First is the server side, which we build a construct called a <strong>Hub</strong>.  Think of a Hub as a central location for all connections for your application.
 

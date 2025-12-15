@@ -18,5 +18,5 @@ A couple weeks ago, I had the chance to hang out with my friend Bret Fisher on h
 
 Check it out below:
 
-`youtube:https://www.youtube.com/embed/sK48ZyRXAFo`
+https://www.youtube.com/embed/sK48ZyRXAFo
 

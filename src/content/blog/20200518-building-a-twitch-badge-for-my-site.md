@@ -19,7 +19,7 @@ On my [stream](https://www.twitch.tv/1kevgriff), I wanted to play around with bu
 
 > Check out the stream below!
 
-`youtube:https://www.youtube.com/watch?v=ht27gkTCeBQ`
+https://www.youtube.com/watch?v=ht27gkTCeBQ
 
 First task on the list was an indicator on *this site* that would tell you if was currently online.  Eventually, this will extend to other tools - but first things first.
 

@@ -90,7 +90,7 @@ Every great event needs to have a dedicated networking time.  This year, we star
 
 Here is a drone overview of the event as it was kicking off.
 
-`youtube:https://www.youtube.com/embed/Ds27K9yYWCM`
+https://www.youtube.com/embed/Ds27K9yYWCM
 
 ## What could've been better
 

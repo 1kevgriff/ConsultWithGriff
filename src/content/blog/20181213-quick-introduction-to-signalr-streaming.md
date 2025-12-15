@@ -22,4 +22,4 @@ And WOW!  I'm super impressed with that I saw.
 
 Check out my video introduction below, and lemme know what you think in the comments!
 
-`youtube:https://www.youtube.com/embed/xLtWgRzB2_g`
+https://www.youtube.com/embed/xLtWgRzB2_g

@@ -14,4 +14,4 @@ Last week I had the pleasure of being on the Fervent Four podcast with [Zack Mil
 
 I'd love for you to watch and let me know what you think!
 
-`youtube:https://www.youtube.com/watch?v=87UXRC47ur0`
+https://www.youtube.com/watch?v=87UXRC47ur0

@@ -16,7 +16,7 @@ excerpt: "Setting up HangFire in my .NET applications is effortless. This librar
 
 I've been doing a talk on the speaking circuit called **Tactics for Building Background Services in .NET**, and it's doing really well.  Want to check it out?  Here is a link to the video from my visit to NDC London:
 
-`youtube:https://youtu.be/48cdGLIvYAM`  
+https://youtu.be/48cdGLIvYAM  
 
 One of the tools that stands out most of all in the talk is HangFire.  I've been using HangFire for years, and it's been a vital tool for offloading some of the heavy lifting from my web applications.  I want to talk about a couple of the reasons why I love HangFire, and why you might want to consider it for your projects if you're not already using it.
 

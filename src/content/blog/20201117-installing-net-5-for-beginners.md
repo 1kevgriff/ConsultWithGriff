@@ -15,7 +15,7 @@ categories:
   - .NET
 ---
 
-`youtube:https://www.youtube.com/watch?v=karSxhTb_38`
+https://www.youtube.com/watch?v=karSxhTb_38
 
 .NET 5 is the new hotness on street, and if you're new to .NET you might be wondering HOW do you get started?  In this video, I'll walk you through downloading the .NET 5 SDK and scaffolding out your own `Hello World` example!
 

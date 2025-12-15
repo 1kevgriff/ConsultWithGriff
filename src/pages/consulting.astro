@@ -1,0 +1,368 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Hero from '../components/Hero.astro';
+import Card from '../components/Card.astro';
+import Button from '../components/Button.astro';
+
+const pageTitle = 'Expert .NET & Azure Consulting | 16x Microsoft MVP | Kevin Griffin';
+const pageDescription =
+  'Independent consulting for ASP.NET Core, Azure cloud architecture, and application modernization. 16-time Microsoft MVP with 15+ years experience helping teams ship better software faster.';
+---
+
+<BaseLayout title={pageTitle} description={pageDescription}>
+  <Fragment slot="head">
+    <link rel="canonical" href="https://consultwithgriff.com/consulting" />
+  </Fragment>
+
+  <!-- Hero Section -->
+  <Hero
+    title="Let's Build Something Great Together"
+    subtitle="16-time Microsoft MVP helping teams modernize .NET applications, architect Azure solutions, and ship faster with confidence. Over 15 years turning complex problems into elegant solutions."
+    imageSrc="/kevin_rockon.jpg"
+    imageAlt="Kevin W. Griffin - Microsoft MVP"
+    primaryCTA={{
+      text: 'Schedule Free Consultation',
+      href: 'https://app.onecal.io/b/kevin-griffin/chat',
+    }}
+    secondaryCTA={{ text: 'View My Courses', href: '/courses' }}
+  />
+
+  <!-- Trust & Credibility Section -->
+  <section class="py-20 bg-white">
+    <div class="container mx-auto px-4 lg:px-8">
+      <div class="max-w-4xl mx-auto">
+        <Card variant="light" class="text-center">
+          <h2 class="text-3xl font-bold text-navy mb-8">
+            Why Teams Trust Me With Their Critical Projects
+          </h2>
+          <div class="grid md:grid-cols-3 gap-8 text-left">
+            <div>
+              <div class="text-4xl mb-3">🏆</div>
+              <h3 class="font-bold text-navy mb-2">16-Time Microsoft MVP</h3>
+              <p class="text-gray-700">
+                Recognized by Microsoft for 16 consecutive years. I stay on top of the latest .NET
+                and Azure innovations so you don't have to.
+              </p>
+            </div>
+            <div>
+              <div class="text-4xl mb-3">💼</div>
+              <h3 class="font-bold text-navy mb-2">15+ Years Experience</h3>
+              <p class="text-gray-700">
+                From startups to enterprises, I've architected solutions that scale from hundreds
+                to millions of users.
+              </p>
+            </div>
+            <div>
+              <div class="text-4xl mb-3">🎓</div>
+              <h3 class="font-bold text-navy mb-2">Proven Teacher</h3>
+              <p class="text-gray-700">
+                Created SignalR Mastery and other courses taken by thousands of developers. I
+                explain complex concepts clearly.
+              </p>
+            </div>
+          </div>
+        </Card>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services Section -->
+  <section class="py-20 bg-gray-50">
+    <div class="container mx-auto px-4 lg:px-8">
+      <div class="max-w-6xl mx-auto">
+        <h2 class="text-3xl lg:text-4xl font-bold text-navy mb-4 text-center">
+          How I Can Help Your Team
+        </h2>
+        <p class="text-xl text-gray-700 mb-12 text-center max-w-3xl mx-auto">
+          Whether you're modernizing a legacy app, architecting for the cloud, or need expert
+          guidance on .NET best practices - I've got you covered.
+        </p>
+
+        <div class="grid lg:grid-cols-2 gap-8">
+          <!-- Service 1: .NET Architecture -->
+          <Card variant="white">
+            <h3 class="text-2xl font-bold text-navy mb-4">Modern .NET Architecture That Scales</h3>
+            <p class="text-gray-700 mb-4 leading-relaxed">
+              Whether you're stuck on .NET Framework 4.x or want to leverage .NET 9's latest
+              features, I'll help you build maintainable, performant applications your team will
+              love working with.
+            </p>
+
+            <h4 class="font-semibold text-navy mb-2">What I Help With:</h4>
+            <ul class="list-disc list-inside text-gray-700 mb-4 space-y-1">
+              <li>Modernize legacy .NET Framework → .NET 9+</li>
+              <li>Design microservices or modular monoliths</li>
+              <li>Performance optimization & profiling</li>
+              <li>Code review & architecture consultation</li>
+            </ul>
+
+            <h4 class="font-semibold text-navy mb-2">Technologies:</h4>
+            <p class="text-sm text-gray-600">
+              .NET 9+, Minimal APIs, Clean Architecture, CQRS, MediatR, Entity Framework Core,
+              Dapper, Docker
+            </p>
+          </Card>
+
+          <!-- Service 2: Azure -->
+          <Card variant="white">
+            <h3 class="text-2xl font-bold text-navy mb-4">
+              Azure Architecture That Doesn't Break the Bank
+            </h3>
+            <p class="text-gray-700 mb-4 leading-relaxed">
+              Cloud costs spiral fast. I'll design Azure solutions that scale with your business,
+              not your credit card. Over 10 years helping teams leverage Azure effectively.
+            </p>
+
+            <h4 class="font-semibold text-navy mb-2">What I Help With:</h4>
+            <ul class="list-disc list-inside text-gray-700 mb-4 space-y-1">
+              <li>Cloud migration planning & execution</li>
+              <li>Serverless architecture design</li>
+              <li>Cost analysis & optimization</li>
+              <li>Multi-region deployment strategies</li>
+              <li>Security & compliance guidance</li>
+            </ul>
+
+            <h4 class="font-semibold text-navy mb-2">Technologies:</h4>
+            <p class="text-sm text-gray-600">
+              Azure App Service, Functions, Container Apps, Azure SQL, Cosmos DB, SignalR Service,
+              Application Insights, GitHub Actions
+            </p>
+          </Card>
+
+          <!-- Service 3: Web Development -->
+          <Card variant="white">
+            <h3 class="text-2xl font-bold text-navy mb-4">Modern Web Development with .NET</h3>
+            <p class="text-gray-700 mb-4 leading-relaxed">
+              Whether you want full-stack Blazor or need a React SPA talking to a .NET API, I've
+              built production apps with both. I'll help you choose the right approach for your
+              team's skills and project needs.
+            </p>
+
+            <h4 class="font-semibold text-navy mb-2">What I Help With:</h4>
+            <ul class="list-disc list-inside text-gray-700 mb-4 space-y-1">
+              <li>Blazor application development</li>
+              <li>SPA + API architecture (React/Vue + ASP.NET Core)</li>
+              <li>Real-time features with SignalR</li>
+              <li>Frontend performance optimization</li>
+              <li>Team training on modern web stack</li>
+            </ul>
+
+            <h4 class="font-semibold text-navy mb-2">Technologies:</h4>
+            <p class="text-sm text-gray-600">
+              Blazor, React, Vue.js, TypeScript, Tailwind CSS, SignalR, ASP.NET Core APIs
+            </p>
+          </Card>
+
+          <!-- Service 4: Performance -->
+          <Card variant="white">
+            <h3 class="text-2xl font-bold text-navy mb-4">
+              Make Your App Fast (And Keep It That Way)
+            </h3>
+            <p class="text-gray-700 mb-4 leading-relaxed">
+              Slow apps kill conversions and frustrate users. I'll find your bottlenecks, fix them,
+              and set up monitoring so you catch problems before your customers do.
+            </p>
+
+            <h4 class="font-semibold text-navy mb-2">What I Help With:</h4>
+            <ul class="list-disc list-inside text-gray-700 mb-4 space-y-1">
+              <li>Performance audits & bottleneck identification</li>
+              <li>Database optimization (indexes, query tuning)</li>
+              <li>Memory leak detection & resolution</li>
+              <li>Scalability planning</li>
+              <li>Monitoring setup & alerting</li>
+            </ul>
+
+            <h4 class="font-semibold text-navy mb-2">Technologies:</h4>
+            <p class="text-sm text-gray-600">
+              dotTrace, PerfView, BenchmarkDotNet, Application Insights, Azure Monitor, Redis, k6,
+              Azure Load Testing
+            </p>
+          </Card>
+
+          <!-- Service 5: Modernization -->
+          <Card variant="white">
+            <h3 class="text-2xl font-bold text-navy mb-4">
+              Legacy Apps Don't Have to Die - Modernize Them
+            </h3>
+            <p class="text-gray-700 mb-4 leading-relaxed">
+              You don't need to rewrite from scratch (and probably shouldn't). I specialize in
+              incremental modernization that keeps your business running while bringing your tech
+              stack forward.
+            </p>
+
+            <h4 class="font-semibold text-navy mb-2">What I Help With:</h4>
+            <ul class="list-disc list-inside text-gray-700 mb-4 space-y-1">
+              <li>Migration roadmap & risk assessment</li>
+              <li>Strangler Fig pattern implementation</li>
+              <li>Team upskilling during modernization</li>
+              <li>Testing strategies for legacy code</li>
+              <li>Incremental, low-risk migration approaches</li>
+            </ul>
+
+            <h4 class="font-semibold text-navy mb-2">Technologies:</h4>
+            <p class="text-sm text-gray-600">
+              .NET Framework → .NET 9 migration, Microservices, Azure migration, Database
+              modernization
+            </p>
+          </Card>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Working Together Section -->
+  <section class="py-20 bg-white">
+    <div class="container mx-auto px-4 lg:px-8">
+      <div class="max-w-4xl mx-auto">
+        <h2 class="text-3xl font-bold text-navy mb-8 text-center">Working Together Is Simple</h2>
+
+        <div class="grid md:grid-cols-4 gap-6 mb-12">
+          <div class="text-center">
+            <div
+              class="bg-navy text-white text-2xl font-bold rounded-full w-12 h-12 flex items-center justify-center mx-auto mb-4"
+            >
+              1
+            </div>
+            <h3 class="font-bold text-navy mb-2">Discovery Call</h3>
+            <p class="text-gray-700 text-sm">Free 30-minute chat about your needs and goals</p>
+          </div>
+          <div class="text-center">
+            <div
+              class="bg-navy text-white text-2xl font-bold rounded-full w-12 h-12 flex items-center justify-center mx-auto mb-4"
+            >
+              2
+            </div>
+            <h3 class="font-bold text-navy mb-2">Proposal</h3>
+            <p class="text-gray-700 text-sm">Clear scope, timeline, and pricing - no surprises</p>
+          </div>
+          <div class="text-center">
+            <div
+              class="bg-navy text-white text-2xl font-bold rounded-full w-12 h-12 flex items-center justify-center mx-auto mb-4"
+            >
+              3
+            </div>
+            <h3 class="font-bold text-navy mb-2">Get Started</h3>
+            <p class="text-gray-700 text-sm">Kick off the work with regular check-ins</p>
+          </div>
+          <div class="text-center">
+            <div
+              class="bg-navy text-white text-2xl font-bold rounded-full w-12 h-12 flex items-center justify-center mx-auto mb-4"
+            >
+              4
+            </div>
+            <h3 class="font-bold text-navy mb-2">Ship It</h3>
+            <p class="text-gray-700 text-sm">
+              Deliver results, knowledge transfer, ongoing support if needed
+            </p>
+          </div>
+        </div>
+
+        <Card variant="light" class="text-center">
+          <h3 class="text-xl font-bold text-navy mb-6">Engagement Types</h3>
+          <div class="grid md:grid-cols-3 gap-6 text-left">
+            <div>
+              <h4 class="font-semibold text-navy mb-2">Short-Term Projects</h4>
+              <p class="text-sm text-gray-700">
+                Architecture reviews, performance audits, migration planning (2-4 weeks)
+              </p>
+            </div>
+            <div>
+              <h4 class="font-semibold text-navy mb-2">Ongoing Advisory</h4>
+              <p class="text-sm text-gray-700">
+                Monthly retainer for continuous guidance, code reviews, technical leadership
+              </p>
+            </div>
+            <div>
+              <h4 class="font-semibold text-navy mb-2">Team Training</h4>
+              <p class="text-sm text-gray-700">
+                Custom workshops on .NET, Azure, SignalR, or modern development practices
+              </p>
+            </div>
+          </div>
+        </Card>
+
+        <div class="mt-8 text-center">
+          <p class="text-gray-700 leading-relaxed">
+            I keep things simple. We'll chat about your needs, I'll send a straightforward
+            proposal, and you decide if it makes sense. No pressure, no games.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Social Proof Section -->
+  <section class="py-20 bg-navy-light">
+    <div class="container mx-auto px-4 lg:px-8">
+      <div class="max-w-5xl mx-auto">
+        <h2 class="text-3xl font-bold text-white mb-12 text-center">Proven Track Record</h2>
+
+        <div class="grid md:grid-cols-2 gap-8">
+          <Card variant="navy">
+            <h3 class="text-xl font-bold mb-3">SignalR Mastery Course</h3>
+            <p class="text-gray-200 mb-4">
+              Created comprehensive SignalR training course taken by thousands of developers
+              worldwide. Helping teams build real-time applications with confidence.
+            </p>
+            <a href="/courses" class="text-gold hover:text-gold-warm font-semibold">
+              View Courses →
+            </a>
+          </Card>
+
+          <Card variant="navy">
+            <h3 class="text-xl font-bold mb-3">Conference Speaker & Community Leader</h3>
+            <p class="text-gray-200 mb-4">
+              Regular speaker at Microsoft conferences, user groups, and tech events. Sharing
+              knowledge with the .NET community for over a decade.
+            </p>
+            <a href="/articles" class="text-gold hover:text-gold-warm font-semibold">
+              Read Articles →
+            </a>
+          </Card>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Final CTA Section -->
+  <section class="py-20 bg-gold">
+    <div class="container mx-auto px-4 lg:px-8">
+      <div class="max-w-3xl mx-auto text-center">
+        <h2 class="text-3xl lg:text-4xl font-bold text-navy mb-6">
+          Ready to Move Your Project Forward?
+        </h2>
+        <p class="text-xl text-navy mb-8">
+          Let's chat about your challenges and see if we're a good fit. No sales pitch, just an
+          honest conversation about what you're trying to build.
+        </p>
+
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <Button
+            href="https://app.onecal.io/b/kevin-griffin/chat"
+            variant="primary"
+            size="lg"
+            class="bg-navy text-gold border-2 border-navy hover:bg-navy-light"
+          >
+            Schedule Free Consultation
+          </Button>
+          <Button
+            href="mailto:connect@consultwithgriff.com"
+            variant="secondary"
+            size="lg"
+            class="border-navy text-navy hover:bg-navy hover:text-white"
+          >
+            Send Me an Email
+          </Button>
+        </div>
+
+        <p class="text-sm text-navy mt-6 opacity-80">
+          Not ready yet? <a href="/articles" class="underline hover:text-navy-light">
+            Read my articles
+          </a> or <a href="/courses" class="underline hover:text-navy-light">
+            check out my courses
+          </a> to see my teaching style.
+        </p>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
