@@ -20,7 +20,7 @@
     "@remark-embedder/core": "^3.0.3",
     "@remark-embedder/transformer-oembed": "^5.0.1",
     "@tailwindcss/vite": "^4.1.17",
-    "astro": "^5.16.5",
+    "astro": "^5.16.6",
     "astro-font": "^1.1.0",
     "rehype-autolink-headings": "^7.1.0",
     "rehype-shiki": "^0.0.9",
