@@ -37,7 +37,6 @@ const canonicalUrl = `${siteUrl}${postPath}`;
 let formattedDate = '';
 let readingTime = 5;
 let metaImageUrl = '';
-let kevinRocksImage = `${siteUrl}/kevin_rockon.jpg`;
 let metaDescription = '';
 
 if (type === 'blog') {
@@ -50,7 +49,8 @@ if (type === 'blog') {
   const wordCount = remarkPluginFrontmatter?.wordCount || 0;
   readingTime = Math.ceil(wordCount / 200) || entry.data.timeToRead || 5;
 
-  metaImageUrl = `https://previewify.app/generate/templates/769/meta?url=${siteUrl}${postPath}`;
+  // Use static OG image (generated via npm run generate:og)
+  metaImageUrl = `${siteUrl}/og/${slug}.png`;
 
   metaDescription =
     entry.data.summary && entry.data.summary.trim() !== ''
@@ -82,11 +82,6 @@ if (type === 'blog') {
         <meta property="og:url" content={canonicalUrl} />
         <meta property="og:type" content="article" />
 
-        <!-- Previewify -->
-        <meta name="previewify:title" content={entry.data.title} />
-        <meta name="previewify:reading_time" content={`${readingTime} min read`} />
-        <meta name="previewify:category" content="Articles" />
-        <meta name="previewify:image" content={kevinRocksImage} />
       </>
     )}
   </Fragment>
