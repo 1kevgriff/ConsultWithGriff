@@ -22,8 +22,8 @@ if (!fs.existsSync(OG_OUTPUT_DIR)) {
  * Extract slug from blog post filename or frontmatter permalink
  */
 function getSlug(filename, frontmatter) {
-  // Use permalink from frontmatter if available
-  if (frontmatter.permalink) {
+  // Use permalink from frontmatter if available and not empty
+  if (frontmatter.permalink && frontmatter.permalink.trim()) {
     return frontmatter.permalink;
   }
   // Otherwise, derive from filename (remove date prefix and extension)
@@ -37,6 +37,9 @@ function getSlug(filename, frontmatter) {
  * Load author image as base64
  */
 function loadAuthorImage() {
+  if (!fs.existsSync(AUTHOR_IMAGE)) {
+    throw new Error(`Author image not found at: ${AUTHOR_IMAGE}`);
+  }
   const imageBuffer = fs.readFileSync(AUTHOR_IMAGE);
   return imageBuffer.toString("base64");
 }

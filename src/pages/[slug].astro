@@ -58,6 +58,8 @@ if (type === 'blog') {
       : entry.data.excerpt || entry.data.description;
 } else {
   metaDescription = entry.data.excerpt || entry.data.title;
+  // Use default OG image for docs pages
+  metaImageUrl = `${siteUrl}/og/default.png`;
 }
 ---
 
@@ -65,25 +67,20 @@ if (type === 'blog') {
   <Fragment slot="head">
     <link rel="canonical" href={canonicalUrl} />
 
-    {type === 'blog' && (
-      <>
-        <!-- Twitter Card -->
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:description" content={entry.data.summary} />
-        <meta name="twitter:title" content={entry.data.title} />
-        <meta name="twitter:site" content="@1kevgriff" />
-        <meta name="twitter:image" content={metaImageUrl} />
-        <meta name="twitter:creator" content="@1kevgriff" />
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:description" content={metaDescription} />
+    <meta name="twitter:title" content={entry.data.title} />
+    <meta name="twitter:site" content="@1kevgriff" />
+    <meta name="twitter:image" content={metaImageUrl} />
+    <meta name="twitter:creator" content="@1kevgriff" />
 
-        <!-- Open Graph -->
-        <meta property="og:image" content={metaImageUrl} />
-        <meta property="og:title" content={entry.data.title} />
-        <meta property="og:description" content={metaDescription} />
-        <meta property="og:url" content={canonicalUrl} />
-        <meta property="og:type" content="article" />
-
-      </>
-    )}
+    <!-- Open Graph -->
+    <meta property="og:image" content={metaImageUrl} />
+    <meta property="og:title" content={entry.data.title} />
+    <meta property="og:description" content={metaDescription} />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:type" content={type === 'blog' ? 'article' : 'website'} />
   </Fragment>
 
   <div class="mx-auto my-16 max-w-7xl px-4">
