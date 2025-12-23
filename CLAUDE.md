@@ -105,8 +105,11 @@ Content frontmatter maintains compatibility with the original Gridsome schema, i
 
 ## Meta Images & SEO
 
-Blog posts use Previewify for dynamic social media images:
-- Meta image URL pattern: `https://previewify.app/generate/templates/769/meta?url={siteUrl}{postPath}`
+Blog posts use static OpenGraph images generated via NanoBanana Pro API (Google Gemini 3 Pro Image):
+- Images stored in `public/og/{slug}.png`
+- Generate missing images: `npm run generate:og` (requires `GEMINI_API_KEY` env var)
+- Script: `scripts/generate-og-images.js`
+- Design: Author photo on right, title with white+cyan text on left, navy/purple gradient with circuit board patterns
 - Twitter Card and Open Graph metadata configured per post
 - Canonical URLs for all pages
 - Site domain: `https://consultwithgriff.com`
