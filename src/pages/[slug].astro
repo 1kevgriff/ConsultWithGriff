@@ -37,7 +37,6 @@ const canonicalUrl = `${siteUrl}${postPath}`;
 let formattedDate = '';
 let readingTime = 5;
 let metaImageUrl = '';
-let kevinRocksImage = `${siteUrl}/kevin_rockon.jpg`;
 let metaDescription = '';
 
 if (type === 'blog') {
@@ -50,7 +49,8 @@ if (type === 'blog') {
   const wordCount = remarkPluginFrontmatter?.wordCount || 0;
   readingTime = Math.ceil(wordCount / 200) || entry.data.timeToRead || 5;
 
-  metaImageUrl = `https://previewify.app/generate/templates/769/meta?url=${siteUrl}${postPath}`;
+  // Use static OG image (generated via npm run generate:og)
+  metaImageUrl = `${siteUrl}/og/${slug}.png`;
 
   metaDescription =
     entry.data.summary && entry.data.summary.trim() !== ''
@@ -58,6 +58,8 @@ if (type === 'blog') {
       : entry.data.excerpt || entry.data.description;
 } else {
   metaDescription = entry.data.excerpt || entry.data.title;
+  // Use default OG image for docs pages
+  metaImageUrl = `${siteUrl}/og/default.png`;
 }
 ---
 
@@ -65,30 +67,20 @@ if (type === 'blog') {
   <Fragment slot="head">
     <link rel="canonical" href={canonicalUrl} />
 
-    {type === 'blog' && (
-      <>
-        <!-- Twitter Card -->
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:description" content={entry.data.summary} />
-        <meta name="twitter:title" content={entry.data.title} />
-        <meta name="twitter:site" content="@1kevgriff" />
-        <meta name="twitter:image" content={metaImageUrl} />
-        <meta name="twitter:creator" content="@1kevgriff" />
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:description" content={metaDescription} />
+    <meta name="twitter:title" content={entry.data.title} />
+    <meta name="twitter:site" content="@1kevgriff" />
+    <meta name="twitter:image" content={metaImageUrl} />
+    <meta name="twitter:creator" content="@1kevgriff" />
 
-        <!-- Open Graph -->
-        <meta property="og:image" content={metaImageUrl} />
-        <meta property="og:title" content={entry.data.title} />
-        <meta property="og:description" content={metaDescription} />
-        <meta property="og:url" content={canonicalUrl} />
-        <meta property="og:type" content="article" />
-
-        <!-- Previewify -->
-        <meta name="previewify:title" content={entry.data.title} />
-        <meta name="previewify:reading_time" content={`${readingTime} min read`} />
-        <meta name="previewify:category" content="Articles" />
-        <meta name="previewify:image" content={kevinRocksImage} />
-      </>
-    )}
+    <!-- Open Graph -->
+    <meta property="og:image" content={metaImageUrl} />
+    <meta property="og:title" content={entry.data.title} />
+    <meta property="og:description" content={metaDescription} />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:type" content={type === 'blog' ? 'article' : 'website'} />
   </Fragment>
 
   <div class="mx-auto my-16 max-w-7xl px-4">
