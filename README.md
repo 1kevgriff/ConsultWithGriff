@@ -1,43 +1,66 @@
-# Astro Starter Kit: Minimal
+# Kevin W. Griffin's Personal Website & Blog
 
-```sh
-npm create astro@latest -- --template minimal
+Personal website and blog built with [Astro](https://astro.build), featuring articles on software development, consulting, and technology.
+
+**Live site:** [consultwithgriff.com](https://consultwithgriff.com)
+
+## Tech Stack
+
+- **Framework:** Astro
+- **Styling:** Tailwind CSS v4
+- **Language:** TypeScript
+- **Deployment:** Azure Static Web Apps
+
+## Development
+
+```bash
+# Install dependencies
+npm install
+
+# Start dev server at localhost:4321
+npm run dev
+
+# Build production site to ./dist/
+npm run build
+
+# Preview production build locally
+npm run preview
+
+# Type checking
+npm run type-check
+
+# Code formatting
+npm run format
+
+# Linting
+npm run lint
 ```
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+## Project Structure
 
-## 🚀 Project Structure
-
-Inside of your Astro project, you'll see the following folders and files:
-
-```text
+```
 /
-├── public/
+├── public/              # Static assets (images, fonts, etc.)
 ├── src/
-│   └── pages/
-│       └── index.astro
-└── package.json
+│   ├── components/      # Reusable Astro components
+│   ├── content/
+│   │   ├── blog/        # Blog posts (markdown)
+│   │   └── docs/        # Documentation pages
+│   ├── layouts/         # Page layouts
+│   ├── pages/           # Route pages
+│   └── styles/          # Global styles
+├── scripts/             # Build and utility scripts
+└── astro.config.mjs     # Astro configuration
 ```
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+## Content Collections
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+The site uses Astro's Content Collections API:
 
-Any static assets, like images, can be placed in the `public/` directory.
+- **Blog** (`src/content/blog/`) - Markdown blog posts with frontmatter for title, date, tags, categories, and more
+- **Docs** (`src/content/docs/`) - Static documentation pages for consulting, courses, and other content
 
-## 🧞 Commands
+## Learn More
 
-All commands are run from the root of the project, from a terminal:
-
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+- [Astro Documentation](https://docs.astro.build)
+- [Astro Discord](https://astro.build/chat)
