@@ -27,9 +27,34 @@ const isActive = (href: string) => {
       </h1>
     </div>
 
+    <!-- Mobile Menu Button -->
+    <button
+      id="mobile-menu-toggle"
+      type="button"
+      class="relative w-10 h-10 flex flex-col items-center justify-center lg:hidden focus:outline-none focus:ring-2 focus:ring-gold focus:ring-offset-2 focus:ring-offset-navy rounded"
+      aria-expanded="false"
+      aria-controls="mobile-menu"
+      aria-label="Toggle navigation menu"
+    >
+      <span class="sr-only">Open main menu</span>
+      <span
+        class="hamburger-line block absolute h-0.5 w-6 bg-white transform transition-all duration-300 ease-in-out"
+        aria-hidden="true"
+      ></span>
+      <span
+        class="hamburger-line block absolute h-0.5 w-6 bg-white transform transition-all duration-300 ease-in-out"
+        aria-hidden="true"
+      ></span>
+      <span
+        class="hamburger-line block absolute h-0.5 w-6 bg-white transform transition-all duration-300 ease-in-out"
+        aria-hidden="true"
+      ></span>
+    </button>
+
     <!-- Navigation Links -->
     <ul
-      class="items-center flex-grow block w-full mt-8 font-semibold tracking-wide uppercase lg:flex lg:flex-initial lg:w-auto lg:mt-0 lg:space-x-8"
+      id="mobile-menu"
+      class="hidden lg:flex items-center flex-grow w-full mt-8 font-semibold tracking-wide uppercase lg:flex-initial lg:w-auto lg:mt-0 lg:space-x-8"
     >
       {
         navItems.map((item) => (
@@ -60,4 +85,99 @@ const isActive = (href: string) => {
   header a:hover {
     text-decoration: none;
   }
+
+  /* Screen reader only utility */
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+
+  /* Hamburger line positioning - closed state */
+  .hamburger-line:nth-child(1) {
+    transform: translateY(-8px);
+  }
+
+  .hamburger-line:nth-child(2) {
+    transform: translateY(0);
+  }
+
+  .hamburger-line:nth-child(3) {
+    transform: translateY(8px);
+  }
+
+  /* Hamburger to X animation - open state */
+  #mobile-menu-toggle.menu-open .hamburger-line:nth-child(1) {
+    transform: translateY(0) rotate(45deg);
+    background-color: var(--color-gold);
+  }
+
+  #mobile-menu-toggle.menu-open .hamburger-line:nth-child(2) {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+
+  #mobile-menu-toggle.menu-open .hamburger-line:nth-child(3) {
+    transform: translateY(0) rotate(-45deg);
+    background-color: var(--color-gold);
+  }
 </style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const menuToggle = document.getElementById('mobile-menu-toggle');
+    const mobileMenu = document.getElementById('mobile-menu');
+
+    if (!menuToggle || !mobileMenu) return;
+
+    const toggleMenu = () => {
+      const isOpen = menuToggle.getAttribute('aria-expanded') === 'true';
+      menuToggle.setAttribute('aria-expanded', String(!isOpen));
+      mobileMenu.classList.toggle('hidden', isOpen);
+      mobileMenu.classList.toggle('block', !isOpen);
+      menuToggle.classList.toggle('menu-open', !isOpen);
+    };
+
+    menuToggle.addEventListener('click', toggleMenu);
+
+    // Close menu when clicking a nav link
+    mobileMenu.querySelectorAll('a').forEach((link) => {
+      link.addEventListener('click', () => {
+        if (window.innerWidth < 1024) {
+          menuToggle.setAttribute('aria-expanded', 'false');
+          mobileMenu.classList.add('hidden');
+          mobileMenu.classList.remove('block');
+          menuToggle.classList.remove('menu-open');
+        }
+      });
+    });
+
+    // Close menu when clicking outside
+    document.addEventListener('click', (event) => {
+      const target = event.target as HTMLElement;
+      if (!menuToggle.contains(target) && !mobileMenu.contains(target)) {
+        if (menuToggle.getAttribute('aria-expanded') === 'true') {
+          menuToggle.setAttribute('aria-expanded', 'false');
+          mobileMenu.classList.add('hidden');
+          mobileMenu.classList.remove('block');
+          menuToggle.classList.remove('menu-open');
+        }
+      }
+    });
+
+    // Reset on resize to desktop
+    window.addEventListener('resize', () => {
+      if (window.innerWidth >= 1024) {
+        menuToggle.setAttribute('aria-expanded', 'false');
+        mobileMenu.classList.remove('block');
+        menuToggle.classList.remove('menu-open');
+      }
+    });
+  });
+</script>
