@@ -17,11 +17,17 @@ const isActive = (href: string) => {
 ---
 
 <header class="bg-navy sticky top-0 z-50 shadow-md">
-  <nav class="container flex flex-wrap items-center justify-between py-6 px-4 mx-auto lg:px-8">
+  <nav
+    class="container flex flex-wrap items-center justify-between py-6 px-4 mx-auto lg:px-8"
+    aria-label="Main navigation"
+  >
     <!-- Logo/Brand -->
     <div>
       <h1 class="text-2xl font-bold">
-        <a href="/" class="!text-white hover:!text-gold no-underline transition-colors">
+        <a
+          href="/"
+          class="!text-white hover:!text-gold no-underline transition-colors focus:outline-none focus:ring-2 focus:ring-gold focus:ring-offset-2 focus:ring-offset-navy rounded"
+        >
           Kevin W. Griffin
         </a>
       </h1>
@@ -36,7 +42,7 @@ const isActive = (href: string) => {
       aria-controls="mobile-menu"
       aria-label="Toggle navigation menu"
     >
-      <span class="sr-only">Open main menu</span>
+      <span id="menu-toggle-text" class="sr-only">Open main menu</span>
       <span
         class="hamburger-line block absolute h-0.5 w-6 bg-white transform transition-all duration-300 ease-in-out"
         aria-hidden="true"
@@ -62,9 +68,10 @@ const isActive = (href: string) => {
             <a
               href={item.href}
               class:list={[
-                '!text-white hover:!text-gold transition-colors no-underline',
+                '!text-white hover:!text-gold transition-colors no-underline focus:outline-none focus:ring-2 focus:ring-gold focus:ring-offset-2 focus:ring-offset-navy rounded px-1',
                 { '!text-gold border-b-2 border-gold': isActive(item.href) },
               ]}
+              aria-current={isActive(item.href) ? 'page' : undefined}
             >
               {item.label}
             </a>
@@ -127,33 +134,69 @@ const isActive = (href: string) => {
     transform: translateY(0) rotate(-45deg);
     background-color: var(--color-gold);
   }
+
+  /* Respect reduced motion preferences */
+  @media (prefers-reduced-motion: reduce) {
+    .hamburger-line {
+      transition: none;
+    }
+  }
 </style>
 
 <script>
   document.addEventListener('DOMContentLoaded', () => {
     const menuToggle = document.getElementById('mobile-menu-toggle');
     const mobileMenu = document.getElementById('mobile-menu');
+    const menuToggleText = document.getElementById('menu-toggle-text');
 
     if (!menuToggle || !mobileMenu) return;
 
+    const closeMenu = () => {
+      menuToggle.setAttribute('aria-expanded', 'false');
+      mobileMenu.classList.add('hidden');
+      mobileMenu.classList.remove('block');
+      menuToggle.classList.remove('menu-open');
+      if (menuToggleText) {
+        menuToggleText.textContent = 'Open main menu';
+      }
+    };
+
+    const openMenu = () => {
+      menuToggle.setAttribute('aria-expanded', 'true');
+      mobileMenu.classList.remove('hidden');
+      mobileMenu.classList.add('block');
+      menuToggle.classList.add('menu-open');
+      if (menuToggleText) {
+        menuToggleText.textContent = 'Close main menu';
+      }
+    };
+
     const toggleMenu = () => {
       const isOpen = menuToggle.getAttribute('aria-expanded') === 'true';
-      menuToggle.setAttribute('aria-expanded', String(!isOpen));
-      mobileMenu.classList.toggle('hidden', isOpen);
-      mobileMenu.classList.toggle('block', !isOpen);
-      menuToggle.classList.toggle('menu-open', !isOpen);
+      if (isOpen) {
+        closeMenu();
+      } else {
+        openMenu();
+      }
     };
 
     menuToggle.addEventListener('click', toggleMenu);
+
+    // Close menu when pressing Escape key
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape') {
+        if (menuToggle.getAttribute('aria-expanded') === 'true') {
+          closeMenu();
+          menuToggle.focus();
+        }
+      }
+    });
 
     // Close menu when clicking a nav link
     mobileMenu.querySelectorAll('a').forEach((link) => {
       link.addEventListener('click', () => {
         if (window.innerWidth < 1024) {
-          menuToggle.setAttribute('aria-expanded', 'false');
-          mobileMenu.classList.add('hidden');
-          mobileMenu.classList.remove('block');
-          menuToggle.classList.remove('menu-open');
+          closeMenu();
         }
       });
     });
@@ -163,10 +206,7 @@ const isActive = (href: string) => {
       const target = event.target as HTMLElement;
       if (!menuToggle.contains(target) && !mobileMenu.contains(target)) {
         if (menuToggle.getAttribute('aria-expanded') === 'true') {
-          menuToggle.setAttribute('aria-expanded', 'false');
-          mobileMenu.classList.add('hidden');
-          mobileMenu.classList.remove('block');
-          menuToggle.classList.remove('menu-open');
+          closeMenu();
         }
       }
     });
@@ -174,9 +214,7 @@ const isActive = (href: string) => {
     // Reset on resize to desktop
     window.addEventListener('resize', () => {
       if (window.innerWidth >= 1024) {
-        menuToggle.setAttribute('aria-expanded', 'false');
-        mobileMenu.classList.remove('block');
-        menuToggle.classList.remove('menu-open');
+        closeMenu();
       }
     });
   });
