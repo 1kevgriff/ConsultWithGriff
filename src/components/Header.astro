@@ -17,19 +17,50 @@ const isActive = (href: string) => {
 ---
 
 <header class="bg-navy sticky top-0 z-50 shadow-md">
-  <nav class="container flex flex-wrap items-center justify-between py-6 px-4 mx-auto lg:px-8">
+  <nav
+    class="container flex flex-wrap items-center justify-between py-6 px-4 mx-auto lg:px-8"
+    aria-label="Main navigation"
+  >
     <!-- Logo/Brand -->
     <div>
       <h1 class="text-2xl font-bold">
-        <a href="/" class="!text-white hover:!text-gold no-underline transition-colors">
+        <a
+          href="/"
+          class="!text-white hover:!text-gold no-underline transition-colors focus:outline-none focus:ring-2 focus:ring-gold focus:ring-offset-2 focus:ring-offset-navy rounded"
+        >
           Kevin W. Griffin
         </a>
       </h1>
     </div>
 
+    <!-- Mobile Menu Button -->
+    <button
+      id="mobile-menu-toggle"
+      type="button"
+      class="relative w-10 h-10 flex flex-col items-center justify-center lg:hidden focus:outline-none focus:ring-2 focus:ring-gold focus:ring-offset-2 focus:ring-offset-navy rounded"
+      aria-expanded="false"
+      aria-controls="mobile-menu"
+      aria-label="Toggle navigation menu"
+    >
+      <span id="menu-toggle-text" class="sr-only">Open main menu</span>
+      <span
+        class="hamburger-line block absolute h-0.5 w-6 bg-white transform transition-all duration-300 ease-in-out"
+        aria-hidden="true"
+      ></span>
+      <span
+        class="hamburger-line block absolute h-0.5 w-6 bg-white transform transition-all duration-300 ease-in-out"
+        aria-hidden="true"
+      ></span>
+      <span
+        class="hamburger-line block absolute h-0.5 w-6 bg-white transform transition-all duration-300 ease-in-out"
+        aria-hidden="true"
+      ></span>
+    </button>
+
     <!-- Navigation Links -->
     <ul
-      class="items-center flex-grow block w-full mt-8 font-semibold tracking-wide uppercase lg:flex lg:flex-initial lg:w-auto lg:mt-0 lg:space-x-8"
+      id="mobile-menu"
+      class="hidden lg:flex items-center flex-grow w-full mt-8 font-semibold tracking-wide uppercase lg:flex-initial lg:w-auto lg:mt-0 lg:space-x-8"
     >
       {
         navItems.map((item) => (
@@ -37,9 +68,10 @@ const isActive = (href: string) => {
             <a
               href={item.href}
               class:list={[
-                '!text-white hover:!text-gold transition-colors no-underline',
+                '!text-white hover:!text-gold transition-colors no-underline focus:outline-none focus:ring-2 focus:ring-gold focus:ring-offset-2 focus:ring-offset-navy rounded px-1',
                 { '!text-gold border-b-2 border-gold': isActive(item.href) },
               ]}
+              aria-current={isActive(item.href) ? 'page' : undefined}
             >
               {item.label}
             </a>
@@ -60,4 +92,130 @@ const isActive = (href: string) => {
   header a:hover {
     text-decoration: none;
   }
+
+  /* Screen reader only utility */
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+
+  /* Hamburger line positioning - closed state */
+  .hamburger-line:nth-child(1) {
+    transform: translateY(-8px);
+  }
+
+  .hamburger-line:nth-child(2) {
+    transform: translateY(0);
+  }
+
+  .hamburger-line:nth-child(3) {
+    transform: translateY(8px);
+  }
+
+  /* Hamburger to X animation - open state */
+  #mobile-menu-toggle.menu-open .hamburger-line:nth-child(1) {
+    transform: translateY(0) rotate(45deg);
+    background-color: var(--color-gold);
+  }
+
+  #mobile-menu-toggle.menu-open .hamburger-line:nth-child(2) {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+
+  #mobile-menu-toggle.menu-open .hamburger-line:nth-child(3) {
+    transform: translateY(0) rotate(-45deg);
+    background-color: var(--color-gold);
+  }
+
+  /* Respect reduced motion preferences */
+  @media (prefers-reduced-motion: reduce) {
+    .hamburger-line {
+      transition: none;
+    }
+  }
 </style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const menuToggle = document.getElementById('mobile-menu-toggle');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const menuToggleText = document.getElementById('menu-toggle-text');
+
+    if (!menuToggle || !mobileMenu) return;
+
+    const closeMenu = () => {
+      menuToggle.setAttribute('aria-expanded', 'false');
+      mobileMenu.classList.add('hidden');
+      mobileMenu.classList.remove('block');
+      menuToggle.classList.remove('menu-open');
+      if (menuToggleText) {
+        menuToggleText.textContent = 'Open main menu';
+      }
+    };
+
+    const openMenu = () => {
+      menuToggle.setAttribute('aria-expanded', 'true');
+      mobileMenu.classList.remove('hidden');
+      mobileMenu.classList.add('block');
+      menuToggle.classList.add('menu-open');
+      if (menuToggleText) {
+        menuToggleText.textContent = 'Close main menu';
+      }
+    };
+
+    const toggleMenu = () => {
+      const isOpen = menuToggle.getAttribute('aria-expanded') === 'true';
+      if (isOpen) {
+        closeMenu();
+      } else {
+        openMenu();
+      }
+    };
+
+    menuToggle.addEventListener('click', toggleMenu);
+
+    // Close menu when pressing Escape key
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape') {
+        if (menuToggle.getAttribute('aria-expanded') === 'true') {
+          closeMenu();
+          menuToggle.focus();
+        }
+      }
+    });
+
+    // Close menu when clicking a nav link
+    mobileMenu.querySelectorAll('a').forEach((link) => {
+      link.addEventListener('click', () => {
+        if (window.innerWidth < 1024) {
+          closeMenu();
+        }
+      });
+    });
+
+    // Close menu when clicking outside
+    document.addEventListener('click', (event) => {
+      const target = event.target as HTMLElement;
+      if (!menuToggle.contains(target) && !mobileMenu.contains(target)) {
+        if (menuToggle.getAttribute('aria-expanded') === 'true') {
+          closeMenu();
+        }
+      }
+    });
+
+    // Reset on resize to desktop
+    window.addEventListener('resize', () => {
+      if (window.innerWidth >= 1024) {
+        closeMenu();
+      }
+    });
+  });
+</script>
