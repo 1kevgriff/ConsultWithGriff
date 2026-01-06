@@ -39,7 +39,10 @@ async function imageExists(imagePath) {
   }
 
   // Handle relative paths
-  const fullPath = path.join(PUBLIC_DIR, imagePath.startsWith('/') ? imagePath.slice(1) : imagePath);
+  const fullPath = path.join(
+    PUBLIC_DIR,
+    imagePath.startsWith('/') ? imagePath.slice(1) : imagePath
+  );
 
   try {
     await fs.access(fullPath);
