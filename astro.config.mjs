@@ -4,13 +4,14 @@ import remarkGfm from 'remark-gfm';
 import rehypeExternalLinks from 'rehype-external-links';
 import remarkYoutube from 'remark-youtube';
 import rehypeSlug from 'rehype-slug';
+import { remarkReadingTime } from './remark-reading-time.mjs';
 
 import tailwindcss from '@tailwindcss/vite';
 
 // https://astro.build/config
 export default defineConfig({
   markdown: {
-    remarkPlugins: [remarkGfm, remarkYoutube],
+    remarkPlugins: [remarkGfm, remarkYoutube, remarkReadingTime],
     rehypePlugins: [
       rehypeSlug,
       [

@@ -57,6 +57,7 @@ The site uses Astro's Content Collections API with two main collections defined 
 ### Layout System
 
 Single base layout: `src/layouts/BaseLayout.astro`
+
 - Handles all page metadata, fonts (Nunito Sans via astro-font), and structure
 - Green theme with custom Tailwind colors
 - Fixed header navigation: Consulting, Articles, Courses, Contact
@@ -77,6 +78,7 @@ Single base layout: `src/layouts/BaseLayout.astro`
 ### Markdown Processing
 
 Configured in `astro.config.mjs`:
+
 - **remark-gfm** - GitHub Flavored Markdown support
 - **remark-external-links** - Opens external links in new tabs with security attributes
 - **Shiki** syntax highlighting with `material-theme-palenight` theme
@@ -85,6 +87,7 @@ Configured in `astro.config.mjs`:
 ### Deployment
 
 Deployed to Azure Static Web Apps:
+
 - Configuration in `public/staticwebapp.config.json`
 - Extensive redirect rules (190+ redirects) for legacy URLs
 - Custom 404 handling via `/404/index.html`
@@ -106,6 +109,7 @@ Content frontmatter maintains compatibility with the original Gridsome schema, i
 ## Meta Images & SEO
 
 Blog posts use static OpenGraph images generated via NanoBanana Pro API (Google Gemini 3 Pro Image):
+
 - Images stored in `public/og/{slug}.png`
 - Generate missing images: `npm run generate:og` (requires `GEMINI_API_KEY` env var)
 - Script: `scripts/generate-og-images.js`

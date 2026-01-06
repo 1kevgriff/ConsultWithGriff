@@ -1,9 +1,9 @@
 ---
-title: "Definition of a Computer Scientist"
+title: 'Definition of a Computer Scientist'
 date: 2009-03-04T15:26:24Z
 permalink: definition-of-a-computer-scientist
-description: "Challenging the academic notion that computer scientists should innovate, arguing instead that the real job is to solve problems effectively."
-summary: "What is a computer scientist? A person that innovates? Or a person that solves problems?"
+description: 'Challenging the academic notion that computer scientists should innovate, arguing instead that the real job is to solve problems effectively.'
+summary: 'What is a computer scientist? A person that innovates? Or a person that solves problems?'
 tags:
   - Deep Thoughts
 categories:

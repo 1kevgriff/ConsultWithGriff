@@ -1,9 +1,9 @@
 ---
-title: "Leaving It Better Than You Found It"
+title: 'Leaving It Better Than You Found It'
 date: 2010-01-26T06:00:00Z
 permalink: leaving-it-better-than-you-found-it
-description: "A reflection on software development practices inspired by home renovation - why leaving code better than you found it benefits everyone."
-summary: "Everything you touch in your life, leave it better than you found it."
+description: 'A reflection on software development practices inspired by home renovation - why leaving code better than you found it benefits everyone.'
+summary: 'Everything you touch in your life, leave it better than you found it.'
 tags:
   - Software Development
   - Best Practices

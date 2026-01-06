@@ -1,8 +1,8 @@
 ---
-title: "Building a Twitch Badge For My Site"
+title: 'Building a Twitch Badge For My Site'
 date: 2020-05-18T15:30:00Z
 permalink: building-a-twitch-badge
-description: "Learn how to create a live streaming status badge for your website using TwitchLib, Azure Functions, and Shields.io."
+description: 'Learn how to create a live streaming status badge for your website using TwitchLib, Azure Functions, and Shields.io.'
 summary: "I wanted viewers of my site to know if and when I was currently streaming on my Twitch channel.  So I created a handy badge that tells them when I'm online.  Here's how I did it!"
 tags:
   - Twitch
@@ -21,7 +21,7 @@ On my [stream](https://www.twitch.tv/1kevgriff), I wanted to play around with bu
 
 https://www.youtube.com/watch?v=ht27gkTCeBQ
 
-First task on the list was an indicator on *this site* that would tell you if was currently online.  Eventually, this will extend to other tools - but first things first.
+First task on the list was an indicator on _this site_ that would tell you if was currently online. Eventually, this will extend to other tools - but first things first.
 
 Here are the steps I had to follow in order to build my Twitch badge:
 
@@ -30,7 +30,8 @@ Here are the steps I had to follow in order to build my Twitch badge:
 3. Display the badge on my site
 
 ## TwitchLib
-When creating an endpoint that would tell me if I was online, I wanted to start with a solid base.  Turns out there is already an amazing open source library called TwitchLib which helps facilitate the connection to the Twitch APIs.
+
+When creating an endpoint that would tell me if I was online, I wanted to start with a solid base. Turns out there is already an amazing open source library called TwitchLib which helps facilitate the connection to the Twitch APIs.
 
 ![TwitchLib](./images/twitchlib.png)
 
@@ -41,12 +42,13 @@ var user = await _api.V5.Users.GetUserByNameAsync(channelName);
 var isOnline = await _api.V5.Streams.BroadcasterOnlineAsync(user.Matches.First().Id);
 ```
 
-Turns out, I had to take an additional step of getting my channel `ID` instead of just using my channel name.  If anyone knows another way of doing this that's easier/faster/better, please let me know.
+Turns out, I had to take an additional step of getting my channel `ID` instead of just using my channel name. If anyone knows another way of doing this that's easier/faster/better, please let me know.
 
 ## Azure Functions
-With my new ability to get channel status at the blink of an eye, I needed a way to query this whenever some came to my site.  
 
-Serverless was the answer.  
+With my new ability to get channel status at the blink of an eye, I needed a way to query this whenever some came to my site.
+
+Serverless was the answer.
 
 I wrote a simple Azure Function for polling Twitch to see if I was online.
 
@@ -72,13 +74,13 @@ public static async Task<IActionResult> Run(
 
 This method would let me call a HTTP endpoint, like `https://myazurefunctions.com/api/IsChannelOnline?channelName=1kevgriff` and it would return a response!
 
-> Note: The `await twitch.IsChannelOnlineAsync(name)` is a wrapper around the TwitchLib code I wrote above.  Sorry if that was misleading!
-
+> Note: The `await twitch.IsChannelOnlineAsync(name)` is a wrapper around the TwitchLib code I wrote above. Sorry if that was misleading!
 
 ## Shields.io
-With my new Azure Function deployed, I need to set up to show if it said online or offline.  
 
-My buddy, [Mike Buckbee](https://twitter.com/mbuckbee), had an amazing idea - why not make it look like build badges used on various GitHub pages.  Another buddy, [Calvin Allen](https://twitter.com/_CalvinAllen), pointed out I could use [Shields.io](https://shields.io/) to build the badge automatically.
+With my new Azure Function deployed, I need to set up to show if it said online or offline.
+
+My buddy, [Mike Buckbee](https://twitter.com/mbuckbee), had an amazing idea - why not make it look like build badges used on various GitHub pages. Another buddy, [Calvin Allen](https://twitter.com/_CalvinAllen), pointed out I could use [Shields.io](https://shields.io/) to build the badge automatically.
 
 To that extent, I could give [Shields.io my Azure Functions endpoint](https://shields.io/endpoint/) and it would build the badge for me.
 
@@ -106,14 +108,14 @@ public class ShieldBadge
 
     /// <summary>
     /// Left Color
-    /// 
+    ///
     /// </summary>
     public string LabelColor { get; set; }
 
     /// <summary>
     /// Style
-    /// 
-    /// Options: flat, plastic, flat-square, for-the-badge, social 
+    ///
+    /// Options: flat, plastic, flat-square, for-the-badge, social
     /// </summary>
     public string Style { get; set; }
 }
@@ -129,12 +131,13 @@ var badge = new ShieldBadge
 ```
 
 ## Adding it to my site
-This was the easiest step.  On my site, I added an image tag pointing to the following URL.
+
+This was the easiest step. On my site, I added an image tag pointing to the following URL.
 
 ```html
 <img
-alt="Am I streaming?"
-src="https://img.shields.io/endpoint?style=for-the-badge&url=https%3A%2F%2Fgriffin-twitch-functions.azurewebsites.net%2Fapi%2FIsChannelOnline%3Fcode%3DxCnE0Jr1XRSamEmyhLUYuJE%2FQ34ovvbST19kl3vOXbvnxIBKCBxzvw%3D%3D%26channelName%3D1kevgriff"
+  alt="Am I streaming?"
+  src="https://img.shields.io/endpoint?style=for-the-badge&url=https%3A%2F%2Fgriffin-twitch-functions.azurewebsites.net%2Fapi%2FIsChannelOnline%3Fcode%3DxCnE0Jr1XRSamEmyhLUYuJE%2FQ34ovvbST19kl3vOXbvnxIBKCBxzvw%3D%3D%26channelName%3D1kevgriff"
 />
 ```
 
@@ -146,6 +149,7 @@ src="https://img.shields.io/endpoint?style=for-the-badge&url=https%3A%2F%2Fgriff
 />
 
 ## Wrap up!
-This was a fun little project that took me about 2 hours to figure out, start to finish.  Full source code is available at [https://github.com/1kevgriff/Griffin.TwitchBot](https://github.com/1kevgriff/Griffin.TwitchBot)..
+
+This was a fun little project that took me about 2 hours to figure out, start to finish. Full source code is available at [https://github.com/1kevgriff/Griffin.TwitchBot](https://github.com/1kevgriff/Griffin.TwitchBot)..
 
 Thanks for following along, and [follow me on Twitch](https://www.twitch.tv/1kevgriff) to see when I go live!

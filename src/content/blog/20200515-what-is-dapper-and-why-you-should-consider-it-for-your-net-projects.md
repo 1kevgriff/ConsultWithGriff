@@ -1,8 +1,8 @@
 ---
-title: "What is Dapper, and why you should consider it for your .NET projects"
+title: 'What is Dapper, and why you should consider it for your .NET projects'
 date: 2020-05-15T09:30:00Z
 permalink: what-is-dapper
-description: "An introduction to Dapper, the micro-ORM that simplifies data mapping in .NET applications with better performance than Entity Framework."
+description: 'An introduction to Dapper, the micro-ORM that simplifies data mapping in .NET applications with better performance than Entity Framework.'
 summary: "I have a pretty firm opinion that if you're using a relational database with .NET, you need to have Dapper in your stack."
 tags:
   - .net
@@ -16,12 +16,13 @@ categories:
 excerpt: "I have a pretty firm opinion that if you're using a relational database with .NET, you need to have Dapper in your stack."
 ---
 
-On the speaking circuit, I've been doing a good number of presentations on Dapper.  My talk is entitled **Better Object Mapping in .NET with Dapper** and this is an attempt to catch the eyes of developers who might have heard of object mapping from things like Entity Framework.  
+On the speaking circuit, I've been doing a good number of presentations on Dapper. My talk is entitled **Better Object Mapping in .NET with Dapper** and this is an attempt to catch the eyes of developers who might have heard of object mapping from things like Entity Framework.
 
 ## What is Dapper?
-Dapper is a `Micro-ORM` or `Micro Object Relational Mapper`.  
 
-Maybe it's better to start at the beginning.  If you're using a relational database, such as SQL Server, MySql, or PostgreSQL, you probably have had to deal with the problem of "how do I turn a result set into an object I can actually do work with?"  
+Dapper is a `Micro-ORM` or `Micro Object Relational Mapper`.
+
+Maybe it's better to start at the beginning. If you're using a relational database, such as SQL Server, MySql, or PostgreSQL, you probably have had to deal with the problem of "how do I turn a result set into an object I can actually do work with?"
 
 ![SQL Result + Object](./images/whatisdapper_data_to_objects.png)
 
@@ -31,19 +32,19 @@ There are a ton of ways to do this currently:
 
 This process is really tedious, and I've written my fair share of code that gets the `string` from ordinal position 0 and the `long` from ordinal position 52.
 
-~~I'm not even going to show demo code, because I don't want you to write it.  Use Dapper.~~
+~~I'm not even going to show demo code, because I don't want you to write it. Use Dapper.~~
 
-EDIT:  Ok - here's how'd you write it.
+EDIT: Ok - here's how'd you write it.
 
-Imagine you have a (relational) database table called `Users`.  It has columns in it.
+Imagine you have a (relational) database table called `Users`. It has columns in it.
 
-|Column|type|
-|------|----|
-|Id|bigint|
-|FirstName|nvarchar(50)|
-|LastName|nvarchar(50)|
-|EmailAddress|nvarchar(255)|
-|DateOfBirth|datetime|
+| Column       | type          |
+| ------------ | ------------- |
+| Id           | bigint        |
+| FirstName    | nvarchar(50)  |
+| LastName     | nvarchar(50)  |
+| EmailAddress | nvarchar(255) |
+| DateOfBirth  | datetime      |
 
 If you wanted to query that content, you could simply write the following SQL:
 
@@ -65,7 +66,7 @@ public class ApplicationUser
 }
 ```
 
-Yeah!  Write a `DataReader`...
+Yeah! Write a `DataReader`...
 
 ```csharp
 var sql = @"SELECT Id, FirstName, LastName, EmailAddress, DateOfBirth
@@ -93,20 +94,19 @@ using (var connection = new SqlConnection(CONNECTION_STRING))
 }
 ```
 
-Not bad, right?  Maybe not, until you're trying to retrieve a 10+ column result set.
+Not bad, right? Maybe not, until you're trying to retrieve a 10+ column result set.
 
-Also, what if you want to change the order of your parameters?  You need to reorder the ordinal positions of your readers.
+Also, what if you want to change the order of your parameters? You need to reorder the ordinal positions of your readers.
 
-> Yes, you can get the ordinal by calling `reader.GetOrdinal("EmailAddress");`.  Please don't do that in the `.ReadAsync()` loop though.  Call it once outside of the loop and cache the results.  Calling `GetOrdinal` for each column on each row read is expensive and will slow down you application.
+> Yes, you can get the ordinal by calling `reader.GetOrdinal("EmailAddress");`. Please don't do that in the `.ReadAsync()` loop though. Call it once outside of the loop and cache the results. Calling `GetOrdinal` for each column on each row read is expensive and will slow down you application.
 
-And the more obvious detail, you need to know the data types for the columsn you're retrieving!  Is it a string? Or a datetime?  Or an Int16, Int32, or Int64??  Wowza.
+And the more obvious detail, you need to know the data types for the columsn you're retrieving! Is it a string? Or a datetime? Or an Int16, Int32, or Int64?? Wowza.
 
+### Data Tables
 
-### Data Tables  
+The first .NET project I worked on back in 2007 used DataTables exclusively for all data access. This was to the extent where I believed DataTables were the ONLY way to get the results of a SQL Query.
 
-The first .NET project I worked on back in 2007 used DataTables exclusively for all data access.  This was to the extent where I believed DataTables were the ONLY way to get the results of a SQL Query.
-
-And DataTables aren't too bad.  The biggest downside to them is that they're memory hogs, and using them with larger datasets can imped performance.
+And DataTables aren't too bad. The biggest downside to them is that they're memory hogs, and using them with larger datasets can imped performance.
 
 Example:
 
@@ -127,11 +127,11 @@ using (var connection = new SqlConnection(CONNECTION_STRING))
 }
 ```
 
-Again - not bad!  This approach is more accessible (in my opinion) than the DataReader.
+Again - not bad! This approach is more accessible (in my opinion) than the DataReader.
 
 ### Entity Framework
 
-EF is the 6,000 pound gorilla in the room.  It's what Microsoft recommends using for data access.  And I have a lot of opinions on why I don't like Entity Framework for data access, but I don't feel this is the place nor the time.
+EF is the 6,000 pound gorilla in the room. It's what Microsoft recommends using for data access. And I have a lot of opinions on why I don't like Entity Framework for data access, but I don't feel this is the place nor the time.
 
 By the way, it's great for demos.
 
@@ -174,12 +174,11 @@ using (var connection = new SqlConnection(CONNECTION_STRING))
 }
 ```
 
-That's it.  No need to `.Open` the connection.  Just create it and call the `Query` or `QueryAsync` method.  
+That's it. No need to `.Open` the connection. Just create it and call the `Query` or `QueryAsync` method.
 
+## What about parameters? How do I avoid SQL injection?
 
-## What about parameters?  How do I avoid SQL injection?
-
-That's a great question.  Let's go back to the `DataReader` example and see how it was done there:
+That's a great question. Let's go back to the `DataReader` example and see how it was done there:
 
 ```csharp
 var sql = @"SELECT Id, FirstName, LastName, EmailAddress, DateOfBirth
@@ -213,15 +212,15 @@ using (var connection = new SqlConnection(CONNECTION_STRING))
 }
 ```
 
-What's the difference?  First, the SQL statement has a WHERE clause in it.  I've added a parameter with the `@firstName` identifier.
+What's the difference? First, the SQL statement has a WHERE clause in it. I've added a parameter with the `@firstName` identifier.
 
-> Note: Please please please parameterize your SQL queries. This is one of the easiest things you can do to protect your databases.  
+> Note: Please please please parameterize your SQL queries. This is one of the easiest things you can do to protect your databases.
 
-In order for the query to work, you need to pass the parameter value to the data reader.  I had to take an extra step by creating a full `SqlCommand` instead of just executing a reader.  Not a big deal - but it's necessary to add parameters.
+In order for the query to work, you need to pass the parameter value to the data reader. I had to take an extra step by creating a full `SqlCommand` instead of just executing a reader. Not a big deal - but it's necessary to add parameters.
 
 `command.Parameters.AddWithValue("firstName", "Kevin");` tells the command which parameter I want to map to and the value to use for it.
 
-Now!  Let's do the same with Dapper.
+Now! Let's do the same with Dapper.
 
 ```csharp
 var sql = @"SELECT Id, FirstName, LastName, EmailAddress, DateOfBirth
@@ -236,28 +235,28 @@ using (var connection = new SqlConnection(CONNECTION_STRING))
 
 The next parameter of `QueryAsync` (or many other Dapper methods) is a parameter object.
 
-I'm passing an anonymouse object for my parameters, and Dapper will assist with telling the database that I want `@firstName` to map to `Kevin`.  I don't need to worry about any of that work.
+I'm passing an anonymouse object for my parameters, and Dapper will assist with telling the database that I want `@firstName` to map to `Kevin`. I don't need to worry about any of that work.
 
 ## It seems like you're over-simplfying?
 
-I totally am.  But my goal here is to tell you what Dapper is meant to do.  
+I totally am. But my goal here is to tell you what Dapper is meant to do.
 
-Most database operations you need to make: SELECT, UPDATE, INSERT, DELETE are supported with a couple lines of code.  I'm planning several follow up posts that cover scenarios around these topics, but I felt this article would become more reference than "hey, this is a tool I like and you should check it out."
+Most database operations you need to make: SELECT, UPDATE, INSERT, DELETE are supported with a couple lines of code. I'm planning several follow up posts that cover scenarios around these topics, but I felt this article would become more reference than "hey, this is a tool I like and you should check it out."
 
->[Rob](https://twitter.com/robconery) made a great point earlier, I'm not really diving in deep enough into **mapping**.  There is a rabbit hole of use-cases where Dapper can be combined with other awesome libaries, like [AutoMapper](https://github.com/AutoMapper/AutoMapper).  I'm not diving in deep here, but it seems like a great idea for future posts.
+> [Rob](https://twitter.com/robconery) made a great point earlier, I'm not really diving in deep enough into **mapping**. There is a rabbit hole of use-cases where Dapper can be combined with other awesome libaries, like [AutoMapper](https://github.com/AutoMapper/AutoMapper). I'm not diving in deep here, but it seems like a great idea for future posts.
 
-Use Stored Procedures?  [No problem](/dapper-stored-procedures)
+Use Stored Procedures? [No problem](/dapper-stored-procedures)
 
-I also use Dapper in every single application I scaffold out.  It's *that* critical to my project success.
+I also use Dapper in every single application I scaffold out. It's _that_ critical to my project success.
 
 ## Is it open-source?
 
-Yes!  And even better, it's built by the good folks over at [StackOverflow](https://stackoverflow.com).  Maybe you've heard of it.  It's one of the most frequented websites on the internet, and they do not play around when it comes to performance.  
+Yes! And even better, it's built by the good folks over at [StackOverflow](https://stackoverflow.com). Maybe you've heard of it. It's one of the most frequented websites on the internet, and they do not play around when it comes to performance.
 
 Dapper was created by their team in order to make mapping data to objects as painless as possible while being fast. [Check out their performance benchmarks](https://github.com/DapperLib/Dapper#performance)
 
 ## Give it a try!
 
-If you're jumping into Dapper for the first time, take it easy!  There are a lot of great examples in the [GitHub repo](https://github.com/DapperLib/Dapper) for getting started.
+If you're jumping into Dapper for the first time, take it easy! There are a lot of great examples in the [GitHub repo](https://github.com/DapperLib/Dapper) for getting started.
 
-If you run into problems, feel free to ask me on [Twitter](https://twitter.com/1kevgriff).  I'm happy to research your questions and write some detailed explainations on more complex use-cases.
+If you run into problems, feel free to ask me on [Twitter](https://twitter.com/1kevgriff). I'm happy to research your questions and write some detailed explainations on more complex use-cases.

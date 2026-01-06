@@ -1,9 +1,9 @@
 ---
-title: "Enhancing Your Applications For Windows 7"
+title: 'Enhancing Your Applications For Windows 7'
 date: 2009-11-17T09:36:34Z
 permalink: enhancing-your-applications-for-windows-7
-description: "Learn how to enhance your applications for Windows 7 using the Windows 7 API Code Pack and its powerful features."
-summary: "Back in 2009, I wrote an article on building applications in Windows 7!"
+description: 'Learn how to enhance your applications for Windows 7 using the Windows 7 API Code Pack and its powerful features.'
+summary: 'Back in 2009, I wrote an article on building applications in Windows 7!'
 tags:
   - Windows 7
   - API

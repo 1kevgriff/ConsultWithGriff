@@ -1,9 +1,9 @@
 ---
-title: "Node.js: Using require to load your own files"
+title: 'Node.js: Using require to load your own files'
 date: 2012-12-31T06:00:31Z
 permalink: node-js-using-require-to-load-your-own-files
-description: "Learn how to use Node.js require() to load your own modules and keep your code clean and organized."
-summary: "Learn how to use Node.js require() to load your own modules and keep your code clean and organized."
+description: 'Learn how to use Node.js require() to load your own modules and keep your code clean and organized.'
+summary: 'Learn how to use Node.js require() to load your own modules and keep your code clean and organized.'
 tags:
   - Node.js
   - JavaScript
@@ -20,12 +20,13 @@ If you're wondering what I'm talking about, allow me to explain.  In node.js, y
 To load Express into your application, you tell node.js that you "require" it be loading into memory.
 
 ```javascript
-var express = require("express");
+var express = require('express');
 ```
 
 Node follows a couple rules to find modules.  First, you can ask for a module by <strong>name </strong>or by <strong>folder.  </strong>Let's look at Express more closely.  If you were to download Express via NPM, you'd find there is no <em>express.js</em> file in the root directly of the /node_modules/express folder.  However, there is a <em>package.json</em> file that defines the main executable file for express (for fun, go look it up).
 
 Now, if packages.json doesn't exist or the main executable isn't present, node will resort to looking for your filename with either a <strong>.js</strong>, <strong>.json</strong>, or <strong>.node</strong> extension (unless you've specified).
+
 <h2>Where's this going?</h2>
 I know, I know... the point.
 

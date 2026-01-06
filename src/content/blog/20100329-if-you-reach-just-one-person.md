@@ -1,9 +1,9 @@
 ---
-title: "If You Reach Just One Person"
+title: 'If You Reach Just One Person'
 date: 2010-03-29T06:00:00Z
 permalink: if-you-reach-just-one-person
-description: "The rewarding experience of public speaking and how reaching just one person can make all the effort worthwhile."
-summary: "The best motivation for public presenting is when one person comes up to you and says that your presentation was the one that pushed them forward."
+description: 'The rewarding experience of public speaking and how reaching just one person can make all the effort worthwhile.'
+summary: 'The best motivation for public presenting is when one person comes up to you and says that your presentation was the one that pushed them forward.'
 tags:
   - Public Speaking
   - Motivation

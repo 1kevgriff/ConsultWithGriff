@@ -1,14 +1,14 @@
 ---
-title: "Building Windows Services in .NET 7"
+title: 'Building Windows Services in .NET 7'
 date: 2022-12-06T08:00:00Z
 permalink: building-window-services-in-dotnet
-description: "Learn how to build Windows Services in .NET 7 with modern techniques that make it much easier than in the past."
+description: 'Learn how to build Windows Services in .NET 7 with modern techniques that make it much easier than in the past.'
 summary: "In preparation for my latest talk on Tactics for Building Background Services in .NET, I've been working on a sample project to demonstrate the concepts. It's amazing how much easier it is to build Window Services today than it used to be!"
 tags:
-  - ".NET 7"
-  - "Windows Services"
-  - "Background Services"
-  - ".NET"
+  - '.NET 7'
+  - 'Windows Services'
+  - 'Background Services'
+  - '.NET'
 categories:
   - .NET
 excerpt: "In preparation for my latest talk on Tactics for Building Background Services in .NET, I've been working on a sample project to demonstrate the concepts. It's amazing how much easier it is to build Window Services today than it used to be!"
@@ -71,6 +71,7 @@ host.Run();
 This isn't a "Windows Service" yet, but it's a good start. We will need to make a few changes to this code to make it a Windows Service.
 
 ## Making it a Windows Service
+
 Back at the terminal, install the appropriate NuGet package for Window Services:
 
 ```bash
@@ -98,14 +99,15 @@ host.Run();
 
 The method **UseWindowsService** will take care of all the configuration for you within Windows.
 
-If you never had to build a Windows Service in the .NET Framework days, you cannot understand how amazing that is. We used to have libraries to help do all the stuff that **UseWindowsService** does for us.  🤯
+If you never had to build a Windows Service in the .NET Framework days, you cannot understand how amazing that is. We used to have libraries to help do all the stuff that **UseWindowsService** does for us. 🤯
 
 ## Introduction to .NET Hosted Services
+
 As impressive as **UseWindowsService** is, it's essential to understand what's happening behind the scenes.
 
-Let's quickly talk about [.NET Hosted Services](https://learn.microsoft.com/en-us/aspnet/core/fundamentals/host/hosted-services?WT.mc_id=DOP-MVP-4029061).  
+Let's quickly talk about [.NET Hosted Services](https://learn.microsoft.com/en-us/aspnet/core/fundamentals/host/hosted-services?WT.mc_id=DOP-MVP-4029061).
 
-This was a cool little feature added to .NET Core 2.1. It allows you to run code in the background without having to worry about the details of how it's running. Not only that, but you can manage and inject dependencies just like ASP.NET Core applications.  
+This was a cool little feature added to .NET Core 2.1. It allows you to run code in the background without having to worry about the details of how it's running. Not only that, but you can manage and inject dependencies just like ASP.NET Core applications.
 
 Open up Workers.cs, and you'll see the following code:
 
@@ -137,6 +139,7 @@ This is a simple implementation of a Hosted Service. It's a **BackgroundService*
 > Note: you can also build a service with IHostedService, but BackgroundService is easier to work with.
 
 ## Building the Folder Cleaning Example
+
 The simple example we'd like to build is an application that monitors a folder for new files. If we see any file older than one minute, delete it.
 
 Here is the code for our new Worker.cs looks like this:
@@ -183,6 +186,7 @@ public class Worker : BackgroundService
 ```
 
 ## Testing Locally
+
 Ideally, you want to support a local development experience. This is pretty easy! Add the terminal, type:
 
 ```bash
@@ -203,8 +207,7 @@ info: Microsoft.Hosting.Lifetime[0]
 
 ![Watch Folder](./images/windowservices-watchfolder.png)
 
-Drop a new file into the folder (the one you don't mind losing because it'll be deleted).  
-
+Drop a new file into the folder (the one you don't mind losing because it'll be deleted).
 
 ```
 info: WindowsService.Worker[0]
@@ -216,7 +219,7 @@ info: WindowsService.Worker[0]
 Okay! We're ready to test our new application as a Windows Service. You'll need to build a production version of the service.
 
 ```bash
-> dotnet publish -c Release 
+> dotnet publish -c Release
 ```
 
 Next, you'll need to open a command prompt as an Administrator. We will issue a Windows command to create the new windows service.
@@ -227,7 +230,7 @@ Next, you'll need to open a command prompt as an Administrator. We will issue a 
 [SC] CreateService SUCCESS
 ```
 
-> Note: your binPath might be different than mine.  
+> Note: your binPath might be different than mine.
 
 You can open your **Services** view in Windows to see a new service.
 
@@ -247,10 +250,8 @@ You probably don't want to keep your test service around, so go ahead and stop i
 > sc delete FolderCleaner
 ```
 
-And that's it! You've created your first Windows Service with .NET 7.  🎉
+And that's it! You've created your first Windows Service with .NET 7. 🎉
 
 All source code for this project available in [Github](https://github.com/1kevgriff/WindowsServiceDotNetExample).
 
 I hope this tutorial has been helpful to you! If it has, please reach out to me on [Twitter](https://twitter.com/1kevgriff) or [Mastodon](https://bbiz.io/@1kevgriff). I'd love to hear from you!
-
-

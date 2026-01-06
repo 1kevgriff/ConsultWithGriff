@@ -1,5 +1,5 @@
 ---
-title: "I Removed Email From My Phone"
+title: 'I Removed Email From My Phone'
 date: 2018-05-01T09:54:52Z
 permalink: good-bye-email
 description: "What's the next step after beating email addiction? Learn how removing email from my phone reduced anxiety and improved focus."

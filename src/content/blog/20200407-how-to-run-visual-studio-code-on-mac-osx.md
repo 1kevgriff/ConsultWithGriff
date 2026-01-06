@@ -1,8 +1,8 @@
 ---
-title: "How to run Visual Studio Code on Mac OSX"
+title: 'How to run Visual Studio Code on Mac OSX'
 date: 2020-04-07T13:27:04Z
 permalink: how-to-run-visual-studio-code-from-mac-osx
-description: "Step-by-step guide to set up Visual Studio Code command line integration for both Terminal and Zsh on macOS."
+description: 'Step-by-step guide to set up Visual Studio Code command line integration for both Terminal and Zsh on macOS.'
 summary: "Using Visual Studio Code on OSX?  Here's how to set up the command line for Zsh or Terminal."
 tags:
   - Visual Studio Code
@@ -25,10 +25,9 @@ code () { VSCODE_CWD="$PWD" open -n -b "com.microsoft.VSCode" --args $* ;}
 
 Then from Terminal you can type:
 
-`code`  -- opens Visual Studio Code  
+`code` -- opens Visual Studio Code  
 `code .` -- opens current directory in Visual Studio Code  
-`code somefile` -- opens somefile in Visual Studio Code  
-
+`code somefile` -- opens somefile in Visual Studio Code
 
 ## Zsh
 
@@ -48,8 +47,9 @@ function code {
     fi
 }
 ```
+
 Then from Terminal you can type:
 
-`code`  -- opens Visual Studio Code  
+`code` -- opens Visual Studio Code  
 `code .` -- opens current directory in Visual Studio Code  
-`code somefile` -- opens somefile in Visual Studio Code  
+`code somefile` -- opens somefile in Visual Studio Code

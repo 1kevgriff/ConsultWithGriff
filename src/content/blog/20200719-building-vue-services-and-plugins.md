@@ -1,9 +1,9 @@
 ---
-title: "Building Vue Services and Plugins"
+title: 'Building Vue Services and Plugins'
 date: 2020-07-20T00:30:00Z
 permalink: vue-services-plugins
-description: "Thanks for attending Building Custom Vue Services and Plugins!"
-summary: "Thanks for attending Building Custom Vue Services and Plugins!"
+description: 'Thanks for attending Building Custom Vue Services and Plugins!'
+summary: 'Thanks for attending Building Custom Vue Services and Plugins!'
 tags:
   - Vue.js
   - JavaScript
@@ -11,10 +11,10 @@ tags:
   - Services
 categories:
   - Misc
-excerpt: "Thanks for attending Building Custom Vue Services and Plugins!"
+excerpt: 'Thanks for attending Building Custom Vue Services and Plugins!'
 ---
 
-Thanks for attending Building Custom Vue.JS Services and Plugins!  If you missed the talk, catch a replay at:
+Thanks for attending Building Custom Vue.JS Services and Plugins! If you missed the talk, catch a replay at:
 
 ## Replays
 
@@ -26,5 +26,4 @@ https://www.youtube.com/watch?v=TH9bN2nnd0s
 [Download Slides](/pdfs/BuildingCustomVueJSServicesandPlugins_20200720.pdf)
 
 [Twitter](https://twitter.com/1kevgriff)  
-[My Twitch Channel](https://www.twitch.tv/1kevgriff)  
-
+[My Twitch Channel](https://www.twitch.tv/1kevgriff)

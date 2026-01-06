@@ -2,8 +2,8 @@
 title: "Managing SignalR ConnectionIds (or why you shouldn't)"
 date: 2020-12-09T00:00:00Z
 permalink: signalr-connection-ids
-description: "For C# Advent 2020, I want to talk about SignalR ConnectionIds and the biggest mistake I see people making when trying to manage them theirselves."
-summary: "For C# Advent 2020, I want to talk about SignalR ConnectionIds and the biggest mistake I see people making when trying to manage them theirselves."
+description: 'For C# Advent 2020, I want to talk about SignalR ConnectionIds and the biggest mistake I see people making when trying to manage them theirselves.'
+summary: 'For C# Advent 2020, I want to talk about SignalR ConnectionIds and the biggest mistake I see people making when trying to manage them theirselves.'
 tags:
   - SignalR
   - ConnectionIds
@@ -37,9 +37,9 @@ The important thing to note with connections, and more importantly connection ID
 
 I've got myself into a discussion with folks about this before, but I do not advise tracking ConnectionIds. More than once, I've seen this particular workflow:
 
->On connection: map connection ID, user name, roles, etc within the database or some caching system (Redis, for example).  
+> On connection: map connection ID, user name, roles, etc within the database or some caching system (Redis, for example).
 
->On disconnection: removing the mapping from the data store.
+> On disconnection: removing the mapping from the data store.
 
 Use case: I need to send a notification to all connections for user "Kevin".
 
@@ -54,8 +54,7 @@ If you're running multiple versions of your server at any moment, I'm going to a
 
 > Note: A lot of my experience is with Redis backplane, where I have replicated this issue many times. I didn't consider it a bug. Azure SignalR Server _might_ not have the same behavior, but still, you shouldn't do this.
 
-Additionally, you're writing A LOT of unnecessary code when you could simply use the built-in mechanisms of SignalR to do this work for you.  
-
+Additionally, you're writing A LOT of unnecessary code when you could simply use the built-in mechanisms of SignalR to do this work for you.
 
 ## What's a better alternative?
 
@@ -86,7 +85,7 @@ This saves me a roundtrip to my cache or database, and also saves me the cycles 
 
 SignalR will automatically clean up these connections too.
 
-And better yet, using groups works perfectly in scaled solutions.  
+And better yet, using groups works perfectly in scaled solutions.
 
 ## Users
 
@@ -101,11 +100,10 @@ public Task NotifyUser(string user, string message)
 }
 ```
 
-Why is it not my favorite?  Eh, I just think it's more difficult to use and requires more upfront planning to ensure you have the correct user principle name for sending the message.  I don't use `User()` in any of my projects.
+Why is it not my favorite? Eh, I just think it's more difficult to use and requires more upfront planning to ensure you have the correct user principle name for sending the message. I don't use `User()` in any of my projects.
 
 ## Wrapping Up
 
-As engineers, it is easy to complicate solutions in our heads.  I've made the same mistakes myself but thinking that the best solution needs to be the most complicated.  Sometimes when you take a step back, a better, easier solution can present itself.
+As engineers, it is easy to complicate solutions in our heads. I've made the same mistakes myself but thinking that the best solution needs to be the most complicated. Sometimes when you take a step back, a better, easier solution can present itself.
 
-I hope this guide was useful to you.  If you have further questions about SignalR, [please feel free to reach out](/contact).  
-
+I hope this guide was useful to you. If you have further questions about SignalR, [please feel free to reach out](/contact).

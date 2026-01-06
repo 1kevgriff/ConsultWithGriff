@@ -1,9 +1,9 @@
 ---
-title: "Learn about Windows 7 Task Dialogs"
+title: 'Learn about Windows 7 Task Dialogs'
 date: 2009-12-01T07:00:00Z
 permalink: learn-about-windows-7-task-dialogs
-description: "Explore Windows 7 Task Dialogs - the next evolution of message boxes with enhanced UI capabilities and better user experience."
-summary: "Back in 2009, I wrote an article on building task dialogs in Windows 7"
+description: 'Explore Windows 7 Task Dialogs - the next evolution of message boxes with enhanced UI capabilities and better user experience.'
+summary: 'Back in 2009, I wrote an article on building task dialogs in Windows 7'
 tags:
   - Windows 7
   - UI

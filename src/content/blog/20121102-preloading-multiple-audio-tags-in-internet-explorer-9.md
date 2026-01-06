@@ -1,5 +1,5 @@
 ---
-title: "Preloading Multiple Audio Tags in Internet Explorer 9"
+title: 'Preloading Multiple Audio Tags in Internet Explorer 9'
 date: 2012-11-02T06:00:59Z
 permalink: preloading-multiple-audio-tags-in-internet-explorer-9
 description: "Learn how to preload multiple audio files in Internet Explorer 9, including workarounds for IE's limitations with HTML5 audio preloading."
@@ -27,7 +27,7 @@ In Chrome, this works PERFECTLY (as it should).
 In Internet Explorer, several (if not all) files will fail to preload.  Here's how to figure it:
 
 ```javascript
-var audioElement = document.getElementById("myAudio");
+var audioElement = document.getElementById('myAudio');
 console.log(audioElement.networkState);
 ```
 
@@ -38,7 +38,7 @@ You "want" it to be IDLE, because that means the file is loaded.  Typically, yo
 What's a quick fix?  First, make sure there is no preload attribute, and then do this:
 
 ```javascript
-var audioElement = document.getElementById("myAudio");
+var audioElement = document.getElementById('myAudio');
 audioElement.load(); // kicks off the load
 ```
 

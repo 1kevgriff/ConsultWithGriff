@@ -1,9 +1,9 @@
 ---
-title: "Framework 16 Laptop Review"
+title: 'Framework 16 Laptop Review'
 date: 2025-08-26T00:00:00Z
 permalink: framework-16-laptop-review
-description: "My comprehensive review of the Framework 16 laptop, exploring its modular design, performance capabilities, and whether it lives up to the hype as a truly repairable and upgradeable laptop for developers and power users."
-summary: "My comprehensive review of the Framework 16 laptop, exploring its modular design, performance capabilities, and whether it lives up to the hype as a truly repairable and upgradeable laptop for developers and power users."
+description: 'My comprehensive review of the Framework 16 laptop, exploring its modular design, performance capabilities, and whether it lives up to the hype as a truly repairable and upgradeable laptop for developers and power users.'
+summary: 'My comprehensive review of the Framework 16 laptop, exploring its modular design, performance capabilities, and whether it lives up to the hype as a truly repairable and upgradeable laptop for developers and power users.'
 tags:
   - Framework
   - Laptop
@@ -13,7 +13,7 @@ categories:
   - Hardware
   - Review
   - Technology
-excerpt: "A deep dive into the Framework 16 laptop experience, covering everything from build quality and performance to the innovative modular design that promises to revolutionize how we think about laptop ownership and sustainability."
+excerpt: 'A deep dive into the Framework 16 laptop experience, covering everything from build quality and performance to the innovative modular design that promises to revolutionize how we think about laptop ownership and sustainability.'
 ---
 
 # Framework 16 Laptop Review

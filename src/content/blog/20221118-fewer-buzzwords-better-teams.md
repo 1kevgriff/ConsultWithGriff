@@ -1,9 +1,9 @@
 ---
-title: "Fewer Buzzwords, Better Teams"
+title: 'Fewer Buzzwords, Better Teams'
 date: 2022-11-18T08:00:00Z
 permalink: fewer-buzzwords-better-teams
-description: "Our team with one product grew to include two new teams. This meant more people, larger tech stack, and more complexity when it came to support and future growth."
-summary: "Our team with one product grew to include two new teams.  This meant more people, larger tech stack, and more complexity when it came to support and future growth."
+description: 'Our team with one product grew to include two new teams. This meant more people, larger tech stack, and more complexity when it came to support and future growth.'
+summary: 'Our team with one product grew to include two new teams.  This meant more people, larger tech stack, and more complexity when it came to support and future growth.'
 tags:
   - Team Management
   - Technology Stack
@@ -13,64 +13,66 @@ categories:
   - Architecture
   - Thought Leadership
   - CTO
-excerpt: "Our team with one product grew to include two new teams.  This meant more people, larger tech stack, and more complexity when it came to support and future growth."
+excerpt: 'Our team with one product grew to include two new teams.  This meant more people, larger tech stack, and more complexity when it came to support and future growth.'
 ---
 
 I read a post the other day about how some larger organizations allow their teams to choose which technologies they want to use individually. With teams managing different parts of a system, one group might use something boring but stable, like a C# or Java, and another might use something more mainstream, like Rust or Go.
 
 Over the past year, one of the companies I work with acquired not one but two companies. This acquisition meant new team members, new code bases, and different technology stacks.
 
-My dilemma has been how to best support the organization with different technologies in our stack. 
+My dilemma has been how to best support the organization with different technologies in our stack.
 
 ## The Stacks
 
-Let's put it this way:  Stack one (the alpha stack) is .NET 6.0 running on Microsoft Azure services. Our data persists in SQL Azure and Redis, and we're heavily invested in Azure services to scale effortlessly. Our front-end stack is a goliath of Razor, Angular, React, and Vue (in our defense, we're migrating to Vue 100% or Blazor, I'm still determining).  
+Let's put it this way: Stack one (the alpha stack) is .NET 6.0 running on Microsoft Azure services. Our data persists in SQL Azure and Redis, and we're heavily invested in Azure services to scale effortlessly. Our front-end stack is a goliath of Razor, Angular, React, and Vue (in our defense, we're migrating to Vue 100% or Blazor, I'm still determining).
 
 Stack two (the beta stack) is NodeJS/Express service running in EC2 services on AWS (it was like half a dozen services on separate EC2). Data persists in hosted MongoDB and AWS S3. The front end is all Angular.
 
-Stack three (the gamma stack) is a niche product, and it's mostly C++ running directly on clients. 
+Stack three (the gamma stack) is a niche product, and it's mostly C++ running directly on clients.
 
 Let's looks at this a bit more visually:
 
-| Alpha Back End | Beta Back End |
-|---|---|
-| C#/.NET | NodeJS | 
-| ASP.NET Core | Express |
+| Alpha Back End                                    | Beta Back End          |
+| ------------------------------------------------- | ---------------------- |
+| C#/.NET                                           | NodeJS                 |
+| ASP.NET Core                                      | Express                |
 | Azure Services (Storage, Functions, App Services) | AWS Services (EC2, S3) |
-| SQL Server  | MongoDB |
-| Redis | |
+| SQL Server                                        | MongoDB                |
+| Redis                                             |                        |
 
 | Alpha Front End | Beta Front End |
-|---|---|
-| Razor | Angular |
-| Vue |  |
-| React |  |
-| Angular |  |
+| --------------- | -------------- |
+| Razor           | Angular        |
+| Vue             |                |
+| React           |                |
+| Angular         |                |
 
-| Ideal Stack |
-|-------------|
-| C#/.NET |
-| ASP.NET Core |
+| Ideal Stack    |
+| -------------- |
+| C#/.NET        |
+| ASP.NET Core   |
 | Azure Services |
-| SQL Server |
-| MongoDB* |
-| Redis |
+| SQL Server     |
+| MongoDB\*      |
+| Redis          |
 | Razor (or Vue) |
 
-> *I don't consider MongoDB a problem in the current setup, although it's not my favorite to use.  I think there is a compromise between relational data in SQL Server and non-relational in MongoDB.  
+> \*I don't consider MongoDB a problem in the current setup, although it's not my favorite to use. I think there is a compromise between relational data in SQL Server and non-relational in MongoDB.
 
 ## Support
+
 There is an expectation of support for the products we maintain. I don't mean pager duty "get out of bed" help, but "this needs to be addressed as soon as possible" support. Generally not an issue because we have a person on each team to deal with the situation.
 
-People get sick. People take time off. 
+People get sick. People take time off.
 
-Support is sometimes shaky because alpha stack team members need help to jump on the beta stack or vice versa quickly.  
+Support is sometimes shaky because alpha stack team members need help to jump on the beta stack or vice versa quickly.
 
 We've been fortunate not to have an issue.
 
 But if everything were ONE stack, support would be much easier as any team member could jump on any aspect of the product.
 
 ## Growth
+
 Recently, I've been going through the exercise of interviewing folks to join our team.
 
 As you can imagine, there is a lengthy conversation about the skill set that I'm expecting of a person to join the team. It would be nice if the future team member had all the alpha and beta stack checkboxes.
@@ -79,13 +81,13 @@ As you can imagine, there is a lengthy conversation about the skill set that I'm
 
 You have probably seen or joked about how tech companies want 5+ years of experience in 30 technologies, which is never the case. Instead, head hunters throw out every possible buzzword in hopes of landing qualified applicants.
 
-Our team should have a small, concise list of technologies we support across our products.  
+Our team should have a small, concise list of technologies we support across our products.
 
 > Note: for this discussion, I'm excluding the gamma team (C++) because it's pretty flippin' impossible to find someone that does C#, NodeJS, React-Angular-Vue, etc., AND C++. They'd probably command a high rate if you were to see this magically awesome person. Budget killer!
 
 ## Standardization
 
-You've probably figured out where I'm going with this, and I've decreed that our alpha and beta stacks will standardize on a single stack. Specifically, we are going to be a .NET shop. There are various reasons, but most of our product is in the alpha stack, which makes sense.  Hit me up on [Twitter](https://twitter.com/1kevgriff) if you'd like a diatribe about why nobody should be running NodeJS in production anymore.
+You've probably figured out where I'm going with this, and I've decreed that our alpha and beta stacks will standardize on a single stack. Specifically, we are going to be a .NET shop. There are various reasons, but most of our product is in the alpha stack, which makes sense. Hit me up on [Twitter](https://twitter.com/1kevgriff) if you'd like a diatribe about why nobody should be running NodeJS in production anymore.
 
 Standardization will take time to happen. Some team members will require training and mentoring, and others might leave altogether. As an organization, we're willing to make the sacrifices necessary to ensure the products have the best stewardship possible.
 
@@ -111,4 +113,4 @@ For our group, I need to ensure that every cog in the engine is interchangeable 
 
 ## What do you think?
 
-I'm interested in your opinion! Have you been on a team that standardized on a different tech stack than your own?  Follow up with my on [Twitter](https://twitter.com/1kevgriff) or [LinkedIn](https://www.linkedin.com/in/1kevgriff)!
+I'm interested in your opinion! Have you been on a team that standardized on a different tech stack than your own? Follow up with my on [Twitter](https://twitter.com/1kevgriff) or [LinkedIn](https://www.linkedin.com/in/1kevgriff)!
