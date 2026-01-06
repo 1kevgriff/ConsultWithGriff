@@ -2,7 +2,7 @@
 interface Props {
   headings: Array<{ depth: number; slug: string; text: string }>;
   formattedDate: string;
-  readingTime: number;
+  readingTime: string;
 }
 
 const { headings, formattedDate, readingTime } = Astro.props;
@@ -19,7 +19,7 @@ const tocHeadings = headings.filter((h) => h.depth === 2 || h.depth === 3);
       <p class="text-sm text-navy-800 mt-1">{formattedDate}</p>
 
       <p class="text-xs uppercase tracking-wide text-navy-600 font-semibold mt-3">Reading Time</p>
-      <p class="text-sm text-navy-800 mt-1">{readingTime} min read</p>
+      <p class="text-sm text-navy-800 mt-1">{readingTime}</p>
     </div>
 
     {

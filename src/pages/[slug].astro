@@ -35,7 +35,7 @@ const canonicalUrl = `${siteUrl}${postPath}`;
 
 // Blog-specific metadata
 let formattedDate = '';
-let readingTime = 5;
+let readingTime = '';
 let metaImageUrl = '';
 let metaDescription = '';
 
@@ -46,8 +46,8 @@ if (type === 'blog') {
     day: 'numeric',
   });
 
-  const wordCount = remarkPluginFrontmatter?.wordCount || 0;
-  readingTime = Math.ceil(wordCount / 200) || entry.data.timeToRead || 5;
+  // Use reading time from remark plugin
+  readingTime = remarkPluginFrontmatter.minutesRead;
 
   // Use static OG image (generated via npm run generate:og)
   metaImageUrl = `${siteUrl}/og/${slug}.png`;
