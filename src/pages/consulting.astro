@@ -16,17 +16,17 @@ const pageDescription =
 
   <!-- Hero Section -->
   <Hero
-    title="Azure & .NET Consulting for Teams That Ship"
-    subtitle="16-time Microsoft MVP helping teams modernize .NET applications, architect Azure solutions, and ship faster with confidence. Nearly two decades turning complex problems into elegant solutions."
+    title="Stop Wrestling With Your Architecture — Start Shipping"
+    subtitle="You didn't hire your dev team to fight infrastructure problems. I help you fix what's broken, modernize what's holding you back, and get back to building features that matter."
     imageSrc="/kevin_rockon.jpg"
     imageAlt="Kevin W. Griffin - Microsoft MVP"
-    audienceFilter="Founders, tech leads, and teams dealing with scaling, modernization, or Azure complexity."
+    audienceFilter="For founders, tech leads, and teams dealing with scaling pain, legacy migration, or Azure complexity."
     primaryCTA={{
-      text: 'Schedule a 30-minute discovery call',
+      text: 'Schedule a free discovery call',
       href: 'https://app.onecal.io/b/kevin-griffin/chat',
     }}
     secondaryCTA={{ text: 'View My Courses', href: '/courses' }}
-    microcopy="No sales pitch. We'll clarify the problem, options, and next steps."
+    microcopy="No pitch. No pressure. You'll leave with clarity on what's possible — whether or not we work together."
   />
 
   <!-- Trust & Credibility Section -->
@@ -40,26 +40,29 @@ const pageDescription =
           <div class="grid md:grid-cols-3 gap-8 text-left">
             <div>
               <div class="text-4xl mb-3">🏆</div>
-              <h3 class="font-bold text-navy mb-2">16-Time Microsoft MVP</h3>
+              <h3 class="font-bold text-navy mb-2">16 Consecutive Years as Microsoft MVP</h3>
               <p class="text-gray-700">
-                Recognized by Microsoft for 16 consecutive years. I stay on top of the latest .NET
-                and Azure innovations so you don't have to.
+                Not just recognized — engaged. I contribute to the .NET community, beta test new
+                features, and know what's coming before it's announced. You get access to that
+                knowledge.
               </p>
             </div>
             <div>
               <div class="text-4xl mb-3">💼</div>
-              <h3 class="font-bold text-navy mb-2">19 Years Experience</h3>
+              <h3 class="font-bold text-navy mb-2">19 Years of "We Need This Yesterday"</h3>
               <p class="text-gray-700">
-                From startups to enterprises, I've architected solutions that scale from hundreds to
-                millions of users.
+                I've migrated apps under production load, rescued projects past deadline, and built
+                systems that handle traffic spikes without pager alerts. I've seen most problems
+                before — which means faster solutions for you.
               </p>
             </div>
             <div>
               <div class="text-4xl mb-3">🎓</div>
-              <h3 class="font-bold text-navy mb-2">Proven Teacher</h3>
+              <h3 class="font-bold text-navy mb-2">I Don't Just Fix Things — I Explain Them</h3>
               <p class="text-gray-700">
-                Created SignalR Mastery and other courses taken by thousands of developers. I
-                explain complex concepts clearly.
+                Courses like SignalR Mastery have trained thousands of developers. When I consult,
+                your team learns alongside the work. You'll never be stuck saying "only Kevin
+                understands this."
               </p>
             </div>
           </div>
@@ -68,8 +71,53 @@ const pageDescription =
     </div>
   </section>
 
+  <!-- Who This Is For Section -->
+  <section class="py-16 bg-gray-50">
+    <div class="container mx-auto px-4 lg:px-8">
+      <div class="max-w-3xl mx-auto">
+        <h2 class="text-2xl lg:text-3xl font-bold text-navy mb-6 text-center">
+          This Is For You If...
+        </h2>
+        <div class="grid sm:grid-cols-2 gap-4">
+          <div class="flex items-start gap-3">
+            <span class="text-gold text-xl">✓</span>
+            <p class="text-gray-700">Your .NET app is growing faster than your architecture</p>
+          </div>
+          <div class="flex items-start gap-3">
+            <span class="text-gold text-xl">✓</span>
+            <p class="text-gray-700">Azure costs are climbing without clear explanation</p>
+          </div>
+          <div class="flex items-start gap-3">
+            <span class="text-gold text-xl">✓</span>
+            <p class="text-gray-700">
+              Your team spends more time fighting fires than building features
+            </p>
+          </div>
+          <div class="flex items-start gap-3">
+            <span class="text-gold text-xl">✓</span>
+            <p class="text-gray-700">
+              You're stuck between "rewrite everything" and "keep patching"
+            </p>
+          </div>
+          <div class="flex items-start gap-3">
+            <span class="text-gold text-xl">✓</span>
+            <p class="text-gray-700">
+              You need someone who can both solve the problem AND teach your team
+            </p>
+          </div>
+          <div class="flex items-start gap-3">
+            <span class="text-gold text-xl">✓</span>
+            <p class="text-gray-700">
+              You want a consultant who won't create dependency on themselves
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- Services Section -->
-  <section class="py-20 bg-gray-50">
+  <section class="py-20 bg-white">
     <div class="container mx-auto px-4 lg:px-8">
       <div class="max-w-6xl mx-auto">
         <h2 class="text-3xl lg:text-4xl font-bold text-navy mb-4 text-center">
@@ -77,13 +125,15 @@ const pageDescription =
         </h2>
         <p class="text-xl text-gray-700 mb-12 text-center max-w-3xl mx-auto">
           Whether you're modernizing a legacy app, architecting for the cloud, or need expert
-          guidance on .NET best practices - I've got you covered.
+          guidance on .NET best practices — I've got you covered.
         </p>
 
         <div class="grid lg:grid-cols-2 gap-8">
           <!-- Service 1: .NET Architecture -->
           <Card variant="white">
-            <h3 class="text-2xl font-bold text-navy mb-4">Modern .NET Architecture That Scales</h3>
+            <h3 class="text-2xl font-bold text-navy mb-4">
+              Will This Architecture Survive Your Series B?
+            </h3>
             <p class="text-gray-700 mb-4 leading-relaxed">
               Whether you're stuck on .NET Framework 4.x or want to leverage .NET 9's latest
               features, I'll help you build maintainable, performant applications your team will
@@ -108,7 +158,7 @@ const pageDescription =
           <!-- Service 2: Azure -->
           <Card variant="white">
             <h3 class="text-2xl font-bold text-navy mb-4">
-              Azure Architecture That Doesn't Break the Bank
+              Azure Costs Spiraling? Let's Fix That.
             </h3>
             <p class="text-gray-700 mb-4 leading-relaxed">
               Cloud costs spiral fast. I'll design Azure solutions that scale with your business,
@@ -133,7 +183,7 @@ const pageDescription =
 
           <!-- Service 3: Web Development -->
           <Card variant="white">
-            <h3 class="text-2xl font-bold text-navy mb-4">Modern Web Development with .NET</h3>
+            <h3 class="text-2xl font-bold text-navy mb-4">Blazor or React? Let's End the Debate.</h3>
             <p class="text-gray-700 mb-4 leading-relaxed">
               Whether you want full-stack Blazor or need a React SPA talking to a .NET API, I've
               built production apps with both. I'll help you choose the right approach for your
@@ -158,7 +208,7 @@ const pageDescription =
           <!-- Service 4: Performance -->
           <Card variant="white">
             <h3 class="text-2xl font-bold text-navy mb-4">
-              Make Your App Fast (And Keep It That Way)
+              Your App Is Slow. Here's Exactly Why.
             </h3>
             <p class="text-gray-700 mb-4 leading-relaxed">
               Slow apps kill conversions and frustrate users. I'll find your bottlenecks, fix them,
@@ -225,9 +275,10 @@ const pageDescription =
             >
               1
             </div>
-            <h3 class="font-bold text-navy mb-2">Discovery Call</h3>
+            <h3 class="font-bold text-navy mb-2">Discovery Call (Free)</h3>
             <p class="text-gray-700 text-sm">
-              30 minutes to clarify the problem, constraints, and options
+              30 minutes. No slides, no pitch. Just you explaining what's broken and me telling you
+              honestly if I can help.
             </p>
           </div>
           <div class="text-center">
@@ -236,8 +287,11 @@ const pageDescription =
             >
               2
             </div>
-            <h3 class="font-bold text-navy mb-2">Proposal</h3>
-            <p class="text-gray-700 text-sm">Clear scope, timeline, and pricing - no surprises</p>
+            <h3 class="font-bold text-navy mb-2">Straight-Talk Proposal</h3>
+            <p class="text-gray-700 text-sm">
+              Within 48 hours: clear scope, fixed price, expected outcomes. If something doesn't make
+              sense, we revise it until it does.
+            </p>
           </div>
           <div class="text-center">
             <div
@@ -245,8 +299,11 @@ const pageDescription =
             >
               3
             </div>
-            <h3 class="font-bold text-navy mb-2">Get Started</h3>
-            <p class="text-gray-700 text-sm">Kick off the work with regular check-ins</p>
+            <h3 class="font-bold text-navy mb-2">Embedded Partnership</h3>
+            <p class="text-gray-700 text-sm">
+              I work with your team, not around them. Slack access, code reviews, pair programming —
+              whatever moves fastest.
+            </p>
           </div>
           <div class="text-center">
             <div
@@ -254,9 +311,10 @@ const pageDescription =
             >
               4
             </div>
-            <h3 class="font-bold text-navy mb-2">Ship It</h3>
+            <h3 class="font-bold text-navy mb-2">Knowledge Transfer</h3>
             <p class="text-gray-700 text-sm">
-              Deliver results, knowledge transfer, ongoing support if needed
+              The engagement ends when your team can maintain everything without me. Documentation,
+              training, architecture decision records — it's all yours.
             </p>
           </div>
         </div>
@@ -333,11 +391,11 @@ const pageDescription =
     <div class="container mx-auto px-4 lg:px-8">
       <div class="max-w-3xl mx-auto text-center">
         <h2 class="text-3xl lg:text-4xl font-bold text-navy mb-6">
-          Ready to Move Your Project Forward?
+          Ready to Stop Fighting Your Architecture?
         </h2>
         <p class="text-xl text-navy mb-8">
-          Every architecture problem has constraints. In 30 minutes, we'll map out what you're
-          working with and identify realistic paths forward.
+          In 30 minutes, we'll map your constraints and identify paths forward that actually fit your
+          reality. You'll leave with clarity — whether or not we work together.
         </p>
 
         <Button
@@ -346,15 +404,14 @@ const pageDescription =
           size="lg"
           class="bg-navy text-gold border-2 border-navy hover:bg-navy-light"
         >
-          Schedule a 30-minute discovery call
+          Schedule a free discovery call
         </Button>
 
         <p class="text-sm text-navy mt-6 opacity-80">
-          Not ready yet? <a href="/articles" class="underline hover:text-navy-light">
-            Read my articles
-          </a> or <a href="/courses" class="underline hover:text-navy-light">
-            check out my courses
-          </a> to see my teaching style.
+          I respond within one business day. Not ready yet?{' '}
+          <a href="/articles" class="underline hover:text-navy-light">Read my articles</a> or{' '}
+          <a href="/courses" class="underline hover:text-navy-light">check out my courses</a> to see
+          my teaching style.
         </p>
       </div>
     </div>
