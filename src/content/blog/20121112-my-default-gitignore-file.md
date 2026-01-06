@@ -1,9 +1,9 @@
 ---
-title: "My Default .gitignore File"
+title: 'My Default .gitignore File'
 date: 2012-11-12T10:37:23Z
 permalink: base-gitignore
-description: "A comprehensive .gitignore file template for Visual Studio projects and common development artifacts."
-summary: "A comprehensive .gitignore file template for Visual Studio projects and common development artifacts."
+description: 'A comprehensive .gitignore file template for Visual Studio projects and common development artifacts.'
+summary: 'A comprehensive .gitignore file template for Visual Studio projects and common development artifacts.'
 tags:
   - Git
   - Visual Studio
@@ -19,48 +19,49 @@ Every time I create a new Git repo, I always have to go look for a previous copy
 # Ignore file for Visual Studio
 
 # use glob syntax
+
 syntax: glob
 
 # Ignore Config files with keys and passwords
+
 #ServiceConfiguration*.cscfg
 #Web*.config
-#App*.config
+#App\*.config
 
 # Ignore Visual Studio files
-*.obj
-#*.exe
-#*.pdb
-*.user
-*.aps
-*.pch
-*.vspscc
-*.vshost.*
-*_i.c
-*_p.c
-*.ncb
-*.suo
-*.tlb
-*.tlh
-*.bak
-*.cache
-*.ilk
-*.log
-*.lib
-*.sbr
-*.scc
-*.orig
+
+_.obj #_.exe #_.pdb
+_.user
+_.aps
+_.pch
+_.vspscc
+_.vshost.\*
+_\_i.c
+_\_p.c
+_.ncb
+_.suo
+_.tlb
+_.tlh
+_.bak
+_.cache
+_.ilk
+_.log
+_.lib
+_.sbr
+_.scc
+_.orig
 UpgradeLog*.*
 UpgradeReport*.*
 [Bb]in
 [Dd]ebug*/
 obj/
 [Rr]elease*/
-_ReSharper*/
+\_ReSharper*/
 [Tt]est[Rr]esult*
-[Bb]uild[Ll]og.*
-*.[Pp]ublish.xml
-glob:*.vs10x
-*.ReSharper
+[Bb]uild[Ll]og.\*
+_.[Pp]ublish.xml
+glob:_.vs10x
+\*.ReSharper
 [Pp]ublish
 [Rr]eleaseFiles
 [Cc]sx/
@@ -68,7 +69,8 @@ glob:*.vs10x
 [Pp]ackages/
 
 # Mac Files
-.DS_Store
-*.DS_Store
-._*
+
+.DS*Store
+\*.DS_Store
+.*\*
 ```

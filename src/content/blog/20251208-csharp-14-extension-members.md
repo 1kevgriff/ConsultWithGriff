@@ -2,15 +2,15 @@
 title: "What's New in C# 14: Extension Members"
 date: 2025-12-08T00:00:00Z
 permalink: csharp-14-extension-members
-description: "Explore how C# 14 extension members let you add computed properties to existing .NET types."
-summary: "A hands-on look at using extension members to improve expressiveness and eliminate boilerplate in C#."
-excerpt: "Explore how C# 14 extension members let you add computed properties to existing .NET types."
+description: 'Explore how C# 14 extension members let you add computed properties to existing .NET types.'
+summary: 'A hands-on look at using extension members to improve expressiveness and eliminate boilerplate in C#.'
+excerpt: 'Explore how C# 14 extension members let you add computed properties to existing .NET types.'
 tags:
   - C#
   - .NET
   - Extension Members
 categories:
-  - "Development - C#"
+  - 'Development - C#'
 image: /og/csharp-14-extension-members.png
 ---
 
@@ -141,12 +141,12 @@ Inside the extension block, you define members just like you would in a regular 
 
 ### Key Differences from Extension Methods
 
-| Extension Methods (Old) | Extension Members (New) |
-|-------------------------|-------------------------|
-| `public static class` with static methods | `public static class` with `extension(...)` block |
-| `this DateTime date` parameter in method signature | `extension (DateTime date)` block parameter |
-| Method syntax: `MondayOfCurrentWeek()` | Property syntax: `MondayOfCurrentWeek` |
-| Static method calls | Instance property access |
+| Extension Methods (Old)                            | Extension Members (New)                           |
+| -------------------------------------------------- | ------------------------------------------------- |
+| `public static class` with static methods          | `public static class` with `extension(...)` block |
+| `this DateTime date` parameter in method signature | `extension (DateTime date)` block parameter       |
+| Method syntax: `MondayOfCurrentWeek()`             | Property syntax: `MondayOfCurrentWeek`            |
+| Static method calls                                | Instance property access                          |
 
 The mental model shifts: instead of "a static method that takes `this` as the first parameter," you're defining "members that belong to the type, just defined elsewhere."
 

@@ -1,9 +1,9 @@
 ---
-title: "Colossal Failures"
+title: 'Colossal Failures'
 date: 2010-03-02T06:00:00Z
 permalink: colossal-failures
 description: "Lessons learned from Adam Savage's talk on colossal failures and why failing is a method of learning in software development."
-summary: "Have you ever screwed up horribly?"
+summary: 'Have you ever screwed up horribly?'
 tags:
   - Deep Thoughts
 categories:
@@ -14,7 +14,7 @@ One of my favorite television shows is Mythbusters.  It’s not that I’m enth
 
 Recently, I ran across a session by Adam Savage talking about Colossal Failures.
 
-*Note: the original video is dead, but this is close to it.*
+_Note: the original video is dead, but this is close to it._
 
 https://www.youtube.com/watch?v=i5sbUi3_w3w
 

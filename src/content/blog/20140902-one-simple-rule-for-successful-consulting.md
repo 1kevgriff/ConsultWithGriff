@@ -1,14 +1,14 @@
 ---
-title: "One Simple Rule for Successful Consulting"
+title: 'One Simple Rule for Successful Consulting'
 date: 2014-09-03T00:16:57Z
 permalink: one-simple-rule-for-successful-consulting
-description: "Discover the one simple rule that can make your consulting more successful: always recommend solutions you would use for your own business."
-summary: "When I recommend tools, technologies, and other solutions to my clients, I want to always make sure that the suggestion I am providing is something I would do for my own business"
+description: 'Discover the one simple rule that can make your consulting more successful: always recommend solutions you would use for your own business.'
+summary: 'When I recommend tools, technologies, and other solutions to my clients, I want to always make sure that the suggestion I am providing is something I would do for my own business'
 tags:
-  - "consulting"
-  - "business advice"
-  - "client relationships"
-  - "professional ethics"
+  - 'consulting'
+  - 'business advice'
+  - 'client relationships'
+  - 'professional ethics'
 categories:
   - Business
 ---

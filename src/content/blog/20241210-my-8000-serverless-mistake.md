@@ -1,8 +1,8 @@
 ---
-title: "My $8,000 Serverless Mistake"
+title: 'My $8,000 Serverless Mistake'
 date: 2024-12-11T00:00:00Z
 permalink: my-8000-serverless-mistake
-description: "I made an $8,000 mistake with Azure Functions, and it taught me some valuable lessons about serverless architecture and cloud scaling costs."
+description: 'I made an $8,000 mistake with Azure Functions, and it taught me some valuable lessons about serverless architecture and cloud scaling costs.'
 summary: "I made an $8,000 mistake with Azure Functions, and it taught me some valuable lessons about serverless architecture. I've always loved Azure Functions for their affordability, simplicity, and ability to scale with demand, making them perfect for handling background tasks like processing queues. But I learned the hard way that scaling can spiral out of control, especially when using Elastic Premium instances with constant back pressure. What started as a cost-effective solution ballooned into a costly oversight as Azure ramped up resources to handle the load. After this experience, I realized not every problem is a serverless problem and shifted memory-intensive tasks to Azure Container Apps, which provided better control over resources. It's a painful but important reminder to understand cloud scaling and pricing before letting workloads run wild."
 tags:
   - Serverless
@@ -13,7 +13,7 @@ categories:
   - Serverless
   - Azure
   - Mistake
-excerpt: "What started as a cost-effective solution ballooned into a costly oversight as Azure ramped up resources to handle the load. After this experience, I realized not every problem is a serverless problem and shifted memory-intensive tasks to Azure Container Apps, which provided better control over resources."
+excerpt: 'What started as a cost-effective solution ballooned into a costly oversight as Azure ramped up resources to handle the load. After this experience, I realized not every problem is a serverless problem and shifted memory-intensive tasks to Azure Container Apps, which provided better control over resources.'
 ---
 
 > This article is my entry to C# Advent 2024. Please visit [C# Advent](https://www.csadvent.christmas/) to see all the other great articles!
@@ -54,9 +54,9 @@ For example, imagine you’re running thousands of operations daily. On a Consum
 
 ### You Don't Want Application Host Ceremony
 
-When deploying applications, eliminating the unnecessary overhead known as "application host ceremony" is paramount. This refers to the time and resources traditionally spent on server setups, environment configurations, and dependency management. By adopting  Azure Functions, you can significantly cut down on this ceremony. This shift lets your development team concentrate on writing and deploying code instead of juggling infrastructural challenges. With the complexities of server management abstracted away, you can innovate faster, deploy features more frequently, and enhance overall productivity. Reducing the host ceremony leads to a more streamlined development process, enabling you to deliver valuable functionalities to users swiftly and efficiently.
+When deploying applications, eliminating the unnecessary overhead known as "application host ceremony" is paramount. This refers to the time and resources traditionally spent on server setups, environment configurations, and dependency management. By adopting Azure Functions, you can significantly cut down on this ceremony. This shift lets your development team concentrate on writing and deploying code instead of juggling infrastructural challenges. With the complexities of server management abstracted away, you can innovate faster, deploy features more frequently, and enhance overall productivity. Reducing the host ceremony leads to a more streamlined development process, enabling you to deliver valuable functionalities to users swiftly and efficiently.
 
-### Burstable Scale  
+### Burstable Scale
 
 Burstable scale is a game-changer for managing cloud resources, allowing services to adapt dynamically to sudden spikes in demand. Azure Functions illustrates this brilliantly by automatically scaling resources in response to incoming requests or queued messages. Azure Functions can effortlessly spin up additional instances to handle concurrent tasks during peak times, ensuring that workloads are processed without delays or failures. This elasticity is invaluable for applications experiencing fluctuating traffic, offering cost savings by utilizing resources only when necessary. By leveraging burstable scale, developers can create robust, responsive applications capable of adapting to varying loads, ultimately leading to enhanced user experiences and greater operational efficiency.
 
@@ -92,7 +92,7 @@ If one elastic monthly premium is expensive, then 25 is another level!
 
 ## Conclusion
 
-I think Serverless is an amazing solution and viable for a multitude of problems. However, I recommend you avoid the "everything is a nail" problem.  
+I think Serverless is an amazing solution and viable for a multitude of problems. However, I recommend you avoid the "everything is a nail" problem.
 
 ![Bandit with a hammer](./images/2024-12-10-bandit-hammer.gif)
 

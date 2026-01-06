@@ -1,13 +1,13 @@
 ---
-title: "Building better ConnectionStrings with ConnectionStringBuilder"
+title: 'Building better ConnectionStrings with ConnectionStringBuilder'
 date: 2011-02-14T05:00:02Z
 permalink: building-better-connectionstrings-with-connectionstringbuilder
 description: "Learn how to use .NET's ConnectionStringBuilder classes to create clean, flexible connection strings for OleDb, SQL Server, and Entity Framework."
-summary: "ConnectionStringBuilder makes it fool-proof to generate connection strings."
+summary: 'ConnectionStringBuilder makes it fool-proof to generate connection strings.'
 tags:
-  - "Development - C#"
+  - 'Development - C#'
 categories:
-  - "Development - C#"
+  - 'Development - C#'
 ---
 
 Okay, I never admitted to being a .NET guru or anything, and that’s why I get so excited whenever I run across a gem in the framework that allows me to do something easier and with fewer issues.

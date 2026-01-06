@@ -1,9 +1,9 @@
 ---
-title: "Converting Epoch Time into DateTime with Azure Logic Apps"
+title: 'Converting Epoch Time into DateTime with Azure Logic Apps'
 date: 2021-02-24T00:00:00Z
 permalink: azure-logic-apps-epoch-time
-description: "Learn how to convert Epoch time to readable DateTime format in Azure Logic Apps when working with APIs like Stripe that use Unix timestamps."
-summary: "Some APIs use Epoch time to designate a DateTime object.  In Azure Logic Apps, how do you convert this into something useful?"
+description: 'Learn how to convert Epoch time to readable DateTime format in Azure Logic Apps when working with APIs like Stripe that use Unix timestamps.'
+summary: 'Some APIs use Epoch time to designate a DateTime object.  In Azure Logic Apps, how do you convert this into something useful?'
 tags:
   - Azure Logic Apps
   - Epoch Time
@@ -19,13 +19,13 @@ Recently, I've been building a handful of Azure Logic Apps that work with Stripe
 
 Stripe will commonly use Epoch time for it's dates.
 
-But Epoch time is pretty useless for anything that is human-facing, and it's not necessarily the default for a lot of Microsoft solutions.  
+But Epoch time is pretty useless for anything that is human-facing, and it's not necessarily the default for a lot of Microsoft solutions.
 
 I needed a way in Azure Logic Apps to easily convert an Epoch Date into a readable format.
 
 ## What is Epoch Time?
 
-[Epoch Time](https://en.wikipedia.org/wiki/Epoch_(computing)) is the number of seconds that have surpassed since Midnight, January 1st, 1970.  This is also commonly known as `Unix Epoch`.
+[Epoch Time](<https://en.wikipedia.org/wiki/Epoch_(computing)>) is the number of seconds that have surpassed since Midnight, January 1st, 1970. This is also commonly known as `Unix Epoch`.
 
 ## Converting
 
@@ -35,6 +35,4 @@ Converting the time is pretty straight-forward, Epoch time is just the number of
 addToTime('1970-01-01T00:00:00Z', [EPOCH TIME HERE], 'second')
 ```
 
-And ta-da!  Your Epoch Time is now in a much easier to use format!
-
-
+And ta-da! Your Epoch Time is now in a much easier to use format!

@@ -1,9 +1,9 @@
 ---
-title: "What Makes A Good Bug Report?"
+title: 'What Makes A Good Bug Report?'
 date: 2009-09-23T06:00:39Z
 permalink: what-makes-a-good-bug-report
-description: "Essential guidelines for writing effective bug reports that help developers quickly understand, reproduce, and fix software issues."
-summary: "Reporting issues in software?  Here are some tips to make it easy to replicate and fix!"
+description: 'Essential guidelines for writing effective bug reports that help developers quickly understand, reproduce, and fix software issues.'
+summary: 'Reporting issues in software?  Here are some tips to make it easy to replicate and fix!'
 tags:
   - bug reporting
   - software testing

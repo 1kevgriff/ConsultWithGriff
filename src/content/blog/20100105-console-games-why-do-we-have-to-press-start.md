@@ -1,16 +1,16 @@
 ---
-title: "Console Games: Why do we have to press start?"
+title: 'Console Games: Why do we have to press start?'
 date: 2010-01-05T06:00:00Z
 permalink: console-games-why-do-we-have-to-press-start
 description: "Ever wondered why console games make you press start before reaching the main menu? There's actually a good UX reason for this design pattern."
-summary: "Ever wondered why console games make you press start before reaching the main menu?"
+summary: 'Ever wondered why console games make you press start before reaching the main menu?'
 tags:
   - Gaming
   - UX Design
   - Console Games
   - User Experience
 categories:
-  - "Development - Game Development"
+  - 'Development - Game Development'
 ---
 
 Interesting question came up on Twitter the other day:

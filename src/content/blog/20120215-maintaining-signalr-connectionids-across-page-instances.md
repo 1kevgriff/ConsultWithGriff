@@ -1,9 +1,9 @@
 ---
-title: "Maintaining SignalR ConnectionIds Across Page Instances"
+title: 'Maintaining SignalR ConnectionIds Across Page Instances'
 date: 2012-02-15T10:00:52Z
 permalink: maintaining-signalr-connectionids-across-page-instances
-description: "Learn how to maintain SignalR ConnectionIds across page refreshes using cookies and custom connection ID factories."
-summary: "Learn how to maintain SignalR ConnectionIds across page refreshes using cookies and custom connection ID factories."
+description: 'Learn how to maintain SignalR ConnectionIds across page refreshes using cookies and custom connection ID factories.'
+summary: 'Learn how to maintain SignalR ConnectionIds across page refreshes using cookies and custom connection ID factories.'
 tags:
   - SignalR
   - Real-time
@@ -27,18 +27,17 @@ So I looked into how to make SignalR reuse ConnectionIds in the case of a page r
    When you start() a new connection, SignalR will return a ConnectionId.  You’ll want to set a cookie with that ConnectionId in it.
 
 ```javascript
-$.connection.hub.start().done(function() {
-  alert("Connected!");
+$.connection.hub.start().done(function () {
+  alert('Connected!');
   var myClientId = $.connection.hub.id;
-  setCookie("srconnectionid", myClientId);
+  setCookie('srconnectionid', myClientId);
 });
 
 function setCookie(cName, value, exdays) {
   var exdate = new Date();
   exdate.setDate(exdate.getDate() + exdays);
-  var c_value =
-    escape(value) + (exdays == null ? "" : "; expires=" + exdate.toUTCString());
-  document.cookie = cName + "=" + c_value;
+  var c_value = escape(value) + (exdays == null ? '' : '; expires=' + exdate.toUTCString());
+  document.cookie = cName + '=' + c_value;
 }
 ```
 

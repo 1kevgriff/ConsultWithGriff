@@ -1,19 +1,19 @@
 ---
-title: "Non-Tech Factors to Consider When Choosing Your Tech Stack"
+title: 'Non-Tech Factors to Consider When Choosing Your Tech Stack'
 date: 2016-05-10T21:33:01Z
 permalink: non-tech-factors-to-consider-when-choosing-your-tech-stack
-description: "Learn about the important non-technical factors to consider when choosing your technology stack, including team capabilities, project requirements, and business constraints."
-summary: "Greenfield projects are typically a great deal of fun. It is something new and exciting! No legacy code that will bog down or needlessly frustrate the team."
+description: 'Learn about the important non-technical factors to consider when choosing your technology stack, including team capabilities, project requirements, and business constraints.'
+summary: 'Greenfield projects are typically a great deal of fun. It is something new and exciting! No legacy code that will bog down or needlessly frustrate the team.'
 tags:
-  - "technology stack"
-  - "software development"
-  - "project management"
-  - "team leadership"
+  - 'technology stack'
+  - 'software development'
+  - 'project management'
+  - 'team leadership'
 categories:
   - Deep Thoughts
 ---
 
-Greenfield projects are typically a great deal of fun. It is something new and exciting! No legacy code that will bog down or needlessly frustrate the team. *We will finally get to do things the RIGHT way this time.*
+Greenfield projects are typically a great deal of fun. It is something new and exciting! No legacy code that will bog down or needlessly frustrate the team. _We will finally get to do things the RIGHT way this time._
 
 There is a flip side to this excitement, however. The fun and flexibility of a new Greenfield project also comes with the unparalleled responsibility of making hard, up front, technical decisions.
 
@@ -23,30 +23,30 @@ WebForms? The hard technical decisions you make at the beginning of the project 
 Because it is so challenging, many developers will concentrate on the technical aspects of selecting a stack while completely ignoring the developers themselves. If you are the technical director of a project, you cannot proclaim “this is the stack we will use” without a firm understanding of how that will be accepted by the team or even simply the knowledge of what the needs of the project will be.
 
 ##Being on the Cutting Edge
-There is a poem by Robert Frost that every high school kid in the US had to memorize. Two roads diverged in a yellow wood, and sorry I could not travel both.* Your tech stack is the same. There are two paths: one that is well worn and one that is thick with undergrowth.
+There is a poem by Robert Frost that every high school kid in the US had to memorize. Two roads diverged in a yellow wood, and sorry I could not travel both.\* Your tech stack is the same. There are two paths: one that is well worn and one that is thick with undergrowth.
 
 Which one do you select?
 
 First, we can examine the well-worn path. ASP.NET WebForms has been around for over fifteen years. There are a million different blog posts on various aspects of WebForms. As it has matured over the years, most of the documentation has stayed relevant. Try Googling for “(something) webforms” and you will be rewarded with thousands of results. All of which are probably still good to examine and use!
 
 ASP.NET MVC 5 is an in-between of tried and true and cutting edge. With the onset of ASP.NET Core 1.0, using MVC 5 on ASP.NET 4.6 is a bit like buying a car one model year older when the new ones are shipping next week. However, as with cars, the documentation and trailblazing has already happened. You benefit from all the hard work of previous
-early-adopters. 
+early-adopters.
 
 ASP.NET Core 1.0 is the overgrown road. If you were to glance down it, you would see developers who have tripped and fallen. Some might be stuck in holes. The end of the road is a mystery because it isn’t visible from where you are. Ask yourself, "How adventurous do I feel?”
 
-Projects with strict budgets and deadlines would not be appropriate for cutting edge. That conversation doesn’t go well. 
+Projects with strict budgets and deadlines would not be appropriate for cutting edge. That conversation doesn’t go well.
 
->“Are we all set with the launch next week?”
+> “Are we all set with the launch next week?”
 >
->“No. Turns out ASP.NET Core doesn’t support SmtpClient yet so we have to push a few weeks.”
+> “No. Turns out ASP.NET Core doesn’t support SmtpClient yet so we have to push a few weeks.”
 
 On a personal note, I like to stay on in the middle leaning towards cutting edge. My job dictates that I solve business problems and doesn’t require a specific tech stack. For a current client project, I’m adventuring into ASP.NET Core and I’m hitting far more roadblocks than what I was expecting.
 
-Trailblazers need to be aware and take their time. Through their efforts, the path will be clearer for other developers who follow. 
+Trailblazers need to be aware and take their time. Through their efforts, the path will be clearer for other developers who follow.
 
 ## Developer Ability to Learn Quickly
 
-When I used to hire developers, our metrics did not put too much concern about what a person knew but how quickly he or she could learn it. 
+When I used to hire developers, our metrics did not put too much concern about what a person knew but how quickly he or she could learn it.
 
 When choosing a stack, it is important to gauge the team responsible for implementing the stack. A developer fixated with developing for WebForms might have a difficult time moving to the more complex patterns exposed by ASP.NET MVC or WebAPI.
 
@@ -62,7 +62,7 @@ All projects are unique snowflakes. Client needs will vary from “I just need s
 
 Simple “forms over data” applications do not need to be single page applications built with Angular 2 or React. A complex solution that would take a small team of developers to implement over a couple weeks can easily be accomplished by one developer within a couple hours with WebForms.
 
-Large monolithic web applications have a different set of needs. You are expecting these projects to launch with minimum features, but eventually will balloon in size and complexity. The time invested in more cutting edge approaches will pay dividends in the future. 
+Large monolithic web applications have a different set of needs. You are expecting these projects to launch with minimum features, but eventually will balloon in size and complexity. The time invested in more cutting edge approaches will pay dividends in the future.
 
 Your goal as a decision maker is to weigh the needs of the project with the tools available – and even in some cases, looking at the tools on the horizon. If your project is simply forms over data, maybe stick with something simple like ASP.NET WebForms. If you foresee the project growing in complexity over time, maybe start with an ASP.NET MVC and WebAPI stack that could later integrate front-end frameworks like Angular or React.
 
@@ -86,12 +86,11 @@ bleeding edge of what ASP.NET developers can use, then you need to expect them t
 
 ## Conclusions
 
-
 Sometimes we wish decisions could simply be a matter of bits and bytes, but there are many human factors that need to be taken into account.
 
 The best advice that can be given is to discuss the pros and cons of every choice available within your teams. If teams are completely involved in the process of making technical decisions, the product outcome will be better because of it.
 
 > What tools are available in the ASP.NET stack then? Jeremy Likness has an [excellent
-article](https://www.telerik.com/blogs/how-to-web-asp-net?utm_medium=external&utm_source=kgriffin&utm_campaign=dt-devcraft-apr16-webinar&utm_content=article) on the current state of ASP.NET development tools. Use the tools discussed in Jeremy’s article to start a dialog with your team. (sponsored)  
+> article](https://www.telerik.com/blogs/how-to-web-asp-net?utm_medium=external&utm_source=kgriffin&utm_campaign=dt-devcraft-apr16-webinar&utm_content=article) on the current state of ASP.NET development tools. Use the tools discussed in Jeremy’s article to start a dialog with your team. (sponsored)
 
 A great team, when given flexibility, will always produce a solid product.

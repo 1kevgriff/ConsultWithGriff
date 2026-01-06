@@ -1,9 +1,9 @@
 ---
-title: "A Diet Programmers Can Relate To"
+title: 'A Diet Programmers Can Relate To'
 date: 2009-02-06T06:52:21Z
 permalink: a-diet-programmers-can-relate-to
-description: "I gave Weight Watchers a try, and it was pretty cool! Learn how the Weight Watchers point system works like a programming algorithm."
-summary: "I gave Weight Watchers a try, and it was pretty cool! Learn how the Weight Watchers point system works like a programming algorithm."
+description: 'I gave Weight Watchers a try, and it was pretty cool! Learn how the Weight Watchers point system works like a programming algorithm.'
+summary: 'I gave Weight Watchers a try, and it was pretty cool! Learn how the Weight Watchers point system works like a programming algorithm.'
 tags:
   - Health
   - Programming

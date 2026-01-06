@@ -1,9 +1,9 @@
 ---
-title: "The Dev Talk Show Recap and Resources"
+title: 'The Dev Talk Show Recap and Resources'
 date: 2020-05-07T00:30:00Z
 permalink: thedevtalkshow
-description: "Resources and replay from The Dev Talk Show episode covering Logic Apps and Azure development."
-summary: "Thanks for attending The Dev Talk Show! Here are the resources and replay from our discussion about Logic Apps and Azure development."
+description: 'Resources and replay from The Dev Talk Show episode covering Logic Apps and Azure development.'
+summary: 'Thanks for attending The Dev Talk Show! Here are the resources and replay from our discussion about Logic Apps and Azure development.'
 tags:
   - Dev Talk Show
   - Logic Apps
@@ -13,7 +13,7 @@ categories:
   - Misc
 ---
 
-Thanks for attending The Dev Talk Show!  If you missed the episode, catch the replay at:
+Thanks for attending The Dev Talk Show! If you missed the episode, catch the replay at:
 
 https://www.youtube.com/embed/emuUvQfJpeU
 
@@ -22,5 +22,3 @@ https://www.youtube.com/embed/emuUvQfJpeU
 [Logic Apps on Azure](https://azure.microsoft.com/en-us/services/logic-apps/?WT.mc_id=DOP-MVP-4029061)  
 [Custom Connector in Azure Logic Apps](https://docs.microsoft.com/en-us/connectors/custom-connectors/create-logic-apps-connector?WT.mc_id=DOP-MVP-4029061)  
 [The Dev Talk Show](https://thedevtalkshow.com/)
-
-
