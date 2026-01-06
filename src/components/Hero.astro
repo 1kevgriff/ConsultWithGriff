@@ -15,9 +15,20 @@ export interface Props {
     text: string;
     href: string;
   };
+  microcopy?: string;
+  audienceFilter?: string;
 }
 
-const { title, subtitle, imageSrc, imageAlt = '', primaryCTA, secondaryCTA } = Astro.props;
+const {
+  title,
+  subtitle,
+  imageSrc,
+  imageAlt = '',
+  primaryCTA,
+  secondaryCTA,
+  microcopy,
+  audienceFilter,
+} = Astro.props;
 
 import Button from './Button.astro';
 ---
@@ -30,9 +41,15 @@ import Button from './Button.astro';
         <h1 class="text-4xl lg:text-5xl xl:text-6xl font-bold leading-tight mb-6">
           {title}
         </h1>
-        <p class="text-xl lg:text-2xl text-gray-200 mb-8 leading-relaxed">
+        <p class="text-xl lg:text-2xl text-gray-200 mb-6 leading-relaxed">
           {subtitle}
         </p>
+
+        {
+          audienceFilter && (
+            <p class="text-lg text-gray-300 mb-8 leading-relaxed">{audienceFilter}</p>
+          )
+        }
 
         <!-- CTAs -->
         {
@@ -54,6 +71,12 @@ import Button from './Button.astro';
                 </Button>
               )}
             </div>
+          )
+        }
+
+        {
+          microcopy && (
+            <p class="text-sm text-gray-400 mt-4 max-w-md mx-auto lg:mx-0">{microcopy}</p>
           )
         }
       </div>
