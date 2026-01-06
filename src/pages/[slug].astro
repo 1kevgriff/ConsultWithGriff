@@ -93,31 +93,35 @@ if (type === 'blog') {
           <Content />
         </div>
 
-        {type === 'blog' && (
-          <div class="mb-8">
-            <a href="/articles" class="font-bold uppercase text-green-600 hover:text-green-700">
-              Back to Article Listing
-            </a>
-          </div>
-        )}
+        {
+          type === 'blog' && (
+            <div class="mb-8">
+              <a href="/articles" class="font-bold uppercase text-green-600 hover:text-green-700">
+                Back to Article Listing
+              </a>
+            </div>
+          )
+        }
       </article>
 
       <!-- TOC Sidebar (Desktop Only) -->
-      {type === 'blog' && tocHeadings.length > 0 && (
-        <aside class="hidden lg:block w-64 flex-shrink-0">
-          <TableOfContents
-            headings={tocHeadings}
-            formattedDate={formattedDate}
-            readingTime={readingTime}
-          />
-        </aside>
-      )}
+      {
+        type === 'blog' && tocHeadings.length > 0 && (
+          <aside class="hidden lg:block w-64 flex-shrink-0">
+            <TableOfContents
+              headings={tocHeadings}
+              formattedDate={formattedDate}
+              readingTime={readingTime}
+            />
+          </aside>
+        )
+      }
     </div>
   </div>
 </BaseLayout>
 
-{type === 'blog' && tocHeadings.length > 0 && (
-  <script>
-    import '../scripts/toc-highlight.ts';
-  </script>
-)}
+{
+  type === 'blog' && tocHeadings.length > 0 && (
+    <script>import '../scripts/toc-highlight.ts';</script>
+  )
+}
