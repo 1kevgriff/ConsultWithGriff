@@ -1,5 +1,6 @@
 // @ts-check
 import { defineConfig } from 'astro/config';
+import sitemap from '@astrojs/sitemap';
 import remarkGfm from 'remark-gfm';
 import rehypeExternalLinks from 'rehype-external-links';
 import remarkYoutube from 'remark-youtube';
@@ -10,6 +11,8 @@ import tailwindcss from '@tailwindcss/vite';
 
 // https://astro.build/config
 export default defineConfig({
+  site: 'https://consultwithgriff.com',
+  integrations: [sitemap()],
   markdown: {
     remarkPlugins: [remarkGfm, remarkYoutube, remarkReadingTime],
     rehypePlugins: [

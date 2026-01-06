@@ -44,6 +44,7 @@
         "Cache-Control": "public, max-age=3600, must-revalidate"
       }
     },
+    { "route": "/sitemap.xml", "redirect": "/sitemap-index.xml", "statusCode": 301 },
     { "route": "/blog*", "redirect": "/", "statusCode": 301 },
     { "route": "/shows/*", "redirect": "/", "statusCode": 301 },
     { "route": "/tag*", "redirect": "/", "statusCode": 301 },

@@ -16,8 +16,8 @@ const pageDescription =
 
   <!-- Hero Section -->
   <Hero
-    title="Level Up Your .NET Skills"
-    subtitle="Learn from a 16-time Microsoft MVP with courses designed for real-world developers. From SignalR to Azure, build the skills that matter."
+    title="Stop Googling. Start Building."
+    subtitle="Practical .NET courses that skip the theory overload. Learn SignalR, background processing, and Azure monitoring by building real features you can use Monday morning."
     imageSrc="/kevin_rockon.jpg"
     imageAlt="Kevin W. Griffin - Microsoft MVP & Course Instructor"
     primaryCTA={{ text: 'View All Courses', href: '#courses' }}
@@ -52,15 +52,15 @@ const pageDescription =
 
             <div class="flex-grow mb-6">
               <p class="text-gray-700 mb-4 leading-relaxed">
-                SignalR is a library for .NET which allows developers to add real-time capabilities
-                to their applications. It provides a framework for managing connections from various
-                clients, including web pages, mobile apps, desktop applications, and more. It
-                handles all of the grunt work.
+                Real-time features shouldn't require a PhD. This course takes you from "what's a
+                Hub?" to production-ready SignalR in your .NET apps — with authentication, scaling,
+                and the edge cases the docs don't mention.
               </p>
 
               <p class="text-gray-700 leading-relaxed">
-                In this course, we'll take a structured look at how SignalR works and how you can
-                harness it within your .NET applications.
+                <strong class="text-navy">What you'll build:</strong> Live chat with presence
+                indicators, real-time dashboards with automatic updates, and notification systems
+                that work across browser tabs. 4.5 hours. No filler. Just SignalR done right.
               </p>
             </div>
 
@@ -98,24 +98,23 @@ const pageDescription =
 
             <div class="flex-grow mb-6">
               <p class="text-gray-700 mb-4 leading-relaxed">
-                This comprehensive course teaches you how to build background services in .NET using
-                HangFire, a powerful open-source library that makes it easy to create and manage
-                background jobs.
+                Your app needs to send emails, process files, or run scheduled tasks — but you don't
+                want to build infrastructure from scratch. HangFire gives you a battle-tested
+                solution, and this course shows you how to use it properly.
               </p>
 
               <p class="text-gray-700 mb-4 leading-relaxed">
-                Throughout the course, you'll learn from a Microsoft MVP with over 15 years of
-                experience in software development, who will guide you through the entire process,
-                from setting up HangFire to building and managing background jobs.
+                From simple fire-and-forget jobs to complex recurring workflows, you'll learn
+                patterns that work in production — not just in tutorials.
               </p>
 
-              <h4 class="font-semibold text-navy mb-2">What You'll Learn:</h4>
+              <h4 class="font-semibold text-navy mb-2">What You'll Build:</h4>
               <ul class="list-disc list-inside text-gray-700 space-y-1 text-sm">
-                <li>Create and manage background jobs using the HangFire dashboard</li>
-                <li>Schedule recurring jobs that run automatically</li>
-                <li>Handle errors during job execution</li>
-                <li>Scale background services for large volumes of jobs</li>
-                <li>Best practices for building efficient background services</li>
+                <li>Background jobs with the HangFire dashboard for monitoring</li>
+                <li>Scheduled and recurring jobs that actually run on time</li>
+                <li>Error handling that doesn't lose jobs</li>
+                <li>Scaling strategies for high-volume processing</li>
+                <li>Production patterns you can apply immediately</li>
               </ul>
             </div>
 
@@ -201,24 +200,26 @@ const pageDescription =
         <div class="grid md:grid-cols-3 gap-8">
           <div class="text-center">
             <div class="text-4xl mb-3">🏆</div>
-            <h3 class="font-bold text-navy mb-2">16-Time Microsoft MVP</h3>
+            <h3 class="font-bold text-navy mb-2">16 Consecutive Years as Microsoft MVP</h3>
             <p class="text-gray-700">
-              Recognized for expertise in .NET development for 16 consecutive years.
+              Not just recognized — actively contributing to the .NET community since 2008.
             </p>
           </div>
 
           <div class="text-center">
             <div class="text-4xl mb-3">👥</div>
-            <h3 class="font-bold text-navy mb-2">Thousands of Students</h3>
+            <h3 class="font-bold text-navy mb-2">Thousands of Course Enrollments</h3>
             <p class="text-gray-700">
-              My courses have helped developers worldwide level up their skills.
+              Developers worldwide use these courses to solve real problems at work.
             </p>
           </div>
 
           <div class="text-center">
             <div class="text-4xl mb-3">💡</div>
-            <h3 class="font-bold text-navy mb-2">Real-World Experience</h3>
-            <p class="text-gray-700">I teach what actually works in production, not just theory.</p>
+            <h3 class="font-bold text-navy mb-2">Active Consultant — I Build What I Teach</h3>
+            <p class="text-gray-700">
+              Not retired from coding. I use these techniques in client projects every week.
+            </p>
           </div>
         </div>
 
@@ -250,22 +251,29 @@ const pageDescription =
         </h2>
         <p class="text-xl text-navy mb-8">
           I offer private workshops tailored to your team's specific needs. ASP.NET Core, Azure,
-          SignalR, or modern development practices - let's build a custom training program together.
+          SignalR, or modern development practices — let's build a custom training program together.
         </p>
 
-        <Button
-          href="/consulting"
-          variant="primary"
-          size="lg"
-          class="bg-navy text-gold border-2 border-navy hover:bg-navy-light"
-        >
-          Discuss Custom Training
-        </Button>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <Button
+            href="https://app.onecal.io/b/kevin-griffin/chat"
+            variant="primary"
+            size="lg"
+            class="bg-navy text-gold border-2 border-navy hover:bg-navy-light"
+          >
+            Schedule a free discovery call
+          </Button>
+          <Button href="/consulting" variant="secondary" size="lg" class="border-navy text-navy">
+            Learn About Consulting
+          </Button>
+        </div>
 
         <p class="text-sm text-navy mt-6 opacity-80">
-          Or <a href="mailto:connect@consultwithgriff.com" class="underline hover:text-navy-light">
+          I respond within one business day. Or{' '}
+          <a href="mailto:hello@consultwithgriff.com" class="underline hover:text-navy-light">
             send me an email
-          </a> to explore training options.
+          </a>{' '}
+          to explore training options.
         </p>
       </div>
     </div>

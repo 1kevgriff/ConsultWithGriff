@@ -1,85 +1,209 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Card from '../components/Card.astro';
+import Button from '../components/Button.astro';
 ---
 
 <BaseLayout
   title="Contact Kevin W. Griffin"
   description="Get in touch with Kevin W. Griffin for consulting, training, or speaking opportunities."
 >
-  <!-- Page Header -->
+  <!-- Hero Section -->
   <section class="bg-navy text-white py-16">
     <div class="container mx-auto px-4 lg:px-8">
       <div class="max-w-4xl mx-auto text-center">
-        <h1 class="text-4xl lg:text-5xl font-bold mb-4">Let's Work Together</h1>
-        <p class="text-xl text-gray-200">
-          Looking for consulting, training, or a speaker for your event? I'd love to hear from you.
+        <h1 class="text-4xl lg:text-5xl font-bold mb-4">
+          Let's Figure Out If I Can Help
+        </h1>
+        <p class="text-xl text-gray-200 mb-2">
+          Most architecture problems have an answer — the question is whether it's the right answer
+          for your constraints.
+        </p>
+        <p class="text-lg text-gray-300">In 30 minutes, we'll know if working together makes sense.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Primary CTA -->
+  <section class="py-12 bg-gold">
+    <div class="container mx-auto px-4 lg:px-8 text-center">
+      <h2 class="text-2xl font-bold text-navy mb-4">Schedule a Free Discovery Call</h2>
+      <p class="text-navy mb-6 max-w-2xl mx-auto">
+        30 minutes. No pitch, no pressure. You'll describe what you're dealing with, I'll ask
+        questions and give you honest feedback — including whether I'm the right fit or if you'd be
+        better served elsewhere.
+      </p>
+      <Button
+        href="https://app.onecal.io/b/kevin-griffin/chat"
+        variant="primary"
+        size="lg"
+        class="!bg-navy !text-white border-2 border-navy hover:!bg-navy-light"
+      >
+        Book a Time
+      </Button>
+      <p class="text-sm text-navy mt-4 opacity-80">Typically available within 48 hours</p>
+    </div>
+  </section>
+
+  <!-- Alternative Contact -->
+  <section class="py-16 bg-white">
+    <div class="container mx-auto px-4 lg:px-8">
+      <div class="max-w-2xl mx-auto">
+        <h3 class="text-xl font-bold text-navy mb-6 text-center">Prefer Email?</h3>
+        <p class="text-gray-700 text-center mb-4">
+          If a call isn't convenient, send me a note with:
+        </p>
+        <ul class="text-gray-700 mb-6 space-y-2 max-w-md mx-auto">
+          <li class="flex items-start gap-2">
+            <span class="text-gold">•</span>
+            <span>A brief description of your challenge</span>
+          </li>
+          <li class="flex items-start gap-2">
+            <span class="text-gold">•</span>
+            <span>Your timeline (urgent vs. exploring options)</span>
+          </li>
+          <li class="flex items-start gap-2">
+            <span class="text-gold">•</span>
+            <span>What a good outcome looks like</span>
+          </li>
+        </ul>
+        <p class="text-center">
+          <a
+            href="mailto:hello@consultwithgriff.com"
+            class="text-gold hover:text-gold-warm font-semibold text-lg transition-colors"
+          >
+            hello@consultwithgriff.com
+          </a>
+        </p>
+        <p class="text-sm text-gray-500 text-center mt-2">
+          I respond to every email within one business day
         </p>
       </div>
     </div>
   </section>
 
-  <!-- Contact Options -->
-  <section class="py-20 bg-white">
+  <!-- What Happens Next -->
+  <section class="py-16 bg-gray-50">
     <div class="container mx-auto px-4 lg:px-8">
-      <div class="max-w-4xl mx-auto grid md:grid-cols-2 gap-8">
-        <!-- Email Card -->
-        <Card variant="white">
-          <div class="text-center">
-            <div class="text-gold text-5xl mb-4">✉️</div>
-            <h2 class="text-2xl font-bold text-navy mb-3">Email Me</h2>
-            <p class="text-gray-700 mb-4">
-              The best way to reach me for business inquiries, consulting, or training
-              opportunities.
-            </p>
-            <a
-              href="mailto:hello@consultwithgriff.com"
-              class="text-gold hover:text-gold-warm font-semibold text-lg transition-colors"
+      <div class="max-w-3xl mx-auto">
+        <h3 class="text-2xl font-bold text-navy mb-8 text-center">What Happens After You Reach Out</h3>
+        <div class="space-y-6">
+          <div class="flex gap-4">
+            <div
+              class="flex-shrink-0 w-8 h-8 bg-navy text-white rounded-full flex items-center justify-center font-bold"
             >
-              hello@consultwithgriff.com
-            </a>
+              1
+            </div>
+            <div>
+              <h4 class="font-semibold text-navy">Quick Response</h4>
+              <p class="text-gray-700">
+                I'll reply within one business day with initial thoughts and any clarifying questions
+              </p>
+            </div>
           </div>
-        </Card>
-
-        <!-- Twitter Card -->
-        <Card variant="white">
-          <div class="text-center">
-            <div class="text-gold text-5xl mb-4">🐦</div>
-            <h2 class="text-2xl font-bold text-navy mb-3">Follow on Twitter</h2>
-            <p class="text-gray-700 mb-4">
-              Connect with me on Twitter for tech insights, .NET tips, and industry discussions.
-            </p>
-            <a
-              href="https://twitter.com/1kevgriff"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="text-gold hover:text-gold-warm font-semibold text-lg transition-colors"
+          <div class="flex gap-4">
+            <div
+              class="flex-shrink-0 w-8 h-8 bg-navy text-white rounded-full flex items-center justify-center font-bold"
             >
-              @1kevgriff
-            </a>
+              2
+            </div>
+            <div>
+              <h4 class="font-semibold text-navy">Discovery Call</h4>
+              <p class="text-gray-700">
+                30 minutes to dive deeper. You'll leave with clarity on the problem and potential
+                approaches — whether or not we work together
+              </p>
+            </div>
           </div>
-        </Card>
+          <div class="flex gap-4">
+            <div
+              class="flex-shrink-0 w-8 h-8 bg-navy text-white rounded-full flex items-center justify-center font-bold"
+            >
+              3
+            </div>
+            <div>
+              <h4 class="font-semibold text-navy">Clear Proposal</h4>
+              <p class="text-gray-700">
+                If there's a fit, you'll receive a straightforward proposal within 48 hours: scope,
+                timeline, investment, and expected outcomes
+              </p>
+            </div>
+          </div>
+        </div>
       </div>
+    </div>
+  </section>
 
-      <!-- Additional Info -->
-      <div class="max-w-3xl mx-auto mt-16 text-center">
+  <!-- What I Can Help With -->
+  <section class="py-16 bg-white">
+    <div class="container mx-auto px-4 lg:px-8">
+      <div class="max-w-3xl mx-auto text-center">
         <h3 class="text-2xl font-bold text-navy mb-6">What I Can Help With</h3>
         <div class="grid sm:grid-cols-3 gap-6 text-gray-700">
-          <div>
+          <Card variant="light">
             <div class="text-3xl mb-2">💼</div>
-            <p class="font-semibold">Consulting</p>
-            <p class="text-sm">Architecture & Azure solutions</p>
-          </div>
-          <div>
+            <p class="font-semibold text-navy">Consulting</p>
+            <p class="text-sm">Architecture, Azure, performance, and modernization</p>
+          </Card>
+          <Card variant="light">
             <div class="text-3xl mb-2">🎓</div>
-            <p class="font-semibold">Training</p>
-            <p class="text-sm">Private team workshops</p>
-          </div>
-          <div>
+            <p class="font-semibold text-navy">Training</p>
+            <p class="text-sm">Private team workshops on .NET, Azure, and SignalR</p>
+          </Card>
+          <Card variant="light">
             <div class="text-3xl mb-2">🎤</div>
-            <p class="font-semibold">Speaking</p>
-            <p class="text-sm">Conference & user group talks</p>
-          </div>
+            <p class="font-semibold text-navy">Speaking</p>
+            <p class="text-sm">Conference and user group talks that leave actionable takeaways</p>
+          </Card>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Social Links -->
+  <section class="py-12 bg-navy-light">
+    <div class="container mx-auto px-4 lg:px-8">
+      <div class="max-w-2xl mx-auto text-center">
+        <h3 class="text-xl font-bold text-white mb-6">Connect Online</h3>
+        <div class="flex justify-center gap-8">
+          <a
+            href="https://twitter.com/1kevgriff"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="text-gray-200 hover:text-gold transition-colors"
+            aria-label="Follow on X (Twitter)"
+          >
+            <span class="text-3xl" aria-hidden="true">𝕏</span>
+            <span class="block text-sm mt-1">@1kevgriff</span>
+          </a>
+          <a
+            href="https://github.com/1kevgriff"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="text-gray-200 hover:text-gold transition-colors"
+            aria-label="View GitHub profile"
+          >
+            <svg class="w-8 h-8 mx-auto" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <path
+                d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"
+              ></path>
+            </svg>
+            <span class="block text-sm mt-1">GitHub</span>
+          </a>
+          <a
+            href="https://youtube.com/swiftkick"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="text-gray-200 hover:text-gold transition-colors"
+            aria-label="Subscribe on YouTube"
+          >
+            <svg class="w-8 h-8 mx-auto" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <path
+                d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"
+              ></path>
+            </svg>
+            <span class="block text-sm mt-1">YouTube</span>
+          </a>
         </div>
       </div>
     </div>
