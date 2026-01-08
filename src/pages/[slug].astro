@@ -102,6 +102,42 @@ if (type === 'blog') {
             </div>
           )
         }
+
+        {/* Categories & Tags */}
+        {type === 'blog' && (entry.data.categories?.length > 0 || entry.data.tags?.length > 0) && (
+          <div class="border-t border-navy-200 pt-6">
+            {entry.data.categories?.length > 0 && (
+              <div class="mb-4">
+                <p class="text-xs uppercase tracking-wide text-navy-600 font-semibold mb-2">Categories</p>
+                <div class="flex flex-wrap gap-2">
+                  {entry.data.categories.map((cat: string) => (
+                    <a
+                      href={`/article-categories/${cat}/`}
+                      class="inline-flex items-center px-2.5 py-1 text-xs font-medium rounded-md bg-navy-50 text-navy-700 border border-navy-200 hover:bg-gold-50 hover:text-navy-800 hover:border-gold-400 transition-all duration-200 no-underline"
+                    >
+                      {cat}
+                    </a>
+                  ))}
+                </div>
+              </div>
+            )}
+            {entry.data.tags?.length > 0 && (
+              <div>
+                <p class="text-xs uppercase tracking-wide text-navy-600 font-semibold mb-2">Tags</p>
+                <div class="flex flex-wrap gap-2">
+                  {entry.data.tags.map((tag: string) => (
+                    <a
+                      href={`/article-tags/${tag}/`}
+                      class="inline-flex items-center px-2.5 py-1 text-xs font-medium rounded-md bg-navy-50 text-navy-700 border border-navy-200 hover:bg-gold-50 hover:text-navy-800 hover:border-gold-400 transition-all duration-200 no-underline"
+                    >
+                      {tag}
+                    </a>
+                  ))}
+                </div>
+              </div>
+            )}
+          </div>
+        )}
       </article>
 
       <!-- TOC Sidebar (Desktop Only) -->
