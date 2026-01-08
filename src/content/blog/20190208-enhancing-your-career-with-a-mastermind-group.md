@@ -1,7 +1,7 @@
 ---
 title: 'Enhancing Your Career with a Mastermind Group'
 date: 2019-02-08T11:04:49Z
-permalink: Enhancing-Your-Career-with-a-Mastermind-Group
+permalink: enhancing-your-career-with-a-mastermind-group
 description: 'When I quit my job to create my own business, I needed a group to help support me and give me advice. These MasterMind sessions were my key to growth and success.'
 summary: 'When I quit my job to create my own business, I needed a group to help support me and give me advice. These MasterMind sessions were my key to growth and success.'
 tags:
