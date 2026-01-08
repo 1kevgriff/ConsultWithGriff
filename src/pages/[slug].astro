@@ -3,6 +3,7 @@ import { getCollection, render } from 'astro:content';
 import type { GetStaticPaths } from 'astro';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import TableOfContents from '../components/TableOfContents.astro';
+import AuthorBio from '../components/AuthorBio.astro';
 import { slugify } from '../utils/slugify';
 
 export const getStaticPaths: GetStaticPaths = async () => {
@@ -93,6 +94,8 @@ if (type === 'blog') {
         <div class="mb-8 markdown-body">
           <Content />
         </div>
+
+        {type === 'blog' && <AuthorBio />}
 
         {
           type === 'blog' && (
