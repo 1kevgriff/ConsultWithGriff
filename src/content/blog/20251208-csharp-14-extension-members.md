@@ -6,11 +6,11 @@ description: 'Explore how C# 14 extension members let you add computed propertie
 summary: 'A hands-on look at using extension members to improve expressiveness and eliminate boilerplate in C#.'
 excerpt: 'Explore how C# 14 extension members let you add computed properties to existing .NET types.'
 tags:
-  - C#
-  - .NET
+  - csharp
+  - dotnet
   - Extension Members
 categories:
-  - 'Development - C#'
+  - Development
 image: /og/csharp-14-extension-members.png
 ---
 

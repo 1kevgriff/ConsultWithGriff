@@ -10,12 +10,12 @@ tags:
   - Error Resolution
   - Function Bindings
   - Triggers
-  - .NET
+  - dotnet
 categories:
   - Azure
   - Azure Functions
-  - C#
-  - .NET
+  - csharp
+  - dotnet
 ---
 
 Don't you just hate errors that will tell you something is wrong, but not tell you what? I ran into that case recently while refactoring an Azure Functions project.
