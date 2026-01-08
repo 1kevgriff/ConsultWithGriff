@@ -1,0 +1,27 @@
+{
+  "name": "Kevin W. Griffin - Azure & .NET Architect",
+  "short_name": "ConsultWithGriff",
+  "description": "Independent software consultant specializing in ASP.NET Core, Microsoft Azure, and modern web development. 16-time Microsoft MVP.",
+  "icons": [
+    {
+      "src": "/favicon-16x16.png",
+      "sizes": "16x16",
+      "type": "image/png"
+    },
+    {
+      "src": "/favicon-32x32.png",
+      "sizes": "32x32",
+      "type": "image/png"
+    },
+    {
+      "src": "/favicon-96x96.png",
+      "sizes": "96x96",
+      "type": "image/png"
+    }
+  ],
+  "theme_color": "#1B3C59",
+  "background_color": "#ffffff",
+  "display": "standalone",
+  "start_url": "/",
+  "scope": "/"
+}

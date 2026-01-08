@@ -1,0 +1,19 @@
+/* TEAM */
+Developer: Kevin W. Griffin
+Site: https://consultwithgriff.com
+LinkedIn: https://www.linkedin.com/in/1kevgriff/
+Bluesky: https://bsky.app/profile/consultwithgriff.com
+X: https://twitter.com/1kevgriff
+GitHub: https://github.com/1kevgriff
+Location: Virginia, USA
+
+/* THANKS */
+Framework: Astro
+Hosting: Azure Static Web Apps
+Icons: Font Awesome via Astro Icon
+
+/* SITE */
+Last update: 2026/01/08
+Language: English
+Doctype: HTML5
+IDE: VS Code, Claude Code
