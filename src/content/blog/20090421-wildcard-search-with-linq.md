@@ -6,11 +6,11 @@ description: 'Learn how to perform wildcard searches using LINQ to Entities with
 summary: 'An example of wildcard search with LINQ'
 tags:
   - LINQ
-  - C#
+  - csharp
   - Entity Framework
   - Database
 categories:
-  - 'Development - C#'
+  - Development
 ---
 
 I just a situation where I needed to perform a wildcard search on a table in my database.  When I used to do ADO.NET, I would simply write my SELECT statements with LIKE keywords to do wildcard searches.

@@ -6,11 +6,11 @@ description: 'Implementing efficient pagination in LINQ using Skip() and Take() 
 summary: 'Implementing efficient pagination in LINQ using Skip() and Take() methods to handle large record sets in database applications.'
 tags:
   - LINQ
-  - 'C#'
+  - csharp
   - Pagination
   - Entity Framework
 categories:
-  - 'Development - C#'
+  - Development
 ---
 
 <p>Today I’ve been diving into an easy way to paginate record sets in my applications.&#160; Searching around the internet yielded several good walkthroughs on how to do this.&#160; My favorite way came from my friend, Kevin Hazzardh, He discussed using the Skip() and Take() extension methods to form fit LINQ into building a SQL statement that’ll do all the heavy lifting for you.</p>  <p>Copying from Kevin’s example, I built the following code snippet:</p>

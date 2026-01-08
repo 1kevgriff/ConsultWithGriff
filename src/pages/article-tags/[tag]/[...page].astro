@@ -2,12 +2,13 @@
 import { getCollection } from 'astro:content';
 import type { GetStaticPaths } from 'astro';
 import BaseLayout from '../../../layouts/BaseLayout.astro';
+import { slugify } from '../../../utils/slugify';
 
 export const getStaticPaths: GetStaticPaths = async ({ paginate }) => {
   const allPosts = await getCollection('blog');
 
   // Get all unique tags
-  const allTags = new Set();
+  const allTags = new Set<string>();
   allPosts.forEach((post) => {
     post.data.tags?.forEach((tag) => allTags.add(tag));
   });
@@ -20,7 +21,8 @@ export const getStaticPaths: GetStaticPaths = async ({ paginate }) => {
       .sort((a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime());
 
     const tagPaths = paginate(filteredPosts, {
-      params: { tag },
+      params: { tag: slugify(tag) },
+      props: { originalTag: tag },
       pageSize: 3,
     });
 
@@ -30,13 +32,15 @@ export const getStaticPaths: GetStaticPaths = async ({ paginate }) => {
   return paths;
 };
 
-const { page } = Astro.props;
+const { page, originalTag } = Astro.props;
 const { tag } = Astro.params;
+// Use original tag for display, slugified version for URLs
+const displayTag = originalTag || tag;
 const canonicalUrl = `https://consultwithgriff.com/article-tags/${tag}`;
 ---
 
 <BaseLayout
-  title={`Tag: ${tag}`}
+  title={`Tag: ${displayTag}`}
   description="Kevin W. Griffin | Developer, Training, Entrepreneur"
 >
   <Fragment slot="head">
@@ -44,7 +48,7 @@ const canonicalUrl = `https://consultwithgriff.com/article-tags/${tag}`;
   </Fragment>
 
   <div class="mx-auto my-16 container-inner">
-    <h1 class="mb-8 text-4xl font-bold border-b">Tag: {tag}</h1>
+    <h1 class="mb-8 text-4xl font-bold border-b">Tag: {displayTag}</h1>
 
     {
       page.data.map((post) => {

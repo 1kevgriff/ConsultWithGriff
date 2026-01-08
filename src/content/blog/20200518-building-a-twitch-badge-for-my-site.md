@@ -10,7 +10,7 @@ tags:
   - TwitchLib
   - Shields.io
   - Streaming
-  - C#
+  - csharp
 categories:
   - Twitch
 ---

@@ -1,6 +1,17 @@
 import { z, defineCollection } from 'astro:content';
 import { glob } from 'astro/loaders';
 
+// URL-unsafe characters that break routing (# is fragment identifier)
+const URL_UNSAFE_CHARS = /[#?&]/;
+
+// Validator for URL-safe strings (tags/categories)
+const urlSafeString = z.string().refine(
+  (val) => !URL_UNSAFE_CHARS.test(val),
+  (val) => ({
+    message: `"${val}" contains URL-unsafe characters (#, ?, &). Use slugified names like "csharp" instead of "C#".`,
+  })
+);
+
 // Blog collection - matches Gridsome frontmatter schema
 const blog = defineCollection({
   loader: glob({ pattern: '**/*.md', base: './src/content/blog' }),
@@ -10,8 +21,8 @@ const blog = defineCollection({
     permalink: z.string().optional(),
     description: z.string(),
     summary: z.string(),
-    tags: z.array(z.string()),
-    categories: z.array(z.string()),
+    tags: z.array(urlSafeString),
+    categories: z.array(urlSafeString),
     excerpt: z.string().optional(),
     timeToRead: z.number().optional(),
   }),
@@ -25,7 +36,7 @@ const docs = defineCollection({
     date: z.coerce.date(),
     updated: z.coerce.date().optional(),
     permalink: z.string().optional(),
-    categories: z.array(z.string()),
+    categories: z.array(urlSafeString),
     excerpt: z.string().optional(),
   }),
 });
