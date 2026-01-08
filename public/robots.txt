@@ -1,4 +1,8 @@
+# consultwithgriff.com robots.txt
+# Welcoming AI crawlers to help establish expertise and authority
 User-agent: *
 Allow: /
 
+# Sitemaps
 Sitemap: https://consultwithgriff.com/sitemap.xml
+Sitemap: https://consultwithgriff.com/rss.xml
