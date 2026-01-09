@@ -15,7 +15,8 @@
     "migrate:content": "node scripts/migrate-content.js",
     "validate:images": "node scripts/validate-images.js",
     "generate:search": "node scripts/generate-search-index.js",
-    "generate:og": "node scripts/generate-og-images.js"
+    "generate:og": "node scripts/generate-og-images.js",
+    "new:post": "node scripts/new-post.js"
   },
   "dependencies": {
     "@astrojs/rss": "^4.0.11",
