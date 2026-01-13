@@ -3,6 +3,5 @@
 User-agent: *
 Allow: /
 
-# Sitemaps
-Sitemap: https://consultwithgriff.com/sitemap.xml
-Sitemap: https://consultwithgriff.com/rss.xml
+# Sitemap
+Sitemap: https://consultwithgriff.com/sitemap-index.xml
