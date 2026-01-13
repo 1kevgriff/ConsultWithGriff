@@ -36,7 +36,10 @@ const { page, originalCategory } = Astro.props;
 const { category } = Astro.params;
 // Use original category for display, slugified version for URLs
 const displayCategory = originalCategory || category;
-const canonicalUrl = `https://consultwithgriff.com/article-categories/${category}`;
+const canonicalUrl =
+  page.currentPage > 1
+    ? `https://consultwithgriff.com/article-categories/${category}/${page.currentPage}`
+    : `https://consultwithgriff.com/article-categories/${category}`;
 ---
 
 <BaseLayout
