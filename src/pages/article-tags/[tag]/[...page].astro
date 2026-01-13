@@ -36,7 +36,10 @@ const { page, originalTag } = Astro.props;
 const { tag } = Astro.params;
 // Use original tag for display, slugified version for URLs
 const displayTag = originalTag || tag;
-const canonicalUrl = `https://consultwithgriff.com/article-tags/${tag}`;
+const canonicalUrl =
+  page.currentPage > 1
+    ? `https://consultwithgriff.com/article-tags/${tag}/${page.currentPage}`
+    : `https://consultwithgriff.com/article-tags/${tag}`;
 ---
 
 <BaseLayout
