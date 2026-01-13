@@ -13,6 +13,7 @@ import tailwindcss from '@tailwindcss/vite';
 // https://astro.build/config
 export default defineConfig({
   site: 'https://consultwithgriff.com',
+  trailingSlash: 'never',
   integrations: [sitemap(), icon()],
   markdown: {
     remarkPlugins: [remarkGfm, remarkYoutube, remarkReadingTime],
