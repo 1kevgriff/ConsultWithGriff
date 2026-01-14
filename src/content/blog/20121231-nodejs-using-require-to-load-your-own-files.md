@@ -2,7 +2,7 @@
 title: 'Node.js: Using require to load your own files'
 date: 2012-12-31T06:00:31Z
 permalink: node-js-using-require-to-load-your-own-files
-description: 'Learn how to use Node.js require() to load your own modules and keep your code clean and organized.'
+description: 'Learn how to use Node.js require() to load your own custom modules and keep your codebase clean and organized.'
 summary: 'Learn how to use Node.js require() to load your own modules and keep your code clean and organized.'
 tags:
   - Node.js
