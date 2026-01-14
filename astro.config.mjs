@@ -1,6 +1,7 @@
 // @ts-check
 import { defineConfig } from 'astro/config';
 import sitemap from '@astrojs/sitemap';
+import mdx from '@astrojs/mdx';
 import icon from 'astro-icon';
 import remarkGfm from 'remark-gfm';
 import rehypeExternalLinks from 'rehype-external-links';
@@ -14,7 +15,7 @@ import tailwindcss from '@tailwindcss/vite';
 export default defineConfig({
   site: 'https://consultwithgriff.com',
   trailingSlash: 'never',
-  integrations: [sitemap(), icon()],
+  integrations: [sitemap(), mdx(), icon()],
   markdown: {
     remarkPlugins: [remarkGfm, remarkYoutube, remarkReadingTime],
     rehypePlugins: [
@@ -31,6 +32,17 @@ export default defineConfig({
       theme: 'material-theme-palenight',
       wrap: false,
     },
+  },
+
+  image: {
+    service: {
+      entrypoint: 'astro/assets/services/sharp',
+      config: {
+        limitInputPixels: false, // Allow large source images
+      },
+    },
+    domains: [], // Only allow local images
+    remotePatterns: [], // Block external image optimization
   },
 
   vite: {
