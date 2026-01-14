@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm cache clean:*)",
+      "Bash(npm install:*)",
+      "mcp__MCP_DOCKER__browser_navigate",
+      "WebFetch(domain:brave-hill-05e15560f.3.azurestaticapps.net)",
+      "Bash(npm run dev:*)"
+    ]
+  }
+}

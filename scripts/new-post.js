@@ -62,9 +62,7 @@ async function main() {
   const catInput = await question('Select category (1-4): ');
   const catIndex = parseInt(catInput) - 1;
   const category =
-    catIndex >= 0 && catIndex < CATEGORIES.length
-      ? CATEGORIES[catIndex]
-      : 'Development';
+    catIndex >= 0 && catIndex < CATEGORIES.length ? CATEGORIES[catIndex] : 'Development';
 
   // Get tags
   const tagsInput = await question('Tags (comma-separated): ');
@@ -109,9 +107,7 @@ TODO: Wrap up with key takeaways.
 
   // Check if file exists
   if (fs.existsSync(filepath)) {
-    const overwrite = await question(
-      `\n⚠️  File ${filename} already exists. Overwrite? (y/N): `
-    );
+    const overwrite = await question(`\n⚠️  File ${filename} already exists. Overwrite? (y/N): `);
     if (overwrite.toLowerCase() !== 'y') {
       console.log('Aborted.');
       rl.close();
