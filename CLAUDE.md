@@ -26,6 +26,7 @@ npm run lint:fix         # Fix linting issues automatically
 # Migration & Utilities
 npm run migrate:content         # Migrate content from Gridsome (../kevgriffin.v4)
 npm run validate:images         # Validate image references in content
+npm run validate:meta           # Validate meta descriptions (min 100 chars)
 npm run generate:search         # Generate search index
 ```
 
@@ -117,3 +118,12 @@ Blog posts use static OpenGraph images generated via NanoBanana Pro API (Google 
 - Twitter Card and Open Graph metadata configured per post
 - Canonical URLs for all pages
 - Site domain: `https://consultwithgriff.com`
+
+### Meta Description Requirements
+
+All content must have meta descriptions of at least 100 characters (120-160 recommended):
+
+- Blog posts: Use `description` field in frontmatter (falls back to `summary` then `excerpt`)
+- Docs pages: Use `excerpt` field in frontmatter
+- Build fails if any content has descriptions under 100 characters
+- Validation script: `scripts/validate-meta-descriptions.js`

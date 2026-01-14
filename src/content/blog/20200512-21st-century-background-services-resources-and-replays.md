@@ -2,7 +2,7 @@
 title: '21st Century Background Services Resources and Replays'
 date: 2020-05-13T00:30:00Z
 permalink: 21st-century
-description: 'Thanks for attending 21st Century Background Services!'
+description: 'Resources, slides, and video replay from my talk on 21st Century Background Services with Azure Logic Apps and Azure Functions.'
 summary: 'Thanks for attending 21st Century Background Services!'
 tags:
   - Background Services

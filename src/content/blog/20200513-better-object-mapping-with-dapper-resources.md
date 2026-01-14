@@ -2,7 +2,7 @@
 title: 'Better Object Mapping with Dapper Resources'
 date: 2020-05-14T00:30:00Z
 permalink: dapper
-description: 'Thanks for Better Object Mapping with Dapper!'
+description: 'Resources, slides, and FAQ from my talk on Better Object Mapping with Dapper for .NET applications. Learn efficient data access patterns.'
 summary: 'Thanks for Better Object Mapping with Dapper!'
 tags:
   - Dapper

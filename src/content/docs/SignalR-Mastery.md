@@ -4,7 +4,7 @@ date: 2021-01-06 12:00:00
 permalink: signalr-mastery
 categories:
   - Courses
-excerpt: 'Become a SignalR Master with this comprehensive course from Microsoft MVP, Kevin Griffin.'
+excerpt: 'Become a SignalR Master with this comprehensive Udemy course from 16-time Microsoft MVP, Kevin Griffin. Learn real-time web development.'
 ---
 
 ![SignalR Mastery](./images/signalr-mastery-thumbnail.png)

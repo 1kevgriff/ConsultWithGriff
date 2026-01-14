@@ -4,7 +4,7 @@ date: 2017-05-03 12:50:43
 permalink: training
 categories:
   - Misc
-excerpt: 'Looking to learn something new?'
+excerpt: 'Looking for expert training in ASP.NET Core, SignalR, Azure, and .NET development? Contact Kevin Griffin for private training opportunities.'
 ---
 
 ## Upcoming Training Engagements
