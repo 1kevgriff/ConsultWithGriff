@@ -1,0 +1,47 @@
+---
+interface Props {
+  src: string | { src: string };
+  poster?: string;
+  alt?: string;
+  class?: string;
+  width?: number;
+  height?: number;
+}
+
+const {
+  src: srcProp,
+  poster,
+  alt = '',
+  class: className = '',
+  width,
+  height,
+} = Astro.props;
+
+// Handle both string paths and imported video assets
+const src = typeof srcProp === 'string' ? srcProp : srcProp.src;
+---
+
+<video
+  class={`video-loop ${className}`}
+  autoplay
+  loop
+  muted
+  playsinline
+  poster={poster}
+  width={width}
+  height={height}
+  aria-label={alt}
+>
+  <source src={src} type="video/mp4" />
+  <p>Your browser doesn't support HTML5 video. <a href={src}>Download the video</a>.</p>
+</video>
+
+<style>
+  .video-loop {
+    max-width: 100%;
+    height: auto;
+    border-radius: 0.5rem;
+    display: block;
+    margin: 2rem 0;
+  }
+</style>

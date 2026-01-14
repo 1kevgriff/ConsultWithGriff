@@ -1,0 +1,75 @@
+---
+import { Image } from 'astro:assets';
+
+interface Props {
+  src: ImageMetadata | string;
+  alt: string;
+  widths?: number[];
+  sizes?: string;
+  quality?: number;
+  format?: 'webp' | 'avif' | 'png' | 'jpg';
+  loading?: 'lazy' | 'eager';
+  class?: string;
+  caption?: string;
+}
+
+const {
+  src,
+  alt,
+  widths = [400, 800, 1200],
+  sizes = '(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 1200px',
+  quality = 80,
+  format = 'webp',
+  loading = 'lazy',
+  class: className = '',
+  caption,
+} = Astro.props;
+
+// Determine if this is a local asset or external URL
+const isExternal = typeof src === 'string' && (src.startsWith('http://') || src.startsWith('https://'));
+---
+
+<figure class={`optimized-image ${className}`}>
+  {
+    isExternal ? (
+      <img src={src as string} alt={alt} loading={loading} class="external-image" />
+    ) : (
+      <Image
+        src={src}
+        alt={alt}
+        widths={widths}
+        sizes={sizes}
+        quality={quality}
+        format={format}
+        loading={loading}
+        decoding="async"
+      />
+    )
+  }
+  {caption && <figcaption>{caption}</figcaption>}
+</figure>
+
+<style>
+  .optimized-image {
+    margin: 2rem 0;
+  }
+
+  .optimized-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 0.5rem;
+  }
+
+  .optimized-image figcaption {
+    margin-top: 0.5rem;
+    font-size: 0.875rem;
+    color: var(--copy-secondary);
+    text-align: center;
+    font-style: italic;
+  }
+
+  .external-image {
+    max-width: 100%;
+    height: auto;
+  }
+</style>
