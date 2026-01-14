@@ -5,7 +5,7 @@ updated: 2025-11-07 00:00:00
 permalink: coasters
 categories:
   - Roller Coasters
-excerpt: 'Check out my roller coaster credits!'
+excerpt: 'Explore my complete roller coaster credits list - 106 coasters across theme parks including Cedar Point, Kings Island, Dollywood, and more.'
 ---
 
 Total Coaster Credits: 106

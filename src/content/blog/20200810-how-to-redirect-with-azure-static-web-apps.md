@@ -53,15 +53,9 @@ The `staticwebapp.config.json` does a lot more than just redirects, but for toda
 
 [Check out the reference](https://docs.microsoft.com/en-us/azure/static-web-apps/configuration)
 
-## Let's see it in action
+## Sample Code
 
-I currently have a [Sample Application](https://github.com/1kevgriff/azure-static-web-apps-routing) running in Azure Static Web Apps. It is currently deployed to [https://kind-island-03cd0d80f.azurestaticapps.net/](https://kind-island-03cd0d80f.azurestaticapps.net).
-
-![Sample request](./images/azure-static-app-routing-001.png)
-
-Try this:
-
-Go to [https://kind-island-03cd0d80f.azurestaticapps.net/redirectToAboutPage](https://kind-island-03cd0d80f.azurestaticapps.net/redirectToAboutPage) and it _should_ redirect you automatically to the default Gridsome about page.
+Check out the [sample application source code](https://github.com/1kevgriff/azure-static-web-apps-routing) on GitHub to see a complete working example of Azure Static Web Apps routing configuration.
 
 It's that simple!
 
