@@ -13,8 +13,9 @@ const urlSafeString = z.string().refine(
 );
 
 // Blog collection - matches Gridsome frontmatter schema
+// Supports both .md (markdown) and .mdx (MDX with components) files
 const blog = defineCollection({
-  loader: glob({ pattern: '**/*.md', base: './src/content/blog' }),
+  loader: glob({ pattern: '**/*.{md,mdx}', base: './src/content/blog' }),
   schema: z.object({
     title: z.string(),
     date: z.coerce.date(),
@@ -29,8 +30,9 @@ const blog = defineCollection({
 });
 
 // Documentation collection - matches Gridsome docs schema
+// Supports both .md (markdown) and .mdx (MDX with components) files
 const docs = defineCollection({
-  loader: glob({ pattern: '**/*.md', base: './src/content/docs' }),
+  loader: glob({ pattern: '**/*.{md,mdx}', base: './src/content/docs' }),
   schema: z.object({
     title: z.string(),
     date: z.coerce.date(),
