@@ -16,7 +16,7 @@ categories:
 excerpt: 'What started as a cost-effective solution ballooned into a costly oversight as Azure ramped up resources to handle the load. After this experience, I realized not every problem is a serverless problem and shifted memory-intensive tasks to Azure Container Apps, which provided better control over resources.'
 ---
 
-> This article is my entry to C# Advent 2024. Please visit [C# Advent](https://www.csadvent.christmas/) to see all the other great articles!
+> This article is my entry to C# Advent 2024. Please visit [C# Advent](https://csadvent.christmas/) to see all the other great articles!
 
 Hello 👋, I'm Kevin, a member of a very exclusive club.  
 

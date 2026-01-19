@@ -16,7 +16,7 @@ categories:
 excerpt: 'Last week, the team and I were migrating an application built with ASP.NET Core and SignalR to use the Azure SignalR Service. We ran into an issue with the HttpContext when using Azure SignalR Service. Unlike in a normal SignalR integration, where you can access HttpContext via IHttpContextAccessor in the Hub class, with Azure SignalR Service the connection changes, affecting the available HttpContext data. This required a shift in our approach, leading us to directly pass the necessary information from the client to the hub.'
 ---
 
-> This is my entry for this years [CS Advent](https://www.csadvent.christmas/). Take a moment to go check out the other great entries!
+> This is my entry for this years [CS Advent](https://csadvent.christmas/). Take a moment to go check out the other great entries!
 
 Last week, the team and I were migrating an application built with ASP.NET Core and SignalR to use the Azure SignalR Service. The migration was pretty straight forward, but we ran into an issue with the **HttpContext** when using the Azure SignalR Service.
 

@@ -14,7 +14,7 @@ categories:
 excerpt: "In preparation for my latest talk on Tactics for Building Background Services in .NET, I've been working on a sample project to demonstrate the concepts. It's amazing how much easier it is to build Window Services today than it used to be!"
 ---
 
-> This article is my entry to C# Advent 2022 and .NET Advent. Please visit [C# Advent](https://www.csadvent.christmas/) and [.NET Advent](https://dotnet.christmas) to see all the other great articles!
+> This article is my entry to C# Advent 2022 and .NET Advent. Please visit [C# Advent](https://csadvent.christmas/) and [.NET Advent](https://dotnet.christmas) to see all the other great articles!
 
 In preparation for my latest talk on **Tactics for Building Background Services in .NET**, I've been working on a sample project to demonstrate the concepts.
 

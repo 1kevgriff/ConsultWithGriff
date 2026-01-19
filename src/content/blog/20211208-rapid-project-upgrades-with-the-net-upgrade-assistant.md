@@ -14,7 +14,7 @@ categories:
 excerpt: 'I knew that I wanted to move this application to .NET 6, as it would be the new LTS version, and I was foregoing several dependency updates.  In particular, there was one dependency that was still based on .NET Framework that was giving me concern.  It never made the jump to .NET Standard, so I worried about future compatibility.'
 ---
 
-> This is my yearly submission for [CS Advent 2021](https://www.csadvent.christmas)! Please take a moment to check out all the other great submissions from folks in the community.
+> This is my yearly submission for [CS Advent 2021](https://csadvent.christmas/)! Please take a moment to check out all the other great submissions from folks in the community.
 
 ## Quick history
 
