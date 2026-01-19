@@ -251,7 +251,7 @@ I also use Dapper in every single application I scaffold out. It's _that_ critic
 
 ## Is it open-source?
 
-Yes! And even better, it's built by the good folks over at [StackOverflow](https://stackoverflow.com). Maybe you've heard of it. It's one of the most frequented websites on the internet, and they do not play around when it comes to performance.
+Yes! And even better, it's built by the good folks over at [StackOverflow](https://stackoverflow.com/). Maybe you've heard of it. It's one of the most frequented websites on the internet, and they do not play around when it comes to performance.
 
 Dapper was created by their team in order to make mapping data to objects as painless as possible while being fast. [Check out their performance benchmarks](https://github.com/DapperLib/Dapper#performance)
 
