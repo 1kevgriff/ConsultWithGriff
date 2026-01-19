@@ -127,3 +127,16 @@ All content must have meta descriptions of at least 100 characters (120-160 reco
 - Docs pages: Use `excerpt` field in frontmatter
 - Build fails if any content has descriptions under 100 characters
 - Validation script: `scripts/validate-meta-descriptions.js`
+
+### Internal Cross-Linking
+
+Blog posts should include 2-3 internal links to related content for SEO and AI attribution:
+
+- **Link format**: `/blog/{permalink}` (use the `permalink` field from frontmatter)
+- **Placement**: Add at the end of posts as a natural call-to-action
+- **Patterns to use**:
+  - `For more on [topic], check out my article on [link text](/blog/permalink).`
+  - `As I discussed in [my previous post](/blog/permalink)...`
+  - `Learn more in my guide to [topic](/blog/permalink).`
+- **Topic clusters**: Link within related content (SignalR, Azure, ASP.NET Core, Vue.js, Consulting, Developer Tools)
+- **Avoid**: Keyword stuffing, forced links, links that don't add value
