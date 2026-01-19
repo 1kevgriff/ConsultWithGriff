@@ -45,6 +45,10 @@
       }
     },
     { "route": "/sitemap.xml", "redirect": "/sitemap-index.xml", "statusCode": 301 },
+    { "route": "/permalink", "redirect": "/", "statusCode": 301 },
+    { "route": "/permalink/", "redirect": "/", "statusCode": 301 },
+    { "route": "/training", "redirect": "/consulting", "statusCode": 301 },
+    { "route": "/training/", "redirect": "/consulting", "statusCode": 301 },
     { "route": "/blog*", "redirect": "/", "statusCode": 301 },
     { "route": "/shows/*", "redirect": "/", "statusCode": 301 },
     { "route": "/tag*", "redirect": "/", "statusCode": 301 },

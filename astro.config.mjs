@@ -14,7 +14,12 @@ import tailwindcss from '@tailwindcss/vite';
 export default defineConfig({
   site: 'https://consultwithgriff.com',
   trailingSlash: 'never',
-  integrations: [sitemap(), icon()],
+  integrations: [
+    sitemap({
+      filter: (page) => !page.includes('/coasters') && !page.includes('/training'),
+    }),
+    icon(),
+  ],
   markdown: {
     remarkPlugins: [remarkGfm, remarkYoutube, remarkReadingTime],
     rehypePlugins: [
