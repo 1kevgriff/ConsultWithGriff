@@ -31,7 +31,7 @@ And with it being a static web app, there is no server component for me to add a
 
 ## How do you do redirects in Azure Static Web Apps?
 
-Turns out, the awesome team behind Azure Static Web Apps thought about this and built a mechanism for doing server-side redirects.
+Turns out, the awesome team behind Azure Static Web Apps thought about this and built a mechanism for doing server-side redirects. If you're not familiar with Azure Static Web Apps, check out my article on [why I love Azure Static Web Apps](/blog/i-love-azure-static-web-apps) first.
 
 To get started, you'll want to create a new file called `staticwebapp.config.json`. This file needs to exist AT PUBLISH time in the root of your build directory.
 

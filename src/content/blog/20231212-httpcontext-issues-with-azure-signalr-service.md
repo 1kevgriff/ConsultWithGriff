@@ -18,7 +18,7 @@ excerpt: 'Last week, the team and I were migrating an application built with ASP
 
 > This is my entry for this years [CS Advent](https://csadvent.christmas/). Take a moment to go check out the other great entries!
 
-Last week, the team and I were migrating an application built with ASP.NET Core and SignalR to use the Azure SignalR Service. The migration was pretty straight forward, but we ran into an issue with the **HttpContext** when using the Azure SignalR Service.
+Last week, the team and I were migrating an application built with ASP.NET Core and SignalR to use the Azure SignalR Service. If you're not familiar with how SignalR connections work, check out my article on [SignalR transports](/blog/signalr-transports-explained). The migration was pretty straight forward, but we ran into an issue with the **HttpContext** when using the Azure SignalR Service.
 
 When a normal SignalR integration is running under an ASP.NET host, you will typically have access to the **HttpContext** for the SignalR request. This is best done by injecting **IHttpContextAccessor** into your **Hub** class.
 
@@ -93,4 +93,4 @@ public class SignalRHub : Hub
 
 ## Conclusion
 
-If you've found yourself here because of a Google search, I hope you have a little bit of resolve now. Maybe if you're looking for more SignalR information, take a look at my course, [SignalR Mastery](https://signalrmastery.com). It's a great way to learn SignalR and it's on sale for the holidays! If you're looking for more information on Azure SignalR Service, check out the [Azure SignalR Service documentation](https://docs.microsoft.com/en-us/azure/azure-signalr/).
+If you've found yourself here because of a Google search, I hope you have a little bit of resolve now. For more practical SignalR guidance, check out my article on [why you shouldn't manage ConnectionIds yourself](/blog/signalr-connection-ids). Maybe if you're looking for more SignalR information, take a look at my course, [SignalR Mastery](https://signalrmastery.com). It's a great way to learn SignalR and it's on sale for the holidays! If you're looking for more information on Azure SignalR Service, check out the [Azure SignalR Service documentation](https://docs.microsoft.com/en-us/azure/azure-signalr/).

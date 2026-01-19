@@ -20,7 +20,7 @@ I recently received a new question in [SignalR Mastery](https://www.udemy.com/co
 
 > Kevin, I have two clients. Client 1 sends a message to client 2. Client 1 loses its connection to the server. Client 2, during this time, sends a message to Client 1. That message is lost because Client 1 was disconnected. How can we solve this problem?
 
-This is a commonly asked questions from folks in the community, and this is going to be a difficult pill for some folks to swallow:
+This is a commonly asked question from folks in the community (and students in my [SignalR Mastery](/blog/signal-mastery-launched) course), and this is going to be a difficult pill for some folks to swallow:
 
 **SignalR does not guarentee message deliverability**
 
@@ -80,4 +80,4 @@ In something more real-time, like chat, we could tell the server what we already
 
 ## Conclusion
 
-I've been considering the question myself of what a library would look like on top of SignalR that helps with this exactly problem? I'm very curious about your thoughts as well. Let's chat on Twitter!
+I've been considering the question myself of what a library would look like on top of SignalR that helps with this exact problem? Understanding the underlying [transport mechanics](/blog/signalr-transports-explained) can help you design better resync strategies. I'm very curious about your thoughts as well. Let's chat on Twitter!

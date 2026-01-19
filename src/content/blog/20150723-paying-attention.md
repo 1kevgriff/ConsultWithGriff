@@ -28,3 +28,5 @@ The moral of the story is that we need to start paying better attention. Too oft
 Luckily for me, the client was understanding and we pushed the training another day.
 
 Have you ever had a moment where your assumptions got the best of you? Minute details completely escaped you even though you were staring right at them? I'd love to hear about it! Leave me a comment and let us share the pain together.
+
+For more professional insights, check out [my simple rule for successful consulting](/blog/one-simple-rule-for-successful-consulting).

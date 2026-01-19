@@ -73,3 +73,5 @@ How far are you from a diner or bar? Attendees naturally want to loiter after th
 Your location is important. It helps build the identity for your group, and memories will be made.
 
 Sometime you need to go with "good enough" venues and sometimes you'll find the holy grail. Keep looking and good luck!
+
+For more user group tips, check out my articles on [managing sponsor relationships](/blog/user-group-sponsor-relationship) and [food options beyond pizza](/blog/user-group-food).

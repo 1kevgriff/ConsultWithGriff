@@ -68,3 +68,5 @@ Create a post-meeting outing that everyone is invited to. At our group, we start
 Running a user group is hard. Your thoughts on priorities might be out of line with what they really should be. Some of the best user groups I've been to have started in IHOPs or as meetings at a Starbucks.
 
 You don't need sponsors. You _want_ sponsors. And you hold the high card in this game.
+
+For more user group management tips, check out my articles on [choosing the right meeting day](/blog/calendar-roulette), [selecting locations](/blog/user-group-locations), and [food options beyond pizza](/blog/user-group-food).

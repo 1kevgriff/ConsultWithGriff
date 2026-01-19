@@ -38,3 +38,5 @@ What could you do instead of pizza? What food would make your company memorable?
 **Veggie/Vegan Options** - I know, I know. The food above is all mostly of the animal protein category. Please don't forget people that don't eat meat. Salad choices and veggies go a long way. You'd be really surprised how many card-carrying meat eaters will dive into healthy choices. Not sure what Vegan's would eat? Ask one. They'd be more than happy to give you a couple dozen options.
 
 Don't get me wrong, pizza is awesome. Pizza in EXCESS is horrible (and to be fair, if you brought Chick-Fil-A every meeting -- that would probably get old too). Be good to your groups and don't buy pizza (or sandwiches). Look for creative alternatives. Attendees will love you.
+
+For more user group tips, check out my articles on [managing sponsor relationships](/blog/user-group-sponsor-relationship) and [choosing the right meeting schedule](/blog/calendar-roulette).

@@ -33,3 +33,5 @@ Do you have questions about Dapper? Drop me a message on [Twitter](https://twitt
 [Twitter](https://twitter.com/1kevgriff)  
 [My Twitch Channel](https://www.twitch.tv/1kevgriff)  
 [Dapper GitHub Repo](https://github.com/DapperLib/Dapper)
+
+For more Dapper content, check out my article on [What is Dapper](/blog/what-is-dapper) or learn [how to call stored procedures with Dapper](/blog/dapper-stored-procedures).

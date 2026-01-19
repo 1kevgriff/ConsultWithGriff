@@ -28,3 +28,5 @@ https://www.youtube.com/watch?v=iibGXI2YHRw
 [My Twitch Channel](https://www.twitch.tv/1kevgriff)  
 [Logic Apps on Azure](https://azure.microsoft.com/en-us/services/logic-apps/?WT.mc_id=DOP-MVP-4029061)  
 [Custom Connector in Azure Logic Apps](https://docs.microsoft.com/en-us/connectors/custom-connectors/create-logic-apps-connector?WT.mc_id=DOP-MVP-4029061)
+
+For more on background services, check out [my HangFire course](/blog/building-background-services-with-hangfire-course-launch) or my article on [building Windows Services in .NET](/blog/building-window-services-in-dotnet).

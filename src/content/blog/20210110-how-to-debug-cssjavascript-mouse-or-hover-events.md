@@ -38,3 +38,5 @@ setTimeout(() => {
 Adjust the time accordingly, but you should have 5 seconds to cause the mouse-over or hover event to occur. The debugger will kick in, preventing future updates to the DOM until you continue.
 
 Yay! You can now inspect the proper elements and make your changes.
+
+For more frontend development tips, check out my session on [Single Page Architectures with Vue.js and ASP.NET Core](/blog/spas-with-vuejs-aspnetcore).

@@ -23,7 +23,7 @@ excerpt: 'Do you want to become a master in building real-time applications on .
 
 Today, I am officially launching my new course, SignalR Mastery!
 
-I've been training professional for ten years, and over that time I've built a variety of courses for many course platforms in our industry. They've been great to work with, but I always felt disconnected from the students taking those courses.
+I've been training professionals for ten years, and over that time I've built a variety of courses for many course platforms in our industry. I've also written extensively about SignalR, from [transport negotiation](/blog/signalr-transports-explained) to [ConnectionId management](/blog/signalr-connection-ids). They've been great to work with, but I always felt disconnected from the students taking those courses.
 
 This time around, I wanted to build a course **my way**. I wanted to have a platform where students could give me direct feedback and where I could directly interact with them to ensure their success. Udemy has proven to be one of the many excellent providers out there where I could do exactly that.
 

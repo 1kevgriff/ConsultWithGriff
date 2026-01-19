@@ -55,3 +55,5 @@ class Program
   }
 }
 ```
+
+For more C# language features, check out my article on [C# 14 extension members](/blog/csharp-14-extension-members).

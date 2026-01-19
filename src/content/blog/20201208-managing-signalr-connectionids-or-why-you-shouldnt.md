@@ -23,7 +23,7 @@ One of the commons issues I see when reading questions on StackOverflow or Reddi
 
 ## Overview: Connections
 
-Let's level the playing field a bit before diving into recommendations. What is a connection? A `connection` is the reference from a client to a server. In many cases, this is an open WebSocket that is used by either the client or server to send messages.
+Let's level the playing field a bit before diving into recommendations. What is a connection? A `connection` is the reference from a client to a server. In many cases, this is an open WebSocket that is used by either the client or server to send messages. The exact communication method depends on the [transport negotiation](/blog/signalr-transports-explained) between client and server.
 
 But there are also cases where a client will default to Long Polling to communicate. This isn't one CONNECTION, it's several because each connection has to reconnect, disconnect, and repeat. That's primarily why I'll call a connection a reference, because, in each socket connection to the server, the client will say "I'm connection ID XYZABC" to identify.
 
@@ -106,4 +106,4 @@ Why is it not my favorite? Eh, I just think it's more difficult to use and requi
 
 As engineers, it is easy to complicate solutions in our heads. I've made the same mistakes myself but thinking that the best solution needs to be the most complicated. Sometimes when you take a step back, a better, easier solution can present itself.
 
-I hope this guide was useful to you. If you have further questions about SignalR, [please feel free to reach out](/contact).
+I hope this guide was useful to you. For more tips like this, check out my course [SignalR Mastery](/blog/signal-mastery-launched). If you have further questions about SignalR, [please feel free to reach out](/contact).

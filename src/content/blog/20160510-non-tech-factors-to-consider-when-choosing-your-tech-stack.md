@@ -94,3 +94,5 @@ The best advice that can be given is to discuss the pros and cons of every choic
 > article](https://www.telerik.com/blogs/how-to-web-asp-net?utm_medium=external&utm_source=kgriffin&utm_campaign=dt-devcraft-apr16-webinar&utm_content=article) on the current state of ASP.NET development tools. Use the tools discussed in Jeremy’s article to start a dialog with your team. (sponsored)
 
 A great team, when given flexibility, will always produce a solid product.
+
+For more on managing tech stacks, check out my follow-up article [Fewer Buzzwords, Better Teams](/blog/fewer-buzzwords-better-teams).

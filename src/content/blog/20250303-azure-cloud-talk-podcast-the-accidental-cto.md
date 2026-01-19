@@ -15,7 +15,7 @@ categories:
   - Podcast
 ---
 
-I jumped on Azure Cloud Talk recently with Alec Harrison and Brian Gorman to talk tech from my perspective as an "accidental CTO." We got real about AI tools, and I vented about my struggles with Cursor Composer - there have been times I'm literally yelling at my screen, "Why can't you figure this out? You're going around in circles!"
+I jumped on Azure Cloud Talk recently with Alec Harrison and Brian Gorman to talk tech from my perspective as an "accidental CTO." This was a fun conversation that touched on topics I've written about before, like my [$8,000 serverless mistake](/blog/my-8000-serverless-mistake) and my love for [Azure Static Web Apps](/blog/i-love-azure-static-web-apps). We got real about AI tools, and I vented about my struggles with Cursor Composer - there have been times I'm literally yelling at my screen, "Why can't you figure this out? You're going around in circles!"
 
 Alec's found some real productivity gains with AI for routine tasks, but I've hit that frustrating loop too many times where I could've just done the work myself instead of wrestling with AI for hours. During our chat, I found myself nodding along with Brian's take on tech adoption - skip the bleeding edge and wait for things to mature. From my experience, new tech needs to either save money or improve workflow - not just be shiny for the sake of being shiny.
 

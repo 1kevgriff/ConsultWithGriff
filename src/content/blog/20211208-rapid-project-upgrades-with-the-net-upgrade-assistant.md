@@ -110,3 +110,5 @@ You'll probably notice ASP.NET Web Forms is missing from the above list, and tha
 I wasn't looking forward to the upgrade path for my applications, mainly because I didn't want to have to edit all the project files and deal with incremental issues that might have popped up.
 
 The .NET Upgrade Assistant was an amazing tool that helped us get our application into production with .NET 6 easily and quickly. I'm hoping if you're on the fence about making the upgrade, take the time to check out this tool!
+
+If you're building background services with your upgraded applications, check out my article on [Windows Services in .NET](/blog/building-window-services-in-dotnet) or my guide on [why I love HangFire](/blog/five-reasons-why-i-love-hangfire).

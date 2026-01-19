@@ -74,3 +74,5 @@ glob:_.vs10x
 \*.DS_Store
 .*\*
 ```
+
+For more development tips, check out my PowerShell guide on [recursively deleting files by extension](/blog/powershell-how-to-recursively-delete-files-based-of-file-extension).

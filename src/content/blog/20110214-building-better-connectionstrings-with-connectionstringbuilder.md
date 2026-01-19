@@ -12,14 +12,14 @@ categories:
 
 Okay, I never admitted to being a .NET guru or anything, and that’s why I get so excited whenever I run across a gem in the framework that allows me to do something easier and with fewer issues.
 
-ConnectionStrings has always been one of those things I did the hard way.  For example, I would have a line of code that was like so:
+ConnectionStrings has always been one of those things I did the hard way.  For example, I would have a line of code that was like so:
 
 ```csharp
 string connectionString =  "Data Source={0};Initial Catalog={1};User Id={2};Password={3};";
 string.Format(connectionString, serverName, databaseName, userName, password);
 ```
 
-This seemed like a logical way to build my connection strings.  However, it wasn’t very flexible.  That was until I discovered the suite of ConnectionStringBuilder classes.
+This seemed like a logical way to build my connection strings.  However, it wasn’t very flexible.  That was until I discovered the suite of ConnectionStringBuilder classes.
 
 Let’s take the above OleDb connection string and use the OleDbConnectionStringBuilder to build it.
 
@@ -31,7 +31,7 @@ oleDbConnectionStringBuilder.FileName = "myAccessFile.mdb";
 oleDbConnectionStringBuilder.ToString();
 ```
 
-Look at how much cleaner that is!  Maybe you’re working with a SQL Server database:
+Look at how much cleaner that is!  Maybe you’re working with a SQL Server database:
 
 ```csharp
 System.Data.SqlClient.SqlConnectionStringBuilder connectionStringBuilder =
@@ -43,7 +43,7 @@ connectionStringBuilder.Password = "password";
 connectionStringBuilder.ToString();
 ```
 
-Isn’t that awesome?!  Now, finally, let’s imagine you’re doing all this with Entity Framework:
+Isn’t that awesome?!  Now, finally, let’s imagine you’re doing all this with Entity Framework:
 
 ```csharp
 System.Data.EntityClient.EntityConnectionStringBuilder entityConnectionStringBuilder =
@@ -53,4 +53,6 @@ entityConnectionStringBuilder.Metadata = "(entity framework metadata here)";
 entityConnectionStringBuilder.ToString();
 ```
 
-There you go!  Instead of hand writing your connection strings, take a look to see if there is a StringBuilder class that’ll do the work for you.
+There you go! Instead of hand writing your connection strings, take a look to see if there is a StringBuilder class that'll do the work for you.
+
+If you're working with SQL databases in .NET, check out my guide on [What is Dapper](/blog/what-is-dapper) for a better approach to data access.
