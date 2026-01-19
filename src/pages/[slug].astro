@@ -83,6 +83,44 @@ if (type === 'blog') {
     <meta property="og:description" content={metaDescription} />
     <meta property="og:url" content={canonicalUrl} />
     <meta property="og:type" content={type === 'blog' ? 'article' : 'website'} />
+
+    {/* Schema.org JSON-LD for blog posts */}
+    {
+      type === 'blog' && (
+        <script
+          type="application/ld+json"
+          set:html={JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'BlogPosting',
+            headline: entry.data.title,
+            description: metaDescription,
+            image: metaImageUrl,
+            datePublished: new Date(entry.data.date).toISOString(),
+            author: {
+              '@type': 'Person',
+              name: 'Kevin W. Griffin',
+              url: 'https://consultwithgriff.com',
+              sameAs: [
+                'https://twitter.com/1kevgriff',
+                'https://bsky.app/profile/consultwithgriff.com',
+                'https://linkedin.com/in/1kevgriff',
+                'https://github.com/1kevgriff',
+              ],
+            },
+            publisher: {
+              '@type': 'Person',
+              name: 'Kevin W. Griffin',
+              url: 'https://consultwithgriff.com',
+            },
+            mainEntityOfPage: {
+              '@type': 'WebPage',
+              '@id': canonicalUrl,
+            },
+            keywords: entry.data.tags?.join(', ') || '',
+          })}
+        />
+      )
+    }
   </Fragment>
 
   <div class="mx-auto my-16 max-w-7xl px-4">
