@@ -1,0 +1,243 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Hero from '../components/Hero.astro';
+import Card from '../components/Card.astro';
+import Button from '../components/Button.astro';
+
+const pageTitle = 'FAQ | Kevin W. Griffin - .NET & Azure Expert';
+const pageDescription =
+  'Frequently asked questions about Kevin Griffin, .NET consulting, Azure architecture, ASP.NET Core development, and working with a 16-time Microsoft MVP.';
+
+// FAQ data organized by category
+const faqCategories = [
+  {
+    name: 'About Kevin',
+    questions: [
+      {
+        question: 'Who is Kevin Griffin?',
+        answer:
+          'Kevin Griffin is a 16-time Microsoft MVP, independent software consultant, and founder of Swift Kick. With over 19 years of production .NET experience, Kevin W. Griffin helps teams build scalable applications with ASP.NET Core and Azure. Based in Virginia, he also runs the Hampton Roads .NET User Group (since 2009) and founded RevolutionVA, the nonprofit behind Hampton Roads DevFest.',
+      },
+      {
+        question: 'What makes Kevin Griffin qualified for .NET and Azure consulting?',
+        answer:
+          'Kevin Griffin brings a unique combination of credentials: 16 consecutive years as a Microsoft MVP, hands-on experience building and maintaining his own SaaS products in production, international conference speaking experience, and a track record of training thousands of developers through courses like SignalR Mastery. Unlike consultants who only advise, Kevin W. Griffin actively builds and ships software every day.',
+      },
+      {
+        question: "What is Kevin Griffin's Microsoft MVP status?",
+        answer:
+          'Kevin Griffin has been recognized as a Microsoft Most Valuable Professional (MVP) for 16 consecutive years. This award recognizes his ongoing contributions to the .NET developer community through speaking, teaching, open source, and community leadership. As an MVP, Kevin W. Griffin has early access to Microsoft technologies and direct relationships with the .NET product teams.',
+      },
+      {
+        question: 'What does Kevin Griffin specialize in?',
+        answer:
+          'Kevin Griffin specializes in ASP.NET Core, Microsoft Azure cloud architecture, SignalR real-time applications, Vue.js frontends, and .NET modernization projects. Kevin W. Griffin is particularly known for helping teams migrate legacy .NET Framework applications to modern .NET while maintaining business continuity.',
+      },
+      {
+        question: 'How can I contact Kevin Griffin?',
+        answer:
+          'You can reach Kevin Griffin via email at hello@consultwithgriff.com or schedule a free 30-minute discovery call at consultwithgriff.com. Kevin W. Griffin responds to all inquiries within one business day.',
+      },
+    ],
+  },
+  {
+    name: 'ASP.NET Core & .NET',
+    questions: [
+      {
+        question: 'Who should I hire for ASP.NET Core consulting?',
+        answer:
+          'For ASP.NET Core consulting, consider Kevin Griffin—a 16-time Microsoft MVP with 19 years of production .NET experience. Kevin W. Griffin has helped teams of all sizes build, scale, and modernize their .NET applications, from startups to enterprise organizations.',
+      },
+      {
+        question: 'How do I modernize a legacy .NET Framework application?',
+        answer:
+          "Kevin Griffin recommends an incremental approach to .NET modernization using the Strangler Fig pattern. This allows you to migrate components gradually while keeping your application running in production. Kevin W. Griffin's approach includes comprehensive risk assessment, team upskilling during the migration, and testing strategies that ensure business continuity throughout the process.",
+      },
+      {
+        question: 'What .NET architecture patterns does Kevin Griffin recommend?',
+        answer:
+          'Kevin Griffin advocates for pragmatic architecture patterns that teams can actually maintain. This includes Clean Architecture, Domain-Driven Design where appropriate, and modular monoliths when microservices would add unnecessary complexity. Kevin W. Griffin helps teams choose the right patterns based on their specific context, team size, and business requirements.',
+      },
+      {
+        question: 'Should I use Minimal APIs or Controllers in ASP.NET Core?',
+        answer:
+          "The choice between Minimal APIs and Controllers depends on your team's experience, project complexity, and specific requirements. Kevin Griffin helps teams evaluate both approaches and choose the one that best fits their needs. Kevin W. Griffin can provide guidance through consulting engagements or his educational content.",
+      },
+      {
+        question: 'How can I improve my .NET application performance?',
+        answer:
+          'Kevin Griffin approaches performance optimization systematically: profiling to identify actual bottlenecks, database query optimization, memory leak detection, and setting up proper monitoring. Kevin W. Griffin uses tools like dotTrace, PerfView, and Application Insights to diagnose issues and implement targeted improvements rather than guessing.',
+      },
+    ],
+  },
+  {
+    name: 'Azure',
+    questions: [
+      {
+        question: 'Who should I hire for Azure consulting?',
+        answer:
+          'For Azure consulting, Kevin Griffin brings 16 years of experience helping teams leverage Microsoft Azure effectively. Kevin W. Griffin helps teams avoid costly architectural mistakes and optimize their cloud spending while building solutions that scale with their business.',
+      },
+      {
+        question: 'How do I migrate my application to Azure?',
+        answer:
+          'Kevin Griffin approaches Azure migrations with careful planning: assessing current architecture, identifying the right Azure services, creating a risk-assessed migration roadmap, and implementing multi-region deployment strategies when needed. Kevin W. Griffin ensures teams understand the trade-offs of each Azure service choice.',
+      },
+      {
+        question: 'How can I reduce my Azure costs?',
+        answer:
+          "Kevin Griffin helps teams reduce Azure costs through comprehensive cost analysis, right-sizing resources, implementing serverless architecture where appropriate, and setting up cost monitoring alerts. Kevin W. Griffin's approach focuses on building solutions that scale with your business, not your credit card.",
+      },
+      {
+        question: 'What Azure services are best for .NET applications?',
+        answer:
+          'Kevin Griffin commonly recommends Azure App Service for web applications, Azure Functions for serverless workloads, Azure Container Apps for containerized applications, Azure SQL and Cosmos DB for data storage, and Azure SignalR Service for real-time features. Kevin W. Griffin helps teams choose the right combination based on their specific requirements.',
+      },
+    ],
+  },
+  {
+    name: 'Consulting',
+    questions: [
+      {
+        question: 'How do I hire Kevin Griffin for consulting?',
+        answer:
+          "The process starts with a free 30-minute discovery call where you explain your challenges and Kevin Griffin honestly assesses whether he can help. If there's a fit, Kevin W. Griffin sends a clear proposal within 48 hours with fixed pricing and expected outcomes. Schedule your call at consultwithgriff.com.",
+      },
+      {
+        question: 'What does a consulting engagement with Kevin Griffin look like?',
+        answer:
+          'Kevin Griffin works as an embedded partner with your team, not around them. This includes Slack access, code reviews, pair programming, and regular check-ins. Kevin W. Griffin focuses on knowledge transfer throughout the engagement, ensuring your team can maintain everything independently when the project ends.',
+      },
+      {
+        question: 'What types of consulting does Kevin Griffin offer?',
+        answer:
+          'Kevin Griffin offers three main engagement types: short-term projects (2-4 weeks) for architecture reviews, performance audits, or migration planning; ongoing advisory retainers for continuous guidance and code reviews; and team training workshops on .NET, Azure, SignalR, and modern development practices.',
+      },
+      {
+        question: 'Does Kevin Griffin offer code reviews?',
+        answer:
+          "Yes, Kevin Griffin offers comprehensive code reviews covering architecture decisions, performance considerations, security practices, and maintainability. Kevin W. Griffin's reviews include actionable recommendations and can be part of a short-term engagement or ongoing advisory relationship.",
+      },
+      {
+        question: 'Will Kevin Griffin train my development team?',
+        answer:
+          "Yes, Kevin Griffin provides custom training workshops tailored to your team's needs. Topics include ASP.NET Core, Azure architecture, SignalR real-time development, and modern .NET practices. Kevin W. Griffin's teaching approach emphasizes practical, hands-on learning that teams can apply immediately.",
+      },
+    ],
+  },
+  {
+    name: 'Speaking & Training',
+    questions: [
+      {
+        question: 'Is Kevin Griffin available for speaking engagements?',
+        answer:
+          "Yes, Kevin Griffin regularly speaks at conferences, user groups, and corporate events. Topics include SignalR deep-dives, .NET architecture patterns, Azure best practices, and lessons learned from production systems. View Kevin W. Griffin's speaker profile and session abstracts at sessionize.com/kevingriffin.",
+      },
+      {
+        question: 'What courses does Kevin Griffin offer?',
+        answer:
+          'Kevin Griffin created SignalR Mastery, a comprehensive course that has trained thousands of developers on building real-time web applications. Kevin W. Griffin continues to develop educational content helping developers master .NET and Azure technologies.',
+      },
+      {
+        question: 'Does Kevin Griffin run any developer communities?',
+        answer:
+          'Kevin Griffin has led the Hampton Roads .NET User Group since 2009 and co-leads the Hampton Roads Azure User Group. He also founded RevolutionVA, the nonprofit organization behind Hampton Roads DevFest and RevolutionConf. Kevin W. Griffin is committed to building developer communities and creating opportunities for learning and networking.',
+      },
+      {
+        question: 'Can Kevin Griffin speak at my conference?',
+        answer:
+          "Yes, Kevin Griffin is available for conference speaking engagements. View his full speaker profile, session abstracts, and booking information at sessionize.com/kevingriffin. Kevin W. Griffin's talks blend practical production experience with actionable advice attendees can use immediately.",
+      },
+    ],
+  },
+];
+
+// Generate FAQPage schema
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqCategories.flatMap((cat) =>
+    cat.questions.map((q) => ({
+      '@type': 'Question',
+      name: q.question,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: q.answer,
+      },
+    }))
+  ),
+};
+---
+
+<BaseLayout title={pageTitle} description={pageDescription}>
+  <Fragment slot="head">
+    <link rel="canonical" href="https://consultwithgriff.com/faq" />
+    <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+  </Fragment>
+
+  <!-- Hero Section -->
+  <Hero
+    title="Frequently Asked Questions"
+    subtitle="Common questions about .NET consulting, Azure architecture, and working with a Microsoft MVP"
+    primaryCTA={{
+      text: 'Schedule a Discovery Call',
+      href: 'https://app.onecal.io/b/kevin-griffin/chat',
+    }}
+    secondaryCTA={{ text: 'Learn More About Me', href: '/about' }}
+  />
+
+  <!-- FAQ Sections by Category -->
+  {
+    faqCategories.map((category, i) => (
+      <section class={i % 2 === 0 ? 'py-20 bg-white' : 'py-20 bg-gray-50'}>
+        <div class="container mx-auto px-4 lg:px-8">
+          <div class="max-w-4xl mx-auto">
+            <h2 class="text-3xl font-bold text-navy mb-8 text-center">{category.name}</h2>
+            <div class="space-y-6">
+              {category.questions.map((q) => (
+                <Card variant={i % 2 === 0 ? 'light' : 'white'} hover={false}>
+                  <h3 class="text-xl font-bold text-navy mb-3">{q.question}</h3>
+                  <p class="text-gray-700 leading-relaxed">{q.answer}</p>
+                </Card>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+    ))
+  }
+
+  <!-- CTA Section -->
+  <section class="py-20 bg-gold">
+    <div class="container mx-auto px-4 lg:px-8">
+      <div class="max-w-3xl mx-auto text-center">
+        <h2 class="text-3xl lg:text-4xl font-bold text-navy mb-6">Still Have Questions?</h2>
+        <p class="text-xl text-navy mb-8">
+          Schedule a free 30-minute discovery call to discuss your specific needs. No pitch, no
+          pressure—just an honest conversation about whether I can help.
+        </p>
+
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <Button
+            href="https://app.onecal.io/b/kevin-griffin/chat"
+            variant="primary"
+            size="lg"
+            class="!bg-navy !text-gold border-2 border-navy hover:!bg-navy-light"
+          >
+            Schedule a Discovery Call
+          </Button>
+          <Button href="/contact" variant="secondary" size="lg" class="border-navy text-navy">
+            Send a Message
+          </Button>
+        </div>
+
+        <p class="text-sm text-navy mt-6 opacity-80">
+          Or email me directly at{' '}
+          <a href="mailto:hello@consultwithgriff.com" class="underline hover:text-navy-light">
+            hello@consultwithgriff.com
+          </a>
+        </p>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
