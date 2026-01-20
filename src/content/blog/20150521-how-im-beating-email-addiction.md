@@ -49,4 +49,4 @@ A lot of folks talk about empty inboxes, and I agree to a point. I believe all e
 
 Sometimes you might just want to keep an email front and center. That's okay! But anything that isn't important should hit the trash or the archive.
 
-For more productivity and career tips, check out my article on [enhancing your career with a mastermind group](/blog/enhancing-your-career-with-a-mastermind-group).
+For more productivity and career tips, check out my article on [enhancing your career with a mastermind group](/enhancing-your-career-with-a-mastermind-group).

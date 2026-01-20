@@ -18,7 +18,7 @@ categories:
   - dotnet
 ---
 
-Don't you just hate errors that will tell you something is wrong, but not tell you what? I've been a fan of [Azure Functions for years](/blog/i-love-azure-static-web-apps), but I ran into this frustrating case recently while refactoring an Azure Functions project.
+Don't you just hate errors that will tell you something is wrong, but not tell you what? I've been a fan of [Azure Functions for years](/i-love-azure-static-web-apps), but I ran into this frustrating case recently while refactoring an Azure Functions project.
 
 ![No bindings found in function](./images/20241031-azure-functions-host-error.jpg)
 
@@ -107,4 +107,4 @@ public async Task<List<WorkItem>> GetWorkItems([QueueTrigger("work-items")] stri
 }
 ```
 
-I hope this helps you resolve the same or similar problem. For more Azure Functions content, check out my article on [web performance with Azure Static Web Apps and Functions](/blog/crazy-web-performance-azure-static-web-apps-and-functions). If this was helpful, let me know on [X](https://x.com/1kevgriff), [BlueSky](https://bsky.app/profile/consultwithgriff.com), or [LinkedIn](https://www.linkedin.com/in/1kevgriff/).
+I hope this helps you resolve the same or similar problem. For more Azure Functions content, check out my article on [web performance with Azure Static Web Apps and Functions](/crazy-web-performance-azure-static-web-apps-and-functions). If this was helpful, let me know on [X](https://x.com/1kevgriff), [BlueSky](https://bsky.app/profile/consultwithgriff.com), or [LinkedIn](https://www.linkedin.com/in/1kevgriff/).

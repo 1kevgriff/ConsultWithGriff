@@ -39,4 +39,4 @@ Adjust the time accordingly, but you should have 5 seconds to cause the mouse-ov
 
 Yay! You can now inspect the proper elements and make your changes.
 
-For more frontend development tips, check out my session on [Single Page Architectures with Vue.js and ASP.NET Core](/blog/spas-with-vuejs-aspnetcore).
+For more frontend development tips, check out my session on [Single Page Architectures with Vue.js and ASP.NET Core](/spas-with-vuejs-aspnetcore).

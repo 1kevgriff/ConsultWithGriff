@@ -44,4 +44,4 @@ The `expireAfterSeconds` options tells MongoDB that after a specified amount of 
 
 This quick fix has saved me a ton of time, and I am hoping it saves a ton for you too!
 
-For more database tips, check out my guide on [What is Dapper](/blog/what-is-dapper) for efficient .NET data access.
+For more database tips, check out my guide on [What is Dapper](/what-is-dapper) for efficient .NET data access.

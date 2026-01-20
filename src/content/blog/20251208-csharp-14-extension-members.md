@@ -198,4 +198,4 @@ If you care about clean API design, rich domain models, or writing code that fee
 
 And I promise, once you use them a few times, you'll wonder how we lived without them.
 
-For more .NET content, check out my guide on [What is Dapper](/blog/what-is-dapper) for database access or my article on the [.NET Upgrade Assistant](/blog/rapid-project-upgrades-with-dotnet-upgrade-assistant) for migrating projects.
+For more .NET content, check out my guide on [What is Dapper](/what-is-dapper) for database access or my article on the [.NET Upgrade Assistant](/rapid-project-upgrades-with-dotnet-upgrade-assistant) for migrating projects.

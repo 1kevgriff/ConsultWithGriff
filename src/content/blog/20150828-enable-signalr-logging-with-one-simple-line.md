@@ -10,7 +10,7 @@ categories:
   - 'Development - ASP.NET'
 ---
 
-It is easy to think that SignalR works within a black box, but if you are deploying JavaScript clients, here is an EASY trick to learning what is happening underneath the scenes. This is especially helpful when debugging [transport negotiation issues](/blog/signalr-transports-explained).
+It is easy to think that SignalR works within a black box, but if you are deploying JavaScript clients, here is an EASY trick to learning what is happening underneath the scenes. This is especially helpful when debugging [transport negotiation issues](/signalr-transports-explained).
 
 Before you start your connection, add this ONE line of code:
 
@@ -23,4 +23,4 @@ Tada! You have logging in your browser console:
 
 ![SignalR logging example](./images/logging_preview.png)
 
-If you're encountering issues on older browsers, check out my article on [SignalR AbortController issues](/blog/signalr-abortcontroller-undefined) for a common workaround.
+If you're encountering issues on older browsers, check out my article on [SignalR AbortController issues](/signalr-abortcontroller-undefined) for a common workaround.

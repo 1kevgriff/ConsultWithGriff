@@ -27,4 +27,4 @@ Get-ChildItem . -recurse -include *.orig | remove-item
 
 Replace `.` and `*.orig` accordingly. Have fun!
 
-For more Git tips, check out [my default .gitignore file](/blog/base-gitignore) for Visual Studio projects.
+For more Git tips, check out [my default .gitignore file](/base-gitignore) for Visual Studio projects.

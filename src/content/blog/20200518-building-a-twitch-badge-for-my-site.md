@@ -154,4 +154,4 @@ This was a fun little project that took me about 2 hours to figure out, start to
 
 Thanks for following along, and [follow me on Twitch](https://www.twitch.tv/1kevgriff) to see when I go live!
 
-For more Azure Functions projects, check out my article on [adding reCAPTCHA to static sites with Azure Functions](/blog/adding-recaptcha-to-azure-functions-and-static-sites) or explore [Azure Static Web Apps](/blog/i-love-azure-static-web-apps).
+For more Azure Functions projects, check out my article on [adding reCAPTCHA to static sites with Azure Functions](/adding-recaptcha-to-azure-functions-and-static-sites) or explore [Azure Static Web Apps](/i-love-azure-static-web-apps).

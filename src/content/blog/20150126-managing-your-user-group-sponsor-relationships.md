@@ -69,4 +69,4 @@ Running a user group is hard. Your thoughts on priorities might be out of line w
 
 You don't need sponsors. You _want_ sponsors. And you hold the high card in this game.
 
-For more user group management tips, check out my articles on [choosing the right meeting day](/blog/calendar-roulette), [selecting locations](/blog/user-group-locations), and [food options beyond pizza](/blog/user-group-food).
+For more user group management tips, check out my articles on [choosing the right meeting day](/calendar-roulette), [selecting locations](/user-group-locations), and [food options beyond pizza](/user-group-food).

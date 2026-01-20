@@ -252,6 +252,6 @@ And that's it! You've created your first Windows Service with .NET 7. 🎉
 
 All source code for this project available in [Github](https://github.com/1kevgriff/WindowsServiceDotNetExample).
 
-I hope this tutorial has been helpful to you! For another approach to background processing, check out my article on [why I love HangFire](/blog/five-reasons-why-i-love-hangfire).
+I hope this tutorial has been helpful to you! For another approach to background processing, check out my article on [why I love HangFire](/five-reasons-why-i-love-hangfire).
 
 If it has, please reach out to me on [Twitter](https://twitter.com/1kevgriff) or [Mastodon](https://bbiz.io/@1kevgriff). I'd love to hear from you!

@@ -20,8 +20,8 @@ As of late, I've been wanting to start doing several tidbits around cool things 
 
 And WOW! I'm super impressed with that I saw.
 
-Check out my video introduction below, and lemme know what you think in the comments! If you're new to SignalR, start with my article on [SignalR transports](/blog/signalr-transports-explained) to understand how connections work.
+Check out my video introduction below, and lemme know what you think in the comments! If you're new to SignalR, start with my article on [SignalR transports](/signalr-transports-explained) to understand how connections work.
 
 https://www.youtube.com/embed/xLtWgRzB2_g
 
-For a comprehensive deep-dive into SignalR, check out my course [SignalR Mastery](/blog/signal-mastery-launched).
+For a comprehensive deep-dive into SignalR, check out my course [SignalR Mastery](/signal-mastery-launched).

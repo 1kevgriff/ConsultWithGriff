@@ -140,4 +140,4 @@ What do you think? If you made it this far, I'm ready to beg you for some engage
 
 I'd love to chat more! Hit me up on [Twitter](https://twitter.com/1kevgriff), [Mastodon](https://bbiz.io/@1kevgriff), or [LinkedIn](https://linkedin.com/in/1kevgriff)!
 
-Speaking of courses, check out my [SignalR Mastery course](/blog/launched-today-signalr-mastery) or learn more about [enhancing your career with a mastermind group](/blog/enhancing-your-career-with-a-mastermind-group).
+Speaking of courses, check out my [SignalR Mastery course](/launched-today-signalr-mastery) or learn more about [enhancing your career with a mastermind group](/enhancing-your-career-with-a-mastermind-group).

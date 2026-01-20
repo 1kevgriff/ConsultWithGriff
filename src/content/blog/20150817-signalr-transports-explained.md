@@ -74,4 +74,4 @@ For .NET folks deploying to IIS, you better be sure you are using IIS version 8 
 
 As you look at the various transports available, you should start to appreciate what SignalR is doing for you underneath the scenes. What would happen if you had to implement all these different scenarios yourself?
 
-If you're debugging transport issues, I recommend [enabling SignalR logging](/blog/signalr-logging) to see the negotiation process. For a deep dive into SignalR, check out my course [SignalR Mastery](/blog/signal-mastery-launched).
+If you're debugging transport issues, I recommend [enabling SignalR logging](/signalr-logging) to see the negotiation process. For a deep dive into SignalR, check out my course [SignalR Mastery](/signal-mastery-launched).

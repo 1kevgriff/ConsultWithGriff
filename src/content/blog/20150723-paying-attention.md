@@ -29,4 +29,4 @@ Luckily for me, the client was understanding and we pushed the training another 
 
 Have you ever had a moment where your assumptions got the best of you? Minute details completely escaped you even though you were staring right at them? I'd love to hear about it! Leave me a comment and let us share the pain together.
 
-For more professional insights, check out [my simple rule for successful consulting](/blog/one-simple-rule-for-successful-consulting).
+For more professional insights, check out [my simple rule for successful consulting](/one-simple-rule-for-successful-consulting).

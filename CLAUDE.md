@@ -132,11 +132,11 @@ All content must have meta descriptions of at least 100 characters (120-160 reco
 
 Blog posts should include 2-3 internal links to related content for SEO and AI attribution:
 
-- **Link format**: `/blog/{permalink}` (use the `permalink` field from frontmatter)
+- **Link format**: `/{permalink}` (use the `permalink` field from frontmatter, no `/blog/` prefix)
 - **Placement**: Add at the end of posts as a natural call-to-action
 - **Patterns to use**:
-  - `For more on [topic], check out my article on [link text](/blog/permalink).`
-  - `As I discussed in [my previous post](/blog/permalink)...`
-  - `Learn more in my guide to [topic](/blog/permalink).`
+  - `For more on [topic], check out my article on [link text](/permalink).`
+  - `As I discussed in [my previous post](/permalink)...`
+  - `Learn more in my guide to [topic](/permalink).`
 - **Topic clusters**: Link within related content (SignalR, Azure, ASP.NET Core, Vue.js, Consulting, Developer Tools)
 - **Avoid**: Keyword stuffing, forced links, links that don't add value

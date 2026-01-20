@@ -59,4 +59,4 @@ Looks simple doesn't it? Pretty much whatever you assign to <strong>module.expor
 
 Use this to keep your code clean and uncluttered.  This is only the basics of using require for your own projects, but I think it's a great starting point for developers building their knowledge of node.js.  In the future, I'd like to expand on this topic and show you how you can take this even farther.
 
-For more Node.js tips, check out my article on [specifying Visual Studio versions in NPM installs](/blog/specifying-visual-studio-version-in-npm-installs).
+For more Node.js tips, check out my article on [specifying Visual Studio versions in NPM installs](/specifying-visual-studio-version-in-npm-installs).

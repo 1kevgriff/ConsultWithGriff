@@ -49,4 +49,4 @@ Just do it. Write one test. Is the code you want to test too complicated or too 
 
 Now get out there and write some tests!
 
-For more on application quality, check out my guide on [monitoring ASP.NET Core application health](/blog/monitoring-aspnet-core-application-health-with-health-checks).
+For more on application quality, check out my guide on [monitoring ASP.NET Core application health](/monitoring-aspnet-core-application-health-with-health-checks).

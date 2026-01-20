@@ -55,4 +55,4 @@ entityConnectionStringBuilder.ToString();
 
 There you go! Instead of hand writing your connection strings, take a look to see if there is a StringBuilder class that'll do the work for you.
 
-If you're working with SQL databases in .NET, check out my guide on [What is Dapper](/blog/what-is-dapper) for a better approach to data access.
+If you're working with SQL databases in .NET, check out my guide on [What is Dapper](/what-is-dapper) for a better approach to data access.

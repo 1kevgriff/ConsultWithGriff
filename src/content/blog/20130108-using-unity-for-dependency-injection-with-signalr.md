@@ -14,7 +14,7 @@ categories:
   - 'Development - ASP.NET'
 ---
 
-I've had bit of a day, and a large part of it was learning how to wrangle SignalR into using my dependency injection provider (in this case, being Unity). If you're new to SignalR, check out my article on [why ASP.NET developers should consider SignalR](/blog/why-should-asp-net-developers-consider-signalr-for-all-projects) first.  There are a couple thoughts, that I'd like to communicate to you all in case you're looking to do the same thing.  Also, if you have suggestions on what I could do differently, I'm more than open to hearing.  This is solution that worked for me, and I'm hoping it'll work for you.
+I've had bit of a day, and a large part of it was learning how to wrangle SignalR into using my dependency injection provider (in this case, being Unity). If you're new to SignalR, check out my article on [why ASP.NET developers should consider SignalR](/why-should-asp-net-developers-consider-signalr-for-all-projects) first.  There are a couple thoughts, that I'd like to communicate to you all in case you're looking to do the same thing.  Also, if you have suggestions on what I could do differently, I'm more than open to hearing.  This is solution that worked for me, and I'm hoping it'll work for you.
 
 <strong>NOTE: This is built using SignalR v1.0-RC, which is a Prerelease NuGet package.  I'll try to update if this changes after release.</strong>
 
@@ -106,4 +106,4 @@ You'd like to think everything will just work now, right? Wrong. The dependencie
 
 This should be simple to follow. I'm registering a new type: MyHub, and telling Unity how to create a new instance of it. Creating it involves resolving the interface myself, and creating the new instance. This instance gets routed through SignalR and eventually executed.
 
-I'm also a user of StructureMap and Ninject, and I need to sit down to figure out this same process with those frameworks (if I even need to). If you already have experience with them, let me know what you did. For more SignalR tips, check out my comprehensive course [SignalR Mastery](/blog/signal-mastery-launched).
+I'm also a user of StructureMap and Ninject, and I need to sit down to figure out this same process with those frameworks (if I even need to). If you already have experience with them, let me know what you did. For more SignalR tips, check out my comprehensive course [SignalR Mastery](/signal-mastery-launched).

@@ -16,7 +16,7 @@ categories:
   - ASP.NET
 ---
 
-Last week marks the first anniversary of my course, [SignalR Mastery](/blog/signal-mastery-launched), which I launched on Udemy on January 11th, 2021.
+Last week marks the first anniversary of my course, [SignalR Mastery](/signal-mastery-launched), which I launched on Udemy on January 11th, 2021.
 
 In private, I've been pretty detailed on the experience of building this course. After a year in, I wanted to be open with the community on what I've picked up building and supporting this course.
 
@@ -48,7 +48,7 @@ But the Udemy marketplace opens up easily thousands of potential students that I
 
 SignalR is not the type of technology that folks are googling for daily. It's not getting BUILD keynotes or presentations at .NET Conf (believe me, I've tried).
 
-But SignalR is definitely one of those super valuable technologies in daily application. I've covered everything from [transport negotiation](/blog/signalr-transports-explained) to [ConnectionId management](/blog/signalr-connection-ids) over the years. Very few people know how to use it intelligently. As a consultant, I've worked with dozens of clients to best utilize SignalR. It's always full of "oh, I didn't know you could do that" moments.
+But SignalR is definitely one of those super valuable technologies in daily application. I've covered everything from [transport negotiation](/signalr-transports-explained) to [ConnectionId management](/signalr-connection-ids) over the years. Very few people know how to use it intelligently. As a consultant, I've worked with dozens of clients to best utilize SignalR. It's always full of "oh, I didn't know you could do that" moments.
 
 My previous SignalR course was syntax and some design, but I couldn't really go into the detail I wanted on issues that real teams have to face.
 

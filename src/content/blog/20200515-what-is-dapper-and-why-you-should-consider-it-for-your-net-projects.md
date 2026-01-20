@@ -261,4 +261,4 @@ If you're jumping into Dapper for the first time, take it easy! There are a lot 
 
 If you run into problems, feel free to ask me on [Twitter](https://twitter.com/1kevgriff). I'm happy to research your questions and write some detailed explainations on more complex use-cases.
 
-You might also be interested in my article on [building better connection strings](/blog/building-better-connectionstrings-with-connectionstringbuilder) for cleaner database configuration.
+You might also be interested in my article on [building better connection strings](/building-better-connectionstrings-with-connectionstringbuilder) for cleaner database configuration.

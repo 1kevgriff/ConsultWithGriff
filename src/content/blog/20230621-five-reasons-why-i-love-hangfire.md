@@ -18,7 +18,7 @@ I've been doing a talk on the speaking circuit called **Tactics for Building Bac
 
 https://youtu.be/48cdGLIvYAM
 
-One of the tools that stands out most of all in the talk is HangFire. I've been using HangFire for years, and it's been a vital tool for offloading some of the heavy lifting from my web applications. If you're interested in other approaches like [Windows Services](/blog/building-window-services-in-dotnet), check out my article on that topic too. I want to talk about a couple of the reasons why I love HangFire, and why you might want to consider it for your projects if you're not already using it.
+One of the tools that stands out most of all in the talk is HangFire. I've been using HangFire for years, and it's been a vital tool for offloading some of the heavy lifting from my web applications. If you're interested in other approaches like [Windows Services](/building-window-services-in-dotnet), check out my article on that topic too. I want to talk about a couple of the reasons why I love HangFire, and why you might want to consider it for your projects if you're not already using it.
 
 ## 1. It's Easy to Setup
 
@@ -162,6 +162,6 @@ This view alone has saved me a ton of debugging time because I was able to isola
 
 A few weeks ago, I announced the launch of my new course, **Building Background Services in .NET with HangFire**. The course aims to teach how to create and manage background jobs using HangFire, a powerful open-source library that can help improve the performance and scalability of .NET applications. The course covers fundamental concepts of background jobs, setting up and configuring HangFire, creating and managing background jobs using the HangFire dashboard, scheduling recurring jobs, handling errors, and scaling background services.
 
-You might also want to check out my course announcement post on [Building Background Services with HangFire](/blog/building-background-services-with-hangfire-course-launch).
+You might also want to check out my course announcement post on [Building Background Services with HangFire](/building-background-services-with-hangfire-course-launch).
 
 [![Building Background Services in .NET with HangFire](./images/hangfire-udemy.png)](https://www.udemy.com/course/building-background-services-in-net-with-hangfire/?referralCode=ADE705B8BB4A44749A7D)

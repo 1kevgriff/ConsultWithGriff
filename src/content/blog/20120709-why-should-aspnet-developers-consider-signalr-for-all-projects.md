@@ -24,7 +24,7 @@ If your users are using IE6-9, you’re also at a loss.  Internet Explorer 10 is
 
 So if we can’t have WebSockets, can we still have a rich peer to peer communication stack like WebSockets? <strong>YES.</strong>
 
-There are various ways to implement solutions. In my guide to [SignalR transports](/blog/signalr-transports-explained), I cover each approach in detail. For example, a long time ago I used to implement 'Interval Polling' on my applications.  On a standard interval, say 60 seconds, I would go to the server and request new data.  If the server has data to return, that was the time to do it.  If not, the cycles are wasted.  Obviously, this is a huge bandwidth drain and the overhead of each call is cumbersome.
+There are various ways to implement solutions. In my guide to [SignalR transports](/signalr-transports-explained), I cover each approach in detail. For example, a long time ago I used to implement 'Interval Polling' on my applications.  On a standard interval, say 60 seconds, I would go to the server and request new data.  If the server has data to return, that was the time to do it.  If not, the cycles are wasted.  Obviously, this is a huge bandwidth drain and the overhead of each call is cumbersome.
 
 Other solutions include long polling, which is the same as interval polling, except the request remains open until the server decides to return data or until the connection times out.  Then there is Server Sent Events, which don’t even ask me about.  I understand it’s based off some old Netscape technology, but that’s about it.
 
@@ -94,4 +94,4 @@ Ok.  LASTLY, there is this call to <em>\$.connection.hub.start()<strong>.  </str
 
 SignalR is extremely easy to use, and I’m definitely recommending it as a replacement for 90% of the .NET AJAX work I’m seeing done in the community.  Take a couple minutes, download the package via NuGet and try it out for yourself.  You won’t be disappointed.
 
-Feel free to ask any questions, and hit me up on the Twitters <a href="https://twitter.com/1kevgriff">@1kevgriff</a>. If you want to dive deeper into SignalR, check out my course [SignalR Mastery](/blog/signal-mastery-launched).
+Feel free to ask any questions, and hit me up on the Twitters <a href="https://twitter.com/1kevgriff">@1kevgriff</a>. If you want to dive deeper into SignalR, check out my course [SignalR Mastery](/signal-mastery-launched).

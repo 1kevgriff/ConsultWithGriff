@@ -37,4 +37,4 @@ If the attendee goes home and runs into a scenario where a new feature would be 
 
 The 10% rule is meant to build foundations for learning. Expose audiences to ideas and concepts, and guide them towards better self-learning.
 
-For more career development insights, check out my article on [enhancing your career with a mastermind group](/blog/enhancing-your-career-with-a-mastermind-group).
+For more career development insights, check out my article on [enhancing your career with a mastermind group](/enhancing-your-career-with-a-mastermind-group).

@@ -19,7 +19,7 @@ excerpt: "As I've been going on the road to talk about background services withi
 
 [Get the course](https://www.udemy.com/course/building-background-services-in-net-with-hangfire/?referralCode=ADE705B8BB4A44749A7D)
 
-I am officially launching my new course, Building Background Services in .NET with HangFire! This follows my article on [building Windows Services in .NET](/blog/building-window-services-in-dotnet) and my deep dive into [five reasons why I love HangFire](/blog/five-reasons-why-i-love-hangfire).
+I am officially launching my new course, Building Background Services in .NET with HangFire! This follows my article on [building Windows Services in .NET](/building-window-services-in-dotnet) and my deep dive into [five reasons why I love HangFire](/five-reasons-why-i-love-hangfire).
 
 As I've been going on the road to talk about background services within the .NET ecosystem, one of my favorites has HangFire. I've been using HangFire in my applications for years, and it's been a vital tool for offloading some of the heavy lifting from my web applications.
 

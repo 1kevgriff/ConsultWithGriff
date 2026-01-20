@@ -28,4 +28,4 @@ https://www.youtube.com/watch?v=TH9bN2nnd0s
 [Twitter](https://twitter.com/1kevgriff)
 [My Twitch Channel](https://www.twitch.tv/1kevgriff)
 
-For more Vue.js content, check out my session on [Single Page Architectures with Vue.js and ASP.NET Core](/blog/spas-with-vuejs-aspnetcore).
+For more Vue.js content, check out my session on [Single Page Architectures with Vue.js and ASP.NET Core](/spas-with-vuejs-aspnetcore).

@@ -115,4 +115,4 @@ For our group, I need to ensure that every cog in the engine is interchangeable 
 
 I'm interested in your opinion! Have you been on a team that standardized on a different tech stack than your own? Follow up with my on [Twitter](https://twitter.com/1kevgriff) or [LinkedIn](https://www.linkedin.com/in/1kevgriff)!
 
-For more on this topic, check out my earlier article on [non-tech factors when choosing your tech stack](/blog/non-tech-factors-to-consider-when-choosing-your-tech-stack).
+For more on this topic, check out my earlier article on [non-tech factors when choosing your tech stack](/non-tech-factors-to-consider-when-choosing-your-tech-stack).

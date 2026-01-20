@@ -21,4 +21,4 @@ Simply put: when I recommend tools, technologies, and other solutions to my clie
 
 Do that, and the clients will always keep coming back.
 
-For more consulting advice, check out my article on [termination policies for consultants](/blog/consultant-termination-policy) or learn about [enhancing your career with a mastermind group](/blog/enhancing-your-career-with-a-mastermind-group).
+For more consulting advice, check out my article on [termination policies for consultants](/consultant-termination-policy) or learn about [enhancing your career with a mastermind group](/enhancing-your-career-with-a-mastermind-group).

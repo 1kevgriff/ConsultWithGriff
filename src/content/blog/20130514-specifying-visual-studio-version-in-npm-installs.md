@@ -23,4 +23,4 @@ Example:
 <blockquote>npm install socket.io --msvs_version=2012</blockquote>
 Tada.  This should work almost every time.
 
-For more Node.js tips, check out my article on [using require to load your own files](/blog/node-js-using-require-to-load-your-own-files).
+For more Node.js tips, check out my article on [using require to load your own files](/node-js-using-require-to-load-your-own-files).

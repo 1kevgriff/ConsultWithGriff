@@ -95,4 +95,4 @@ The best advice that can be given is to discuss the pros and cons of every choic
 
 A great team, when given flexibility, will always produce a solid product.
 
-For more on managing tech stacks, check out my follow-up article [Fewer Buzzwords, Better Teams](/blog/fewer-buzzwords-better-teams).
+For more on managing tech stacks, check out my follow-up article [Fewer Buzzwords, Better Teams](/fewer-buzzwords-better-teams).

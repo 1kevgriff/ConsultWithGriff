@@ -70,4 +70,4 @@ What's your current termination policy? Do you have one at all? What factors wen
 
 I would love to know! Leave a comment below or hit me up on [Twitter](https://twitter.com/1kevgriff).
 
-For more consulting advice, check out [my simple rule for successful consulting](/blog/one-simple-rule-for-successful-consulting) or learn about [enhancing your career with a mastermind group](/blog/enhancing-your-career-with-a-mastermind-group).
+For more consulting advice, check out [my simple rule for successful consulting](/one-simple-rule-for-successful-consulting) or learn about [enhancing your career with a mastermind group](/enhancing-your-career-with-a-mastermind-group).

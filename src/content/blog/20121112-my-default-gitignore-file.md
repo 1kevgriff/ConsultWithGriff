@@ -128,4 +128,4 @@ packages/
    git rm --cached <file>
    ```
 
-For more development tips, check out my PowerShell guide on [recursively deleting files by extension](/blog/powershell-how-to-recursively-delete-files-based-of-file-extension) or learn about [building better connection strings](/blog/building-better-connectionstrings-with-connectionstringbuilder) in .NET.
+For more development tips, check out my PowerShell guide on [recursively deleting files by extension](/powershell-how-to-recursively-delete-files-based-of-file-extension) or learn about [building better connection strings](/building-better-connectionstrings-with-connectionstringbuilder) in .NET.

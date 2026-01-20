@@ -13,11 +13,11 @@ categories:
   - Development
 ---
 
-<strong> 2/28/2013 - With the 1.0 release of SignalR, I can't guarantee the solution below will work the same.  The big problem with this solution is that ConnectionIds are reused across tabs and browser windows since it's cookie based.  You might not have the results you're expecting.  The SignalR team doesn't recommend this action, and I can agree.  I didn't see it when I wrote the post.  This is a decent guide for overriding the connection id factory, so I'll leave it up for archival purposes. For my updated thoughts on this topic, see my article on [why you shouldn't manage SignalR ConnectionIds](/blog/signalr-connection-ids).</strong>
+<strong> 2/28/2013 - With the 1.0 release of SignalR, I can't guarantee the solution below will work the same.  The big problem with this solution is that ConnectionIds are reused across tabs and browser windows since it's cookie based.  You might not have the results you're expecting.  The SignalR team doesn't recommend this action, and I can agree.  I didn't see it when I wrote the post.  This is a decent guide for overriding the connection id factory, so I'll leave it up for archival purposes. For my updated thoughts on this topic, see my article on [why you shouldn't manage SignalR ConnectionIds](/signalr-connection-ids).</strong>
 
 I’m a huge fan of SignalR, and today I was looking at a particular <em>problem</em>.  I would think it’s more of a feature, but in certain use cases it can be considered a bug.
 
-When you start a connection to SignalR for the first time, you are assigned a ConnectionId (see my article on [SignalR transports](/blog/signalr-transports-explained) to learn how connections are established).  SignalR uses this to determine what messages should go to you, and allows the server to direct messaging at a particular user.
+When you start a connection to SignalR for the first time, you are assigned a ConnectionId (see my article on [SignalR transports](/signalr-transports-explained) to learn how connections are established).  SignalR uses this to determine what messages should go to you, and allows the server to direct messaging at a particular user.
 
 If you were to refresh the page, SignalR will assign you a NEW ConnectionId.  This could be good or bad… but if you’re trying to maintain some sense of state between your clients and the hub, it’s bad.
 

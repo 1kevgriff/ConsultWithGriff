@@ -143,7 +143,7 @@ Azure App Services recently added a health endpoint polling feature that'll look
 
 Docker has had health checks support for a while, and it's useful to help manage which nodes are served traffic in a cluster. By the way, I'm not a Docker guy at all - but this is my understanding.
 
-If you're building background services that need monitoring, check out my article on [why I love HangFire](/blog/five-reasons-why-i-love-hangfire) for background job processing.
+If you're building background services that need monitoring, check out my article on [why I love HangFire](/five-reasons-why-i-love-hangfire) for background job processing.
 
 ## Wrapping up
 

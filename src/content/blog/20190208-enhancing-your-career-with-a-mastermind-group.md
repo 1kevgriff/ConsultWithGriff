@@ -237,4 +237,4 @@ I hope this overview has been enlightening, and given you something to think abo
 
 Find yourself a group - and let's takeover the world!
 
-For more career and business advice, check out [my simple rule for successful consulting](/blog/one-simple-rule-for-successful-consulting) and my tips on [managing user groups](/blog/user-group-sponsor-relationship).
+For more career and business advice, check out [my simple rule for successful consulting](/one-simple-rule-for-successful-consulting) and my tips on [managing user groups](/user-group-sponsor-relationship).
