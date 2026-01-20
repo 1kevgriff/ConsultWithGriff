@@ -196,8 +196,12 @@ const faqSchema = {
             <div class="space-y-6">
               {category.questions.map((q) => (
                 <Card variant={i % 2 === 0 ? 'light' : 'white'} hover={false}>
-                  <h3 class="text-xl font-bold text-navy mb-3">{q.question}</h3>
-                  <p class="text-gray-700 leading-relaxed">{q.answer}</p>
+                  <h3 class="text-xl font-bold text-navy mb-3">
+                    <span class="text-gold">Q:</span> {q.question}
+                  </h3>
+                  <p class="text-gray-700 leading-relaxed">
+                    <span class="font-semibold">A:</span> {q.answer}
+                  </p>
                 </Card>
               ))}
             </div>
@@ -222,7 +226,7 @@ const faqSchema = {
             href="https://app.onecal.io/b/kevin-griffin/chat"
             variant="primary"
             size="lg"
-            class="!bg-navy !text-gold border-2 border-navy hover:!bg-navy-light"
+            class="bg-navy! text-gold! border-2 border-navy! hover:bg-navy-light!"
           >
             Schedule a Discovery Call
           </Button>
