@@ -66,7 +66,6 @@
     { "route": "/debugging-node-js-projects/", "redirect": "/", "statusCode": 301 },
     { "route": "/review-brackets/", "redirect": "/", "statusCode": 301 },
     { "route": "/rollbase/", "redirect": "/", "statusCode": 301 },
-    { "route": "/about", "redirect": "/", "statusCode": 301 },
     { "route": "/simple-html-formatting-in-sublime-text/", "redirect": "/", "statusCode": 301 },
     { "route": "/testimonials", "redirect": "/", "statusCode": 301 },
     { "route": "/everleap/", "redirect": "/", "statusCode": 301 },

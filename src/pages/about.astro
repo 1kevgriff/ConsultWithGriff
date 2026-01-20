@@ -1,0 +1,463 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Hero from '../components/Hero.astro';
+import Card from '../components/Card.astro';
+import Button from '../components/Button.astro';
+import { Icon } from 'astro-icon/components';
+
+const pageTitle = 'About Kevin W. Griffin | 16x Microsoft MVP | .NET & Azure Expert';
+const pageDescription =
+  '16-time Microsoft MVP Kevin Griffin specializes in ASP.NET Core, Azure, and modern web development. Based in Virginia, helping teams ship better software.';
+
+const socialLinks = [
+  {
+    name: 'Email',
+    href: 'mailto:hello@consultwithgriff.com',
+    icon: 'fa6-solid:envelope',
+  },
+  {
+    name: 'X',
+    href: 'https://twitter.com/1kevgriff',
+    icon: 'fa6-brands:x-twitter',
+  },
+  {
+    name: 'Bluesky',
+    href: 'https://bsky.app/profile/consultwithgriff.com',
+    icon: 'fa6-brands:bluesky',
+  },
+  {
+    name: 'LinkedIn',
+    href: 'https://www.linkedin.com/in/1kevgriff/',
+    icon: 'fa6-brands:linkedin',
+  },
+  {
+    name: 'GitHub',
+    href: 'https://github.com/1kevgriff',
+    icon: 'fa6-brands:github',
+  },
+  {
+    name: 'YouTube',
+    href: 'https://youtube.com/swiftkick',
+    icon: 'fa6-brands:youtube',
+  },
+  {
+    name: 'Sessionize',
+    href: 'https://sessionize.com/kevingriffin/',
+    icon: 'fa6-solid:microphone',
+  },
+];
+
+const approvedBio = `Kevin Griffin has been running production .NET applications and teaching developers for over two decades. A 16-time Microsoft MVP specializing in ASP.NET Core and Azure, Kevin brings real-world experience from his own SaaS products alongside his consulting work at Swift Kick. He's hosted the Hampton Roads .NET User Group since 2009 and founded RevolutionVA, the nonprofit behind Hampton Roads DevFest. Kevin's talks blend hard-won lessons from production systems with practical advice you can use Monday morning.`;
+
+const schemaJson = {
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  name: 'Kevin W. Griffin',
+  givenName: 'Kevin',
+  familyName: 'Griffin',
+  jobTitle: 'Independent Software Consultant',
+  description:
+    '16-time Microsoft MVP specializing in ASP.NET Core and Azure. Running production .NET applications and teaching developers for over two decades.',
+  url: 'https://consultwithgriff.com/about',
+  image: 'https://consultwithgriff.com/kevin_rockon.jpg',
+  email: 'hello@consultwithgriff.com',
+  sameAs: [
+    'https://twitter.com/1kevgriff',
+    'https://bsky.app/profile/consultwithgriff.com',
+    'https://linkedin.com/in/1kevgriff',
+    'https://github.com/1kevgriff',
+    'https://youtube.com/swiftkick',
+    'https://sessionize.com/kevingriffin/',
+  ],
+  worksFor: {
+    '@type': 'Organization',
+    name: 'Swift Kick',
+  },
+  knowsAbout: ['ASP.NET Core', 'Microsoft Azure', 'SignalR', 'Vue.js', '.NET Architecture'],
+  hasCredential: {
+    '@type': 'EducationalOccupationalCredential',
+    name: 'Microsoft Most Valuable Professional (MVP)',
+    credentialCategory: 'Award',
+  },
+};
+---
+
+<BaseLayout title={pageTitle} description={pageDescription}>
+  <Fragment slot="head">
+    <link rel="canonical" href="https://consultwithgriff.com/about" />
+    <script type="application/ld+json" set:html={JSON.stringify(schemaJson)} />
+  </Fragment>
+
+  <!-- Hero Section -->
+  <Hero
+    title="Kevin W. Griffin"
+    subtitle="16-Time Microsoft MVP | .NET Architect | Azure Expert"
+    imageSrc="/kevin_rockon.jpg"
+    imageAlt="Kevin W. Griffin - Microsoft MVP"
+    primaryCTA={{
+      text: 'Work With Me',
+      href: '/consulting',
+    }}
+    secondaryCTA={{ text: 'Get in Touch', href: '/contact' }}
+  />
+
+  <!-- Professional Summary Section -->
+  <section class="py-20 bg-white">
+    <div class="container mx-auto px-4 lg:px-8">
+      <div class="max-w-4xl mx-auto">
+        <h2 class="text-3xl lg:text-4xl font-bold text-navy mb-8 text-center">
+          Building Software That Lasts
+        </h2>
+        <div class="prose prose-lg max-w-none text-gray-700">
+          <p class="text-xl leading-relaxed mb-6">
+            For over 19 years, I've been helping teams build, scale, and maintain software that
+            actually works in production. Not just code that compiles, but systems that handle
+            real-world traffic, survive unexpected failures, and evolve with your business.
+          </p>
+          <p class="text-lg leading-relaxed mb-6">
+            My journey started in the early days of .NET, and I've been along for the entire ride:
+            from Web Forms to MVC, from on-premise servers to cloud-native architectures, from
+            monoliths to microservices (and sometimes back to well-designed monoliths).
+          </p>
+          <p class="text-lg leading-relaxed">
+            Today, I split my time between consulting with teams who need experienced hands on their
+            toughest problems, building my own SaaS products, and teaching developers through
+            courses and conference talks. Every project I take on informs the others, keeping my
+            advice grounded in what actually works, not just what sounds good in theory.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Credentials & Recognition Section -->
+  <section class="py-20 bg-gray-50">
+    <div class="container mx-auto px-4 lg:px-8">
+      <div class="max-w-4xl mx-auto">
+        <h2 class="text-3xl font-bold text-navy mb-12 text-center">Recognition & Credentials</h2>
+        <div class="grid md:grid-cols-3 gap-8">
+          <Card variant="white">
+            <div class="text-4xl mb-4">🏆</div>
+            <h3 class="text-xl font-bold text-navy mb-3">16x Microsoft MVP</h3>
+            <p class="text-gray-700">
+              Recognized consecutively for 16 years for contributions to the developer community.
+              This award reflects ongoing engagement with Microsoft technologies and the broader
+              .NET ecosystem.
+            </p>
+          </Card>
+          <Card variant="white">
+            <div class="text-4xl mb-4">🎤</div>
+            <h3 class="text-xl font-bold text-navy mb-3">Conference Speaker</h3>
+            <p class="text-gray-700">
+              Regular speaker at Microsoft conferences, regional events, and user groups. Sharing
+              practical lessons learned from production systems with developers worldwide.
+            </p>
+          </Card>
+          <Card variant="white">
+            <div class="text-4xl mb-4">🎓</div>
+            <h3 class="text-xl font-bold text-navy mb-3">Course Creator</h3>
+            <p class="text-gray-700">
+              Creator of SignalR Mastery and other training courses. Helping thousands of developers
+              master real-time web development and .NET best practices.
+            </p>
+          </Card>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Expertise Areas Section -->
+  <section class="py-20 bg-white">
+    <div class="container mx-auto px-4 lg:px-8">
+      <div class="max-w-6xl mx-auto">
+        <h2 class="text-3xl lg:text-4xl font-bold text-navy mb-4 text-center">Core Expertise</h2>
+        <p class="text-xl text-gray-700 mb-12 text-center max-w-3xl mx-auto">
+          Areas where I've spent the most time and can provide the deepest guidance.
+        </p>
+
+        <div class="grid md:grid-cols-2 gap-8">
+          <Card variant="white">
+            <h3 class="text-2xl font-bold text-navy mb-4">.NET Architecture</h3>
+            <p class="text-gray-700 mb-4">
+              From legacy .NET Framework modernization to cutting-edge .NET 9 applications. Clean
+              Architecture, Domain-Driven Design, and pragmatic patterns that teams can actually
+              maintain.
+            </p>
+            <p class="text-sm text-gray-500">
+              .NET 9, ASP.NET Core, Minimal APIs, Entity Framework Core, Dapper
+            </p>
+          </Card>
+
+          <Card variant="white">
+            <h3 class="text-2xl font-bold text-navy mb-4">Microsoft Azure</h3>
+            <p class="text-gray-700 mb-4">
+              Cloud architecture that scales with your business, not your credit card. I help teams
+              make smart choices about Azure services and avoid the costly mistakes I've seen others
+              make.
+            </p>
+            <p class="text-sm text-gray-500">
+              App Service, Functions, Container Apps, Azure SQL, Cosmos DB, SignalR Service
+            </p>
+          </Card>
+
+          <Card variant="white">
+            <h3 class="text-2xl font-bold text-navy mb-4">Modern Web Development</h3>
+            <p class="text-gray-700 mb-4">
+              Vue.js frontends backed by .NET APIs. I build full-stack applications where the
+              frontend and backend complement each other, with clean separation that lets teams move
+              independently.
+            </p>
+            <p class="text-sm text-gray-500">Vue 3, TypeScript, Tailwind CSS, ASP.NET Core APIs</p>
+          </Card>
+
+          <Card variant="white">
+            <h3 class="text-2xl font-bold text-navy mb-4">Real-Time Applications</h3>
+            <p class="text-gray-700 mb-4">
+              SignalR is my specialty. From chat applications to live dashboards to collaborative
+              editing, I've built real-time features that handle thousands of concurrent
+              connections.
+            </p>
+            <p class="text-sm text-gray-500">SignalR, Azure SignalR Service, WebSockets</p>
+          </Card>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Community Involvement Section -->
+  <section class="py-20 bg-navy-light">
+    <div class="container mx-auto px-4 lg:px-8">
+      <div class="max-w-4xl mx-auto">
+        <h2 class="text-3xl font-bold text-white mb-12 text-center">Community Involvement</h2>
+        <div class="grid md:grid-cols-2 gap-8">
+          <Card variant="navy">
+            <h3 class="text-xl font-bold mb-3">Hampton Roads User Groups</h3>
+            <p class="text-gray-200 mb-4">
+              I've been hosting local developer communities since 2009, bringing together
+              developers to learn, share, and grow. Monthly meetings, guest speakers, and a
+              welcoming community for developers at all levels.
+            </p>
+            <div class="flex flex-wrap gap-4">
+              <a
+                href="https://www.meetup.com/hampton-roads-net-users-group/"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="text-gold hover:text-gold-warm font-semibold"
+              >
+                .NET User Group →
+              </a>
+              <a
+                href="https://www.meetup.com/hampton-roads-azure-users-group/"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="text-gold hover:text-gold-warm font-semibold"
+              >
+                Azure User Group →
+              </a>
+            </div>
+          </Card>
+
+          <Card variant="navy">
+            <h3 class="text-xl font-bold mb-3">RevolutionVA</h3>
+            <p class="text-gray-200 mb-4">
+              Founder of RevolutionVA, the nonprofit organization behind Hampton Roads DevFest and
+              RevolutionConf. Building connections and opportunities for the local tech community
+              through events, workshops, and networking.
+            </p>
+            <div class="flex flex-wrap gap-4">
+              <a
+                href="https://revolutionva.org/"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="text-gold hover:text-gold-warm font-semibold"
+              >
+                RevolutionVA →
+              </a>
+              <a
+                href="https://hrdevfest.org/"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="text-gold hover:text-gold-warm font-semibold"
+              >
+                HR DevFest →
+              </a>
+              <a
+                href="https://revolutionconf.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="text-gold hover:text-gold-warm font-semibold"
+              >
+                RevolutionConf →
+              </a>
+            </div>
+          </Card>
+
+          <Card variant="navy">
+            <h3 class="text-xl font-bold mb-3">Conference Speaking</h3>
+            <p class="text-gray-200 mb-4">
+              I speak regularly at conferences and user groups across the country. Topics range from
+              SignalR deep-dives to architecture patterns to lessons learned from production
+              systems.
+            </p>
+            <a
+              href="https://sessionize.com/kevingriffin/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="text-gold hover:text-gold-warm font-semibold"
+            >
+              View my speaker profile →
+            </a>
+          </Card>
+
+          <Card variant="navy">
+            <h3 class="text-xl font-bold mb-3">SignalR Mastery</h3>
+            <p class="text-gray-200 mb-4">
+              My flagship course teaching developers how to build real-time applications with
+              SignalR. Thousands of developers have used this course to add real-time features to
+              their applications.
+            </p>
+            <a href="/courses" class="text-gold hover:text-gold-warm font-semibold">
+              Explore courses →
+            </a>
+          </Card>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Press Kit / Bio Section -->
+  <section class="py-20 bg-gray-50">
+    <div class="container mx-auto px-4 lg:px-8">
+      <div class="max-w-4xl mx-auto">
+        <h2 class="text-3xl font-bold text-navy mb-4 text-center">
+          For Press & Speaking Engagements
+        </h2>
+        <p class="text-lg text-gray-700 mb-12 text-center">
+          Resources for event organizers, podcast hosts, and media inquiries.
+        </p>
+
+        <div class="grid md:grid-cols-2 gap-8 mb-12">
+          <Card variant="white" hover={false}>
+            <h3 class="text-xl font-bold text-navy mb-4">Professional Headshot</h3>
+            <p class="text-gray-700 mb-4">
+              High-resolution headshot suitable for event programs, slides, and promotional
+              materials.
+            </p>
+            <a
+              href="/kevin_rockon.jpg"
+              download="kevin-griffin-headshot.jpg"
+              class="inline-flex items-center text-navy font-semibold hover:text-gold transition-colors"
+            >
+              <Icon name="fa6-solid:download" class="w-4 h-4 mr-2" />
+              Download Headshot
+            </a>
+          </Card>
+
+          <Card variant="white" hover={false}>
+            <h3 class="text-xl font-bold text-navy mb-4">Speaker Profile</h3>
+            <p class="text-gray-700 mb-4">
+              Full speaker profile with session abstracts, past talks, and booking information on
+              Sessionize.
+            </p>
+            <a
+              href="https://sessionize.com/kevingriffin/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="inline-flex items-center text-navy font-semibold hover:text-gold transition-colors"
+            >
+              <Icon name="fa6-solid:microphone" class="w-4 h-4 mr-2" />
+              View Sessionize Profile
+            </a>
+          </Card>
+        </div>
+
+        <Card variant="light" hover={false}>
+          <h3 class="text-xl font-bold text-navy mb-4">Approved Bio</h3>
+          <p class="text-gray-700 mb-4 leading-relaxed" id="approved-bio">
+            {approvedBio}
+          </p>
+          <button
+            id="copy-bio-button"
+            class="inline-flex items-center text-navy font-semibold hover:text-gold transition-colors cursor-pointer"
+          >
+            <Icon name="fa6-solid:copy" class="w-4 h-4 mr-2" />
+            <span id="copy-bio-text">Copy Bio</span>
+          </button>
+        </Card>
+      </div>
+    </div>
+  </section>
+
+  <!-- Connect Section -->
+  <section class="py-20 bg-gold">
+    <div class="container mx-auto px-4 lg:px-8">
+      <div class="max-w-3xl mx-auto text-center">
+        <h2 class="text-3xl lg:text-4xl font-bold text-navy mb-6">Let's Connect</h2>
+        <p class="text-xl text-navy mb-8">
+          Whether you have a project in mind, want to book me for a talk, or just want to say hello,
+          I'd love to hear from you.
+        </p>
+
+        <!-- Social Links -->
+        <div class="flex flex-wrap justify-center gap-6 mb-10">
+          {
+            socialLinks.map((social) => (
+              <a
+                href={social.href}
+                target={social.href.startsWith('http') ? '_blank' : undefined}
+                rel={social.href.startsWith('http') ? 'noopener noreferrer' : undefined}
+                class="flex items-center gap-2 text-navy hover:text-navy-light transition-colors"
+                aria-label={social.name}
+              >
+                <Icon name={social.icon} class="w-6 h-6" />
+                <span class="font-semibold">{social.name}</span>
+              </a>
+            ))
+          }
+        </div>
+
+        <Button
+          href="/contact"
+          variant="primary"
+          size="lg"
+          class="!bg-navy !text-gold border-2 border-navy hover:!bg-navy-light"
+        >
+          Send Me a Message
+        </Button>
+
+        <p class="text-sm text-navy mt-6 opacity-80">
+          Or email me directly at{' '}
+          <a href="mailto:hello@consultwithgriff.com" class="underline hover:text-navy-light">
+            hello@consultwithgriff.com
+          </a>
+        </p>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const copyButton = document.getElementById('copy-bio-button');
+    const copyText = document.getElementById('copy-bio-text');
+    const bioElement = document.getElementById('approved-bio');
+
+    if (copyButton && copyText && bioElement) {
+      copyButton.addEventListener('click', async () => {
+        const bioText = bioElement.textContent || '';
+        try {
+          await navigator.clipboard.writeText(bioText);
+          copyText.textContent = 'Copied!';
+          setTimeout(() => {
+            copyText.textContent = 'Copy Bio';
+          }, 2000);
+        } catch (err) {
+          copyText.textContent = 'Failed to copy';
+          setTimeout(() => {
+            copyText.textContent = 'Copy Bio';
+          }, 2000);
+        }
+      });
+    }
+  });
+</script>
