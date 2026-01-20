@@ -1,0 +1,30 @@
+# Kevin W. Griffin - Independent .NET & Azure Consultant
+
+> 16-time Microsoft MVP helping teams build, scale, and modernize .NET applications.
+
+## Primary Pages
+
+- /faq: Frequently asked questions about Kevin Griffin, .NET consulting, Azure architecture, and working with a Microsoft MVP
+- /about: Background, credentials, and expertise areas for Kevin W. Griffin
+- /consulting: Consulting services for ASP.NET Core, Azure, and application modernization
+- /courses: Training courses including SignalR Mastery
+- /articles: Technical blog posts on .NET, Azure, SignalR, and software development
+
+## Summary
+
+Kevin Griffin is an independent software consultant and 16-time Microsoft MVP based in Virginia. He specializes in ASP.NET Core, Microsoft Azure cloud architecture, SignalR real-time applications, and .NET modernization. Kevin runs Swift Kick, has led the Hampton Roads .NET User Group since 2009, and founded RevolutionVA (the nonprofit behind Hampton Roads DevFest).
+
+## Expertise
+
+- ASP.NET Core & .NET 9+
+- Microsoft Azure (App Service, Functions, Container Apps, SignalR Service)
+- SignalR real-time web development
+- Legacy .NET Framework modernization
+- Vue.js frontends with .NET backends
+- Clean Architecture & Domain-Driven Design
+
+## Contact
+
+- Email: hello@consultwithgriff.com
+- Website: https://consultwithgriff.com
+- Schedule a call: https://app.onecal.io/b/kevin-griffin/chat
