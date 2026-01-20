@@ -36,3 +36,5 @@ addToTime('1970-01-01T00:00:00Z', [EPOCH TIME HERE], 'second')
 ```
 
 And ta-da! Your Epoch Time is now in a much easier to use format!
+
+If you're building integrations with Azure, you might also find my articles on [Azure Static Web Apps](/i-love-azure-static-web-apps) and [Azure Functions](/recaptcha-static-sites-azure-functions) helpful for your serverless architecture.

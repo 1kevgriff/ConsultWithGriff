@@ -43,3 +43,5 @@ In the example, I'm using the MongoDB node.js library to ensure an index exists.
 The `expireAfterSeconds` options tells MongoDB that after a specified amount of time, the document should automatically remove itself.
 
 This quick fix has saved me a ton of time, and I am hoping it saves a ton for you too!
+
+For more database tips, check out my guide on [What is Dapper](/what-is-dapper) for efficient .NET data access.

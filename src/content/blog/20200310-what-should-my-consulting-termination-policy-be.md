@@ -69,3 +69,5 @@ If you're not paid within that time, send a couple of reminder emails to the cli
 What's your current termination policy? Do you have one at all? What factors went into your policy? Are you looking at talking to your lawyer after this post?
 
 I would love to know! Leave a comment below or hit me up on [Twitter](https://twitter.com/1kevgriff).
+
+For more consulting advice, check out [my simple rule for successful consulting](/one-simple-rule-for-successful-consulting) or learn about [enhancing your career with a mastermind group](/enhancing-your-career-with-a-mastermind-group).

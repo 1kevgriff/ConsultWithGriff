@@ -29,6 +29,8 @@ Then from Terminal you can type:
 `code .` -- opens current directory in Visual Studio Code  
 `code somefile` -- opens somefile in Visual Studio Code
 
+For more development environment tips, check out [my default .gitignore file](/base-gitignore) for your projects.
+
 ## Zsh
 
 Using [Visual Studio Code](https://code.visualstudio.com) on your Mac, but can't call it from Zsh?

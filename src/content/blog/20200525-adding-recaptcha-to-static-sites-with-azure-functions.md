@@ -50,7 +50,7 @@ cta.addEventListener('click', (evt) => {
 
 Once you have the token - you need to validate it. This cannot happen on the client, because as a rule of thumb, you never trust anything from the client.
 
-But this is also a static site generated through Gridsome. There is physically no server-side component that I can bounce requests off of. All my hosting is done via blob storage in Microsoft Azure (probably migrating to new Azure Static Sites in a couple weeks).
+But this is also a static site generated through Gridsome. There is physically no server-side component that I can bounce requests off of. All my hosting is done via blob storage in Microsoft Azure (probably migrating to new Azure Static Sites in a couple weeks - see my post on [why I love Azure Static Web Apps](/i-love-azure-static-web-apps)).
 
 ## Enter Azure Functions
 
@@ -157,6 +157,6 @@ On a failure (or `Success` is false), I simply send a BadRequest exception (a no
 
 The `ErrorCodes` collection will contain errors, but you'd need to read and interept them independently. In my case, I'm fine just returning an error, but you might want to send back a more specific error.
 
-If you're looking at trying to add services to static sites, definitely consider serverless options. I was definitely a holdout in the early days of Azure Functions and AWS Lambda, but every day I see little tasks that are perfect for serverless functions.
+If you're looking at trying to add services to static sites, definitely consider serverless options. I discuss this more in my article on [Azure Static Web Apps performance](/crazy-web-performance-azure-static-web-apps-and-functions). I was definitely a holdout in the early days of Azure Functions and AWS Lambda, but every day I see little tasks that are perfect for serverless functions.
 
 I hope this article has been useful for you. If it has, leave some love below. Or better yet, follow me on [Twitch](https://www.twitch.tv/1kevgriff), [YouTube](https://www.youtube.com/c/swiftkick), and [Twitter](https://twitter.com/1kevgriff).

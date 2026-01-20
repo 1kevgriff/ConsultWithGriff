@@ -37,3 +37,5 @@ Let's imagine you have a speaker coming into town that's "a big deal". But they'
 
 **Conclusion**  
 Keep scheduling simple. Hampton Roads .NET members knew where to go and when to be there every month of the year. If you build a level of consistency, you're going to have people showing up out of habit, and that's a recipe for a successful group.
+
+For more user group tips, check out my articles on [managing sponsor relationships](/user-group-sponsor-relationship), [choosing locations](/user-group-locations), and [food options beyond pizza](/user-group-food).

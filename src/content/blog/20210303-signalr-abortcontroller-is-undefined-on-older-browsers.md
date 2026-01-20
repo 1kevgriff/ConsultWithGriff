@@ -65,4 +65,4 @@ Why does this work? Well, if `fetch` is defined but `AbortController` is not, we
 
 > NOTE: no warranty how this affects other libraries that use `fetch`. I'm using Axios in addition to our SignalR stuff, and had zero problems.
 
-I hope this helps you in the future! If it did, hit me up and [Twitter](https://twitter.com/1kevgriff) and let me know!
+I hope this helps you in the future! For more debugging tips, check out my article on [enabling SignalR logging](/signalr-logging). If this helped, hit me up on [Twitter](https://twitter.com/1kevgriff) and let me know!

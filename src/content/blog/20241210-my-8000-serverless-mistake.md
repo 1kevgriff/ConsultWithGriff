@@ -38,7 +38,7 @@ Sending transactional emails, charging credit cards, processing complex data, et
 
 I've discussed many ways to solve this as a .NET developer.  
 
-One of my favorite solutions has been to embrace Azure Functions.
+One of my favorite solutions has been to embrace Azure Functions. I've written extensively about [why I love Azure Functions and Static Web Apps](/i-love-azure-static-web-apps) for their simplicity.
 
 ## Why Serverless?
 
@@ -92,7 +92,7 @@ If one elastic monthly premium is expensive, then 25 is another level!
 
 ## Conclusion
 
-I think Serverless is an amazing solution and viable for a multitude of problems. However, I recommend you avoid the "everything is a nail" problem.
+I think Serverless is an amazing solution and viable for a multitude of problems. For example, my article on [adding reCAPTCHA to static sites](/recaptcha-static-sites-azure-functions) shows a perfect use case for Azure Functions. However, I recommend you avoid the "everything is a nail" problem.
 
 ![Bandit with a hammer](./images/2024-12-10-bandit-hammer.gif)
 

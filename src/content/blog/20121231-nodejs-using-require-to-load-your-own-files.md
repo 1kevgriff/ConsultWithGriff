@@ -15,7 +15,7 @@ categories:
 
 For a lot of JavaScript developers that are moving over from traditional "browser" development to node.js, they might be casually aware of the require keyword that node.js provides you.
 
-If you're wondering what I'm talking about, allow me to explain.  In node.js, you can use the node package manager (NPM) to install packages that your application can use.  <a href="https://expressjs.com/" target="_blank">Express</a>, for example,<a href="https://expressjs.com/" target="_blank"> </a>is a great framework for serving up web applications, and you can grab it via NPM.
+If you're wondering what I'm talking about, allow me to explain.  In node.js, you can use the node package manager (NPM) to install packages that your application can use.  <a href="https://expressjs.com/" target="_blank">Express</a>, for example,<a href="https://expressjs.com/" target="_blank"> </a>is a great framework for serving up web applications, and you can grab it via NPM.
 
 To load Express into your application, you tell node.js that you "require" it be loading into memory.
 
@@ -23,9 +23,9 @@ To load Express into your application, you tell node.js that you "require" it be
 var express = require('express');
 ```
 
-Node follows a couple rules to find modules.  First, you can ask for a module by <strong>name </strong>or by <strong>folder.  </strong>Let's look at Express more closely.  If you were to download Express via NPM, you'd find there is no <em>express.js</em> file in the root directly of the /node_modules/express folder.  However, there is a <em>package.json</em> file that defines the main executable file for express (for fun, go look it up).
+Node follows a couple rules to find modules.  First, you can ask for a module by <strong>name </strong>or by <strong>folder.  </strong>Let's look at Express more closely.  If you were to download Express via NPM, you'd find there is no <em>express.js</em> file in the root directly of the /node_modules/express folder.  However, there is a <em>package.json</em> file that defines the main executable file for express (for fun, go look it up).
 
-Now, if packages.json doesn't exist or the main executable isn't present, node will resort to looking for your filename with either a <strong>.js</strong>, <strong>.json</strong>, or <strong>.node</strong> extension (unless you've specified).
+Now, if packages.json doesn't exist or the main executable isn't present, node will resort to looking for your filename with either a <strong>.js</strong>, <strong>.json</strong>, or <strong>.node</strong> extension (unless you've specified).
 
 <h2>Where's this going?</h2>
 I know, I know... the point.
@@ -57,4 +57,6 @@ userRepositoryInstance.get(...);
 
 Looks simple doesn't it? Pretty much whatever you assign to <strong>module.exports</strong> will be passed into the variable that calls require().
 
-Use this to keep your code clean and uncluttered.  This is only the basics of using require for your own projects, but I think it's a great starting point for developers building their knowledge of node.js.  In the future, I'd like to expand on this topic and show you how you can take this even farther.
+Use this to keep your code clean and uncluttered.  This is only the basics of using require for your own projects, but I think it's a great starting point for developers building their knowledge of node.js.  In the future, I'd like to expand on this topic and show you how you can take this even farther.
+
+For more Node.js tips, check out my article on [specifying Visual Studio versions in NPM installs](/specifying-visual-studio-version-in-npm-installs).

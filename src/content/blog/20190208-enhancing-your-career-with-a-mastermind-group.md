@@ -236,3 +236,5 @@ Whatever you do, don't buy into a Mastermind group. There are a series of "gurus
 I hope this overview has been enlightening, and given you something to think about. I credit all of the major victories in my career and business to the advice I've received from different Mastermind Groups.
 
 Find yourself a group - and let's takeover the world!
+
+For more career and business advice, check out [my simple rule for successful consulting](/one-simple-rule-for-successful-consulting) and my tips on [managing user groups](/user-group-sponsor-relationship).

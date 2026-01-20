@@ -48,3 +48,5 @@ Next, I'll check email towards the end of the day. Any email I sent in the AM mi
 A lot of folks talk about empty inboxes, and I agree to a point. I believe all emails that you need to follow up with some be archived off and added to your TODO list. My Todo program Todoist has an add-on that allows me to add emails to my todo list.
 
 Sometimes you might just want to keep an email front and center. That's okay! But anything that isn't important should hit the trash or the archive.
+
+For more productivity and career tips, check out my article on [enhancing your career with a mastermind group](/enhancing-your-career-with-a-mastermind-group).

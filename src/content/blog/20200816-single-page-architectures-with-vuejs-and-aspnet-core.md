@@ -29,3 +29,5 @@ https://www.youtube.com/watch?v=DH2yUVQDB0I
 ## Links and Resources
 
 [Vue.JS](https://vuejs.org/)
+
+For more Vue.js content, also check out my talk on [Building Vue Services and Plugins](/vue-services-plugins).

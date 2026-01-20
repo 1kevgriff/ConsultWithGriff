@@ -36,3 +36,5 @@ dotnet new --update-apply
 ```
 
 > Checks if there are updates available for the template packs that are currently installed and installs them. Available since .NET Core 3.0 SDK.
+
+For more .NET upgrade tips, check out my article on the [.NET Upgrade Assistant](/rapid-project-upgrades-with-dotnet-upgrade-assistant).

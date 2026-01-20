@@ -153,3 +153,5 @@ src="https://img.shields.io/endpoint?style=for-the-badge&url=https%3A%2F%2Fgriff
 This was a fun little project that took me about 2 hours to figure out, start to finish. Full source code is available at [https://github.com/1kevgriff/Griffin.TwitchBot](https://github.com/1kevgriff/Griffin.TwitchBot)..
 
 Thanks for following along, and [follow me on Twitch](https://www.twitch.tv/1kevgriff) to see when I go live!
+
+For more Azure Functions projects, check out my article on [adding reCAPTCHA to static sites with Azure Functions](/adding-recaptcha-to-azure-functions-and-static-sites) or explore [Azure Static Web Apps](/i-love-azure-static-web-apps).

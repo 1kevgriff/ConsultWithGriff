@@ -11,7 +11,7 @@ categories:
 excerpt: 'Are you interested in using Dapper, but your database uses Stored Procedures?  No problem!'
 ---
 
-During one of my latest renditions of [Better Object Relational Mapping with Dapper](), the question arose about using stored procedures.
+During one of my latest renditions of Better Object Relational Mapping with Dapper (check out my guide on [What is Dapper](/what-is-dapper)), the question arose about using stored procedures.
 
 How do you call a stored procedure with Dapper?
 
@@ -41,3 +41,5 @@ using (var connection = new SqlConnection(CONNECTION_STRING))
 ```
 
 And there you go! Using stored procedures with Dapper can be a great way to take advantage of the strengths of the database while reducing complexity of your code.
+
+For more on database configuration, see my article on [building better connection strings](/building-better-connectionstrings-with-connectionstringbuilder).
