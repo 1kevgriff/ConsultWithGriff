@@ -139,4 +139,8 @@ Blog posts should include 2-3 internal links to related content for SEO and AI a
   - `As I discussed in [my previous post](/permalink)...`
   - `Learn more in my guide to [topic](/permalink).`
 - **Topic clusters**: Link within related content (SignalR, Azure, ASP.NET Core, Vue.js, Consulting, Developer Tools)
-- **Avoid**: Keyword stuffing, forced links, links that don't add value
+- **Relevance requirements**:
+  - Links must be topically related (e.g., SignalR → SignalR, not SignalR → Dapper)
+  - Avoid large time gaps where context changed (e.g., C# 7 article shouldn't link to C# 14)
+  - The linked content should genuinely help the reader who found the current article
+- **Avoid**: Keyword stuffing, forced links, links that don't add value, topic mismatches
