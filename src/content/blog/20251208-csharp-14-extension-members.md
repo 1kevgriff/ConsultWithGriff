@@ -197,5 +197,3 @@ They let your code read the way your brain already thinks.
 If you care about clean API design, rich domain models, or writing code that feels more “English-like” and less “compiler-like,” extension members are going to slide right into your toolbox.
 
 And I promise, once you use them a few times, you'll wonder how we lived without them.
-
-For more .NET content, check out my guide on [What is Dapper](/what-is-dapper) for database access or my article on the [.NET Upgrade Assistant](/rapid-project-upgrades-with-dotnet-upgrade-assistant) for migrating projects.

@@ -139,5 +139,3 @@ Tracking the little things and seeing changes in those numbers when I put someth
 What do you think? If you made it this far, I'm ready to beg you for some engagement. Do you track vanity numbers, either passively or regularly?
 
 I'd love to chat more! Hit me up on [Twitter](https://twitter.com/1kevgriff), [Mastodon](https://bbiz.io/@1kevgriff), or [LinkedIn](https://linkedin.com/in/1kevgriff)!
-
-Speaking of courses, check out my [SignalR Mastery course](/launched-today-signalr-mastery) or learn more about [enhancing your career with a mastermind group](/enhancing-your-career-with-a-mastermind-group).

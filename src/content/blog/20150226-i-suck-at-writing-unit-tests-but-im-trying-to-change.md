@@ -48,5 +48,3 @@ I feel really good about this code. There isn't anymore of this ridiculous writi
 Just do it. Write one test. Is the code you want to test too complicated or too involved? That is a great excuse to break it up and refactor. Find someone who really knows or really enjoys writing tests and ASK them for feedback and guidance. They might hurt your feelings, but that's okay. Don't forget why you're doing this! Your code will get better. Your code will stay better. Practice makes perfect!
 
 Now get out there and write some tests!
-
-For more on application quality, check out my guide on [monitoring ASP.NET Core application health](/monitoring-aspnet-core-application-health-with-health-checks).
