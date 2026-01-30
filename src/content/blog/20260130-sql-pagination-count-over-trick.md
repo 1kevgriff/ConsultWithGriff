@@ -1,5 +1,5 @@
 ---
-title: "The SQL Pagination Trick That Cut My Query Time in Half"
+title: "SQL Server Pagination with COUNT(*) OVER() Window Function"
 date: 2026-01-30T00:00:00Z
 permalink: sql-pagination-count-over-trick
 description: 'Learn how to use COUNT(*) OVER() to get your total row count and paginated data in a single query instead of two separate round-trips.'
