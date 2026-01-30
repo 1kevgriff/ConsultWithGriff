@@ -94,10 +94,10 @@ var products = results.Select(r => new Product(r.Id, r.Name, r.Price)).ToList();
 
 ## Why This Matters
 
-| Approach | Queries | Round-trips | WHERE Evaluated |
-|----------|---------|-------------|-----------------|
-| Separate COUNT | 2 | 2 | Twice |
-| COUNT(*) OVER() | 1 | 1 | Once |
+| Approach         | Queries | Round-trips | WHERE Evaluated |
+|------------------|---------|-------------|-----------------|
+| Separate COUNT   | 2       | 2           | Twice           |
+| COUNT(*) OVER()  | 1       | 1           | Once            |
 
 For simple queries on small tables, you might not notice the difference. But when you're dealing with:
 

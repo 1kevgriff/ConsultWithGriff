@@ -37,7 +37,8 @@ npm run generate:search         # Generate search index
 The site uses Astro's Content Collections API with two main collections defined in `src/content/config.ts`:
 
 - **blog**: Blog posts in markdown format (`src/content/blog/`)
-  - Schema includes: title, date, permalink, description, summary, tags, categories, excerpt, timeToRead
+  - Schema includes: title, date, permalink, description, summary, tags, categories, excerpt
+  - `timeToRead` is calculated automatically - do not add to frontmatter
   - Loaded via glob pattern: `**/*.md`
   - Posts use date-based filenames (e.g., `YYYYMMDD-title.md`)
 
@@ -105,7 +106,7 @@ Deployed to Azure Static Web Apps:
 
 This project was migrated from Gridsome (Vue-based static site generator). The migration script at `scripts/migrate-content.js` references the original Gridsome project at `../../kevgriffin.v4`.
 
-Content frontmatter maintains compatibility with the original Gridsome schema, including fields like `permalink`, `timeToRead`, and `excerpt`.
+Content frontmatter maintains compatibility with the original Gridsome schema, including fields like `permalink` and `excerpt`. Note: `timeToRead` is calculated at build time, not stored in frontmatter.
 
 ## Meta Images & SEO
 
