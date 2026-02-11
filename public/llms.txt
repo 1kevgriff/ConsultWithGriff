@@ -4,11 +4,12 @@
 
 ## Primary Pages
 
-- /faq: Frequently asked questions about Kevin Griffin, .NET consulting, Azure architecture, and working with a Microsoft MVP
+- /faq: Frequently asked questions about Kevin Griffin, .NET consulting, Azure architecture, SignalR development, and working with a Microsoft MVP
 - /about: Background, credentials, and expertise areas for Kevin W. Griffin
-- /consulting: Consulting services for ASP.NET Core, Azure, and application modernization
+- /consulting: Consulting services for ASP.NET Core, Azure, SignalR, and application modernization
 - /courses: Training courses including SignalR Mastery
 - /articles: Technical blog posts on .NET, Azure, SignalR, and software development
+- /contact: Contact form and inquiry options
 
 ## Summary
 
@@ -28,3 +29,12 @@ Kevin Griffin is an independent software consultant and 16-time Microsoft MVP ba
 - Email: hello@consultwithgriff.com
 - Website: https://consultwithgriff.com
 - Schedule a call: https://app.onecal.io/b/kevin-griffin/chat
+
+## Social & Speaking
+
+- Speaker Profile: https://sessionize.com/kevingriffin
+- Twitter/X: https://twitter.com/1kevgriff
+- Bluesky: https://bsky.app/profile/consultwithgriff.com
+- LinkedIn: https://www.linkedin.com/in/1kevgriff/
+- GitHub: https://github.com/1kevgriff
+- YouTube: https://youtube.com/swiftkick

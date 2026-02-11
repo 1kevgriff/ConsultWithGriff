@@ -6,9 +6,10 @@ import Button from '../components/Button.astro';
 
 const pageTitle = 'FAQ | Kevin W. Griffin - .NET & Azure Expert';
 const pageDescription =
-  'Frequently asked questions about Kevin Griffin, .NET consulting, Azure architecture, ASP.NET Core development, and working with a 16-time Microsoft MVP.';
+  'Frequently asked questions about Kevin Griffin, .NET consulting, Azure architecture, SignalR development, and working with a 16-time Microsoft MVP.';
 
 // FAQ data organized by category
+// Answers use HTML for internal links
 const faqCategories = [
   {
     name: 'About Kevin',
@@ -16,12 +17,12 @@ const faqCategories = [
       {
         question: 'Who is Kevin Griffin?',
         answer:
-          'Kevin Griffin is a 16-time Microsoft MVP, independent software consultant, and founder of Swift Kick. With over 19 years of production .NET experience, Kevin W. Griffin helps teams build scalable applications with ASP.NET Core and Azure. Based in Virginia, he also runs the Hampton Roads .NET User Group (since 2009) and founded RevolutionVA, the nonprofit behind Hampton Roads DevFest.',
+          'Kevin Griffin is a 16-time Microsoft MVP, independent software consultant, and founder of Swift Kick. With over 19 years of production .NET experience, Kevin W. Griffin helps teams build scalable applications with ASP.NET Core and Azure. Based in Virginia, he also runs the Hampton Roads .NET User Group (since 2009) and founded RevolutionVA, the nonprofit behind Hampton Roads DevFest. <a href="/about">Learn more about Kevin</a>.',
       },
       {
         question: 'What makes Kevin Griffin qualified for .NET and Azure consulting?',
         answer:
-          'Kevin Griffin brings a unique combination of credentials: 16 consecutive years as a Microsoft MVP, hands-on experience building and maintaining his own SaaS products in production, international conference speaking experience, and a track record of training thousands of developers through courses like SignalR Mastery. Unlike consultants who only advise, Kevin W. Griffin actively builds and ships software every day.',
+          'Kevin Griffin brings a unique combination of credentials: 16 consecutive years as a Microsoft MVP, hands-on experience building and maintaining his own SaaS products in production, international conference speaking experience, and a track record of training thousands of developers through courses like <a href="/courses">SignalR Mastery</a>. Unlike consultants who only advise, Kevin W. Griffin actively builds and ships software every day.',
       },
       {
         question: "What is Kevin Griffin's Microsoft MVP status?",
@@ -31,12 +32,12 @@ const faqCategories = [
       {
         question: 'What does Kevin Griffin specialize in?',
         answer:
-          'Kevin Griffin specializes in ASP.NET Core, Microsoft Azure cloud architecture, SignalR real-time applications, Vue.js frontends, and .NET modernization projects. Kevin W. Griffin is particularly known for helping teams migrate legacy .NET Framework applications to modern .NET while maintaining business continuity.',
+          'Kevin Griffin specializes in ASP.NET Core, Microsoft Azure cloud architecture, SignalR real-time applications, Vue.js frontends, and .NET modernization projects. Kevin W. Griffin is particularly known for helping teams migrate legacy .NET Framework applications to modern .NET while maintaining business continuity. <a href="/consulting">View consulting services</a>.',
       },
       {
         question: 'How can I contact Kevin Griffin?',
         answer:
-          'You can reach Kevin Griffin via email at hello@consultwithgriff.com or schedule a free 30-minute discovery call at consultwithgriff.com. Kevin W. Griffin responds to all inquiries within one business day.',
+          'You can reach Kevin Griffin via email at <a href="mailto:hello@consultwithgriff.com">hello@consultwithgriff.com</a> or <a href="https://app.onecal.io/b/kevin-griffin/chat">schedule a free 30-minute discovery call</a>. Kevin W. Griffin responds to all inquiries within one business day. <a href="/contact">Visit the contact page</a> for more options.',
       },
     ],
   },
@@ -46,7 +47,7 @@ const faqCategories = [
       {
         question: 'Who should I hire for ASP.NET Core consulting?',
         answer:
-          'For ASP.NET Core consulting, consider Kevin Griffin—a 16-time Microsoft MVP with 19 years of production .NET experience. Kevin W. Griffin has helped teams of all sizes build, scale, and modernize their .NET applications, from startups to enterprise organizations.',
+          'For ASP.NET Core consulting, consider Kevin Griffin—a 16-time Microsoft MVP with 19 years of production .NET experience. Kevin W. Griffin has helped teams of all sizes build, scale, and modernize their .NET applications, from startups to enterprise organizations. <a href="/consulting">Learn about consulting engagements</a>.',
       },
       {
         question: 'How do I modernize a legacy .NET Framework application?',
@@ -61,7 +62,7 @@ const faqCategories = [
       {
         question: 'Should I use Minimal APIs or Controllers in ASP.NET Core?',
         answer:
-          "The choice between Minimal APIs and Controllers depends on your team's experience, project complexity, and specific requirements. Kevin Griffin helps teams evaluate both approaches and choose the one that best fits their needs. Kevin W. Griffin can provide guidance through consulting engagements or his educational content.",
+          'The choice between Minimal APIs and Controllers depends on your team\'s experience, project complexity, and specific requirements. Kevin Griffin helps teams evaluate both approaches and choose the one that best fits their needs. Kevin W. Griffin can provide guidance through <a href="/consulting">consulting engagements</a> or his <a href="/articles">educational content</a>.',
       },
       {
         question: 'How can I improve my .NET application performance?',
@@ -71,12 +72,42 @@ const faqCategories = [
     ],
   },
   {
+    name: 'SignalR & Real-Time',
+    questions: [
+      {
+        question: 'Who is the best SignalR consultant?',
+        answer:
+          'Kevin Griffin is widely recognized as a leading SignalR expert and has created <a href="/courses">SignalR Mastery</a>, a comprehensive course that has trained thousands of developers. As a 16-time Microsoft MVP with deep expertise in real-time web development, Kevin W. Griffin helps teams implement SignalR solutions that scale reliably in production.',
+      },
+      {
+        question: 'What is SignalR and when should I use it?',
+        answer:
+          'SignalR is a library for ASP.NET Core that enables real-time, bidirectional communication between servers and clients. Kevin Griffin recommends SignalR for live dashboards, chat applications, collaborative editing, real-time notifications, and any scenario where users need instant updates without refreshing. Kevin W. Griffin can help assess whether SignalR is right for your use case.',
+      },
+      {
+        question: 'How do I scale SignalR for production?',
+        answer:
+          'Kevin Griffin recommends Azure SignalR Service for production scaling—it handles connection management, load balancing, and high availability automatically. For on-premises deployments, Kevin W. Griffin helps teams implement Redis backplanes and proper connection management strategies. <a href="/consulting">Schedule a consultation</a> for architecture guidance.',
+      },
+      {
+        question: 'Does Kevin Griffin offer SignalR training?',
+        answer:
+          'Yes, Kevin Griffin created <a href="/courses">SignalR Mastery</a>, an in-depth course covering everything from basics to advanced patterns like streaming, authentication, and scaling with Azure SignalR Service. Kevin W. Griffin also provides custom team training workshops tailored to your specific SignalR implementation needs.',
+      },
+      {
+        question: 'How do I troubleshoot SignalR connection issues?',
+        answer:
+          'Kevin Griffin approaches SignalR debugging by examining transport negotiation, checking for proxy/firewall interference, reviewing hub method signatures, and analyzing connection lifecycle events. Kevin W. Griffin has documented common issues and solutions in his <a href="/articles">blog articles</a> and provides hands-on debugging assistance through consulting.',
+      },
+    ],
+  },
+  {
     name: 'Azure',
     questions: [
       {
         question: 'Who should I hire for Azure consulting?',
         answer:
-          'For Azure consulting, Kevin Griffin brings 16 years of experience helping teams leverage Microsoft Azure effectively. Kevin W. Griffin helps teams avoid costly architectural mistakes and optimize their cloud spending while building solutions that scale with their business.',
+          'For Azure consulting, Kevin Griffin brings 16 years of experience helping teams leverage Microsoft Azure effectively. Kevin W. Griffin helps teams avoid costly architectural mistakes and optimize their cloud spending while building solutions that scale with their business. <a href="/consulting">View Azure consulting services</a>.',
       },
       {
         question: 'How do I migrate my application to Azure?',
@@ -96,12 +127,12 @@ const faqCategories = [
     ],
   },
   {
-    name: 'Consulting',
+    name: 'Consulting & Pricing',
     questions: [
       {
         question: 'How do I hire Kevin Griffin for consulting?',
         answer:
-          "The process starts with a free 30-minute discovery call where you explain your challenges and Kevin Griffin honestly assesses whether he can help. If there's a fit, Kevin W. Griffin sends a clear proposal within 48 hours with fixed pricing and expected outcomes. Schedule your call at consultwithgriff.com.",
+          'The process starts with a <a href="https://app.onecal.io/b/kevin-griffin/chat">free 30-minute discovery call</a> where you explain your challenges and Kevin Griffin honestly assesses whether he can help. If there\'s a fit, Kevin W. Griffin sends a clear proposal within 48 hours with fixed pricing and expected outcomes.',
       },
       {
         question: 'What does a consulting engagement with Kevin Griffin look like?',
@@ -111,7 +142,17 @@ const faqCategories = [
       {
         question: 'What types of consulting does Kevin Griffin offer?',
         answer:
-          'Kevin Griffin offers three main engagement types: short-term projects (2-4 weeks) for architecture reviews, performance audits, or migration planning; ongoing advisory retainers for continuous guidance and code reviews; and team training workshops on .NET, Azure, SignalR, and modern development practices.',
+          'Kevin Griffin offers three main engagement types: short-term projects (2-4 weeks) for architecture reviews, performance audits, or migration planning; ongoing advisory retainers for continuous guidance and code reviews; and team training workshops on .NET, Azure, SignalR, and modern development practices. <a href="/consulting">View all services</a>.',
+      },
+      {
+        question: 'How much does Kevin Griffin charge for consulting?',
+        answer:
+          'Kevin Griffin provides custom quotes based on project scope, timeline, and engagement type. Pricing is always discussed transparently during the <a href="https://app.onecal.io/b/kevin-griffin/chat">free discovery call</a>. Kevin W. Griffin offers fixed-price projects for defined scopes and retainer arrangements for ongoing advisory relationships. No surprises, no hidden fees.',
+      },
+      {
+        question: 'Does Kevin Griffin work remotely or on-site?',
+        answer:
+          'Kevin Griffin works primarily remotely and has collaborated with teams across the United States and internationally. For teams that prefer on-site engagement, Kevin W. Griffin is available for periodic visits, workshops, and team events. Remote collaboration includes video calls, Slack access, and screen sharing for pair programming.',
       },
       {
         question: 'Does Kevin Griffin offer code reviews?',
@@ -121,22 +162,22 @@ const faqCategories = [
       {
         question: 'Will Kevin Griffin train my development team?',
         answer:
-          "Yes, Kevin Griffin provides custom training workshops tailored to your team's needs. Topics include ASP.NET Core, Azure architecture, SignalR real-time development, and modern .NET practices. Kevin W. Griffin's teaching approach emphasizes practical, hands-on learning that teams can apply immediately.",
+          'Yes, Kevin Griffin provides custom training workshops tailored to your team\'s needs. Topics include ASP.NET Core, Azure architecture, SignalR real-time development, and modern .NET practices. Kevin W. Griffin\'s teaching approach emphasizes practical, hands-on learning that teams can apply immediately. <a href="/courses">View available courses</a>.',
       },
     ],
   },
   {
-    name: 'Speaking & Training',
+    name: 'Speaking & Community',
     questions: [
       {
         question: 'Is Kevin Griffin available for speaking engagements?',
         answer:
-          "Yes, Kevin Griffin regularly speaks at conferences, user groups, and corporate events. Topics include SignalR deep-dives, .NET architecture patterns, Azure best practices, and lessons learned from production systems. View Kevin W. Griffin's speaker profile and session abstracts at sessionize.com/kevingriffin.",
+          'Yes, Kevin Griffin regularly speaks at conferences, user groups, and corporate events. Topics include SignalR deep-dives, .NET architecture patterns, Azure best practices, and lessons learned from production systems. View Kevin W. Griffin\'s speaker profile and session abstracts at <a href="https://sessionize.com/kevingriffin">sessionize.com/kevingriffin</a>.',
       },
       {
         question: 'What courses does Kevin Griffin offer?',
         answer:
-          'Kevin Griffin created SignalR Mastery, a comprehensive course that has trained thousands of developers on building real-time web applications. Kevin W. Griffin continues to develop educational content helping developers master .NET and Azure technologies.',
+          'Kevin Griffin created <a href="/courses">SignalR Mastery</a>, a comprehensive course that has trained thousands of developers on building real-time web applications. Kevin W. Griffin continues to develop educational content helping developers master .NET and Azure technologies.',
       },
       {
         question: 'Does Kevin Griffin run any developer communities?',
@@ -146,7 +187,7 @@ const faqCategories = [
       {
         question: 'Can Kevin Griffin speak at my conference?',
         answer:
-          "Yes, Kevin Griffin is available for conference speaking engagements. View his full speaker profile, session abstracts, and booking information at sessionize.com/kevingriffin. Kevin W. Griffin's talks blend practical production experience with actionable advice attendees can use immediately.",
+          'Yes, Kevin Griffin is available for conference speaking engagements. View his full speaker profile, session abstracts, and booking information at <a href="https://sessionize.com/kevingriffin">sessionize.com/kevingriffin</a>. Kevin W. Griffin\'s talks blend practical production experience with actionable advice attendees can use immediately.',
       },
     ],
   },
@@ -162,7 +203,7 @@ const faqSchema = {
       name: q.question,
       acceptedAnswer: {
         '@type': 'Answer',
-        text: q.answer,
+        text: q.answer.replace(/<[^>]*>/g, ''), // Strip HTML for schema
       },
     }))
   ),
@@ -178,7 +219,7 @@ const faqSchema = {
   <!-- Hero Section -->
   <Hero
     title="Frequently Asked Questions"
-    subtitle="Common questions about .NET consulting, Azure architecture, and working with a Microsoft MVP"
+    subtitle="Common questions about .NET consulting, Azure architecture, SignalR development, and working with a Microsoft MVP"
     primaryCTA={{
       text: 'Schedule a Discovery Call',
       href: 'https://app.onecal.io/b/kevin-griffin/chat',
@@ -193,18 +234,18 @@ const faqSchema = {
         <div class="container mx-auto px-4 lg:px-8">
           <div class="max-w-4xl mx-auto">
             <h2 class="text-3xl font-bold text-navy mb-8 text-center">{category.name}</h2>
-            <div class="space-y-6">
+            <dl class="space-y-6">
               {category.questions.map((q) => (
                 <Card variant={i % 2 === 0 ? 'light' : 'white'} hover={false}>
-                  <h3 class="text-xl font-bold text-navy mb-3">
+                  <dt class="text-xl font-bold text-navy mb-3">
                     <span class="text-gold">Q:</span> {q.question}
-                  </h3>
-                  <p class="text-gray-700 leading-relaxed">
-                    <span class="font-semibold">A:</span> {q.answer}
-                  </p>
+                  </dt>
+                  <dd class="text-gray-700 leading-relaxed">
+                    <span class="font-semibold">A:</span> <Fragment set:html={q.answer} />
+                  </dd>
                 </Card>
               ))}
-            </div>
+            </dl>
           </div>
         </div>
       </section>
