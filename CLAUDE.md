@@ -145,3 +145,72 @@ Blog posts should include 2-3 internal links to related content for SEO and AI a
   - Avoid large time gaps where context changed (e.g., C# 7 article shouldn't link to C# 14)
   - The linked content should genuinely help the reader who found the current article
 - **Avoid**: Keyword stuffing, forced links, links that don't add value, topic mismatches
+
+## Social Media Drafts (Typefully)
+
+Blog posts are promoted via Typefully drafts across X, LinkedIn, Mastodon, and Bluesky. Drafts are created as saved (not published) so Kevin can review and schedule them.
+
+### Setup
+
+- **API base**: `https://api.typefully.com/v2`
+- **Auth header**: `Authorization: Bearer $TYPEFULLY_API_KEY`
+- **Social set ID**: `187151` (Kevin's account — `@1kevgriff`)
+- **Connected platforms**: X, LinkedIn, Mastodon (bbiz.io), Bluesky (Threads is not connected)
+- **Script**: `scripts/create-typefully-drafts.sh <slug>` (requires `TYPEFULLY_API_KEY` env var)
+
+### API Workflow
+
+1. **Get social set**: `GET /v2/social-sets` → returns `social_set_id`
+2. **Upload OG image**:
+   - `POST /v2/social-sets/{id}/media/upload` with `{"file_name": "slug.png", "media_type": "image/png"}`
+   - `PUT` the file to the returned `upload_url` with `-H "Content-Type:"` (empty — the presigned URL is signed without a content type)
+   - Poll `GET /v2/social-sets/{id}/media/{media_id}` until `status: "ready"`
+3. **Create one draft**: `POST /v2/social-sets/{id}/drafts` — a **single** call with all platforms enabled and platform-specific copy:
+   ```json
+   {
+     "platforms": {
+       "x": {
+         "enabled": true,
+         "posts": [{"text": "Short X copy...", "media_ids": ["<media_id>"]}]
+       },
+       "linkedin": {
+         "enabled": true,
+         "posts": [{"text": "Longer LinkedIn copy...", "media_ids": ["<media_id>"]}]
+       },
+       "mastodon": {
+         "enabled": true,
+         "posts": [{"text": "Mastodon copy...", "media_ids": ["<media_id>"]}]
+       },
+       "bluesky": {
+         "enabled": true,
+         "posts": [{"text": "Bluesky copy...", "media_ids": ["<media_id>"]}]
+       }
+     }
+   }
+   ```
+   This creates **one draft** in Typefully with per-platform variations — not separate drafts.
+
+### Character Limits
+
+| Platform | Char Limit | URL Counting | Notes |
+|----------|-----------|--------------|-------|
+| **X** | **280** (standard) / 25,000 (Premium) | URLs = 23 chars (t.co shortening) | Media attachments don't count |
+| **LinkedIn** | 3,000 | Full URL length counts | |
+| **Mastodon** | 500 (default; varies by instance) | URLs = 23 chars | bbiz.io may differ |
+| **Bluesky** | **300** | Full URL length counts | Shortest limit — write tightest copy here |
+
+When composing copy, always verify the total character count against the platform limit. For X standard accounts, subtract 23 for the URL and count the remaining text — it must fit in 257 characters. If the post exceeds the limit, use a Typefully thread (multiple entries in the `posts` array) to split it across posts.
+
+### Copy Guidelines
+
+| Platform | Style |
+|----------|-------|
+| **X** | Punchy, hook-driven, one key insight. Must fit 280 chars (URL = 23). Use thread if longer. |
+| **LinkedIn** | Professional, problem→solution narrative, mentions C#/tools. 3-5 paragraphs, under 3,000 chars. |
+| **Mastodon** | Conversational, benefit-focused. Under 500 chars. |
+| **Bluesky** | Tightest copy — must fit 300 chars including full URL. |
+
+- Always include the article URL: `https://consultwithgriff.com/{permalink}`
+- Always attach the OG image from `public/og/{slug}.png`
+- Tone: first-person, "I learned" / "I wrote up" — authentic, not promotional
+- **Validate lengths before creating drafts** — count characters and compare against limits above
