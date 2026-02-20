@@ -2,8 +2,8 @@
 title: 'Custom KEDA Scaling with Azure Container Apps Using an HTTP Metrics Endpoint'
 date: 2026-02-20T12:00:00Z
 permalink: custom-keda-scaling-azure-container-apps
-description: "How to build a custom HTTP scaling endpoint for KEDA in Azure Container Apps when built-in scalers don't fit your workload. A real-world example of scaling WebSocket monitoring containers based on business logic, not just CPU or queue depth."
-summary: "How to build a custom HTTP scaling endpoint for KEDA in Azure Container Apps when built-in scalers don't fit your workload. A real-world example of scaling WebSocket monitoring containers based on business logic, not just CPU or queue depth."
+description: "How to build a custom HTTP scaling endpoint for KEDA in Azure Container Apps when built-in scalers don't fit your workload. Scale containers based on business logic, not just CPU or queue depth."
+summary: "How to build a custom HTTP scaling endpoint for KEDA in Azure Container Apps when built-in scalers don't fit your workload. Scale containers based on business logic, not just CPU or queue depth."
 tags:
   - Azure
   - KEDA
@@ -15,73 +15,80 @@ categories:
   - Architecture
 ---
 
-At [Shows On Sale](https://www.showsonsale.com/), we run a fleet of WebSocket-based **SocketMonitor** containers that watch live ticket events in real time. Each container handles up to 300 events, and the number of active events shifts constantly throughout the day -- events go on sale, sell out, expire. It's never the same number twice.
+On a recent client project, we run a fleet of containers that need to scale based on internal business metrics -- not external signals like queue depth, HTTP requests, or Service Bus message counts.
 
 When we moved this workload to **Azure Container Apps** (part of the same migration I wrote about in [my $8,000 serverless mistake](/my-8000-serverless-mistake)), the natural question was: how do we scale it?
 
-I looked at every built-in KEDA scaler I could find, and none of them fit. CPU scaling is reactive -- by the time CPU spikes, we've already missed events. Queue-based scaling doesn't apply because we're not processing a backlog. Cron scaling is too rigid for something that fluctuates unpredictably.
+I looked at every built-in KEDA scaler I could find, and none of them fit. CPU scaling is reactive -- by the time CPU spikes, you've already fallen behind. Queue-based scaling doesn't apply when you're not processing a backlog. Cron scaling is too rigid for something that fluctuates unpredictably.
 
 What we actually needed was for KEDA to ask our system one simple question: *"How many containers do you need right now?"*
 
 Turns out, you can do exactly that.
 
-## Our Architecture
+## The Setup
 
-The setup is straightforward:
+Imagine you have a workload where:
 
-- An **Orchestrator** service tracks all active events and assigns them to SocketMonitor containers
-- Each **SocketMonitor** handles up to 300 events via WebSocket connections
-- Events are added and removed throughout the day as inventory changes
+- An **Orchestrator** service knows how many work items are active at any given time
+- Each **Worker** container handles a fixed number of items (say, 300)
+- Items come and go throughout the day -- the count is never static
 
-The Orchestrator already knows exactly how many events are active and how many containers that requires. We just needed a way to tell KEDA.
+The Orchestrator already knows exactly how many items are active and how many containers that requires. You just need a way to tell KEDA.
 
-## The Solution: External HTTP Scaler
+## The Solution: Custom Scaler
 
-KEDA supports a [Metrics API scaler](https://keda.sh/docs/latest/scalers/metrics-api/) that polls an HTTP endpoint for a metric value. Azure Container Apps supports this through [custom scale rules](https://learn.microsoft.com/en-us/azure/container-apps/scale-app?WT.mc_id=DOP-MVP-4029061). The idea is simple:
+KEDA supports a [Metrics API scaler](https://keda.sh/docs/latest/scalers/metrics-api/) that polls an HTTP endpoint for a metric value. Azure Container Apps supports this through [custom scale rules](https://learn.microsoft.com/en-us/azure/container-apps/scale-app?WT.mc_id=DOP-MVP-4029061&pivots=azure-cli#custom), but the documentation doesn't explain how to actually build the endpoint that KEDA calls. It tells you the configuration shape -- not what your API should return or how to structure the response. That's the gap this post fills.
 
-1. Add an endpoint to the Orchestrator that returns the number of needed instances
+The idea is simple:
+
+1. Add an endpoint to your Orchestrator that returns the number of needed instances
 2. Configure KEDA to poll that endpoint
-3. KEDA scales the SocketMonitor deployment to match
+3. KEDA scales the Worker deployment to match
+
+### What KEDA Expects from Your Endpoint
+
+KEDA's Metrics API scaler doesn't enforce a specific response schema. It sends a GET request to your endpoint and uses a `valueLocation` parameter to extract a single numeric value from whatever JSON you return. The path uses [GJSON notation](https://github.com/tidwall/gjson#path-syntax), so if your response looks like:
+
+```json
+{
+  "neededInstances": 7,
+  "totalItems": 1827
+}
+```
+
+Then setting `valueLocation` to `neededInstances` tells KEDA to read `7` as the metric value. You can nest it however you want -- `scaling.instances`, `data.count`, whatever fits your API. KEDA just needs a path to a number.
+
+The `targetValue` in your scale rule tells KEDA how to interpret that number. With `targetValue: "1"`, KEDA sets the replica count equal to the metric value. With `targetValue: "100"`, KEDA would divide the metric by 100 to determine replicas. For our use case, `targetValue: "1"` gives us direct control -- the endpoint says exactly how many replicas we want.
 
 ### Step 1: The Metrics Endpoint
 
-Here's the endpoint in our Orchestrator's ASP.NET Core controller:
+Here's what the endpoint looks like in an ASP.NET Core controller:
 
 ```csharp
 [HttpGet("scaling-metrics")]
 public async Task<ActionResult<object>> GetScalingMetrics()
 {
-    // Authenticate the request
     if (!ValidateAccessKey())
         return Unauthorized();
 
-    var trackingStatus = await monitorTracker.GetTrackingStatusAsync();
-    var totalEvents = (int)trackingStatus["TotalEvents"];
+    var totalItems = await GetActiveItemCountAsync();
 
-    const int MaxEventsPerMonitor = 300;
-    var baseInstances = (int)Math.Ceiling((double)totalEvents / MaxEventsPerMonitor);
+    const int MaxItemsPerWorker = 300;
+    var baseInstances = (int)Math.Ceiling((double)totalItems / MaxItemsPerWorker);
 
     // Only add a buffer instance when remaining capacity < 10%
-    var remainingCapacity = (baseInstances * MaxEventsPerMonitor) - totalEvents;
-    var bufferThreshold = (int)(MaxEventsPerMonitor * 0.10);
+    var remainingCapacity = (baseInstances * MaxItemsPerWorker) - totalItems;
+    var bufferThreshold = (int)(MaxItemsPerWorker * 0.10);
     var needsBuffer = remainingCapacity < bufferThreshold;
     var neededInstances = Math.Max(1, needsBuffer ? baseInstances + 1 : baseInstances);
 
-    return Ok(new
-    {
-        neededInstances,
-        totalEvents,
-        maxEventsPerMonitor = MaxEventsPerMonitor,
-        remainingCapacity,
-        bufferActive = needsBuffer,
-        timestamp = DateTime.UtcNow
-    });
+    return Ok(new { neededInstances });
 }
 ```
 
-The logic is straightforward: divide total events by the max per container, round up, and optionally add a buffer when we're nearly full. With 1,800 events and 300 per monitor, that's `ceil(1800/300) = 6` instances. If we had 1,795 events (only 5 slots remaining, well under the 30-slot threshold), it would bump to 7.
+The logic is straightforward: divide total items by the max per container, round up, and optionally add a buffer when you're nearly full. With 1,800 items and 300 per worker, that's `ceil(1800/300) = 6` instances. If you had 1,795 items (only 5 slots remaining, well under the 30-slot threshold), it would bump to 7.
 
-The buffer prevents a situation where a burst of new events arrives and we have to wait for KEDA's next polling cycle to scale up.
+The buffer prevents a situation where a burst of new items arrives and you have to wait for KEDA's next polling cycle to scale up.
 
 ### Step 2: Authentication
 
@@ -110,29 +117,25 @@ Now wire it up in your Container App configuration. You can do this through the 
   "custom": {
     "type": "external",
     "metadata": {
-      "scalerAddress": "https://your-orchestrator.azurecontainerapps.io/api/monitor/scaling-metrics?access_key=your-key",
+      "scalerAddress": "https://your-orchestrator.azurecontainerapps.io/api/scaling-metrics?access_key=your-key",
+      "valueLocation": "neededInstances",
       "targetValue": "1"
     }
   }
 }
 ```
 
-The `targetValue` of `1` means KEDA will set the replica count equal to the `neededInstances` value returned by the endpoint. KEDA polls this endpoint on its configured interval (default: 30 seconds) and adjusts the replica count to match.
+The `valueLocation` tells KEDA which field to read from your JSON response. The `targetValue` of `1` means KEDA sets the replica count equal to that value. KEDA polls this endpoint on its configured interval (default: 30 seconds) and adjusts the replica count to match.
 
 ## What the Response Looks Like in Practice
 
 ```json
 {
-  "neededInstances": 7,
-  "totalEvents": 1827,
-  "maxEventsPerMonitor": 300,
-  "remainingCapacity": 273,
-  "bufferActive": false,
-  "timestamp": "2026-02-20T15:00:00Z"
+  "neededInstances": 7
 }
 ```
 
-KEDA reads `neededInstances` and scales the SocketMonitor Container App to 7 replicas. If 200 new events come in and `neededInstances` bumps to 8, KEDA scales up on the next poll. If events expire overnight and we only need 5, it scales down.
+KEDA reads `neededInstances` and scales the Worker Container App to 7 replicas. If new items come in and `neededInstances` bumps to 8, KEDA scales up on the next poll. If items drop overnight and you only need 5, it scales down. You can include additional fields for your own logging and debugging, but KEDA only cares about the field specified in `valueLocation`.
 
 ## Lessons Learned
 
@@ -141,19 +144,18 @@ KEDA reads `neededInstances` and scales the SocketMonitor Container App to 7 rep
 Our first implementation always added a +1 buffer instance:
 
 ```csharp
-// Old approach: always +1
-var neededInstances = (int)Math.Ceiling((double)totalEvents / MaxEventsPerMonitor) + 1;
+var neededInstances = (int)Math.Ceiling((double)totalItems / MaxItemsPerWorker) + 1;
 ```
 
-This meant we always had an idle container running with 0 events assigned. At small scale that's fine, but it's wasted cost for no benefit when you have plenty of remaining capacity. The 10% threshold approach only adds the buffer when you actually need it.
+This meant we always had an idle container running with 0 items assigned. At small scale that's fine, but it's wasted cost for no benefit when you have plenty of remaining capacity. The 10% threshold approach only adds the buffer when you actually need it.
 
 ### Scaling Metrics Should Be Fast
 
-KEDA polls this endpoint frequently (multiple times per minute in our setup). The endpoint needs to respond quickly. We back our event tracking with **Redis**, so `GetTrackingStatusAsync()` is a fast key count operation, not a database query.
+KEDA polls this endpoint frequently (multiple times per minute in our setup). The endpoint needs to respond quickly. We back our event tracking with **Redis**, so the count lookup is a fast key operation, not a database query.
 
 ### Protect Your Metrics Endpoint
 
-This is easy to overlook. The scaling endpoint returns operational details about your infrastructure -- how many events, how many containers, capacity utilization. Put an access key on it from day one. If you're already using [ASP.NET Core health checks](/monitoring-aspnet-core-application-health-with-health-checks) for your services, treat your scaling endpoint with the same level of care.
+This is easy to overlook. The scaling endpoint returns operational details about your infrastructure -- how many items, how many containers, capacity utilization. Put an access key on it from day one. If you're already using [ASP.NET Core health checks](/monitoring-aspnet-core-application-health-with-health-checks) for your services, treat your scaling endpoint with the same level of care.
 
 ### Log the Scaling Decisions
 
