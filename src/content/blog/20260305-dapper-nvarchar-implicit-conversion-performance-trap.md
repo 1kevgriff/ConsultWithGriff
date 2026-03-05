@@ -1,5 +1,5 @@
 ---
-title: "The Dapper Performance Trap: How C# Strings Silently Kill Your SQL Server Indexes"
+title: "How C# Strings Silently Kill Your SQL Server Indexes in Dapper"
 date: 2026-03-05T00:00:00Z
 permalink: dapper-nvarchar-implicit-conversion-performance-trap
 description: "If you're using Dapper with anonymous objects to query varchar columns, you're probably sending nvarchar(4000) parameters — causing CONVERT_IMPLICIT on every row and defeating your indexes. Here's the fix."
