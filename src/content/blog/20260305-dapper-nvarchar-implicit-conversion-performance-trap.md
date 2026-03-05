@@ -16,11 +16,11 @@ categories:
 
 I recently spent time digging into a production performance issue. The application was running hot — CPU averaging over 50% and spiking into the 90s. We pulled a diagnostic snapshot and started working through the top queries by CPU time.
 
-The number one offender was a straightforward Dapper query. Simple WHERE clause on an indexed column. Should have been lightning fast. Instead, it was averaging thousands of milliseconds of CPU per execution across hundreds of thousands of executions per day.
+The number one offender? A straightforward Dapper query. Simple WHERE clause on an indexed column. Should have been lightning fast. Instead, it was averaging thousands of milliseconds of CPU per execution across hundreds of thousands of executions per day.
 
-The culprit? A two-character type mismatch that was invisible in the C# code.
+A two-character type mismatch that was completely invisible in the C# code. I stared at the query for way too long before I figured out what was happening.
 
-## The Problem
+## So What's Actually Happening?
 
 Here's a pattern you'll find in almost every .NET project that uses Dapper:
 
@@ -31,7 +31,7 @@ var result = await connection.QueryFirstOrDefaultAsync<Product>(sql, new { produ
 
 Clean. Simple. And if `ProductCode` is a `varchar` column in your database, it's silently destroying your query performance.
 
-When you pass a C# `string` through an anonymous object, Dapper maps it to `nvarchar(4000)`. That's the default mapping for `System.String` in ADO.NET. If your column is `varchar`, SQL Server has to convert *every single value in the column* to `nvarchar` before it can compare. This is called **CONVERT_IMPLICIT**, and it means SQL Server can't use your index. It does a full scan instead.
+When you pass a C# `string` through an anonymous object, Dapper maps it to `nvarchar(4000)`. That's the default mapping for `System.String` in ADO.NET — and honestly, it makes sense from a "safe default" perspective. But if your column is `varchar`, SQL Server has to convert *every single value in the column* to `nvarchar` before it can compare. This is called **CONVERT_IMPLICIT**, and it means SQL Server can't use your index. Full scan. Every time.
 
 You can see it hiding in your execution plans:
 
@@ -41,7 +41,7 @@ CONVERT_IMPLICIT(nvarchar(255), [Sales].[ProductCode], 0)
 
 That's SQL Server telling you: "I had a perfectly good index, but you made me convert every row to compare against your Unicode parameter, so I couldn't use it."
 
-## Why This Hurts So Much
+## Ok, But How Bad Can It Really Be?
 
 The math on this is brutal. Let's say you have a table with a million rows and a nonclustered index on `ProductCode`. With correct parameter types, SQL Server performs an **index seek** — it jumps directly to the matching row. A handful of logical reads. Microseconds.
 
@@ -49,11 +49,11 @@ With the implicit conversion, SQL Server performs an **index scan** — it reads
 
 In our case, a single query was responsible for a significant chunk of the database server's total CPU consumption. Not because the query was complex. Not because the table was poorly indexed. Just because of a type mismatch in the parameter.
 
-**A note on collation:** The severity of this depends on your database collation. With the most common default (`SQL_Latin1_General_CP1_CI_AS`), you get full index scans — the worst case. Some Windows collations (like `Latin1_General_CI_AS`) may still allow index seeks, but the implicit conversion overhead remains. Either way, matching your parameter types is the right call.
+> **A note on collation:** The severity here depends on your database collation. With the most common default (`SQL_Latin1_General_CP1_CI_AS`), you get full index scans — the worst case. Some Windows collations (like `Latin1_General_CI_AS`) may still allow index seeks, but the implicit conversion overhead remains. Either way, matching your parameter types is the right call.
 
-## The Fix: DbType.AnsiString
+## The Fix
 
-The fix is to tell Dapper explicitly that the parameter is `varchar`, not `nvarchar`. You do this with `DynamicParameters` and `DbType.AnsiString`:
+The fix is almost embarrassingly simple. You just tell Dapper explicitly that the parameter is `varchar`, not `nvarchar`. You do this with `DynamicParameters` and `DbType.AnsiString`:
 
 ```csharp
 const string sql = "SELECT * FROM Products WHERE ProductCode = @productCode";
@@ -64,7 +64,7 @@ parameters.Add("productCode", productCode, DbType.AnsiString, size: 100);
 var result = await connection.QueryFirstOrDefaultAsync<Product>(sql, parameters);
 ```
 
-That's it. `DbType.AnsiString` tells ADO.NET to send a `varchar` parameter. `DbType.String` (the default for C# `string`) sends `nvarchar`.
+And that's it. `DbType.AnsiString` tells ADO.NET to send a `varchar` parameter. `DbType.String` (the default for C# `string`) sends `nvarchar`.
 
 The `size` parameter should match your column definition. If your column is `varchar(255)`, use `size: 255`. This helps SQL Server match the parameter type exactly to the column type and reuse cached query plans efficiently.
 
@@ -123,11 +123,11 @@ await connection.QueryAsync<T>(sql, new { someVarcharColumn });
 
 ## The Rule of Thumb
 
-If the column is `varchar`, use `DbType.AnsiString`. If the column is `nvarchar`, the default `DbType.String` is fine. Match the parameter type to the column type, and match the size to the column size.
+Simple: if the column is `varchar`, use `DbType.AnsiString`. If the column is `nvarchar`, the default `DbType.String` is fine. Match the parameter type to the column type, and match the size to the column size.
 
 ## Protect Your Fix With Comments
 
-One thing I'd strongly recommend: comment *why* you're using `DynamicParameters` instead of anonymous objects. Without a comment, a well-meaning developer will "simplify" it back to `new { productCode }` during a future refactor and reintroduce the problem:
+One thing I'd strongly recommend: comment *why* you're using `DynamicParameters` instead of anonymous objects. Because I guarantee you — without a comment, some well-meaning developer will "simplify" it back to `new { productCode }` during a future refactor and reintroduce the problem. (Ask me how I know.)
 
 ```csharp
 var parameters = new DynamicParameters();
@@ -138,16 +138,18 @@ parameters.Add("productCode", productCode, DbType.AnsiString, size: 100);
 
 The verbosity is the point. It's a speed bump that prevents someone from accidentally undoing a critical performance fix.
 
-## The Takeaway
+## Go Audit Your Queries
 
 This is one of those bugs that's nearly invisible. The code looks correct. The query returns the right results. There are no errors in the logs. Everything *works* — it just works slowly, and you don't know why until you dig into execution plans or query store data.
 
-If you're using Dapper with SQL Server and your columns are `varchar`, audit your parameter usage. Every anonymous object passing a string to a `varchar` column is a potential full table scan hiding in plain sight.
+If you're using Dapper with SQL Server and your columns are `varchar`, go audit your parameter usage. Seriously, do it today. Every anonymous object passing a string to a `varchar` column is a potential full table scan hiding in plain sight.
 
-If you're newer to Dapper, check out my introduction to [what Dapper is and why you should consider it](/what-is-dapper) for your .NET projects. And if you're building paginated queries, you might also like my writeup on [using COUNT(*) OVER() to get pagination counts in a single query](/sql-pagination-count-over-trick).
+If you're newer to Dapper, check out my introduction to [what Dapper is and why you should consider it](/what-is-dapper) for your .NET projects. And if you're building paginated queries, you might also like my article on [using COUNT(*) OVER() to get pagination counts in a single query](/sql-pagination-count-over-trick).
+
+Have you run into this one before? I'd love to hear your war stories — hit me up on [X](https://x.com/1kevgriff), [Bluesky](https://bsky.app/profile/1kevgriff.bsky.social), or [LinkedIn](https://www.linkedin.com/in/shortgriff/).
 
 ## Further Reading
 
-- [DbType Enumeration](https://learn.microsoft.com/en-us/dotnet/api/system.data.dbtype?WT.mc_id=DOP-MVP-4029061) — Microsoft's documentation on ADO.NET data types, including the distinction between `AnsiString` and `String`.
+- [DbType Enumeration](https://learn.microsoft.com/en-us/dotnet/api/system.data.dbtype?WT.mc_id=DOP-MVP-4029061) — Microsoft's docs on ADO.NET data types, including the distinction between `AnsiString` and `String`.
 - [Query Processing Architecture Guide](https://learn.microsoft.com/en-us/sql/relational-databases/query-processing-architecture-guide?WT.mc_id=DOP-MVP-4029061) — Deep dive into how SQL Server processes queries, including implicit conversions and plan caching.
 - [Data type conversion (Database Engine)](https://learn.microsoft.com/en-us/sql/t-sql/data-types/data-type-conversion-database-engine?WT.mc_id=DOP-MVP-4029061) — Microsoft's reference on implicit and explicit conversions, including the data type precedence rules that cause this issue.
