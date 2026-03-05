@@ -44,7 +44,7 @@ npm run lint
 ├── src/
 │   ├── components/      # Reusable Astro components
 │   ├── content/
-│   │   ├── blog/        # Blog posts (markdown)
+│   │   ├── blog/        # Articles (markdown)
 │   │   └── docs/        # Documentation pages
 │   ├── layouts/         # Page layouts
 │   ├── pages/           # Route pages
@@ -57,7 +57,7 @@ npm run lint
 
 The site uses Astro's Content Collections API:
 
-- **Blog** (`src/content/blog/`) - Markdown blog posts with frontmatter for title, date, tags, categories, and more
+- **Blog** (`src/content/blog/`) - Markdown articles with frontmatter for title, date, tags, categories, and more
 - **Docs** (`src/content/docs/`) - Static documentation pages for consulting, courses, and other content
 
 ## Learn More

@@ -4,7 +4,17 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-This is Kevin W. Griffin's personal website and blog, built with Astro. The site was migrated from Gridsome to Astro and features a content-focused architecture with blog posts and documentation pages.
+This is Kevin W. Griffin's personal website and blog, built with Astro. The site was migrated from Gridsome to Astro and features a content-focused architecture with articles and documentation pages.
+
+## Writing Voice
+
+Kevin's writing voice guide is in `voice.md`. Key points:
+
+- Kevin calls his written content **"articles"** — never "blog posts." This is deliberate.
+- All generated content (articles, social media copy) must follow the voice guide.
+- Tone: conversational authority, opinionated, self-deprecating humor, genuinely enthusiastic.
+- Always use contractions, sentence fragments for emphasis, short paragraphs, rhetorical questions as transitions.
+- Close articles with an invitation to discuss, not a formal summary.
 
 ## Development Commands
 
@@ -36,11 +46,11 @@ npm run generate:search         # Generate search index
 
 The site uses Astro's Content Collections API with two main collections defined in `src/content/config.ts`:
 
-- **blog**: Blog posts in markdown format (`src/content/blog/`)
+- **blog**: Articles in markdown format (`src/content/blog/`)
   - Schema includes: title, date, permalink, description, summary, tags, categories, excerpt
   - `timeToRead` is calculated automatically - do not add to frontmatter
   - Loaded via glob pattern: `**/*.md`
-  - Posts use date-based filenames (e.g., `YYYYMMDD-title.md`)
+  - Articles use date-based filenames (e.g., `YYYYMMDD-title.md`)
 
 - **docs**: Documentation pages (`src/content/docs/`)
   - Schema includes: title, date, updated, permalink, categories, excerpt
@@ -49,11 +59,11 @@ The site uses Astro's Content Collections API with two main collections defined 
 ### Routing Structure
 
 - `/` - Homepage (src/pages/index.astro)
-- `/articles/[...page]` - Paginated blog listing (10 posts per page)
-- `/blog/[...slug]` - Individual blog posts (dynamic routes from content collection)
+- `/articles/[...page]` - Paginated article listing (10 per page)
+- `/blog/[...slug]` - Individual articles (dynamic routes from content collection)
 - `/docs/[...slug]` - Documentation pages
-- `/article-tags/[tag]/[...page]` - Posts filtered by tag
-- `/article-categories/[category]/[...page]` - Posts filtered by category
+- `/article-tags/[tag]/[...page]` - Articles filtered by tag
+- `/article-categories/[category]/[...page]` - Articles filtered by category
 - `/[slug]` - Catch-all for docs pages at root level
 
 ### Layout System
@@ -110,13 +120,13 @@ Content frontmatter maintains compatibility with the original Gridsome schema, i
 
 ## Meta Images & SEO
 
-Blog posts use static OpenGraph images generated via NanoBanana Pro API (Google Gemini 3 Pro Image):
+Articles use static OpenGraph images generated via NanoBanana Pro API (Google Gemini 3 Pro Image):
 
 - Images stored in `public/og/{slug}.png`
 - Generate missing images: `npm run generate:og` (requires `GEMINI_API_KEY` env var)
 - Script: `scripts/generate-og-images.js`
 - Design: Author photo on right, title with white+cyan text on left, navy/purple gradient with circuit board patterns
-- Twitter Card and Open Graph metadata configured per post
+- Twitter Card and Open Graph metadata configured per article
 - Canonical URLs for all pages
 - Site domain: `https://consultwithgriff.com`
 
@@ -124,20 +134,20 @@ Blog posts use static OpenGraph images generated via NanoBanana Pro API (Google 
 
 All content must have meta descriptions of at least 100 characters (120-160 recommended):
 
-- Blog posts: Use `description` field in frontmatter (falls back to `summary` then `excerpt`)
+- Articles: Use `description` field in frontmatter (falls back to `summary` then `excerpt`)
 - Docs pages: Use `excerpt` field in frontmatter
 - Build fails if any content has descriptions under 100 characters
 - Validation script: `scripts/validate-meta-descriptions.js`
 
 ### Internal Cross-Linking
 
-Blog posts should include 2-3 internal links to related content for SEO and AI attribution:
+Articles should include 2-3 internal links to related content for SEO and AI attribution:
 
 - **Link format**: `/{permalink}` (use the `permalink` field from frontmatter, no `/blog/` prefix)
 - **Placement**: Add at the end of posts as a natural call-to-action
 - **Patterns to use**:
   - `For more on [topic], check out my article on [link text](/permalink).`
-  - `As I discussed in [my previous post](/permalink)...`
+  - `As I discussed in [my previous article](/permalink)...`
   - `Learn more in my guide to [topic](/permalink).`
 - **Topic clusters**: Link within related content (SignalR, Azure, ASP.NET Core, Vue.js, Consulting, Developer Tools)
 - **Relevance requirements**:
@@ -148,7 +158,7 @@ Blog posts should include 2-3 internal links to related content for SEO and AI a
 
 ## Social Media Drafts (Typefully)
 
-Blog posts are promoted via Typefully drafts across X, LinkedIn, Mastodon, and Bluesky. Drafts are created as saved (not published) so Kevin can review and schedule them.
+Articles are promoted via Typefully drafts across X, LinkedIn, Mastodon, and Bluesky. Drafts are created as saved (not published) so Kevin can review and schedule them.
 
 ### Setup
 
@@ -156,7 +166,8 @@ Blog posts are promoted via Typefully drafts across X, LinkedIn, Mastodon, and B
 - **Auth header**: `Authorization: Bearer $TYPEFULLY_API_KEY`
 - **Social set ID**: `187151` (Kevin's account — `@1kevgriff`)
 - **Connected platforms**: X, LinkedIn, Mastodon (bbiz.io), Bluesky (Threads is not connected)
-- **Script**: `scripts/create-typefully-drafts.sh <slug>` (requires `TYPEFULLY_API_KEY` env var)
+- **Script**: `scripts/create-typefully-drafts.sh <slug> <copy-dir>` (requires `TYPEFULLY_API_KEY` env var)
+- **Copy directory**: Contains one text file per platform (`x.txt`, `linkedin.txt`, `mastodon.txt`, `bluesky.txt`) — script appends the article URL automatically
 
 ### API Workflow
 
