@@ -1,0 +1,109 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Hero from '../../components/Hero.astro';
+import Card from '../../components/Card.astro';
+import Button from '../../components/Button.astro';
+import { podcastShows, podcastAppearances, youtubeAppearances } from '../../data/content';
+
+const pageTitle = 'Content | Kevin Griffin';
+const pageDescription =
+  'Podcasts, videos, and media appearances by Kevin Griffin. Explore the Multithreaded Income Podcast and more content on software development, consulting, and building multiple income streams.';
+---
+
+<BaseLayout title={pageTitle} description={pageDescription}>
+  <Fragment slot="head">
+    <link rel="canonical" href="https://consultwithgriff.com/content" />
+  </Fragment>
+
+  <Hero
+    title="Beyond the Articles"
+    subtitle="I spend a lot of time talking into microphones. Here's the proof — podcasts, videos, and conversations about building software, running a consulting business, and figuring out how to make money doing what you love."
+  />
+
+  {
+    podcastShows.length > 0 && (
+      <section class="py-20 bg-gray-50">
+        <div class="container mx-auto px-4 lg:px-8">
+          <div class="max-w-6xl mx-auto">
+            <h2 class="text-3xl lg:text-4xl font-bold text-navy mb-4 text-center">Podcasts</h2>
+            <p class="text-xl text-gray-700 mb-12 text-center max-w-3xl mx-auto">
+              Long-form conversations with developers, entrepreneurs, and creators.
+            </p>
+
+            <div class="grid lg:grid-cols-2 gap-8">
+              {podcastShows.map((show) => {
+                const firstEpisode = show.episodes[show.episodes.length - 1];
+                const lastEpisode = show.episodes[0];
+                const startYear = new Date(firstEpisode.date).getFullYear();
+                const endYear = new Date(lastEpisode.date).getFullYear();
+                const dateRange =
+                  startYear === endYear ? `${startYear}` : `${startYear}\u2013${endYear}`;
+
+                return (
+                  <Card variant="white" class="flex flex-col">
+                    <div class="flex items-start gap-3 mb-4">
+                      <h3 class="text-2xl font-bold text-navy">{show.name}</h3>
+                      {show.status === 'defunct' && (
+                        <span class="mt-1 flex-shrink-0 text-xs font-semibold px-2 py-1 rounded-full bg-gray-100 text-gray-500 uppercase tracking-wide">
+                          Archived
+                        </span>
+                      )}
+                    </div>
+
+                    <p class="text-sm text-gray-500 mb-4">
+                      {show.episodeCount} episodes &middot; {dateRange} &middot;{' '}
+                      {show.role === 'host' ? 'Host' : 'Co-host'}
+                    </p>
+
+                    <p class="text-gray-700 leading-relaxed flex-grow mb-6">{show.description}</p>
+
+                    <div class="mt-auto flex flex-col sm:flex-row gap-3">
+                      <Button href={`/content/${show.slug}`} variant="primary" size="md">
+                        View All Episodes
+                      </Button>
+                      <Button href={show.websiteUrl} variant="secondary" size="md">
+                        Visit Podcast Site
+                      </Button>
+                    </div>
+                  </Card>
+                );
+              })}
+            </div>
+          </div>
+        </div>
+      </section>
+    )
+  }
+
+  {
+    podcastAppearances.length > 0 && (
+      <section class="py-20 bg-white">
+        <div class="container mx-auto px-4 lg:px-8">
+          <div class="max-w-6xl mx-auto">
+            <h2 class="text-3xl lg:text-4xl font-bold text-navy mb-4 text-center">
+              Podcast Appearances
+            </h2>
+            <p class="text-xl text-gray-700 mb-12 text-center max-w-3xl mx-auto">
+              Guest appearances on other podcasts.
+            </p>
+          </div>
+        </div>
+      </section>
+    )
+  }
+
+  {
+    youtubeAppearances.length > 0 && (
+      <section class="py-20 bg-gray-50">
+        <div class="container mx-auto px-4 lg:px-8">
+          <div class="max-w-6xl mx-auto">
+            <h2 class="text-3xl lg:text-4xl font-bold text-navy mb-4 text-center">YouTube</h2>
+            <p class="text-xl text-gray-700 mb-12 text-center max-w-3xl mx-auto">
+              Video content and appearances.
+            </p>
+          </div>
+        </div>
+      </section>
+    )
+  }
+</BaseLayout>
