@@ -146,7 +146,7 @@ If you're using Dapper with SQL Server and your columns are `varchar`, go audit 
 
 If you're newer to Dapper, check out my introduction to [what Dapper is and why you should consider it](/what-is-dapper) for your .NET projects. And if you're building paginated queries, you might also like my article on [using COUNT(*) OVER() to get pagination counts in a single query](/sql-pagination-count-over-trick).
 
-Have you run into this one before? I'd love to hear your war stories — hit me up on [X](https://x.com/1kevgriff), [Bluesky](https://bsky.app/profile/1kevgriff.bsky.social), or [LinkedIn](https://www.linkedin.com/in/shortgriff/).
+Have you run into this one before? I'd love to hear your war stories — hit me up on [X](https://x.com/1kevgriff), [Bluesky](https://bsky.app/profile/consultwithgriff.com), or [LinkedIn](https://www.linkedin.com/in/1kevgriff/).
 
 ## Further Reading
 
