@@ -274,7 +274,7 @@ Here's the practical takeaway. Use `IExceptionHandler` or `UseExceptionHandler` 
 
 The next time you find yourself copying that same try/catch into another action method, stop. There's a better way.
 
-I'd love to hear how you're handling exceptions in your projects. Hit me up on X, Bluesky, or LinkedIn.
+I'd love to hear how you're handling exceptions in your projects. Hit me up on [X](https://x.com/1kevgriff), [Bluesky](https://bsky.app/profile/consultwithgriff.com), or [LinkedIn](https://www.linkedin.com/in/1kevgriff/).
 
 For more on keeping your ASP.NET Core apps healthy, check out my article on [monitoring application health with health checks](/monitoring-aspnet-core-application-health-with-health-checks). And if you're building APIs for single-page apps, you might find my guide on [SPAs with Vue.js and ASP.NET Core](/spas-with-vuejs-aspnetcore) useful too.
 
