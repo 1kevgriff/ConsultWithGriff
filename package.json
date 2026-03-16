@@ -20,13 +20,13 @@
     "new:post": "node scripts/new-post.js"
   },
   "dependencies": {
-    "@astrojs/rss": "^4.0.15",
-    "@astrojs/sitemap": "^3.7.0",
+    "@astrojs/rss": "^4.0.17",
+    "@astrojs/sitemap": "^3.7.1",
     "@google/genai": "^1.44.0",
     "@iconify-json/fa6-brands": "^1.2.6",
     "@iconify-json/fa6-solid": "^1.2.4",
     "@tailwindcss/vite": "^4.1.18",
-    "astro": "^5.18.0",
+    "astro": "^5.18.1",
     "astro-font": "^1.1.0",
     "astro-icon": "^1.1.5",
     "gray-matter": "^4.0.3",
@@ -39,7 +39,7 @@
     "tailwindcss": "^4.1.18"
   },
   "devDependencies": {
-    "@astrojs/check": "^0.9.6",
+    "@astrojs/check": "^0.9.8",
     "@typescript-eslint/parser": "^8.56.1",
     "eslint": "^9.39.4",
     "eslint-plugin-astro": "^1.6.0",
