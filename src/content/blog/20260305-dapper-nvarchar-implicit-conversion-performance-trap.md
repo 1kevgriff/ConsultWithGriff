@@ -99,8 +99,8 @@ So I vibe coded a [BenchmarkDotNet suite](https://github.com/1kevgriff/DapperCas
 
 | Scenario | nvarchar (default) | varchar (fixed) | How Much Slower |
 |----------|-------------------|-----------------|-----------------|
-| ProductCode (1M rows) | 23 sec | 0.1 sec | **176x** |
-| OrderNumber (500K rows) | 35 sec | 0.1 sec | **268x** |
+| ProductCode (1M rows) | 23 sec | 0.13 sec | **176x** |
+| OrderNumber (500K rows) | 35 sec | 0.13 sec | **268x** |
 
 Not a typo. **176x slower** on the product table. 268x on orders.
 
