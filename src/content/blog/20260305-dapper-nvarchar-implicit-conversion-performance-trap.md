@@ -106,7 +106,7 @@ Not a typo. **176x slower** on the product table. 268x on orders.
 
 The execution plans tell the whole story:
 
-| | nvarchar (Dapper default) | varchar (correct) |
+| Metric | nvarchar (Dapper default) | varchar (correct) |
 |---|---|---|
 | Plan Operator | Index Scan | Index Seek |
 | CONVERT_IMPLICIT | Yes | No |
