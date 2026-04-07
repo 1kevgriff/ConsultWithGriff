@@ -91,7 +91,7 @@ The difference is immediate and dramatic:
 
 No schema changes. No new indexes. No query rewrites. Just telling Dapper the correct parameter type.
 
-## Ok, But How Bad Is It Really?
+## Benchmark Results
 
 When this article hit Hacker News, the folks there (bless their hearts) wanted benchmarks. Fair enough — I'd want them too.
 
