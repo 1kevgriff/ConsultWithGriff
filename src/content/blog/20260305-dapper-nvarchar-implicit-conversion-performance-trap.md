@@ -14,6 +14,8 @@ categories:
   - Development
 ---
 
+> **A note on how this article came to be:** My good friend Claude (yes, the AI) helped me write this one. The underlying issue is 100% real — we found it in a production system using AI-assisted code analysis. Claude helped me research the internals, structure the explanation, and build the benchmark suite. I'm not going to pretend otherwise. The future of writing is collaborative, folks.
+
 I recently spent time digging into a production performance issue. The application was running hot — CPU averaging over 50% and spiking into the 90s. We pulled a diagnostic snapshot and started working through the top queries by CPU time.
 
 The number one offender? A straightforward Dapper query. Simple WHERE clause on an indexed column. Should have been lightning fast. Instead, it was averaging thousands of milliseconds of CPU per execution across hundreds of thousands of executions per day.
@@ -89,6 +91,31 @@ The difference is immediate and dramatic:
 
 No schema changes. No new indexes. No query rewrites. Just telling Dapper the correct parameter type.
 
+## Benchmark Results
+
+When this article hit Hacker News, the folks there (bless their hearts) wanted benchmarks. Fair enough — I'd want them too.
+
+So I vibe coded a [BenchmarkDotNet suite](https://github.com/1kevgriff/DapperCastingBenchmark) with 1 million products and 500,000 orders seeded into SQL Server, then ran 1,000 single-row lookups for each scenario. Here's what happened:
+
+| Scenario | nvarchar (default) | varchar (fixed) | How Much Slower |
+|----------|-------------------|-----------------|-----------------|
+| ProductCode (1M rows) | 23 sec | 0.13 sec | **176x** |
+| OrderNumber (500K rows) | 35 sec | 0.13 sec | **268x** |
+
+Not a typo. **176x slower** on the product table. 268x on orders.
+
+The execution plans tell the whole story:
+
+| Metric | nvarchar (Dapper default) | varchar (correct) |
+|---|---|---|
+| Plan Operator | Index Scan | Index Seek |
+| CONVERT_IMPLICIT | Yes | No |
+| Estimated Query Cost | 7.78 | 0.007 |
+
+That's **over 1,000x more expensive** by SQL Server's own cost estimate. On a million-row table, you're reading the entire index instead of jumping straight to the row you need. Ask me how I know.
+
+Want to see it yourself? [Clone the benchmark repo](https://github.com/1kevgriff/DapperCastingBenchmark), point it at a local SQL Server instance, and run `dotnet run -c Release -- --setup` to seed the data. Then `dotnet run -c Release -- --walltime` to watch the numbers roll in.
+
 ## How to Find This in Your Application
 
 If you suspect you have this problem, there are a few ways to find it:
@@ -146,7 +173,7 @@ If you're using Dapper with SQL Server and your columns are `varchar`, go audit 
 
 If you're newer to Dapper, check out my introduction to [what Dapper is and why you should consider it](/what-is-dapper) for your .NET projects. And if you're building paginated queries, you might also like my article on [using COUNT(*) OVER() to get pagination counts in a single query](/sql-pagination-count-over-trick).
 
-Have you run into this one before? I'd love to hear your war stories — hit me up on [X](https://x.com/1kevgriff), [Bluesky](https://bsky.app/profile/1kevgriff.bsky.social), or [LinkedIn](https://www.linkedin.com/in/shortgriff/).
+Have you run into this one before? I'd love to hear your war stories — hit me up on [X](https://x.com/1kevgriff), [BlueSky](https://bsky.app/profile/consultwithgriff.com), or [LinkedIn](https://www.linkedin.com/in/1kevgriff/).
 
 ## Further Reading
 
