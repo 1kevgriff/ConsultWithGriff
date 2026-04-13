@@ -1,14 +1,14 @@
 ---
 title: Coaster Credits
 date: 2022-09-06 12:00:00
-updated: 2025-11-07 00:00:00
+updated: 2026-04-13 00:00:00
 permalink: coasters
 categories:
   - Roller Coasters
-excerpt: 'Explore my complete roller coaster credits list - 106 coasters across theme parks including Cedar Point, Kings Island, Dollywood, and more.'
+excerpt: 'Explore my complete roller coaster credits list - 107 coasters across theme parks including Cedar Point, Kings Island, Dollywood, and more.'
 ---
 
-Total Coaster Credits: 106
+Total Coaster Credits: 107
 
 ### Busch Gardens Williamsburg (Williamsburg, Virginia)
 
@@ -79,8 +79,9 @@ Total Coaster Credits: 106
 
 ### Dollywood (Pigeon Forge, Tennessee)
 
-8 Coasters
+9 Coasters
 
+- Big Bear Mountain
 - Lightning Rod
 - Blazing Fury
 - Wild Eagle
