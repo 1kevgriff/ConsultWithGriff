@@ -41,7 +41,8 @@
     {
       "route": "/",
       "headers": {
-        "Cache-Control": "public, max-age=3600, must-revalidate"
+        "Cache-Control": "public, max-age=3600, must-revalidate",
+        "Link": "</llms.txt>; rel=\"describedby\"; type=\"text/markdown\", </rss.xml>; rel=\"alternate\"; type=\"application/rss+xml\"; title=\"Articles\", </sitemap-index.xml>; rel=\"sitemap\""
       }
     },
     { "route": "/sitemap.xml", "redirect": "/sitemap-index.xml", "statusCode": 301 },
