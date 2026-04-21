@@ -391,14 +391,25 @@
     { "route": "/upcoming-community-gigs/", "redirect": "/", "statusCode": 301 },
     { "route": "/what-is-your-worst-technology-blunder/", "redirect": "/", "statusCode": 301 },
     { "route": "/named-callbacks-in-javascript/", "redirect": "/", "statusCode": 301 },
-    { "route": "/the-zen-of-free-labor/", "redirect": "/", "statusCode": 301 }
+    { "route": "/the-zen-of-free-labor/", "redirect": "/", "statusCode": 301 },
+
+    { "route": "/.well-known/*" },
+    { "route": "/*.{html,xml,txt,md,json,webmanifest}" },
+
+    {
+      "route": "/*",
+      "methods": ["GET", "HEAD"],
+      "rewrite": "/api/negotiate"
+    }
   ],
   "navigationFallback": {
     "rewrite": "/404.html",
     "exclude": [
       "/images/*",
       "/assets/*",
-      "/*.{css,scss,js,png,jpg,jpeg,gif,svg,ico,woff,woff2,ttf,eot}"
+      "/api/*",
+      "/.well-known/*",
+      "/*.{css,scss,js,png,jpg,jpeg,gif,svg,ico,woff,woff2,ttf,eot,xml,txt,md,json,webmanifest,html}"
     ]
   },
   "responseOverrides": {
