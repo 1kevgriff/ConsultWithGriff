@@ -9,7 +9,7 @@
   "mimeTypes": {
     ".json": "application/json",
     ".xml": "application/xml",
-    ".md": "text/markdown; charset=utf-8",
+    ".md": "text/markdown",
     ".webp": "image/webp",
     ".woff2": "font/woff2",
     ".woff": "font/woff"
@@ -393,9 +393,7 @@
     { "route": "/what-is-your-worst-technology-blunder/", "redirect": "/", "statusCode": 301 },
     { "route": "/named-callbacks-in-javascript/", "redirect": "/", "statusCode": 301 },
     { "route": "/the-zen-of-free-labor/", "redirect": "/", "statusCode": 301 },
-    { "route": "/a-diet-programmers-can-relate-to", "rewrite": "/api/negotiate" },
-    { "route": "/zzz-doesnt-exist", "rewrite": "/api/negotiate" },
-    { "route": "/api/*", "allowedRoles": ["anonymous"] },
+    { "route": "/api/*" },
     { "route": "/*.{html,xml,txt,md,json,webmanifest}" },
     { "route": "/*", "methods": ["GET", "HEAD"], "rewrite": "/api/negotiate" }
   ],
