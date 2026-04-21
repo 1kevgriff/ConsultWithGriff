@@ -1,0 +1,9 @@
+{
+  "name": "consultwithgriff-api",
+  "version": "1.0.0",
+  "description": "Azure Functions API for consultwithgriff.com — Accept-header content negotiation.",
+  "private": true,
+  "engines": {
+    "node": ">=18"
+  }
+}
