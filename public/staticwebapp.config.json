@@ -394,7 +394,12 @@
     { "route": "/named-callbacks-in-javascript/", "redirect": "/", "statusCode": 301 },
     { "route": "/the-zen-of-free-labor/", "redirect": "/", "statusCode": 301 },
     { "route": "/*.{html,xml,txt,md,json,webmanifest}" },
-    { "route": "/*", "methods": ["GET", "HEAD"], "rewrite": "/api/negotiate" }
+    {
+      "route": "/*",
+      "methods": ["GET", "HEAD"],
+      "rewrite": "/api/negotiate",
+      "allowedRoles": ["anonymous"]
+    }
   ],
   "navigationFallback": {
     "rewrite": "/404.html",
