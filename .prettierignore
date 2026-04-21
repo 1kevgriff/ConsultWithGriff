@@ -1,0 +1,5 @@
+# Azure Static Web Apps config has a hard 20,000-byte cap.
+# Keep it compact — single-line redirect and header blocks are needed
+# to stay under the limit, and Prettier's default printWidth would
+# re-expand many of them.
+public/staticwebapp.config.json
