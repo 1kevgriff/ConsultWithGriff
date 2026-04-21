@@ -9,6 +9,7 @@
   "mimeTypes": {
     ".json": "application/json",
     ".xml": "application/xml",
+    ".md": "text/markdown; charset=utf-8",
     ".webp": "image/webp",
     ".woff2": "font/woff2",
     ".woff": "font/woff"

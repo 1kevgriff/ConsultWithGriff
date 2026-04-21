@@ -5,8 +5,7 @@
       "type": "httpTrigger",
       "direction": "in",
       "name": "req",
-      "methods": ["get", "head"],
-      "route": "negotiate/{*path}"
+      "methods": ["get", "head"]
     },
     {
       "type": "http",
