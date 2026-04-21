@@ -53,11 +53,6 @@ module.exports = async function (context, req) {
   const origin = resolveOrigin(req);
   const path = resolveOriginalPath(req);
   const wantsMarkdown = acceptsMarkdown(req);
-  const debug = {
-    'X-Debug-Origin': origin,
-    'X-Debug-Path': path,
-    'X-Debug-Wants-Md': String(wantsMarkdown),
-  };
 
   if (wantsMarkdown) {
     const mdUrl = path === '/' ? `${origin}/index.md` : `${origin}${path}.md`;
@@ -72,16 +67,12 @@ module.exports = async function (context, req) {
             'Cache-Control': 'public, max-age=3600, must-revalidate',
             'X-Markdown-Tokens': estimateTokens(body),
             Vary: 'Accept',
-            ...debug,
-            'X-Debug-Md-Status': String(mdRes.status),
           },
           body,
         };
         return;
       }
-      debug['X-Debug-Md-Status'] = String(mdRes.status);
     } catch (err) {
-      debug['X-Debug-Md-Error'] = err.message;
       context.log.warn(`Markdown fetch failed for ${mdUrl}: ${err.message}`);
     }
   }
@@ -96,8 +87,6 @@ module.exports = async function (context, req) {
         'Content-Type': 'text/html; charset=utf-8',
         'Cache-Control': 'public, max-age=3600, must-revalidate',
         Vary: 'Accept',
-        ...debug,
-        'X-Debug-Html-Status': String(htmlRes.status),
       },
       body,
     };
@@ -105,11 +94,7 @@ module.exports = async function (context, req) {
     context.log.error(`HTML fetch failed for ${htmlUrl}: ${err.message}`);
     context.res = {
       status: 502,
-      headers: {
-        'Content-Type': 'text/plain; charset=utf-8',
-        ...debug,
-        'X-Debug-Html-Error': err.message,
-      },
+      headers: { 'Content-Type': 'text/plain; charset=utf-8' },
       body: 'Upstream fetch failed: ' + err.message,
     };
   }
