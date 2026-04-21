@@ -21,6 +21,8 @@
     { "route": "/*.{woff,woff2,ttf,eot}", "headers": { "Cache-Control": "public, max-age=31536000, immutable" } },
     {
       "route": "/",
+      "methods": ["GET", "HEAD"],
+      "rewrite": "/api/negotiate",
       "headers": {
         "Cache-Control": "public, max-age=3600, must-revalidate",
         "Link": "</llms.txt>; rel=\"describedby\"; type=\"text/markdown\", </rss.xml>; rel=\"alternate\"; type=\"application/rss+xml\"; title=\"Articles\", </sitemap-index.xml>; rel=\"sitemap\""

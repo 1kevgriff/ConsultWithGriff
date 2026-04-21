@@ -49,6 +49,13 @@ function estimateTokens(text) {
   return String(Math.ceil(text.length / 4));
 }
 
+// Agent discovery links (RFC 8288). SWA doesn't propagate route-level headers
+// to responses from /api/* rewrites, so the function re-asserts them.
+const DISCOVERY_LINK =
+  '</llms.txt>; rel="describedby"; type="text/markdown", ' +
+  '</rss.xml>; rel="alternate"; type="application/rss+xml"; title="Articles", ' +
+  '</sitemap-index.xml>; rel="sitemap"';
+
 module.exports = async function (context, req) {
   const origin = resolveOrigin(req);
   const path = resolveOriginalPath(req);
@@ -67,6 +74,7 @@ module.exports = async function (context, req) {
             'Cache-Control': 'public, max-age=3600, must-revalidate',
             'X-Markdown-Tokens': estimateTokens(body),
             Vary: 'Accept',
+            Link: DISCOVERY_LINK,
           },
           body,
         };
@@ -87,6 +95,7 @@ module.exports = async function (context, req) {
         'Content-Type': 'text/html; charset=utf-8',
         'Cache-Control': 'public, max-age=3600, must-revalidate',
         Vary: 'Accept',
+        Link: DISCOVERY_LINK,
       },
       body,
     };
