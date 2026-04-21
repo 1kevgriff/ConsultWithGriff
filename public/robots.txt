@@ -1,6 +1,7 @@
 # consultwithgriff.com robots.txt
 # Welcoming AI crawlers to help establish expertise and authority
 User-agent: *
+Content-Signal: ai-train=yes, search=yes, ai-input=yes
 Allow: /
 
 # Sitemap
