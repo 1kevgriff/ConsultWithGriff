@@ -393,7 +393,11 @@
     { "route": "/what-is-your-worst-technology-blunder/", "redirect": "/", "statusCode": 301 },
     { "route": "/named-callbacks-in-javascript/", "redirect": "/", "statusCode": 301 },
     { "route": "/the-zen-of-free-labor/", "redirect": "/", "statusCode": 301 },
-    { "route": "/debug-test-path", "rewrite": "/api/negotiate" }
+    { "route": "/a-diet-programmers-can-relate-to", "rewrite": "/api/negotiate" },
+    { "route": "/zzz-doesnt-exist", "rewrite": "/api/negotiate" },
+    { "route": "/api/*", "allowedRoles": ["anonymous"] },
+    { "route": "/*.{html,xml,txt,md,json,webmanifest}" },
+    { "route": "/*", "methods": ["GET", "HEAD"], "rewrite": "/api/negotiate" }
   ],
   "navigationFallback": {
     "rewrite": "/404.html",
