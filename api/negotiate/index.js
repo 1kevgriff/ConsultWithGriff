@@ -8,13 +8,21 @@
 
 const SITE_FALLBACK = 'https://consultwithgriff.com';
 
-// SWA sets x-forwarded-host to the public hostname; req.headers.host inside
-// a Managed Function is the internal Azure Functions host and cannot serve
-// the static site content.
+// Inside a Managed Function, req.headers.host and x-forwarded-host point at
+// the internal Azure Functions *.azurewebsites.net URL, which cannot serve
+// the static site. SWA sets x-ms-original-url to the public URL when a
+// rewrite fires, so prefer that — and otherwise fall back to the known
+// production origin.
 function resolveOrigin(req) {
-  const host = req.headers['x-forwarded-host'] || req.headers['disguised-host'];
-  const proto = req.headers['x-forwarded-proto'] || 'https';
-  if (host) return `${proto}://${host}`;
+  const originalUrl = req.headers['x-ms-original-url'];
+  if (originalUrl) {
+    try {
+      const parsed = new URL(originalUrl);
+      return `${parsed.protocol}//${parsed.host}`;
+    } catch {
+      // fall through
+    }
+  }
   return SITE_FALLBACK;
 }
 
