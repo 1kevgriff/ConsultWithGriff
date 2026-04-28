@@ -24,7 +24,7 @@ This year was different. This year, I got Claude involved.
 
 ## Step 1: Let Claude Read My Calendar
 
-The first thing I did was give Claude read-only access to my calenders. The calendar isn't a state secret — it's mostly meetings and travel — but yours might be different, so think about your own comfort level before you turn anything loose on it.
+The first thing I did was give Claude read-only access to my calendar. My calendar isn't a state secret — it's mostly meetings and travel — but yours might be, so think about your own comfort level before you turn anything loose on it.
 
 I'm pretty disciplined about putting travel and events on my calendar, even if I forget to log them anywhere else. So having a year's worth of calendar data is a jackpot. Claude went through everything: every flight, every conference, every "drive to Richmond for user group" entry, and built me a list of events to start from.
 
@@ -76,13 +76,11 @@ Here's the part of the MVP application that has always made me want to hurl my l
 
 If you've never seen the inside of the MVP portal, picture this. Each activity needs a category, a sub-category, a date, a title, a description, a URL, an audience size, sometimes a co-presenter, sometimes a screenshot. Click. Type. Tab. Dropdown. Wait for the dropdown to load. Pick. Tab. Type. Submit. Now do it again. And again. And again. For dozens of activities. It's the kind of work that should take fifteen minutes and somehow always takes three hours.
 
-This is where Claude for Chrome stopped being a fun toy and started feeling like a cheat code.
+After Claude and I had compiled my full list of activities — every meetup, every podcast, every conference, every article — I handed the list back to Claude and turned it loose on the portal. It opened each activity form, filled in every field, hit submit, and moved on to the next one.
 
-After Claude and I had compiled my full list of activities — every meetup, every podcast, every conference, every article — I just handed the list back to Claude and turned it loose on the portal. It opened the activity creation form, picked the right category, dropped in the title, pasted the description, set the date, pasted the URL, plugged in the audience size, and submitted. Then it did it again. And again. And again.
+I sat there with coffee, watching forms fill themselves out. It was, genuinely, the most fun part of the whole renewal.
 
-I sat there with coffee, watching forms fill themselves out. I'm not exaggerating when I say it was the most fun part of the whole renewal. The single chunk of work I dread most, the rote data entry, was done in a fraction of the time it usually takes me.
-
-Was it perfect? No. A handful of activity types in the portal use dependent dropdowns and dynamic fields that Claude misclassified or skipped. File uploads — slide decks, screenshots — were still a manual step. I had to circle back and clean up roughly ten percent of the entries by hand. But ten percent of dozens beats one hundred percent of dozens, every single time.
+Was it perfect? No. A handful of activity types in the portal use dependent dropdowns and dynamic fields that Claude misclassified or skipped. File uploads — slide decks, screenshots — were still a manual step. I had to circle back and clean up roughly ten percent of the entries by hand. But ten percent of dozens beats one hundred percent of dozens.
 
 ## One Big Gotcha: Claude Will Confidently Make Things Up
 
@@ -94,7 +92,7 @@ At one point, Claude told me, with full confidence: "Oh, nice, you hosted [confe
 
 So if you do this, **verify every single thing Claude hands you before it goes anywhere near the application.** Cross-check events against your calendar. Cross-check speaking gigs against actual decks or RSVPs. If Claude cites an article, make sure it actually lives on your site. The MVP team checks. You should, too.
 
-Treat Claude's output like notes from a very enthusiastic research intern. It's a useful starting point, but it absolutely must be fact-checked before you submit anything.
+Treat Claude's output like notes from a very enthusiastic research intern. Useful starting point. Fact-check it before anything goes near the application.
 
 ## A Wishlist for the MVP Team
 
