@@ -24,11 +24,11 @@ This year was different. This year, I got Claude involved.
 
 ## Step 1: Let Claude Read My Calendar
 
-The first thing I did was give Claude read-only access to my work calendar. Not my personal one. The work calendar isn't a state secret — it's mostly meetings and travel — but yours might be different, so think about your own comfort level before you turn anything loose on it.
+The first thing I did was give Claude read-only access to my calenders. The calendar isn't a state secret — it's mostly meetings and travel — but yours might be different, so think about your own comfort level before you turn anything loose on it.
 
 I'm pretty disciplined about putting travel and events on my calendar, even if I forget to log them anywhere else. So having a year's worth of calendar data is a jackpot. Claude went through everything: every flight, every conference, every "drive to Richmond for user group" entry, and built me a list of events to start from.
 
-Here's the part I didn't expect. It caught things I would've completely forgotten. Podcasts I appeared on. I joined online events for an hour. Random panels nobody recorded. The stuff that doesn't feel important when you're doing it, but absolutely belongs on an MVP application.
+Here's the part I didn't expect. It caught things I would've completely forgotten. Podcasts I appeared on. Random panels nobody recorded. The stuff that doesn't feel important when you're doing it, but absolutely belongs on an MVP application.
 
 That list alone saved me a full evening of looking at Google Calendar.
 
@@ -56,7 +56,7 @@ Here's the thing. If you're like me, you've been giving your AI agents context a
 
 Claude knocked it out of the park. It pulled insight about my work with RevolutionVA (RevolutionConf and Hampton Roads DevFest), the Hampton Roads .NET Users Group I've been hosting since 2009, the newer Hampton Roads Azure group, Stir Trek, where I've been speaker co-coordinator, the .NET Foundation — the whole picture. It built outlines that made me go "oh yeah, I should definitely mention that." Honestly, it spoke kindly about my work in a way I have a hard time doing about myself.
 
-To be clear: I didn't let Claude write the answers. The voice had to be mine — that's the whole point. Claude gave me bullet points, structure, and "don't forget about X" reminders that turned a blank page into a real draft. I rewrote everything in my own words. Then I handed my version back to Claude to check for grammar and anything I'd missed.
+To be clear: I didn't let Claude write the answers. The voice had to be mine — that's the whole point. Claude gave me bullet points, structure, and "don't forget about `X`" reminders that turned a blank page into a real draft. I rewrote everything in my own words. Then I handed my version back to Claude to check for grammar and anything I'd missed.
 
 That feedback loop is the whole game.
 
@@ -74,11 +74,15 @@ If there's a lesson in here for next year, it's "put analytics back on the site.
 
 Here's the part of the MVP application that has always made me want to hurl my laptop into traffic.
 
-The portal itself. Filling in the form. Click. Type. Tab. Click. Tab. Repeat. For dozens of activities. It's the kind of work that should take fifteen minutes, but somehow it always takes three hours.
+If you've never seen the inside of the MVP portal, picture this. Each activity needs a category, a sub-category, a date, a title, a description, a URL, an audience size, sometimes a co-presenter, sometimes a screenshot. Click. Type. Tab. Dropdown. Wait for the dropdown to load. Pick. Tab. Type. Submit. Now do it again. And again. And again. For dozens of activities. It's the kind of work that should take fifteen minutes and somehow always takes three hours.
 
-So I handed my list of activities to Claude and let Claude use Chrome to drive the portal. It thoroughly walked through each one. Filled in the fields. Submitted. Moved on. I sat there drinking coffee, watching it work.
+This is where Claude for Chrome stopped being a fun toy and started feeling like a cheat code.
 
-It was, genuinely, the most fun part of the whole renewal.
+After Claude and I had compiled my full list of activities — every meetup, every podcast, every conference, every article — I just handed the list back to Claude and turned it loose on the portal. It opened the activity creation form, picked the right category, dropped in the title, pasted the description, set the date, pasted the URL, plugged in the audience size, and submitted. Then it did it again. And again. And again.
+
+I sat there with coffee, watching forms fill themselves out. I'm not exaggerating when I say it was the most fun part of the whole renewal. The single chunk of work I dread most, the rote data entry, was done in a fraction of the time it usually takes me.
+
+Was it perfect? No. A handful of activity types in the portal use dependent dropdowns and dynamic fields that Claude misclassified or skipped. File uploads — slide decks, screenshots — were still a manual step. I had to circle back and clean up roughly ten percent of the entries by hand. But ten percent of dozens beats one hundred percent of dozens, every single time.
 
 ## One Big Gotcha: Claude Will Confidently Make Things Up
 
