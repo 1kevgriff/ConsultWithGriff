@@ -44,7 +44,7 @@ npm run generate:search         # Generate search index
 
 ### Content Collections
 
-The site uses Astro's Content Collections API with two main collections defined in `src/content/config.ts`:
+The site uses Astro's Content Collections API with two main collections defined in `src/content.config.ts`:
 
 - **blog**: Articles in markdown format (`src/content/blog/`)
   - Schema includes: title, date, permalink, description, summary, tags, categories, excerpt
@@ -106,7 +106,7 @@ Deployed to Azure Static Web Apps:
 
 ## Key Files to Understand
 
-- `src/content/config.ts` - Content collection schemas
+- `src/content.config.ts` - Content collection schemas
 - `src/layouts/BaseLayout.astro` - Site-wide layout and structure
 - `tailwind.config.js` - Custom Tailwind configuration with color system
 - `astro.config.mjs` - Astro and markdown configuration
