@@ -14,6 +14,8 @@ categories:
   - Career
 ---
 
+> **A note on how this article came to be:** I wrote this with the assistance of AI — Claude, ChatGPT, and Grammarly. Given the article is literally about using Claude to compress my MVP renewal, it'd be weird if I hadn't. The stories and the voice are mine. The tools helped me get them onto the page.
+
 If you're a Microsoft MVP, you already know exactly what I'm about to complain about. The renewal application.
 
 You have to go back through twelve months of your life and remember every event you spoke at, every podcast you appeared on, every user group you hosted, every article you published, and every Slack thread where you helped a stranger. And the catch? You're supposed to log all of this _as it happens_ throughout the year. But who actually does that? Not me. Probably not you either. Ask me how I know.
