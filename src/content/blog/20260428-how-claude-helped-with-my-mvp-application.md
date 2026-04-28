@@ -24,7 +24,7 @@ This year was different. This year, I got Claude involved.
 
 ## Step 1: Let Claude Read My Calendar
 
-The first thing I did was give Claude read-only access to my calendar. My calendar isn't a state secret — it's mostly meetings and travel — but yours might be, so think about your own comfort level before you turn anything loose on it.
+The first thing I did was hook my Google Calendar up to Claude Desktop with a connector — read-only access only. My calendar isn't a state secret — it's mostly meetings and travel — but yours might be, so think about your own comfort level before you turn anything loose on it.
 
 I'm pretty disciplined about putting travel and events on my calendar, even if I forget to log them anywhere else. So having a year's worth of calendar data is a jackpot. Claude went through everything: every flight, every conference, every "drive to Richmond for user group" entry, and built me a list of events to start from.
 
@@ -64,7 +64,7 @@ That feedback loop is the whole game.
 
 This one's a little embarrassing. I asked Claude to go through my own website and tell me what I'd written this year.
 
-I took analytics off my site a long time ago, which honestly might have been a mistake. The MVP application asks for things like page views and reach, and I genuinely can't tell you how many people read any given article. I have no dashboard. No numbers. Nothing.
+I dropped analytics off my site by accident during a Gridsome-to-Astro migration a while back, and I never bothered to put it back. The MVP application asks for things like page views and reach, and I genuinely can't tell you how many people read any given article. I have no dashboard. No numbers. Nothing. (Losing your analytics in a migration and not noticing for months is, I'm told, the most on-brand thing a developer can do.)
 
 But Claude just... read the site. Pulled the article list. Categorized it. Handed me back a clean rundown of content I'd shipped this year. The reach numbers stayed blank — that's a me problem, not a Claude problem — but the article inventory itself populated a whole section of the application I would've otherwise rage-typed at midnight.
 
@@ -76,11 +76,11 @@ Here's the part of the MVP application that has always made me want to hurl my l
 
 If you've never seen the inside of the MVP portal, picture this. Each activity needs a category, a sub-category, a date, a title, a description, a URL, an audience size, sometimes a co-presenter, sometimes a screenshot. Click. Type. Tab. Dropdown. Wait for the dropdown to load. Pick. Tab. Type. Submit. Now do it again. And again. And again. For dozens of activities. It's the kind of work that should take fifteen minutes and somehow always takes three hours.
 
-After Claude and I had compiled my full list of activities — every meetup, every podcast, every conference, every article — I handed the list back to Claude and turned it loose on the portal. It opened each activity form, filled in every field, hit submit, and moved on to the next one.
+After Claude and I had compiled my full list of activities — every meetup, every podcast, every conference, every article, all already cross-checked against my calendar, decks, and site — I handed the verified list back and turned it loose on the portal. Claude for Chrome asks permission before any meaningful action it takes on a page, so this was not a "set it and forget it" situation. I watched. It opened each activity form, filled in every field, hit submit, and moved on to the next one.
 
 I sat there with coffee, watching forms fill themselves out. It was, genuinely, the most fun part of the whole renewal.
 
-Was it perfect? No. Sometimes I had to make some adjustments, but that was just par for the course.
+Was it perfect? No. About 95% of the entries went in clean on the first pass. The rest needed small corrections by hand — par for the course on this kind of automation.
 
 ## One Big Gotcha: Claude Will Confidently Make Things Up
 
@@ -100,7 +100,9 @@ Look, I love that this worked. But the fact that it worked only because Claude f
 
 If the MVP team gave us an official MCP server — something that exposed activity creation, event lookup, and contribution tracking through a clean interface — every MVP could plug in their AI agent of choice and have renewal be a non-event. No browser automation. No fragile DOM scraping. Just structured data going where it belongs.
 
-I don't know how feasible that is on Microsoft's side. But I'd use it on day one. Every MVP I know would use it on day one.
+I don't know how feasible that is on Microsoft's side. But I'd use it on day one. Every MVP I know would use it.
+
+And before someone says "maybe the friction is part of the verification" — no, it isn't. The MVP team verifies submissions on their end regardless of how the data got into the form. The friction is just data entry. Painful UX is not a feature, it's a backlog.
 
 ## So Did It Actually Work?
 
