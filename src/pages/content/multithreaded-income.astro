@@ -1,0 +1,126 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Card from '../../components/Card.astro';
+import { podcastShows } from '../../data/content';
+
+const show = podcastShows.find((s) => s.slug === 'multithreaded-income');
+if (!show) {
+  return Astro.redirect('/content');
+}
+
+const firstEpisode = show.episodes[show.episodes.length - 1];
+const lastEpisode = show.episodes[0];
+const startDate = new Date(firstEpisode.date).toLocaleDateString('en-US', {
+  month: 'long',
+  year: 'numeric',
+});
+const endDate = new Date(lastEpisode.date).toLocaleDateString('en-US', {
+  month: 'long',
+  year: 'numeric',
+});
+
+const pageTitle = `${show.name} | Kevin Griffin`;
+const pageDescription = `All ${show.episodeCount} episodes of the ${show.name}. ${show.description}`;
+---
+
+<BaseLayout title={pageTitle} description={pageDescription}>
+  <Fragment slot="head">
+    <link rel="canonical" href="https://consultwithgriff.com/content/multithreaded-income" />
+  </Fragment>
+
+  <!-- Page Header -->
+  <section class="bg-navy text-white py-16">
+    <div class="container mx-auto px-4 lg:px-8">
+      <div class="max-w-4xl mx-auto text-center">
+        <h1 class="text-4xl lg:text-5xl font-bold mb-4">{show.name}</h1>
+        <p class="text-xl text-gray-200 mb-6">
+          {show.description}
+        </p>
+        <p class="text-gray-300">
+          {show.episodeCount} episodes &middot; {startDate} &ndash; {endDate} &middot; Hosted by
+          Kevin Griffin
+        </p>
+        <a
+          href={show.websiteUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-flex items-center gap-2 mt-4 text-gold hover:text-gold-warm transition-colors"
+        >
+          Visit podcast site
+          <svg
+            class="w-4 h-4"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+            aria-hidden="true"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+            ></path>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Episode List -->
+  <section class="py-16 bg-white">
+    <div class="container mx-auto px-4 lg:px-8">
+      <div class="max-w-4xl mx-auto">
+        <Card variant="white" hover={false}>
+          <div class="divide-y divide-gray-100">
+            {
+              show.episodes.map((episode) => {
+                const formattedDate = new Date(episode.date).toLocaleDateString('en-US', {
+                  year: 'numeric',
+                  month: 'short',
+                  day: 'numeric',
+                });
+
+                return (
+                  <div class="py-4 first:pt-0 last:pb-0 flex items-center justify-between gap-4">
+                    <div class="flex items-center gap-4 min-w-0">
+                      <span class="bg-navy text-white text-sm font-bold rounded-full w-10 h-10 flex items-center justify-center flex-shrink-0">
+                        {episode.number}
+                      </span>
+                      <div class="min-w-0">
+                        <a
+                          href={episode.url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          class="font-semibold text-navy hover:text-gold transition-colors"
+                        >
+                          {episode.title}
+                        </a>
+                        {episode.guest && (
+                          <span class="text-gray-500 text-sm ml-2">with {episode.guest}</span>
+                        )}
+                      </div>
+                    </div>
+                    <time class="text-gray-500 text-sm flex-shrink-0 hidden sm:block">
+                      {formattedDate}
+                    </time>
+                  </div>
+                );
+              })
+            }
+          </div>
+        </Card>
+
+        <!-- Back link -->
+        <div class="mt-8">
+          <a
+            href="/content"
+            class="font-semibold text-navy hover:text-gold transition-colors inline-flex items-center gap-2"
+          >
+            <span aria-hidden="true">&larr;</span>
+            Back to Content
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
