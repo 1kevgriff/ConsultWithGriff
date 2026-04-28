@@ -47,7 +47,7 @@ The MVP application doesn't just ask "what did you do?" It asks the reflective q
 Two of them this year:
 
 > **How do you use your knowledge and skills to help others?**
-
+>
 > **How would you support the community with your technical knowledge and skills moving forward?**
 
 These are _good_ questions. There are also questions you don't think about while you're in the middle of running DevFest or hosting a user group. You think about them once a year, when somebody makes you write them down. And then you sit there and try to summarize a decade of community work in a paragraph. Cool. No pressure.
@@ -108,7 +108,7 @@ And before someone says "maybe the friction is part of the verification" — no,
 
 I don't know yet. The renewal isn't decided.
 
-But I can tell you this was the first year in a long time where the application didn't ruin my month. The cumbersome work got compressed. The reflective work got _better_ because I had a thinking partner instead of a blank text box. And the portal data entry, the part I hate most, was almost pleasant.
+But I can tell you this was the first year in a long time when the application didn't ruin my month. The cumbersome work got compressed. The reflective work got _better_ because I had a thinking partner instead of a blank text box. And the portal data entry, the part I hate most, was almost pleasant.
 
 Fingers crossed on my 17th renewal. Either way, I'm not going back to the old way.
 
