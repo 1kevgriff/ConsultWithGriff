@@ -80,7 +80,7 @@ After Claude and I had compiled my full list of activities — every meetup, eve
 
 I sat there with coffee, watching forms fill themselves out. It was, genuinely, the most fun part of the whole renewal.
 
-Was it perfect? No. A handful of activity types in the portal use dependent dropdowns and dynamic fields that Claude misclassified or skipped. File uploads — slide decks, screenshots — were still a manual step. I had to circle back and clean up roughly ten percent of the entries by hand. But ten percent of dozens beats one hundred percent of dozens.
+Was it perfect? No. Sometimes I had to make some adjustments, but that was just par for the course.
 
 ## One Big Gotcha: Claude Will Confidently Make Things Up
 
