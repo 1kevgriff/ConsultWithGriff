@@ -52,7 +52,7 @@ Two of them this year:
 
 These are _good_ questions. There are also questions you don't think about while you're in the middle of running DevFest or hosting a user group. You think about them once a year, when somebody makes you write them down. And then you sit there and try to summarize a decade of community work in a paragraph. Cool. No pressure.
 
-Here's the thing. If you're like me, you've been giving your AI agents context all year through your regular work. Claude already knows a lot about me, my business, and my community. So when the MVP application asked me a tough reflective question, I just handed it back to Claude. _Based on everything you know about me, how would you answer this?_
+Here's the thing. If you're like me, you've been feeding your AI agents context all year through your regular work. By April, I've given Claude a year of conversations about my business, my community, my projects. So when the MVP application asked me a tough reflective question, I just handed it back. _Based on everything I've told you about me, how would you answer this?_
 
 Claude knocked it out of the park. It pulled insight about my work with RevolutionVA (RevolutionConf and Hampton Roads DevFest), the Hampton Roads .NET Users Group I've been hosting since 2009, the newer Hampton Roads Azure group, Stir Trek, where I've been speaker co-coordinator, the .NET Foundation — the whole picture. It built outlines that made me go "oh yeah, I should definitely mention that." Honestly, it spoke kindly about my work in a way I have a hard time doing about myself.
 
@@ -64,9 +64,9 @@ That feedback loop is the whole game.
 
 This one's a little embarrassing. I asked Claude to go through my own website and tell me what I'd written this year.
 
-I dropped analytics off my site by accident during a Gridsome-to-Astro migration a while back, and I never bothered to put it back. The MVP application asks for things like page views and reach, and I genuinely can't tell you how many people read any given article. I have no dashboard. No numbers. Nothing. (Losing your analytics in a migration and not noticing for months is, I'm told, the most on-brand thing a developer can do.)
+I lost analytics during a Gridsome-to-Astro migration a while back, and I never bothered to put them back. The MVP application asks for things like page views and reach, and I genuinely can't tell you how many people read any given article. I have no dashboard. No numbers. Nothing. (Losing your analytics in a migration and not noticing for months is, I'm told, the most on-brand thing a developer can do.)
 
-But Claude just... read the site. Pulled the article list. Categorized it. Handed me back a clean rundown of content I'd shipped this year. The reach numbers stayed blank — that's a me problem, not a Claude problem — but the article inventory itself populated a whole section of the application I would've otherwise rage-typed at midnight.
+But Claude for Chrome just... read the site. Pulled the article list. Categorized it. Handed me back a clean rundown of content I'd shipped this year. The reach numbers stayed blank — that's a me problem, not a Claude problem — but the article inventory itself populated a whole section of the application I would've otherwise rage-typed at midnight.
 
 If there's a lesson in here for next year, it's "put analytics back on the site." Ask me again in twelve months whether I actually did it.
 
@@ -76,19 +76,19 @@ Here's the part of the MVP application that has always made me want to hurl my l
 
 If you've never seen the inside of the MVP portal, picture this. Each activity needs a category, a sub-category, a date, a title, a description, a URL, an audience size, sometimes a co-presenter, sometimes a screenshot. Click. Type. Tab. Dropdown. Wait for the dropdown to load. Pick. Tab. Type. Submit. Now do it again. And again. And again. For dozens of activities. It's the kind of work that should take fifteen minutes and somehow always takes three hours.
 
-After Claude and I had compiled my full list of activities — every meetup, every podcast, every conference, every article, all already cross-checked against my calendar, decks, and site — I handed the verified list back and turned it loose on the portal. Claude for Chrome asks permission before any meaningful action it takes on a page, so this was not a "set it and forget it" situation. I watched. It opened each activity form, filled in every field, hit submit, and moved on to the next one.
+After Claude and I had compiled my full list of activities — meetups, podcasts, conferences, articles, the works — and I'd cross-checked it against my calendar, decks, and site, I handed the verified list back and turned it loose on the portal. Claude for Chrome prompts me to confirm before each form submission and any state-changing click, so this was not a "set it and forget it" situation. I watched. It opened each activity form, filled in every field, hit submit, and moved on to the next one.
 
 I sat there with coffee, watching forms fill themselves out. It was, genuinely, the most fun part of the whole renewal.
 
-Was it perfect? No. About 95% of the entries went in clean on the first pass. The rest needed small corrections by hand — par for the course on this kind of automation.
+Was it perfect? No. Out of around fifty activities, three or four needed manual cleanup. The rest went in clean on the first pass — par for the course on this kind of automation.
 
 ## One Big Gotcha: Claude Will Confidently Make Things Up
 
-I'd be doing you a disservice if I didn't talk about this part. **Claude hallucinates.** And the more context you've fed it over the year, the more creative it gets.
+I'd be doing you a disservice if I didn't talk about this part. **Claude blends.** If you've spent a year throwing context at it — completed work, half-baked ideas, brainstorms that never shipped — Claude won't separate them on its own when you ask for a summary.
 
-Here's what happened to me. I've been giving Claude context all year through random conversations, strategy sessions, and "what if I spoke at..." ideas that never went anywhere. All of that lives in Claude's history. So when I asked it to summarize my community work, it sometimes mixed things I actually did with things I'd only _talked about doing_.
+Here's what happened to me. I've been typing into Claude all year — random conversations, strategy sessions, "what if I spoke at..." ideas that never went anywhere. All of that lives in the conversation history. When I asked Claude to summarize my community work, it pulled from everything because I'd never told it which entries were "things I actually did" and which were "things I was kicking around."
 
-At one point, Claude told me, with full confidence: "Oh, nice, you hosted [conference that does not exist]!" I never hosted that conference. It only existed in a chat where I'd been thinking out loud about whether it would be a good idea. Claude grabbed the name and treated it like a real event on my résumé.
+At one point, Claude told me, with full confidence: "Oh, nice, you hosted [conference that does not exist]!" I never hosted that conference. It only existed in a chat where I'd been thinking out loud about whether it would be a good idea. Claude faithfully grabbed the name and treated it like a real event on my résumé. That's not Claude inventing things from nowhere — that's Claude doing exactly what I told it to do with sloppy inputs. Same outcome from your perspective: bad data has to get caught before it lands in the application.
 
 So if you do this, **verify every single thing Claude hands you before it goes anywhere near the application.** Cross-check events against your calendar. Cross-check speaking gigs against actual decks or RSVPs. If Claude cites an article, make sure it actually lives on your site. The MVP team checks. You should, too.
 
