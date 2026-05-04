@@ -1,14 +1,14 @@
 ---
 title: Coaster Credits
 date: 2022-09-06 12:00:00
-updated: 2026-04-13 00:00:00
+updated: 2026-05-04 00:00:00
 permalink: coasters
 categories:
   - Roller Coasters
-excerpt: 'Explore my complete roller coaster credits list - 107 coasters across theme parks including Cedar Point, Kings Island, Dollywood, and more.'
+excerpt: 'Explore my complete roller coaster credits list - 108 coasters across theme parks including Cedar Point, Kings Island, Dollywood, and more.'
 ---
 
-Total Coaster Credits: 107
+Total Coaster Credits: 108
 
 ### Busch Gardens Williamsburg (Williamsburg, Virginia)
 
@@ -191,7 +191,7 @@ Total Coaster Credits: 107
 
 ### Kings Island (Mason, Ohio)
 
-13 Coasters
+14 Coasters
 
 - The Beast (100th!)
 - Banshee
@@ -206,3 +206,4 @@ Total Coaster Credits: 107
 - Mystic Timbers
 - Snoopy's Soap Box Racers
 - Invertigo
+- Flight of Fear
