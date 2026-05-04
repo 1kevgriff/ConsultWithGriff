@@ -4,6 +4,6 @@
   "description": "Azure Functions API for consultwithgriff.com — Accept-header content negotiation.",
   "private": true,
   "engines": {
-    "node": ">=18"
+    "node": ">=18.20.8"
   }
 }
