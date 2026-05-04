@@ -1,0 +1,210 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import RideList from '../components/RideList.astro';
+import {
+  getDisplayGroups,
+  getMilestoneRide,
+  totalCredits,
+  totalParks,
+  totalStates,
+  topPark,
+  operatingCredits,
+} from '../data/coasters';
+
+const groups = getDisplayGroups();
+const milestone = getMilestoneRide('100th');
+
+const pageTitle = 'Coaster Credits | Kevin W. Griffin';
+const pageDescription = `My running roller coaster credit list — ${totalCredits} coasters across ${totalParks} parks in ${totalStates} states, including Cedar Point, Kings Island, Dollywood, and more.`;
+const canonicalUrl = 'https://consultwithgriff.com/coasters';
+---
+
+<BaseLayout title={pageTitle} description={pageDescription}>
+  <Fragment slot="head">
+    <link rel="canonical" href={canonicalUrl} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={pageTitle} />
+    <meta name="twitter:description" content={pageDescription} />
+    <meta name="twitter:image" content="https://consultwithgriff.com/og/default.png" />
+    <meta name="twitter:site" content="@1kevgriff" />
+    <meta name="twitter:creator" content="@1kevgriff" />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={pageDescription} />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="https://consultwithgriff.com/og/default.png" />
+  </Fragment>
+
+  <!-- Hero -->
+  <section class="bg-navy text-white py-16 lg:py-24 relative overflow-hidden">
+    <div class="container mx-auto px-4 lg:px-8 relative">
+      <div class="max-w-5xl mx-auto text-center">
+        <p class="text-sm lg:text-base uppercase tracking-[0.3em] text-gold font-semibold mb-4">
+          Coaster Credits
+        </p>
+        <p
+          class="font-bold text-[6rem] sm:text-[8rem] lg:text-[12rem] leading-none text-gold drop-shadow-lg"
+        >
+          {totalCredits}
+        </p>
+        <p class="text-xl lg:text-2xl text-gray-200 mt-4 mb-8">
+          coasters ridden across <strong class="text-white">{totalParks} parks</strong> in
+          <strong class="text-white">{totalStates} states</strong>.
+        </p>
+
+        {
+          milestone && (
+            <div class="inline-flex items-center gap-3 px-5 py-3 rounded-full bg-gold/15 border border-gold/40 backdrop-blur-sm">
+              <span class="inline-flex items-center justify-center w-9 h-9 rounded-full bg-gold text-navy font-extrabold text-sm">
+                100
+              </span>
+              <p class="text-base lg:text-lg text-white">
+                <span class="text-gray-300">100th credit:</span>{' '}
+                <strong class="text-gold">{milestone.ride.name}</strong> at {milestone.park.name}
+              </p>
+            </div>
+          )
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- Stat tiles -->
+  <section class="bg-gray-50 border-b border-gray-200 py-10">
+    <div class="container mx-auto px-4 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4 max-w-4xl mx-auto">
+        <div class="bg-white rounded-lg p-5 border border-gray-200 text-center">
+          <p class="text-xs uppercase tracking-wide text-gray-500 font-semibold mb-2">
+            Most-credited park
+          </p>
+          <p class="text-2xl font-bold text-navy">{topPark.name}</p>
+          <p class="text-sm text-gray-600 mt-1">{topPark.rides.length} credits</p>
+        </div>
+        <div class="bg-white rounded-lg p-5 border border-gray-200 text-center">
+          <p class="text-xs uppercase tracking-wide text-gray-500 font-semibold mb-2">
+            Parks visited
+          </p>
+          <p class="text-2xl font-bold text-navy">{totalParks}</p>
+          <p class="text-sm text-gray-600 mt-1">across {totalStates} states</p>
+        </div>
+        <div class="bg-white rounded-lg p-5 border border-gray-200 text-center">
+          <p class="text-xs uppercase tracking-wide text-gray-500 font-semibold mb-2">
+            Operating today
+          </p>
+          <p class="text-2xl font-bold text-navy">{operatingCredits} of {totalCredits}</p>
+          <p class="text-sm text-gray-600 mt-1">5 credits since closed</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Sticky park nav -->
+  <nav
+    class="sticky top-20 z-30 bg-white/95 backdrop-blur border-b border-gray-200 shadow-sm"
+    aria-label="Jump to park"
+  >
+    <div class="container mx-auto px-4 lg:px-8">
+      <div class="flex gap-2 overflow-x-auto py-3 scroll-smooth -mx-1 px-1">
+        {
+          groups.map((g) => (
+            <a
+              href={`#${g.id}`}
+              class="flex-shrink-0 inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-navy-50 text-navy hover:bg-gold hover:text-navy focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 text-sm font-semibold no-underline transition-colors whitespace-nowrap"
+            >
+              <span>{g.name}</span>
+              <span class="text-xs font-bold text-navy-600 bg-white rounded-full px-2 py-0.5">
+                {g.totalRides}
+              </span>
+            </a>
+          ))
+        }
+      </div>
+    </div>
+  </nav>
+
+  <!-- Park grid -->
+  <section class="bg-white py-12 lg:py-16">
+    <div class="container mx-auto px-4 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {
+          groups.map((group) => (
+            <article
+              id={group.id}
+              class="relative bg-white border border-gray-200 rounded-xl shadow-sm hover:shadow-md transition-shadow overflow-hidden scroll-mt-44 min-h-[16rem]"
+            >
+              <div class="absolute top-0 left-0 w-1.5 h-full bg-gold" aria-hidden="true" />
+
+              <div class="p-6 pl-7">
+                <header class="flex items-start justify-between gap-3 mb-5">
+                  <div class="min-w-0">
+                    <h2 class="text-xl lg:text-2xl font-bold text-navy leading-tight">
+                      {group.name}
+                    </h2>
+                    {group.location && <p class="text-sm text-gray-500 mt-1">{group.location}</p>}
+                  </div>
+                  <div
+                    class="flex-shrink-0 flex flex-col items-center justify-center min-w-[3.5rem] h-14 rounded-lg bg-navy text-gold px-2"
+                    aria-label={`${group.totalRides} credits`}
+                  >
+                    <span class="text-2xl font-extrabold leading-none">{group.totalRides}</span>
+                    <span class="text-[0.6rem] uppercase tracking-wider text-gray-300 mt-0.5">
+                      {group.totalRides === 1 ? 'credit' : 'credits'}
+                    </span>
+                  </div>
+                </header>
+
+                {group.isParent ? (
+                  <div class="space-y-4">
+                    {group.parks.map((park) => (
+                      <div>
+                        <h3 class="text-sm font-bold uppercase tracking-wide text-gray-600 mb-2">
+                          {park.name}
+                          <span class="ml-2 text-xs font-normal text-gray-500">
+                            ({park.rides.length})
+                          </span>
+                        </h3>
+                        <RideList rides={park.rides} />
+                      </div>
+                    ))}
+                  </div>
+                ) : (
+                  <RideList rides={group.parks[0].rides} />
+                )}
+              </div>
+            </article>
+          ))
+        }
+      </div>
+
+      <!-- Legend -->
+      <div
+        class="mt-12 max-w-2xl mx-auto bg-gray-50 border border-gray-200 rounded-lg p-5 text-sm text-gray-700"
+      >
+        <p class="font-semibold text-navy mb-3">Legend</p>
+        <ul class="space-y-2 list-none p-0 m-0">
+          <li class="flex items-center gap-3">
+            <span
+              class="inline-flex items-center justify-center min-w-[1.75rem] h-6 px-1.5 rounded-md bg-gold text-navy text-xs font-extrabold ring-2 ring-gold/30"
+            >
+              100
+            </span>
+            <span>Milestone credit (e.g., your 100th)</span>
+          </li>
+          <li class="flex items-center gap-3">
+            <span class="text-gray-500 line-through">Big Bad Wolf</span>
+            <span class="text-[0.65rem] uppercase tracking-wider text-gray-400 font-semibold"
+              >closed</span
+            >
+            <span>= no longer operating at this park</span>
+          </li>
+          <li class="text-xs text-gray-500 pt-2">
+            Spot a missing credit or wrong status?{' '}
+            <a href="/contact" class="text-navy underline decoration-gold underline-offset-2">
+              Let me know
+            </a>.
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

@@ -1,0 +1,45 @@
+---
+import type { Ride } from '../data/coasters';
+
+interface Props {
+  rides: Ride[];
+}
+
+const { rides } = Astro.props;
+---
+
+<ul class="list-none m-0 p-0 divide-y divide-gray-100">
+  {
+    rides.map((ride) => {
+      const isMilestone = !!ride.milestone;
+      const isDefunct = !!ride.defunct;
+
+      return (
+        <li
+          class:list={[
+            'flex items-center gap-2 py-2 text-[0.95rem]',
+            isDefunct ? 'text-gray-500' : 'text-navy',
+          ]}
+          aria-label={isDefunct ? `${ride.name}, no longer operating` : undefined}
+        >
+          {isMilestone && (
+            <span class="inline-flex items-center justify-center min-w-[1.75rem] h-6 px-1.5 rounded-md bg-gold text-navy text-xs font-extrabold leading-none ring-2 ring-gold/30 flex-shrink-0">
+              {ride.milestone}
+            </span>
+          )}
+          <span class:list={['flex-1 leading-snug', isDefunct && 'line-through']}>
+            {ride.name}
+            {ride.altName && (
+              <span class="text-gray-500 italic font-normal text-sm"> · {ride.altName}</span>
+            )}
+          </span>
+          {isDefunct && (
+            <span class="text-[0.65rem] uppercase tracking-wider text-gray-400 font-semibold flex-shrink-0">
+              closed
+            </span>
+          )}
+        </li>
+      );
+    })
+  }
+</ul>
