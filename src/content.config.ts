@@ -7,9 +7,7 @@ const URL_UNSAFE_CHARS = /[#?&]/;
 // Validator for URL-safe strings (tags/categories)
 const urlSafeString = z.string().refine(
   (val) => !URL_UNSAFE_CHARS.test(val),
-  (val) => ({
-    message: `"${val}" contains URL-unsafe characters (#, ?, &). Use slugified names like "csharp" instead of "C#".`,
-  })
+  { error: (issue) => `"${issue.input}" contains URL-unsafe characters (#, ?, &). Use slugified names like "csharp" instead of "C#".` }
 );
 
 // Blog collection - matches Gridsome frontmatter schema

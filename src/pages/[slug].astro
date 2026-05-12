@@ -1,29 +1,30 @@
 ---
 import { getCollection, render } from 'astro:content';
-import type { GetStaticPaths } from 'astro';
+import type { GetStaticPaths, InferGetStaticPropsType } from 'astro';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import TableOfContents from '../components/TableOfContents.astro';
 import AuthorBio from '../components/AuthorBio.astro';
 import { slugify } from '../utils/slugify';
 
-export const getStaticPaths: GetStaticPaths = async () => {
+export const getStaticPaths = (async () => {
   const blogEntries = await getCollection('blog');
   const docsEntries = await getCollection('docs');
 
   const blogPaths = blogEntries.map((entry) => ({
     params: { slug: entry.data.permalink || entry.id.replace(/^\d{8}-/, '') },
-    props: { entry, type: 'blog' },
+    props: { entry, type: 'blog' as const },
   }));
 
   const docsPaths = docsEntries.map((entry) => ({
     params: { slug: entry.data.permalink || entry.id },
-    props: { entry, type: 'docs' },
+    props: { entry, type: 'docs' as const },
   }));
 
   return [...blogPaths, ...docsPaths];
-};
+}) satisfies GetStaticPaths;
 
-const { entry, type } = Astro.props;
+type Props = InferGetStaticPropsType<typeof getStaticPaths>;
+const { entry, type } = Astro.props as Props;
 const { Content, headings, remarkPluginFrontmatter } = await render(entry);
 
 // Extract headings for TOC - Astro provides headings directly from render()
@@ -57,7 +58,7 @@ if (type === 'blog') {
   metaDescription =
     entry.data.description && entry.data.description.trim() !== ''
       ? entry.data.description
-      : entry.data.summary || entry.data.excerpt;
+      : entry.data.summary || entry.data.excerpt || '';
 } else {
   metaDescription = entry.data.excerpt || entry.data.title;
   // Use default OG image for docs pages
