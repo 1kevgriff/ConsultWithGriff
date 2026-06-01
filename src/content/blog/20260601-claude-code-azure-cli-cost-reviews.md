@@ -48,6 +48,39 @@ It's:
 
 And Claude fires off the `az rest --method post` against the Cost Management Query API, captures the JSON, parses it, and hands me a markdown table. In about ten seconds.
 
+Here's what the call actually looks like under the hood. First, the query body — saved as a JSON file because the Cost Management API wants a structured payload, not query-string params:
+
+```json
+{
+  "type": "Usage",
+  "timeframe": "Custom",
+  "timePeriod": {
+    "from": "2026-05-01T00:00:00+00:00",
+    "to":   "2026-06-01T00:00:00+00:00"
+  },
+  "dataset": {
+    "granularity": "None",
+    "aggregation": {
+      "totalCost": { "name": "Cost", "function": "Sum" }
+    },
+    "grouping": [
+      { "type": "Dimension", "name": "ServiceName" }
+    ]
+  }
+}
+```
+
+Then the actual `az` call:
+
+```powershell
+az rest --method post `
+  --url "https://management.azure.com/subscriptions/<sub-id>/providers/Microsoft.CostManagement/query?api-version=2024-08-01" `
+  --headers "Content-Type=application/json" `
+  --body @cost-by-service.json
+```
+
+The catch I tripped on the first time: leaving off `Content-Type=application/json` gets you a 415 Unsupported Media Type, because `az rest` defaults to `application/octet-stream` when you pass a body file. Easy fix once you see the error. Annoying when you don't.
+
 The follow-up questions are where it gets fun:
 
 - "Now show me which resources are inside that top service."
@@ -109,6 +142,34 @@ The headers literally tell you how long to back off. If you honor them, you stay
 
 Claude rewrote my retry logic in PowerShell to read every retry-after header it could find — the QPU one, the client-type one, and the standard `Retry-After` — take the max, and sleep exactly that long. Then re-tried. Worked first try.
 
+The relevant chunk of the retry script:
+
+```powershell
+try {
+    $resp = Invoke-WebRequest -Uri $uri -Method Post `
+              -Headers $headers -Body $body -UseBasicParsing
+    $resp.Content | Out-File -FilePath $OutPath -Encoding utf8
+    exit 0
+}
+catch {
+    $r = $_.Exception.Response
+    if ([int]$r.StatusCode -eq 429) {
+        # Collect every retry-after header Azure might send, take the max
+        $candidates = @(
+            $r.Headers['x-ms-ratelimit-microsoft.costmanagement-qpu-retry-after'],
+            $r.Headers['x-ms-ratelimit-microsoft.costmanagement-clienttype-retry-after'],
+            $r.Headers['Retry-After']
+        ) | Where-Object { $_ }
+
+        $retryAfter = ($candidates | ForEach-Object { [int]$_ } |
+                       Measure-Object -Maximum).Maximum
+        Start-Sleep -Seconds ($retryAfter + 2)
+    }
+}
+```
+
+The `+ 2` is a small cushion — Azure's clock and my clock don't always agree, and sleeping a tick longer than told is free insurance against an immediate re-throttle.
+
 The code isn't the point. What's the point is the loop:
 
 1. I asked Claude to pull a cost query.
@@ -150,6 +211,24 @@ If you want to try this:
 - **Verify expensive recommendations.** If Claude proposes deleting something, or buying a Reserved Instance, or changing storage tier — make it explain its reasoning and tie back to actual usage data before you act.
 - **Watch your QPU budget.** Especially if you have other automation running in the same tenant. The 600/hour QPU pool sounds big until you have three cost dashboards refreshing every five minutes.
 
+## The Easier Path I Skipped
+
+Quick honest aside: I built this whole workflow with raw `az rest` calls and hand-rolled retry logic. That's how I learn the moving parts — get my hands on the headers, see the 429s, write the back-off myself.
+
+But you don't have to. Microsoft maintains an official plugin called [Azure Skills](https://github.com/microsoft/azure-skills) that packages exactly this kind of capability:
+
+- Curated Azure skills, including an `azure-cost` skill that handles the cost-review workflow I just walked through
+- The **Azure MCP Server** — 200+ structured tools across 40+ Azure services
+- **Foundry MCP** for Microsoft Foundry / AI scenarios
+
+It runs in Claude Code, Copilot CLI, Cursor, Codex, Gemini, and IntelliJ. In Claude Code, installation is a one-liner:
+
+```bash
+/plugin install azure@claude-plugins-official
+```
+
+I didn't use it for this article. I wanted to feel the rate-limit headers myself and understand what was happening one layer down. But if you want the wins without the rope-burn — start there. It's a much shorter path to the same conversation-driven cost review I described above, and you get the skills for diagnostics, RBAC, compliance, and a dozen other Azure scenarios in the same install.
+
 ## The Takeaway
 
 The thing that surprised me wasn't that Claude could call the Azure CLI. That's table stakes for any agentic CLI tool now.
@@ -167,4 +246,5 @@ I'd love to hear how others are using Claude Code (or similar tools) for cloud c
 - [Manage costs with automation — Data latency and rate limits](https://learn.microsoft.com/azure/cost-management-billing/costs/manage-automation?WT.mc_id=DOP-MVP-4029061#data-latency-and-rate-limits) — The official Microsoft docs on the QPU model and rate limit headers.
 - [Cost Management Query API reference](https://learn.microsoft.com/rest/api/cost-management/query?WT.mc_id=DOP-MVP-4029061) — The REST endpoint Claude calls under the hood.
 - [Claude Code documentation](https://docs.claude.com/en/docs/claude-code) — The CLI itself.
+- [microsoft/azure-skills](https://github.com/microsoft/azure-skills) — Microsoft's official plugin that bundles Azure skills (including `azure-cost`), the Azure MCP Server, and Foundry MCP. The easier path I skipped.
 - [My $8,000 Serverless Mistake](/my-8000-serverless-mistake) — A reminder of why I take cost reviews seriously in the first place.
