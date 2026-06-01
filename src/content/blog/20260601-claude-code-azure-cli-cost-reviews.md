@@ -1,5 +1,5 @@
 ---
-title: "I Used to Hate Azure Cost Reviews. Then I Gave Claude Code the Azure CLI."
+title: "Azure Cost Management with Claude Code"
 date: 2026-06-01T00:00:00Z
 permalink: claude-code-azure-cli-cost-reviews
 description: 'How letting Claude Code call the Azure CLI directly turned my monthly cost review from a spreadsheet slog into a real-time conversation — and how I hit Azure Cost Management API rate limits along the way.'
