@@ -77,7 +77,7 @@ Claude searched [Microsoft Learn](https://learn.microsoft.com/azure/cost-managem
 
 ## What I Learned About Azure Cost Management Limits
 
-It turns out the Cost Management Query API meters you on something called **Query Processing Units (QPU)**. One QPU is roughly one month of data queried. The quotas are per Azure AD tenant — so every script, every portal user, every automation in your tenant shares the same pool.
+It turns out the Cost Management Query API meters you on something called **Query Processing Units (QPU)**. One QPU is roughly one month of data queried. The quotas are per Microsoft Entra ID (formerly Azure AD) tenant — so every script, every portal user, every automation in your tenant shares the same pool.
 
 | Window     | QPU Limit |
 |------------|-----------|
@@ -89,7 +89,7 @@ If you blow through any of those buckets, you get a 429. Simple.
 
 But here's the part nobody talks about: there's a *second* limit beyond QPU. There's a per-client-type bucket that limits how many requests a particular SDK or tool can fire, independent of QPU cost. That's actually the one I was hitting. Not the QPU pool — that was barely touched. The client-type request bucket, fully exhausted.
 
-You only learn this by reading the response headers, which Microsoft thoughtfully exposes:
+You only learn this by reading the response headers:
 
 | Header | What It Tells You |
 |--------|-------------------|
@@ -99,13 +99,15 @@ You only learn this by reading the response headers, which Microsoft thoughtfull
 | `x-ms-ratelimit-microsoft.costmanagement-clienttype-retry-after` | Seconds to wait when client-type is the bottleneck |
 | `x-ms-ratelimit-remaining-microsoft.costmanagement-clienttype-requests` | What's left in your client-type bucket |
 
+A heads-up worth its own paragraph: as of this writing, only the three `qpu-*` headers are in the [official rate-limit docs](https://learn.microsoft.com/azure/cost-management-billing/costs/manage-automation?WT.mc_id=DOP-MVP-4029061#data-latency-and-rate-limits). The `clienttype-*` headers show up in actual API responses, but they aren't formally documented — so if you go to verify them, you won't find them on that page. Which is exactly the point: trust what the response returns, not just what the docs describe.
+
 The headers literally tell you how long to back off. If you honor them, you stay healthy. If you ignore them and do `sleep 30` in a retry loop like I was, you keep hitting the wall.
 
 > **The rule of thumb:** When you get a 429 from Cost Management, don't guess your backoff. Read the response headers and use the value Azure gives you. There may be multiple `*-retry-after` headers — take the maximum.
 
 ## The Fix
 
-Claude rewrote my retry logic in PowerShell to read all three potential retry-after headers, take the max, and sleep exactly that long. Then re-tried. Worked first try.
+Claude rewrote my retry logic in PowerShell to read every retry-after header it could find — the QPU one, the client-type one, and the standard `Retry-After` — take the max, and sleep exactly that long. Then re-tried. Worked first try.
 
 The code isn't the point. What's the point is the loop:
 
@@ -143,7 +145,7 @@ I'm not going to pretend this replaces a proper FinOps practice at scale. If you
 
 If you want to try this:
 
-- **Use a least-privilege identity.** Don't hand Claude Code an Owner-scoped key. A Reader role on the subscription is enough for cost queries.
+- **Use a least-privilege identity.** Don't hand Claude Code an Owner-scoped key. The purpose-built **Cost Management Reader** role is enough for cost queries (plain subscription Reader works too, but it also grants read on every other resource type — more than you need here).
 - **Be specific about scope.** Tell it which subscription, which resource group, which time window. Azure has a lot of data — narrow the question.
 - **Verify expensive recommendations.** If Claude proposes deleting something, or buying a Reserved Instance, or changing storage tier — make it explain its reasoning and tie back to actual usage data before you act.
 - **Watch your QPU budget.** Especially if you have other automation running in the same tenant. The 600/hour QPU pool sounds big until you have three cost dashboards refreshing every five minutes.
