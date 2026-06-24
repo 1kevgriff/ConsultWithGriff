@@ -3,20 +3,25 @@
 # Create Typefully social media drafts for a blog post.
 #
 # Usage:
-#   ./scripts/create-typefully-drafts.sh <slug>
+#   ./scripts/create-typefully-drafts.sh <slug> <copy-dir>
 #
 # Requirements:
 #   - TYPEFULLY_API_KEY environment variable set
 #   - OG image at public/og/<slug>.png
 #   - curl installed
+#   - Copy directory with platform text files:
+#       <copy-dir>/x.txt        (X/Twitter copy)
+#       <copy-dir>/linkedin.txt (LinkedIn copy)
+#       <copy-dir>/mastodon.txt (Mastodon copy)
+#       <copy-dir>/bluesky.txt  (Bluesky copy)
 #
 # The script creates a single Typefully draft with platform-specific
 # copy for each connected platform (X, LinkedIn, Mastodon, Bluesky)
 # and the OG image attached. The draft is saved — not published — so
 # you can review and schedule in Typefully.
 #
-# Each platform gets copy tailored to its audience and character limits.
-# Edit the platform text templates at the bottom of this script.
+# Each platform file should contain the post text WITHOUT the article
+# URL — the script appends it automatically.
 
 set -euo pipefail
 
@@ -26,9 +31,18 @@ API_BASE="https://api.typefully.com/v2"
 
 # ── Args & validation ────────────────────────────────────────────────
 SLUG="${1:-}"
-if [[ -z "$SLUG" ]]; then
-  echo "Usage: $0 <slug>"
-  echo "Example: $0 sql-pagination-count-over-trick"
+COPY_DIR="${2:-}"
+if [[ -z "$SLUG" || -z "$COPY_DIR" ]]; then
+  echo "Usage: $0 <slug> <copy-dir>"
+  echo "Example: $0 sql-pagination-count-over-trick /tmp/social-copy"
+  echo ""
+  echo "The copy directory should contain platform text files:"
+  echo "  x.txt, linkedin.txt, mastodon.txt, bluesky.txt"
+  exit 1
+fi
+
+if [[ ! -d "$COPY_DIR" ]]; then
+  echo "❌ Copy directory not found: $COPY_DIR"
   exit 1
 fi
 
@@ -154,60 +168,36 @@ if [[ "$STATUS" != "ready" ]]; then
   echo "⚠️  Media not ready after polling. Proceeding anyway."
 fi
 
-# ── Step 4: Build platform copy ──────────────────────────────────────
+# ── Step 4: Build platform copy from text files ──────────────────────
 #
-# Edit the text values below for each new blog post.
-# The REPLACE_WITH_* placeholders must be swapped before running.
-#
-# Placeholders you can use:
-#   $POST_URL  - full article URL
-#   $MEDIA_ID  - uploaded image media ID
-#   $SLUG      - post slug
+# Reads copy from <copy-dir>/<platform>.txt for each connected platform.
+# The article URL is appended automatically. Platforms without a text
+# file are skipped.
 
 echo ""
 
 # X (Twitter) — 280 chars standard. URLs = 23 via t.co. Media doesn't count.
 X_TEXT=""
-if [[ "$CONNECTED" == *"x"* ]]; then
-  read -r -d '' X_TEXT << 'ENDTEXT' || true
-REPLACE_WITH_X_POST_TEXT
-
-REPLACE_WITH_POST_URL
-ENDTEXT
-  X_TEXT="${X_TEXT//REPLACE_WITH_POST_URL/$POST_URL}"
+if [[ "$CONNECTED" == *"x"* && -f "$COPY_DIR/x.txt" ]]; then
+  X_TEXT="$(cat "$COPY_DIR/x.txt")"$'\n\n'"$POST_URL"
 fi
 
 # LinkedIn — 3,000 chars. Full URL length counts.
 LI_TEXT=""
-if [[ "$CONNECTED" == *"linkedin"* ]]; then
-  read -r -d '' LI_TEXT << 'ENDTEXT' || true
-REPLACE_WITH_LINKEDIN_POST_TEXT
-
-REPLACE_WITH_POST_URL
-ENDTEXT
-  LI_TEXT="${LI_TEXT//REPLACE_WITH_POST_URL/$POST_URL}"
+if [[ "$CONNECTED" == *"linkedin"* && -f "$COPY_DIR/linkedin.txt" ]]; then
+  LI_TEXT="$(cat "$COPY_DIR/linkedin.txt")"$'\n\n'"$POST_URL"
 fi
 
 # Mastodon — 500 chars (default). URLs = 23.
 MASTO_TEXT=""
-if [[ "$CONNECTED" == *"mastodon"* ]]; then
-  read -r -d '' MASTO_TEXT << 'ENDTEXT' || true
-REPLACE_WITH_MASTODON_POST_TEXT
-
-REPLACE_WITH_POST_URL
-ENDTEXT
-  MASTO_TEXT="${MASTO_TEXT//REPLACE_WITH_POST_URL/$POST_URL}"
+if [[ "$CONNECTED" == *"mastodon"* && -f "$COPY_DIR/mastodon.txt" ]]; then
+  MASTO_TEXT="$(cat "$COPY_DIR/mastodon.txt")"$'\n\n'"$POST_URL"
 fi
 
 # Bluesky — 300 chars. Full URL length counts. Tightest limit.
 BSKY_TEXT=""
-if [[ "$CONNECTED" == *"bluesky"* ]]; then
-  read -r -d '' BSKY_TEXT << 'ENDTEXT' || true
-REPLACE_WITH_BLUESKY_POST_TEXT
-
-REPLACE_WITH_POST_URL
-ENDTEXT
-  BSKY_TEXT="${BSKY_TEXT//REPLACE_WITH_POST_URL/$POST_URL}"
+if [[ "$CONNECTED" == *"bluesky"* && -f "$COPY_DIR/bluesky.txt" ]]; then
+  BSKY_TEXT="$(cat "$COPY_DIR/bluesky.txt")"$'\n\n'"$POST_URL"
 fi
 
 # ── Validate character limits ─────────────────────────────────────
