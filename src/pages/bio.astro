@@ -5,10 +5,54 @@ import Card from '../components/Card.astro';
 
 const pageTitle = 'Bio | Kevin W. Griffin';
 const pageDescription =
-  'Approved bio and headshot for Kevin W. Griffin, a 16-time Microsoft MVP specializing in ASP.NET Core and Azure.';
+  'Approved bio, headshot, and social links for Kevin W. Griffin, a 16-time Microsoft MVP specializing in ASP.NET Core and Azure.';
 
 const approvedBio =
   "Kevin Griffin has been running production .NET applications and teaching developers for over two decades. A 16-time Microsoft MVP specializing in ASP.NET Core and Azure, Kevin brings real-world experience from his own SaaS products alongside his consulting work at Swift Kick. He's hosted the Hampton Roads .NET User Group since 2009 and founded RevolutionVA, the nonprofit behind Hampton Roads DevFest. Kevin's talks blend hard-won lessons from production systems with practical advice you can use Monday morning.";
+
+// Each row displays exactly what its Copy button puts on the clipboard (WYSIWYG).
+const socials = [
+  { name: 'X', url: 'https://x.com/1kevgriff', copy: 'https://x.com/1kevgriff', icon: 'fa6-brands:x-twitter' },
+  { name: 'Bluesky', url: 'https://bsky.app/profile/consultwithgriff.com', copy: 'https://bsky.app/profile/consultwithgriff.com', icon: 'fa6-brands:bluesky' },
+  { name: 'LinkedIn', url: 'https://www.linkedin.com/in/1kevgriff/', copy: 'https://www.linkedin.com/in/1kevgriff/', icon: 'fa6-brands:linkedin' },
+  { name: 'GitHub', url: 'https://github.com/1kevgriff', copy: 'https://github.com/1kevgriff', icon: 'fa6-brands:github' },
+  { name: 'YouTube', url: 'https://youtube.com/@consultwithgriff', copy: 'https://youtube.com/@consultwithgriff', icon: 'fa6-brands:youtube' },
+  { name: 'Sessionize', url: 'https://sessionize.com/kevingriffin/', copy: 'https://sessionize.com/kevingriffin/', icon: 'fa6-solid:microphone' },
+  { name: 'Email', url: 'mailto:hello@consultwithgriff.com', copy: 'hello@consultwithgriff.com', icon: 'fa6-solid:envelope' },
+];
+
+const allLinks = socials.map((s) => `${s.name}: ${s.copy}`).join('\n');
+
+// Headshot downloads: 3 backgrounds x 3 sizes. Source is 5760 x 3840.
+const headshots = [
+  {
+    bg: 'Gold',
+    fmt: 'JPG',
+    sizes: [
+      { label: 'Full', file: '/kevin-griffin-headshot-gold.jpg' },
+      { label: '2000px', file: '/kevin-griffin-headshot-gold-2000.jpg' },
+      { label: '800px', file: '/kevin-griffin-headshot-gold-800.jpg' },
+    ],
+  },
+  {
+    bg: 'White',
+    fmt: 'JPG',
+    sizes: [
+      { label: 'Full', file: '/kevin-griffin-headshot-white.jpg' },
+      { label: '2000px', file: '/kevin-griffin-headshot-white-2000.jpg' },
+      { label: '800px', file: '/kevin-griffin-headshot-white-800.jpg' },
+    ],
+  },
+  {
+    bg: 'Transparent',
+    fmt: 'PNG',
+    sizes: [
+      { label: 'Full', file: '/kevin-griffin-headshot-transparent.png' },
+      { label: '2000px', file: '/kevin-griffin-headshot-transparent-2000.png' },
+      { label: '800px', file: '/kevin-griffin-headshot-transparent-800.png' },
+    ],
+  },
+];
 
 const schemaJson = {
   '@context': 'https://schema.org',
@@ -22,11 +66,11 @@ const schemaJson = {
   image: 'https://consultwithgriff.com/kevin_rockon.jpg',
   email: 'hello@consultwithgriff.com',
   sameAs: [
-    'https://twitter.com/1kevgriff',
+    'https://x.com/1kevgriff',
     'https://bsky.app/profile/consultwithgriff.com',
     'https://www.linkedin.com/in/1kevgriff/',
     'https://github.com/1kevgriff',
-    'https://youtube.com/swiftkick',
+    'https://youtube.com/@consultwithgriff',
     'https://sessionize.com/kevingriffin/',
   ],
   worksFor: {
@@ -47,147 +91,173 @@ const schemaJson = {
     <script type="application/ld+json" set:html={JSON.stringify(schemaJson)} />
   </Fragment>
 
-  <main>
-    <section class="bg-navy py-16 lg:py-24">
-      <div class="container mx-auto px-4 lg:px-8">
-        <div class="grid items-center gap-10 lg:grid-cols-[360px_1fr]">
-          <div class="mx-auto w-full max-w-sm lg:mx-0">
-            <img
-              src="/kevin_rockon.jpg"
-              alt="Kevin W. Griffin"
-              class="aspect-square w-full rounded-lg border-4 border-gold bg-white object-cover shadow-2xl shadow-black/30"
-              loading="eager"
-            />
-          </div>
+  <main class="bg-white py-14 lg:py-20">
+    <div class="container mx-auto px-4">
+      <div class="mx-auto max-w-2xl">
+        <p class="mb-8 text-center text-sm font-bold uppercase tracking-wide text-navy">
+          Press &amp; Media Kit
+        </p>
 
-          <div class="text-center lg:text-left">
-            <p class="mb-3 text-sm font-bold uppercase tracking-wide text-gold">
-              Speaker Bio and Headshot
+        <!-- Headshot -->
+        <div class="flex flex-col items-center text-center">
+          <img
+            src="/kevin-griffin-headshot-transparent-800.png"
+            alt="Kevin W. Griffin"
+            class="h-44 w-44 rounded-2xl border-4 border-gold object-cover shadow-xl shadow-black/10 sm:h-52 sm:w-52"
+            loading="eager"
+          />
+          <h1 class="mt-6 text-3xl font-bold text-navy lg:text-4xl">Kevin W. Griffin</h1>
+          <p class="mt-2 text-lg text-gray-600">
+            16-time Microsoft MVP &middot; ASP.NET Core, Azure &amp; SignalR
+          </p>
+          <div class="mt-6 w-full max-w-md rounded-2xl border border-gray-200 p-4 text-left sm:p-5">
+            <p class="mb-3 flex items-center justify-center gap-2 text-sm font-bold uppercase tracking-wide text-gray-500">
+              <Icon name="fa6-solid:download" class="h-4 w-4" aria-hidden="true" />
+              Download headshot
             </p>
-            <h1 class="mb-4 text-4xl font-bold text-white lg:text-6xl">Kevin W. Griffin</h1>
-            <p class="mb-8 max-w-3xl text-xl leading-relaxed text-navy-100 lg:text-2xl">
-              16-time Microsoft MVP specializing in ASP.NET Core, Azure, SignalR, and practical
-              software architecture.
-            </p>
-
-            <div class="flex flex-col justify-center gap-4 sm:flex-row lg:justify-start">
-              <a
-                href="/kevin_rockon.jpg"
-                download="kevin-griffin-headshot.jpg"
-                class="inline-flex items-center justify-center gap-3 rounded-xl bg-gold px-8 py-4 text-center text-lg font-bold text-navy no-underline transition-all duration-200 hover:bg-gold-warm hover:shadow-gold focus:outline-none focus:ring-4 focus:ring-gold focus:ring-opacity-50"
-              >
-                <Icon name="fa6-solid:download" class="h-5 w-5" />
-                Download Headshot
-              </a>
-              <a
-                href="https://sessionize.com/kevingriffin/"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="inline-flex items-center justify-center gap-3 rounded-xl border-2 border-white bg-transparent px-8 py-4 text-center text-lg font-bold text-white no-underline transition-all duration-200 hover:bg-white hover:text-navy focus:outline-none focus:ring-4 focus:ring-white focus:ring-opacity-30"
-              >
-                <Icon name="fa6-solid:microphone" class="h-5 w-5" />
-                Speaker Profile
-              </a>
+            <div class="space-y-2.5">
+              {
+                headshots.map((h) => (
+                  <div class="flex items-center gap-3">
+                    <span class="w-32 flex-shrink-0 text-sm font-semibold text-navy">
+                      {h.bg} <span class="font-normal text-gray-400">{h.fmt}</span>
+                    </span>
+                    <div class="flex flex-wrap gap-2">
+                      {h.sizes.map((s) => (
+                        <a
+                          href={s.file}
+                          download
+                          class="presskit-cta rounded-lg border border-gray-300 px-3 py-1 text-sm font-semibold text-navy transition-colors hover:border-navy hover:bg-gray-100"
+                        >
+                          {s.label}
+                        </a>
+                      ))}
+                    </div>
+                  </div>
+                ))
+              }
             </div>
           </div>
         </div>
-      </div>
-    </section>
 
-    <section class="bg-white py-16 lg:py-20">
-      <div class="container mx-auto px-4 lg:px-8">
-        <div class="mx-auto max-w-4xl">
-          <Card variant="light" hover={false} class="p-8 lg:p-10">
-            <div class="mb-6 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
-              <div>
-                <p class="mb-2 text-sm font-bold uppercase tracking-wide text-gold-700">
-                  Approved Bio
-                </p>
-                <h2 class="text-3xl font-bold text-navy">For events, podcasts, and press</h2>
-              </div>
-              <button
-                id="copy-bio-button"
-                type="button"
-                class="inline-flex min-h-12 items-center justify-center gap-3 rounded-xl border-2 border-navy px-5 py-3 font-bold text-navy transition-colors hover:bg-navy hover:text-white focus:outline-none focus:ring-4 focus:ring-navy focus:ring-opacity-30"
-              >
-                <Icon name="fa6-solid:copy" class="h-5 w-5" />
-                <span id="copy-bio-text">Copy Bio</span>
-              </button>
-            </div>
-
-            <p id="approved-bio" class="text-lg leading-relaxed text-gray-700 lg:text-xl">
-              {approvedBio}
-            </p>
-          </Card>
-        </div>
-      </div>
-    </section>
-
-    <section class="bg-gray-50 py-16 lg:py-20">
-      <div class="container mx-auto px-4 lg:px-8">
-        <div class="mx-auto grid max-w-5xl gap-6 md:grid-cols-3">
-          <Card variant="white" hover={false}>
-            <Icon name="fa6-solid:envelope" class="mb-4 h-8 w-8 text-gold" />
-            <h2 class="mb-3 text-xl font-bold text-navy">Contact</h2>
-            <p class="mb-4 text-gray-700">
-              For interviews, speaking, or consulting inquiries, email Kevin directly.
-            </p>
-            <a href="mailto:hello@consultwithgriff.com" class="font-semibold">
-              hello@consultwithgriff.com
-            </a>
-          </Card>
-
-          <Card variant="white" hover={false}>
-            <Icon name="fa6-solid:microphone" class="mb-4 h-8 w-8 text-gold" />
-            <h2 class="mb-3 text-xl font-bold text-navy">Speaking</h2>
-            <p class="mb-4 text-gray-700">
-              See current talk topics, session abstracts, and speaker details.
-            </p>
-            <a
-              href="https://sessionize.com/kevingriffin/"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="font-semibold"
+        <!-- Approved bio -->
+        <Card variant="light" hover={false} class="mt-12">
+          <div class="mb-4 flex items-center justify-between gap-4">
+            <h2 class="text-xl font-bold text-navy">Approved bio</h2>
+            <button
+              id="copy-bio-button"
+              type="button"
+              data-copy={approvedBio}
+              class="inline-flex min-h-10 items-center justify-center gap-2 rounded-lg border-2 border-navy px-4 py-2 text-sm font-bold text-navy transition-colors hover:bg-navy hover:text-white focus:outline-none focus:ring-4 focus:ring-navy/30"
             >
-              View Sessionize profile
-            </a>
-          </Card>
+              <Icon name="fa6-solid:copy" class="h-4 w-4" aria-hidden="true" />
+              <span data-copy-label>Copy bio</span>
+            </button>
+          </div>
+          <p class="text-lg leading-relaxed text-gray-700">{approvedBio}</p>
+        </Card>
 
-          <Card variant="white" hover={false}>
-            <Icon name="fa6-solid:briefcase" class="mb-4 h-8 w-8 text-gold" />
-            <h2 class="mb-3 text-xl font-bold text-navy">Consulting</h2>
-            <p class="mb-4 text-gray-700">
-              Need help with .NET architecture, Azure, modernization, or performance?
-            </p>
-            <a href="/consulting" class="font-semibold">Work with Kevin</a>
-          </Card>
+        <!-- Social & contact -->
+        <div class="mt-12">
+          <h2 class="mb-4 text-xl font-bold text-navy">Follow &amp; contact</h2>
+          <ul class="divide-y divide-gray-200 overflow-hidden rounded-2xl border border-gray-200">
+            {
+              socials.map((s) => (
+                <li class="flex items-center gap-4 bg-white px-4 py-3 sm:px-5">
+                  <span class="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-lg bg-navy text-gold">
+                    <Icon name={s.icon} class="h-5 w-5" aria-hidden="true" />
+                  </span>
+                  <span class="min-w-0 flex-grow">
+                    <span class="block text-sm font-semibold text-navy">{s.name}</span>
+                    <a
+                      href={s.url}
+                      target={s.url.startsWith('mailto:') ? undefined : '_blank'}
+                      rel={s.url.startsWith('mailto:') ? undefined : 'noopener noreferrer'}
+                      class="presskit-link block break-all font-mono text-sm"
+                    >
+                      {s.copy}
+                    </a>
+                  </span>
+                  <button
+                    type="button"
+                    data-copy={s.copy}
+                    class="inline-flex flex-shrink-0 items-center gap-2 rounded-lg border border-gray-300 px-3 py-2 text-sm font-semibold text-navy transition-colors hover:border-navy hover:bg-navy hover:text-white focus:outline-none focus:ring-2 focus:ring-navy/30"
+                    aria-label={`Copy ${s.name} link`}
+                  >
+                    <Icon name="fa6-solid:copy" class="h-4 w-4" aria-hidden="true" />
+                    <span data-copy-label>Copy</span>
+                  </button>
+                </li>
+              ))
+            }
+          </ul>
+
+          <div class="mt-4 flex justify-end">
+            <button
+              type="button"
+              data-copy={allLinks}
+              class="inline-flex items-center gap-2 rounded-lg border-2 border-navy px-4 py-2 text-sm font-bold text-navy transition-colors hover:bg-navy hover:text-white focus:outline-none focus:ring-4 focus:ring-navy/30"
+              aria-label="Copy all links"
+            >
+              <Icon name="fa6-solid:list" class="h-4 w-4" aria-hidden="true" />
+              <span data-copy-label>Copy all links</span>
+            </button>
+          </div>
         </div>
+
+        <!-- Screen-reader announcement for copy actions -->
+        <p id="copy-status" class="sr-only" role="status" aria-live="polite"></p>
       </div>
-    </section>
+    </div>
   </main>
 </BaseLayout>
 
+<style>
+  /* The global `main a` rule forces navy text + a gold underline on every
+     link in <main>. Opt these button/handle links out so they keep their
+     intended colors and stay legible. */
+  main a.presskit-cta,
+  main a.presskit-cta:hover {
+    color: var(--color-navy);
+    text-decoration: none;
+  }
+  main a.presskit-link {
+    color: var(--color-gray-700, #374151);
+    text-decoration: none;
+  }
+  main a.presskit-link:hover {
+    color: var(--color-navy);
+    text-decoration: underline;
+    text-decoration-color: var(--color-gold);
+    text-underline-offset: 3px;
+  }
+</style>
+
 <script>
   document.addEventListener('DOMContentLoaded', () => {
-    const copyButton = document.getElementById('copy-bio-button');
-    const copyText = document.getElementById('copy-bio-text');
-    const bioElement = document.getElementById('approved-bio');
+    const status = document.getElementById('copy-status');
+    const buttons = document.querySelectorAll<HTMLButtonElement>('[data-copy]');
 
-    if (!copyButton || !copyText || !bioElement) return;
+    buttons.forEach((button) => {
+      const label = button.querySelector<HTMLElement>('[data-copy-label]');
+      const original = label?.textContent ?? '';
 
-    copyButton.addEventListener('click', async () => {
-      const bioText = bioElement.textContent?.trim() || '';
+      button.addEventListener('click', async () => {
+        const text = button.getAttribute('data-copy') ?? '';
 
-      try {
-        await navigator.clipboard.writeText(bioText);
-        copyText.textContent = 'Copied';
-      } catch {
-        copyText.textContent = 'Copy failed';
-      }
+        try {
+          await navigator.clipboard.writeText(text);
+          if (label) label.textContent = 'Copied';
+          if (status) status.textContent = 'Copied to clipboard';
+        } catch {
+          if (label) label.textContent = 'Failed';
+          if (status) status.textContent = 'Copy failed';
+        }
 
-      window.setTimeout(() => {
-        copyText.textContent = 'Copy Bio';
-      }, 2000);
+        window.setTimeout(() => {
+          if (label) label.textContent = original;
+        }, 2000);
+      });
     });
   });
 </script>
