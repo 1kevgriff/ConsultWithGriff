@@ -1,0 +1,193 @@
+---
+import { Icon } from 'astro-icon/components';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Card from '../components/Card.astro';
+
+const pageTitle = 'Bio | Kevin W. Griffin';
+const pageDescription =
+  'Approved bio and headshot for Kevin W. Griffin, a 16-time Microsoft MVP specializing in ASP.NET Core and Azure.';
+
+const approvedBio =
+  "Kevin Griffin has been running production .NET applications and teaching developers for over two decades. A 16-time Microsoft MVP specializing in ASP.NET Core and Azure, Kevin brings real-world experience from his own SaaS products alongside his consulting work at Swift Kick. He's hosted the Hampton Roads .NET User Group since 2009 and founded RevolutionVA, the nonprofit behind Hampton Roads DevFest. Kevin's talks blend hard-won lessons from production systems with practical advice you can use Monday morning.";
+
+const schemaJson = {
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  name: 'Kevin W. Griffin',
+  givenName: 'Kevin',
+  familyName: 'Griffin',
+  jobTitle: 'Independent Software Consultant',
+  description: approvedBio,
+  url: 'https://consultwithgriff.com/bio',
+  image: 'https://consultwithgriff.com/kevin_rockon.jpg',
+  email: 'hello@consultwithgriff.com',
+  sameAs: [
+    'https://twitter.com/1kevgriff',
+    'https://bsky.app/profile/consultwithgriff.com',
+    'https://www.linkedin.com/in/1kevgriff/',
+    'https://github.com/1kevgriff',
+    'https://youtube.com/swiftkick',
+    'https://sessionize.com/kevingriffin/',
+  ],
+  worksFor: {
+    '@type': 'Organization',
+    name: 'Swift Kick',
+  },
+  knowsAbout: ['ASP.NET Core', 'Microsoft Azure', 'SignalR', '.NET Architecture'],
+};
+---
+
+<BaseLayout title={pageTitle} description={pageDescription}>
+  <Fragment slot="head">
+    <link rel="canonical" href="https://consultwithgriff.com/bio" />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={pageDescription} />
+    <meta property="og:image" content="https://consultwithgriff.com/kevin_rockon.jpg" />
+    <meta property="og:type" content="profile" />
+    <script type="application/ld+json" set:html={JSON.stringify(schemaJson)} />
+  </Fragment>
+
+  <main>
+    <section class="bg-navy py-16 lg:py-24">
+      <div class="container mx-auto px-4 lg:px-8">
+        <div class="grid items-center gap-10 lg:grid-cols-[360px_1fr]">
+          <div class="mx-auto w-full max-w-sm lg:mx-0">
+            <img
+              src="/kevin_rockon.jpg"
+              alt="Kevin W. Griffin"
+              class="aspect-square w-full rounded-lg border-4 border-gold bg-white object-cover shadow-2xl shadow-black/30"
+              loading="eager"
+            />
+          </div>
+
+          <div class="text-center lg:text-left">
+            <p class="mb-3 text-sm font-bold uppercase tracking-wide text-gold">
+              Speaker Bio and Headshot
+            </p>
+            <h1 class="mb-4 text-4xl font-bold text-white lg:text-6xl">Kevin W. Griffin</h1>
+            <p class="mb-8 max-w-3xl text-xl leading-relaxed text-navy-100 lg:text-2xl">
+              16-time Microsoft MVP specializing in ASP.NET Core, Azure, SignalR, and practical
+              software architecture.
+            </p>
+
+            <div class="flex flex-col justify-center gap-4 sm:flex-row lg:justify-start">
+              <a
+                href="/kevin_rockon.jpg"
+                download="kevin-griffin-headshot.jpg"
+                class="inline-flex items-center justify-center gap-3 rounded-xl bg-gold px-8 py-4 text-center text-lg font-bold text-navy no-underline transition-all duration-200 hover:bg-gold-warm hover:shadow-gold focus:outline-none focus:ring-4 focus:ring-gold focus:ring-opacity-50"
+              >
+                <Icon name="fa6-solid:download" class="h-5 w-5" />
+                Download Headshot
+              </a>
+              <a
+                href="https://sessionize.com/kevingriffin/"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="inline-flex items-center justify-center gap-3 rounded-xl border-2 border-white bg-transparent px-8 py-4 text-center text-lg font-bold text-white no-underline transition-all duration-200 hover:bg-white hover:text-navy focus:outline-none focus:ring-4 focus:ring-white focus:ring-opacity-30"
+              >
+                <Icon name="fa6-solid:microphone" class="h-5 w-5" />
+                Speaker Profile
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="bg-white py-16 lg:py-20">
+      <div class="container mx-auto px-4 lg:px-8">
+        <div class="mx-auto max-w-4xl">
+          <Card variant="light" hover={false} class="p-8 lg:p-10">
+            <div class="mb-6 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+              <div>
+                <p class="mb-2 text-sm font-bold uppercase tracking-wide text-gold-700">
+                  Approved Bio
+                </p>
+                <h2 class="text-3xl font-bold text-navy">For events, podcasts, and press</h2>
+              </div>
+              <button
+                id="copy-bio-button"
+                type="button"
+                class="inline-flex min-h-12 items-center justify-center gap-3 rounded-xl border-2 border-navy px-5 py-3 font-bold text-navy transition-colors hover:bg-navy hover:text-white focus:outline-none focus:ring-4 focus:ring-navy focus:ring-opacity-30"
+              >
+                <Icon name="fa6-solid:copy" class="h-5 w-5" />
+                <span id="copy-bio-text">Copy Bio</span>
+              </button>
+            </div>
+
+            <p id="approved-bio" class="text-lg leading-relaxed text-gray-700 lg:text-xl">
+              {approvedBio}
+            </p>
+          </Card>
+        </div>
+      </div>
+    </section>
+
+    <section class="bg-gray-50 py-16 lg:py-20">
+      <div class="container mx-auto px-4 lg:px-8">
+        <div class="mx-auto grid max-w-5xl gap-6 md:grid-cols-3">
+          <Card variant="white" hover={false}>
+            <Icon name="fa6-solid:envelope" class="mb-4 h-8 w-8 text-gold" />
+            <h2 class="mb-3 text-xl font-bold text-navy">Contact</h2>
+            <p class="mb-4 text-gray-700">
+              For interviews, speaking, or consulting inquiries, email Kevin directly.
+            </p>
+            <a href="mailto:hello@consultwithgriff.com" class="font-semibold">
+              hello@consultwithgriff.com
+            </a>
+          </Card>
+
+          <Card variant="white" hover={false}>
+            <Icon name="fa6-solid:microphone" class="mb-4 h-8 w-8 text-gold" />
+            <h2 class="mb-3 text-xl font-bold text-navy">Speaking</h2>
+            <p class="mb-4 text-gray-700">
+              See current talk topics, session abstracts, and speaker details.
+            </p>
+            <a
+              href="https://sessionize.com/kevingriffin/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="font-semibold"
+            >
+              View Sessionize profile
+            </a>
+          </Card>
+
+          <Card variant="white" hover={false}>
+            <Icon name="fa6-solid:briefcase" class="mb-4 h-8 w-8 text-gold" />
+            <h2 class="mb-3 text-xl font-bold text-navy">Consulting</h2>
+            <p class="mb-4 text-gray-700">
+              Need help with .NET architecture, Azure, modernization, or performance?
+            </p>
+            <a href="/consulting" class="font-semibold">Work with Kevin</a>
+          </Card>
+        </div>
+      </div>
+    </section>
+  </main>
+</BaseLayout>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const copyButton = document.getElementById('copy-bio-button');
+    const copyText = document.getElementById('copy-bio-text');
+    const bioElement = document.getElementById('approved-bio');
+
+    if (!copyButton || !copyText || !bioElement) return;
+
+    copyButton.addEventListener('click', async () => {
+      const bioText = bioElement.textContent?.trim() || '';
+
+      try {
+        await navigator.clipboard.writeText(bioText);
+        copyText.textContent = 'Copied';
+      } catch {
+        copyText.textContent = 'Copy failed';
+      }
+
+      window.setTimeout(() => {
+        copyText.textContent = 'Copy Bio';
+      }, 2000);
+    });
+  });
+</script>
