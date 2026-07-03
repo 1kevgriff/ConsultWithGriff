@@ -1,0 +1,263 @@
+---
+import { Icon } from 'astro-icon/components';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Card from '../components/Card.astro';
+
+const pageTitle = 'Bio | Kevin W. Griffin';
+const pageDescription =
+  'Approved bio, headshot, and social links for Kevin W. Griffin, a 16-time Microsoft MVP specializing in ASP.NET Core and Azure.';
+
+const approvedBio =
+  "Kevin Griffin has been running production .NET applications and teaching developers for over two decades. A 16-time Microsoft MVP specializing in ASP.NET Core and Azure, Kevin brings real-world experience from his own SaaS products alongside his consulting work at Swift Kick. He's hosted the Hampton Roads .NET User Group since 2009 and founded RevolutionVA, the nonprofit behind Hampton Roads DevFest. Kevin's talks blend hard-won lessons from production systems with practical advice you can use Monday morning.";
+
+// Each row displays exactly what its Copy button puts on the clipboard (WYSIWYG).
+const socials = [
+  { name: 'X', url: 'https://x.com/1kevgriff', copy: 'https://x.com/1kevgriff', icon: 'fa6-brands:x-twitter' },
+  { name: 'Bluesky', url: 'https://bsky.app/profile/consultwithgriff.com', copy: 'https://bsky.app/profile/consultwithgriff.com', icon: 'fa6-brands:bluesky' },
+  { name: 'LinkedIn', url: 'https://www.linkedin.com/in/1kevgriff/', copy: 'https://www.linkedin.com/in/1kevgriff/', icon: 'fa6-brands:linkedin' },
+  { name: 'GitHub', url: 'https://github.com/1kevgriff', copy: 'https://github.com/1kevgriff', icon: 'fa6-brands:github' },
+  { name: 'YouTube', url: 'https://youtube.com/@consultwithgriff', copy: 'https://youtube.com/@consultwithgriff', icon: 'fa6-brands:youtube' },
+  { name: 'Sessionize', url: 'https://sessionize.com/kevingriffin/', copy: 'https://sessionize.com/kevingriffin/', icon: 'fa6-solid:microphone' },
+  { name: 'Email', url: 'mailto:hello@consultwithgriff.com', copy: 'hello@consultwithgriff.com', icon: 'fa6-solid:envelope' },
+];
+
+const allLinks = socials.map((s) => `${s.name}: ${s.copy}`).join('\n');
+
+// Headshot downloads: 3 backgrounds x 3 sizes. Source is 5760 x 3840.
+const headshots = [
+  {
+    bg: 'Gold',
+    fmt: 'JPG',
+    sizes: [
+      { label: 'Full', file: '/kevin-griffin-headshot-gold.jpg' },
+      { label: '2000px', file: '/kevin-griffin-headshot-gold-2000.jpg' },
+      { label: '800px', file: '/kevin-griffin-headshot-gold-800.jpg' },
+    ],
+  },
+  {
+    bg: 'White',
+    fmt: 'JPG',
+    sizes: [
+      { label: 'Full', file: '/kevin-griffin-headshot-white.jpg' },
+      { label: '2000px', file: '/kevin-griffin-headshot-white-2000.jpg' },
+      { label: '800px', file: '/kevin-griffin-headshot-white-800.jpg' },
+    ],
+  },
+  {
+    bg: 'Transparent',
+    fmt: 'PNG',
+    sizes: [
+      { label: 'Full', file: '/kevin-griffin-headshot-transparent.png' },
+      { label: '2000px', file: '/kevin-griffin-headshot-transparent-2000.png' },
+      { label: '800px', file: '/kevin-griffin-headshot-transparent-800.png' },
+    ],
+  },
+];
+
+const schemaJson = {
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  name: 'Kevin W. Griffin',
+  givenName: 'Kevin',
+  familyName: 'Griffin',
+  jobTitle: 'Independent Software Consultant',
+  description: approvedBio,
+  url: 'https://consultwithgriff.com/bio',
+  image: 'https://consultwithgriff.com/kevin_rockon.jpg',
+  email: 'hello@consultwithgriff.com',
+  sameAs: [
+    'https://x.com/1kevgriff',
+    'https://bsky.app/profile/consultwithgriff.com',
+    'https://www.linkedin.com/in/1kevgriff/',
+    'https://github.com/1kevgriff',
+    'https://youtube.com/@consultwithgriff',
+    'https://sessionize.com/kevingriffin/',
+  ],
+  worksFor: {
+    '@type': 'Organization',
+    name: 'Swift Kick',
+  },
+  knowsAbout: ['ASP.NET Core', 'Microsoft Azure', 'SignalR', '.NET Architecture'],
+};
+---
+
+<BaseLayout title={pageTitle} description={pageDescription}>
+  <Fragment slot="head">
+    <link rel="canonical" href="https://consultwithgriff.com/bio" />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={pageDescription} />
+    <meta property="og:image" content="https://consultwithgriff.com/kevin_rockon.jpg" />
+    <meta property="og:type" content="profile" />
+    <script type="application/ld+json" set:html={JSON.stringify(schemaJson)} />
+  </Fragment>
+
+  <main class="bg-white py-14 lg:py-20">
+    <div class="container mx-auto px-4">
+      <div class="mx-auto max-w-2xl">
+        <p class="mb-8 text-center text-sm font-bold uppercase tracking-wide text-navy">
+          Press &amp; Media Kit
+        </p>
+
+        <!-- Headshot -->
+        <div class="flex flex-col items-center text-center">
+          <img
+            src="/kevin-griffin-headshot-transparent-800.png"
+            alt="Kevin W. Griffin"
+            class="h-44 w-44 rounded-2xl border-4 border-gold object-cover shadow-xl shadow-black/10 sm:h-52 sm:w-52"
+            loading="eager"
+          />
+          <h1 class="mt-6 text-3xl font-bold text-navy lg:text-4xl">Kevin W. Griffin</h1>
+          <p class="mt-2 text-lg text-gray-600">
+            16-time Microsoft MVP &middot; ASP.NET Core, Azure &amp; SignalR
+          </p>
+          <div class="mt-6 w-full max-w-md rounded-2xl border border-gray-200 p-4 text-left sm:p-5">
+            <p class="mb-3 flex items-center justify-center gap-2 text-sm font-bold uppercase tracking-wide text-gray-500">
+              <Icon name="fa6-solid:download" class="h-4 w-4" aria-hidden="true" />
+              Download headshot
+            </p>
+            <div class="space-y-2.5">
+              {
+                headshots.map((h) => (
+                  <div class="flex items-center gap-3">
+                    <span class="w-32 flex-shrink-0 text-sm font-semibold text-navy">
+                      {h.bg} <span class="font-normal text-gray-400">{h.fmt}</span>
+                    </span>
+                    <div class="flex flex-wrap gap-2">
+                      {h.sizes.map((s) => (
+                        <a
+                          href={s.file}
+                          download
+                          class="presskit-cta rounded-lg border border-gray-300 px-3 py-1 text-sm font-semibold text-navy transition-colors hover:border-navy hover:bg-gray-100"
+                        >
+                          {s.label}
+                        </a>
+                      ))}
+                    </div>
+                  </div>
+                ))
+              }
+            </div>
+          </div>
+        </div>
+
+        <!-- Approved bio -->
+        <Card variant="light" hover={false} class="mt-12">
+          <div class="mb-4 flex items-center justify-between gap-4">
+            <h2 class="text-xl font-bold text-navy">Approved bio</h2>
+            <button
+              id="copy-bio-button"
+              type="button"
+              data-copy={approvedBio}
+              class="inline-flex min-h-10 items-center justify-center gap-2 rounded-lg border-2 border-navy px-4 py-2 text-sm font-bold text-navy transition-colors hover:bg-navy hover:text-white focus:outline-none focus:ring-4 focus:ring-navy/30"
+            >
+              <Icon name="fa6-solid:copy" class="h-4 w-4" aria-hidden="true" />
+              <span data-copy-label>Copy bio</span>
+            </button>
+          </div>
+          <p class="text-lg leading-relaxed text-gray-700">{approvedBio}</p>
+        </Card>
+
+        <!-- Social & contact -->
+        <div class="mt-12">
+          <h2 class="mb-4 text-xl font-bold text-navy">Follow &amp; contact</h2>
+          <ul class="divide-y divide-gray-200 overflow-hidden rounded-2xl border border-gray-200">
+            {
+              socials.map((s) => (
+                <li class="flex items-center gap-4 bg-white px-4 py-3 sm:px-5">
+                  <span class="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-lg bg-navy text-gold">
+                    <Icon name={s.icon} class="h-5 w-5" aria-hidden="true" />
+                  </span>
+                  <span class="min-w-0 flex-grow">
+                    <span class="block text-sm font-semibold text-navy">{s.name}</span>
+                    <a
+                      href={s.url}
+                      target={s.url.startsWith('mailto:') ? undefined : '_blank'}
+                      rel={s.url.startsWith('mailto:') ? undefined : 'noopener noreferrer'}
+                      class="presskit-link block break-all font-mono text-sm"
+                    >
+                      {s.copy}
+                    </a>
+                  </span>
+                  <button
+                    type="button"
+                    data-copy={s.copy}
+                    class="inline-flex flex-shrink-0 items-center gap-2 rounded-lg border border-gray-300 px-3 py-2 text-sm font-semibold text-navy transition-colors hover:border-navy hover:bg-navy hover:text-white focus:outline-none focus:ring-2 focus:ring-navy/30"
+                    aria-label={`Copy ${s.name} link`}
+                  >
+                    <Icon name="fa6-solid:copy" class="h-4 w-4" aria-hidden="true" />
+                    <span data-copy-label>Copy</span>
+                  </button>
+                </li>
+              ))
+            }
+          </ul>
+
+          <div class="mt-4 flex justify-end">
+            <button
+              type="button"
+              data-copy={allLinks}
+              class="inline-flex items-center gap-2 rounded-lg border-2 border-navy px-4 py-2 text-sm font-bold text-navy transition-colors hover:bg-navy hover:text-white focus:outline-none focus:ring-4 focus:ring-navy/30"
+              aria-label="Copy all links"
+            >
+              <Icon name="fa6-solid:list" class="h-4 w-4" aria-hidden="true" />
+              <span data-copy-label>Copy all links</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Screen-reader announcement for copy actions -->
+        <p id="copy-status" class="sr-only" role="status" aria-live="polite"></p>
+      </div>
+    </div>
+  </main>
+</BaseLayout>
+
+<style>
+  /* The global `main a` rule forces navy text + a gold underline on every
+     link in <main>. Opt these button/handle links out so they keep their
+     intended colors and stay legible. */
+  main a.presskit-cta,
+  main a.presskit-cta:hover {
+    color: var(--color-navy);
+    text-decoration: none;
+  }
+  main a.presskit-link {
+    color: var(--color-gray-700, #374151);
+    text-decoration: none;
+  }
+  main a.presskit-link:hover {
+    color: var(--color-navy);
+    text-decoration: underline;
+    text-decoration-color: var(--color-gold);
+    text-underline-offset: 3px;
+  }
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const status = document.getElementById('copy-status');
+    const buttons = document.querySelectorAll<HTMLButtonElement>('[data-copy]');
+
+    buttons.forEach((button) => {
+      const label = button.querySelector<HTMLElement>('[data-copy-label]');
+      const original = label?.textContent ?? '';
+
+      button.addEventListener('click', async () => {
+        const text = button.getAttribute('data-copy') ?? '';
+
+        try {
+          await navigator.clipboard.writeText(text);
+          if (label) label.textContent = 'Copied';
+          if (status) status.textContent = 'Copied to clipboard';
+        } catch {
+          if (label) label.textContent = 'Failed';
+          if (status) status.textContent = 'Copy failed';
+        }
+
+        window.setTimeout(() => {
+          if (label) label.textContent = original;
+        }, 2000);
+      });
+    });
+  });
+</script>
