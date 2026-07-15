@@ -3,10 +3,10 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import Hero from '../components/Hero.astro';
 import Card from '../components/Card.astro';
 import Button from '../components/Button.astro';
+import { MVP_YEARS, MVP_TIME, EXPERIENCE_YEARS } from '../consts';
 
-const pageTitle = 'Expert .NET & Azure Consulting | 16x Microsoft MVP | Kevin Griffin';
-const pageDescription =
-  'Independent consulting for ASP.NET Core, Azure cloud architecture, and application modernization. 16-time Microsoft MVP with 15+ years experience helping teams ship better software faster.';
+const pageTitle = `Expert .NET & Azure Consulting | ${MVP_YEARS}x Microsoft MVP | Kevin Griffin`;
+const pageDescription = `Independent consulting for ASP.NET Core, Azure cloud architecture, and application modernization. ${MVP_TIME} with ${EXPERIENCE_YEARS} years experience helping teams ship better software faster.`;
 ---
 
 <BaseLayout title={pageTitle} description={pageDescription}>
@@ -40,7 +40,9 @@ const pageDescription =
           <div class="grid md:grid-cols-3 gap-8 text-left">
             <div>
               <div class="text-4xl mb-3">🏆</div>
-              <h3 class="font-bold text-navy mb-2">16 Consecutive Years as Microsoft MVP</h3>
+              <h3 class="font-bold text-navy mb-2">
+                {MVP_YEARS} Consecutive Years as Microsoft MVP
+              </h3>
               <p class="text-gray-700">
                 Not just recognized — engaged. I contribute to the .NET community, beta test new
                 features, and know what's coming before it's announced. You get access to that
@@ -49,7 +51,9 @@ const pageDescription =
             </div>
             <div>
               <div class="text-4xl mb-3">💼</div>
-              <h3 class="font-bold text-navy mb-2">19 Years of "We Need This Yesterday"</h3>
+              <h3 class="font-bold text-navy mb-2">
+                {EXPERIENCE_YEARS} Years of "We Need This Yesterday"
+              </h3>
               <p class="text-gray-700">
                 I've migrated apps under production load, rescued projects past deadline, and built
                 systems that handle traffic spikes without pager alerts. I've seen most problems

@@ -4,10 +4,10 @@ import Hero from '../components/Hero.astro';
 import Card from '../components/Card.astro';
 import Button from '../components/Button.astro';
 import { Icon } from 'astro-icon/components';
+import { MVP_YEARS, MVP_TIME, EXPERIENCE_YEARS } from '../consts';
 
-const pageTitle = 'About Kevin W. Griffin | 16x Microsoft MVP | .NET & Azure Expert';
-const pageDescription =
-  '16-time Microsoft MVP Kevin Griffin specializes in ASP.NET Core, Azure, and modern web development. Based in Virginia, helping teams ship better software.';
+const pageTitle = `About Kevin W. Griffin | ${MVP_YEARS}x Microsoft MVP | .NET & Azure Expert`;
+const pageDescription = `${MVP_TIME} Kevin Griffin specializes in ASP.NET Core, Azure, and modern web development. Based in Virginia, helping teams ship better software.`;
 
 const socialLinks = [
   {
@@ -47,7 +47,7 @@ const socialLinks = [
   },
 ];
 
-const approvedBio = `Kevin Griffin has been running production .NET applications and teaching developers for over two decades. A 16-time Microsoft MVP specializing in ASP.NET Core and Azure, Kevin brings real-world experience from his own SaaS products alongside his consulting work at Swift Kick. He's hosted the Hampton Roads .NET User Group since 2009 and founded RevolutionVA, the nonprofit behind Hampton Roads DevFest. Kevin's talks blend hard-won lessons from production systems with practical advice you can use Monday morning.`;
+const approvedBio = `Kevin Griffin has been running production .NET applications and teaching developers for over two decades. A ${MVP_TIME} specializing in ASP.NET Core and Azure, Kevin brings real-world experience from his own SaaS products alongside his consulting work at Swift Kick. He's hosted the Hampton Roads .NET User Group since 2009 and founded RevolutionVA, the nonprofit behind Hampton Roads DevFest. Kevin's talks blend hard-won lessons from production systems with practical advice you can use Monday morning.`;
 
 const schemaJson = {
   '@context': 'https://schema.org',
@@ -56,8 +56,7 @@ const schemaJson = {
   givenName: 'Kevin',
   familyName: 'Griffin',
   jobTitle: 'Independent Software Consultant',
-  description:
-    '16-time Microsoft MVP specializing in ASP.NET Core and Azure. Running production .NET applications and teaching developers for over two decades.',
+  description: `${MVP_TIME} specializing in ASP.NET Core and Azure. Running production .NET applications and teaching developers for over two decades.`,
   url: 'https://consultwithgriff.com/about',
   image: 'https://consultwithgriff.com/kevin_rockon.jpg',
   email: 'hello@consultwithgriff.com',
@@ -91,7 +90,7 @@ const schemaJson = {
   <!-- Hero Section -->
   <Hero
     title="Kevin W. Griffin"
-    subtitle="16-Time Microsoft MVP | .NET Architect | Azure Expert"
+    subtitle={`${MVP_YEARS}-Time Microsoft MVP | .NET Architect | Azure Expert`}
     imageSrc="/kevin_rockon.jpg"
     imageAlt="Kevin W. Griffin - Microsoft MVP"
     primaryCTA={{
@@ -110,9 +109,9 @@ const schemaJson = {
         </h2>
         <div class="prose prose-lg max-w-none text-gray-700">
           <p class="text-xl leading-relaxed mb-6">
-            For over 19 years, I've been helping teams build, scale, and maintain software that
-            actually works in production. Not just code that compiles, but systems that handle
-            real-world traffic, survive unexpected failures, and evolve with your business.
+            For over {EXPERIENCE_YEARS} years, I've been helping teams build, scale, and maintain software
+            that actually works in production. Not just code that compiles, but systems that handle real-world
+            traffic, survive unexpected failures, and evolve with your business.
           </p>
           <p class="text-lg leading-relaxed mb-6">
             My journey started in the early days of .NET, and I've been along for the entire ride:
@@ -138,11 +137,11 @@ const schemaJson = {
         <div class="grid md:grid-cols-3 gap-8">
           <Card variant="white">
             <div class="text-4xl mb-4">🏆</div>
-            <h3 class="text-xl font-bold text-navy mb-3">16x Microsoft MVP</h3>
+            <h3 class="text-xl font-bold text-navy mb-3">{MVP_YEARS}x Microsoft MVP</h3>
             <p class="text-gray-700">
-              Recognized consecutively for 16 years for contributions to the developer community.
-              This award reflects ongoing engagement with Microsoft technologies and the broader
-              .NET ecosystem.
+              Recognized consecutively for {MVP_YEARS} years for contributions to the developer community.
+              This award reflects ongoing engagement with Microsoft technologies and the broader .NET
+              ecosystem.
             </p>
           </Card>
           <Card variant="white">
@@ -233,9 +232,9 @@ const schemaJson = {
           <Card variant="navy">
             <h3 class="text-xl font-bold mb-3">Hampton Roads User Groups</h3>
             <p class="text-gray-200 mb-4">
-              I've been hosting local developer communities since 2009, bringing together
-              developers to learn, share, and grow. Monthly meetings, guest speakers, and a
-              welcoming community for developers at all levels.
+              I've been hosting local developer communities since 2009, bringing together developers
+              to learn, share, and grow. Monthly meetings, guest speakers, and a welcoming community
+              for developers at all levels.
             </p>
             <div class="flex flex-wrap gap-4">
               <a

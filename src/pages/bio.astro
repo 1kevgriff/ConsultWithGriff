@@ -2,23 +2,57 @@
 import { Icon } from 'astro-icon/components';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Card from '../components/Card.astro';
+import { MVP_YEARS, MVP_TIME } from '../consts';
 
 const pageTitle = 'Bio | Kevin W. Griffin';
-const pageDescription =
-  'Approved bio, headshot, and social links for Kevin W. Griffin, a 16-time Microsoft MVP specializing in ASP.NET Core and Azure.';
+const pageDescription = `Approved bio, headshot, and social links for Kevin W. Griffin, a ${MVP_TIME} specializing in ASP.NET Core and Azure.`;
 
-const approvedBio =
-  "Kevin Griffin has been running production .NET applications and teaching developers for over two decades. A 16-time Microsoft MVP specializing in ASP.NET Core and Azure, Kevin brings real-world experience from his own SaaS products alongside his consulting work at Swift Kick. He's hosted the Hampton Roads .NET User Group since 2009 and founded RevolutionVA, the nonprofit behind Hampton Roads DevFest. Kevin's talks blend hard-won lessons from production systems with practical advice you can use Monday morning.";
+const approvedBio = `Kevin Griffin has been running production .NET applications and teaching developers for over two decades. A ${MVP_TIME} specializing in ASP.NET Core and Azure, Kevin brings real-world experience from his own SaaS products alongside his consulting work at Swift Kick. He's hosted the Hampton Roads .NET User Group since 2009 and founded RevolutionVA, the nonprofit behind Hampton Roads DevFest. Kevin's talks blend hard-won lessons from production systems with practical advice you can use Monday morning.`;
 
 // Each row displays exactly what its Copy button puts on the clipboard (WYSIWYG).
 const socials = [
-  { name: 'X', url: 'https://x.com/1kevgriff', copy: 'https://x.com/1kevgriff', icon: 'fa6-brands:x-twitter' },
-  { name: 'Bluesky', url: 'https://bsky.app/profile/consultwithgriff.com', copy: 'https://bsky.app/profile/consultwithgriff.com', icon: 'fa6-brands:bluesky' },
-  { name: 'LinkedIn', url: 'https://www.linkedin.com/in/1kevgriff/', copy: 'https://www.linkedin.com/in/1kevgriff/', icon: 'fa6-brands:linkedin' },
-  { name: 'GitHub', url: 'https://github.com/1kevgriff', copy: 'https://github.com/1kevgriff', icon: 'fa6-brands:github' },
-  { name: 'YouTube', url: 'https://youtube.com/@consultwithgriff', copy: 'https://youtube.com/@consultwithgriff', icon: 'fa6-brands:youtube' },
-  { name: 'Sessionize', url: 'https://sessionize.com/kevingriffin/', copy: 'https://sessionize.com/kevingriffin/', icon: 'fa6-solid:microphone' },
-  { name: 'Email', url: 'mailto:hello@consultwithgriff.com', copy: 'hello@consultwithgriff.com', icon: 'fa6-solid:envelope' },
+  {
+    name: 'X',
+    url: 'https://x.com/1kevgriff',
+    copy: 'https://x.com/1kevgriff',
+    icon: 'fa6-brands:x-twitter',
+  },
+  {
+    name: 'Bluesky',
+    url: 'https://bsky.app/profile/consultwithgriff.com',
+    copy: 'https://bsky.app/profile/consultwithgriff.com',
+    icon: 'fa6-brands:bluesky',
+  },
+  {
+    name: 'LinkedIn',
+    url: 'https://www.linkedin.com/in/1kevgriff/',
+    copy: 'https://www.linkedin.com/in/1kevgriff/',
+    icon: 'fa6-brands:linkedin',
+  },
+  {
+    name: 'GitHub',
+    url: 'https://github.com/1kevgriff',
+    copy: 'https://github.com/1kevgriff',
+    icon: 'fa6-brands:github',
+  },
+  {
+    name: 'YouTube',
+    url: 'https://youtube.com/@consultwithgriff',
+    copy: 'https://youtube.com/@consultwithgriff',
+    icon: 'fa6-brands:youtube',
+  },
+  {
+    name: 'Sessionize',
+    url: 'https://sessionize.com/kevingriffin/',
+    copy: 'https://sessionize.com/kevingriffin/',
+    icon: 'fa6-solid:microphone',
+  },
+  {
+    name: 'Email',
+    url: 'mailto:hello@consultwithgriff.com',
+    copy: 'hello@consultwithgriff.com',
+    icon: 'fa6-solid:envelope',
+  },
 ];
 
 const allLinks = socials.map((s) => `${s.name}: ${s.copy}`).join('\n');
@@ -108,10 +142,12 @@ const schemaJson = {
           />
           <h1 class="mt-6 text-3xl font-bold text-navy lg:text-4xl">Kevin W. Griffin</h1>
           <p class="mt-2 text-lg text-gray-600">
-            16-time Microsoft MVP &middot; ASP.NET Core, Azure &amp; SignalR
+            {MVP_YEARS}-time Microsoft MVP &middot; ASP.NET Core, Azure &amp; SignalR
           </p>
           <div class="mt-6 w-full max-w-md rounded-2xl border border-gray-200 p-4 text-left sm:p-5">
-            <p class="mb-3 flex items-center justify-center gap-2 text-sm font-bold uppercase tracking-wide text-gray-500">
+            <p
+              class="mb-3 flex items-center justify-center gap-2 text-sm font-bold uppercase tracking-wide text-gray-500"
+            >
               <Icon name="fa6-solid:download" class="h-4 w-4" aria-hidden="true" />
               Download headshot
             </p>

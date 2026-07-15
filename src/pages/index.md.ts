@@ -1,5 +1,6 @@
 import type { APIContext } from 'astro';
 import { getCollection } from 'astro:content';
+import { MVP_TIME } from '../consts';
 
 export async function GET(_context: APIContext) {
   const posts = await getCollection('blog');
@@ -22,7 +23,7 @@ canonical: https://consultwithgriff.com
 
 # Kevin W. Griffin
 
-Independent software consultant specializing in ASP.NET Core, Microsoft Azure, and modern web development. 16-time Microsoft MVP.
+Independent software consultant specializing in ASP.NET Core, Microsoft Azure, and modern web development. ${MVP_TIME}.
 
 ## Navigation
 
