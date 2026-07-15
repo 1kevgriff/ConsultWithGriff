@@ -4,6 +4,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import Hero from '../components/Hero.astro';
 import Card from '../components/Card.astro';
 import Button from '../components/Button.astro';
+import { MVP_YEARS, MVP_TIME, EXPERIENCE_YEARS } from '../consts';
 
 // Get the latest blog post
 const allPosts = await getCollection('blog');
@@ -15,7 +16,7 @@ const latestPost = sortedPosts[0];
 
 <BaseLayout
   title="Kevin W. Griffin - Azure & .NET Architect"
-  description="Independent software consultant specializing in ASP.NET Core, Microsoft Azure, and modern web development. 16-time Microsoft MVP."
+  description={`Independent software consultant specializing in ASP.NET Core, Microsoft Azure, and modern web development. ${MVP_TIME}.`}
 >
   <!-- Hero Section -->
   <Hero
@@ -77,13 +78,13 @@ const latestPost = sortedPosts[0];
           </p>
 
           <p>
-            After 19 years and{' '}
-            <strong class="text-navy">16 consecutive years as a Microsoft MVP</strong>, I've learned
-            that the best architecture is the one your team actually understands. I don't parachute
-            in with complex solutions and disappear. I design systems with{' '}
+            After {EXPERIENCE_YEARS} years and{' '}
+            <strong class="text-navy">{MVP_YEARS} consecutive years as a Microsoft MVP</strong>,
+            I've learned that the best architecture is the one your team actually understands. I
+            don't parachute in with complex solutions and disappear. I design systems with{' '}
             <strong class="text-navy">ASP.NET Core</strong> and{' '}
-            <strong class="text-navy">Microsoft Azure</strong> that scale AND transfer knowledge so
-            you're never dependent on me.
+            <strong class="text-navy">Microsoft Azure</strong> that scale AND transfer knowledge so you're
+            never dependent on me.
           </p>
 
           <p>

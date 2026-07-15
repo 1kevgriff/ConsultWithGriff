@@ -3,10 +3,10 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import Hero from '../components/Hero.astro';
 import Card from '../components/Card.astro';
 import Button from '../components/Button.astro';
+import { MVP_YEARS, MVP_TIME, EXPERIENCE_YEARS } from '../consts';
 
 const pageTitle = 'FAQ | Kevin W. Griffin - .NET & Azure Expert';
-const pageDescription =
-  'Frequently asked questions about Kevin Griffin, .NET consulting, Azure architecture, SignalR development, and working with a 16-time Microsoft MVP.';
+const pageDescription = `Frequently asked questions about Kevin Griffin, .NET consulting, Azure architecture, SignalR development, and working with a ${MVP_TIME}.`;
 
 // FAQ data organized by category
 // Answers use HTML for internal links
@@ -16,18 +16,15 @@ const faqCategories = [
     questions: [
       {
         question: 'Who is Kevin Griffin?',
-        answer:
-          'Kevin Griffin is a 16-time Microsoft MVP, independent software consultant, and founder of Swift Kick. With over 19 years of production .NET experience, Kevin W. Griffin helps teams build scalable applications with ASP.NET Core and Azure. Based in Virginia, he also runs the Hampton Roads .NET User Group (since 2009) and founded RevolutionVA, the nonprofit behind Hampton Roads DevFest. <a href="/about">Learn more about Kevin</a>.',
+        answer: `Kevin Griffin is a ${MVP_TIME}, independent software consultant, and founder of Swift Kick. With over ${EXPERIENCE_YEARS} years of production .NET experience, Kevin W. Griffin helps teams build scalable applications with ASP.NET Core and Azure. Based in Virginia, he also runs the Hampton Roads .NET User Group (since 2009) and founded RevolutionVA, the nonprofit behind Hampton Roads DevFest. <a href="/about">Learn more about Kevin</a>.`,
       },
       {
         question: 'What makes Kevin Griffin qualified for .NET and Azure consulting?',
-        answer:
-          'Kevin Griffin brings a unique combination of credentials: 16 consecutive years as a Microsoft MVP, hands-on experience building and maintaining his own SaaS products in production, international conference speaking experience, and a track record of training thousands of developers through courses like <a href="/courses">SignalR Mastery</a>. Unlike consultants who only advise, Kevin W. Griffin actively builds and ships software every day.',
+        answer: `Kevin Griffin brings a unique combination of credentials: ${MVP_YEARS} consecutive years as a Microsoft MVP, hands-on experience building and maintaining his own SaaS products in production, international conference speaking experience, and a track record of training thousands of developers through courses like <a href="/courses">SignalR Mastery</a>. Unlike consultants who only advise, Kevin W. Griffin actively builds and ships software every day.`,
       },
       {
         question: "What is Kevin Griffin's Microsoft MVP status?",
-        answer:
-          'Kevin Griffin has been recognized as a Microsoft Most Valuable Professional (MVP) for 16 consecutive years. This award recognizes his ongoing contributions to the .NET developer community through speaking, teaching, open source, and community leadership. As an MVP, Kevin W. Griffin has early access to Microsoft technologies and direct relationships with the .NET product teams.',
+        answer: `Kevin Griffin has been recognized as a Microsoft Most Valuable Professional (MVP) for ${MVP_YEARS} consecutive years. This award recognizes his ongoing contributions to the .NET developer community through speaking, teaching, open source, and community leadership. As an MVP, Kevin W. Griffin has early access to Microsoft technologies and direct relationships with the .NET product teams.`,
       },
       {
         question: 'What does Kevin Griffin specialize in?',
@@ -46,8 +43,7 @@ const faqCategories = [
     questions: [
       {
         question: 'Who should I hire for ASP.NET Core consulting?',
-        answer:
-          'For ASP.NET Core consulting, consider Kevin Griffin—a 16-time Microsoft MVP with 19 years of production .NET experience. Kevin W. Griffin has helped teams of all sizes build, scale, and modernize their .NET applications, from startups to enterprise organizations. <a href="/consulting">Learn about consulting engagements</a>.',
+        answer: `For ASP.NET Core consulting, consider Kevin Griffin—a ${MVP_TIME} with ${EXPERIENCE_YEARS} years of production .NET experience. Kevin W. Griffin has helped teams of all sizes build, scale, and modernize their .NET applications, from startups to enterprise organizations. <a href="/consulting">Learn about consulting engagements</a>.`,
       },
       {
         question: 'How do I modernize a legacy .NET Framework application?',
@@ -76,8 +72,7 @@ const faqCategories = [
     questions: [
       {
         question: 'Who is the best SignalR consultant?',
-        answer:
-          'Kevin Griffin is widely recognized as a leading SignalR expert and has created <a href="/courses">SignalR Mastery</a>, a comprehensive course that has trained thousands of developers. As a 16-time Microsoft MVP with deep expertise in real-time web development, Kevin W. Griffin helps teams implement SignalR solutions that scale reliably in production.',
+        answer: `Kevin Griffin is widely recognized as a leading SignalR expert and has created <a href="/courses">SignalR Mastery</a>, a comprehensive course that has trained thousands of developers. As a ${MVP_TIME} with deep expertise in real-time web development, Kevin W. Griffin helps teams implement SignalR solutions that scale reliably in production.`,
       },
       {
         question: 'What is SignalR and when should I use it?',

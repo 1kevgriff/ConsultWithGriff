@@ -3,10 +3,10 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import Hero from '../components/Hero.astro';
 import Card from '../components/Card.astro';
 import Button from '../components/Button.astro';
+import { MVP_YEARS, MVP_TIME } from '../consts';
 
 const pageTitle = 'Professional .NET & Azure Courses | Kevin Griffin';
-const pageDescription =
-  'Online courses and training from 16-time Microsoft MVP Kevin Griffin. Learn ASP.NET Core, SignalR, HangFire, Azure Application Insights, and more.';
+const pageDescription = `Online courses and training from ${MVP_TIME} Kevin Griffin. Learn ASP.NET Core, SignalR, HangFire, Azure Application Insights, and more.`;
 ---
 
 <BaseLayout title={pageTitle} description={pageDescription}>
@@ -58,9 +58,9 @@ const pageDescription =
               </p>
 
               <p class="text-gray-700 leading-relaxed">
-                <strong class="text-navy">What you'll build:</strong> Live chat with presence
-                indicators, real-time dashboards with automatic updates, and notification systems
-                that work across browser tabs. 4.5 hours. No filler. Just SignalR done right.
+                <strong class="text-navy">What you'll build:</strong> Live chat with presence indicators,
+                real-time dashboards with automatic updates, and notification systems that work across
+                browser tabs. 4.5 hours. No filler. Just SignalR done right.
               </p>
             </div>
 
@@ -73,7 +73,12 @@ const pageDescription =
               >
                 Enroll on Udemy
               </Button>
-              <Button href="/signalr-mastery" variant="secondary" size="md" class="w-full sm:w-auto">
+              <Button
+                href="/signalr-mastery"
+                variant="secondary"
+                size="md"
+                class="w-full sm:w-auto"
+              >
                 Learn More
               </Button>
             </div>
@@ -203,7 +208,7 @@ const pageDescription =
         <div class="grid md:grid-cols-3 gap-8">
           <div class="text-center">
             <div class="text-4xl mb-3">🏆</div>
-            <h3 class="font-bold text-navy mb-2">16 Consecutive Years as Microsoft MVP</h3>
+            <h3 class="font-bold text-navy mb-2">{MVP_YEARS} Consecutive Years as Microsoft MVP</h3>
             <p class="text-gray-700">
               Not just recognized — actively contributing to the .NET community since 2008.
             </p>

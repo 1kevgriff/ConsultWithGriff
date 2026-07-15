@@ -1,5 +1,6 @@
 import rss from '@astrojs/rss';
 import { getCollection } from 'astro:content';
+import { MVP_TIME } from '../consts';
 
 export async function GET(context) {
   const posts = await getCollection('blog');
@@ -9,8 +10,7 @@ export async function GET(context) {
 
   return rss({
     title: 'Kevin W. Griffin - Azure & .NET Architect',
-    description:
-      'Articles on ASP.NET Core, Microsoft Azure, SignalR, and modern web development from a 16-time Microsoft MVP.',
+    description: `Articles on ASP.NET Core, Microsoft Azure, SignalR, and modern web development from a ${MVP_TIME}.`,
     site: context.site,
     items: sortedPosts.map((post) => ({
       title: post.data.title,
