@@ -20,7 +20,7 @@
     "new:post": "node scripts/new-post.js"
   },
   "dependencies": {
-    "@astrojs/rss": "^4.0.18",
+    "@astrojs/rss": "^4.0.19",
     "@astrojs/sitemap": "^3.7.3",
     "@google/genai": "^1.52.0",
     "@iconify-json/fa6-brands": "^1.2.6",
