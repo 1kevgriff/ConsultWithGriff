@@ -20,13 +20,14 @@
     "new:post": "node scripts/new-post.js"
   },
   "dependencies": {
+    "@astrojs/markdown-remark": "^7.2.2",
     "@astrojs/rss": "^4.0.19",
     "@astrojs/sitemap": "^3.7.3",
     "@google/genai": "^1.52.0",
     "@iconify-json/fa6-brands": "^1.2.6",
     "@iconify-json/fa6-solid": "^1.2.4",
     "@tailwindcss/vite": "^4.3.3",
-    "astro": "^6.4.8",
+    "astro": "^7.2.2",
     "astro-font": "^1.2.0",
     "astro-icon": "^1.1.5",
     "gray-matter": "^4.0.3",
