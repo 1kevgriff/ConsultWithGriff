@@ -2,7 +2,12 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Button from '../components/Button.astro';
 import { Icon } from 'astro-icon/components';
-import { getPraiseGroupedByYear, totalPraise, type PraiseEntry } from '../data/praise';
+import {
+  getPraiseGroupedByYear,
+  totalPraise,
+  cleanQuoteText,
+  type PraiseEntry,
+} from '../data/praise';
 
 const pageTitle = 'Praise | Kind Words About Kevin Griffin';
 const pageDescription =
@@ -18,16 +23,19 @@ const platformIcons: Record<string, string> = {
   Mastodon: 'fa6-brands:mastodon',
   Email: 'fa6-solid:envelope',
   Sessionize: 'fa6-solid:microphone',
+  Blog: 'fa6-solid:blog',
   Other: 'fa6-solid:quote-left',
 };
 
-function formatDate(dateString: string): string {
-  const date = new Date(dateString);
-  return date.toLocaleDateString('en-US', {
-    year: 'numeric',
-    month: 'short',
-    day: 'numeric',
-  });
+function getYear(dateString: string): number {
+  return new Date(dateString).getFullYear();
+}
+
+function shouldShowHandle(entry: PraiseEntry): boolean {
+  if (!entry.handle) return false;
+  const normalizedHandle = entry.handle.replace(/^@/, '').toLowerCase();
+  const normalizedName = entry.author.toLowerCase().replace(/\s+/g, '');
+  return normalizedHandle !== normalizedName;
 }
 
 const reviewSchema = {
@@ -92,72 +100,63 @@ const reviewSchema = {
                 </div>
 
                 {/* Entries for this year */}
-                <div class="space-y-6 ml-2 md:ml-4">
+                <div class="space-y-5 ml-2 md:ml-4">
                   {praiseByYear.get(year)?.map((entry: PraiseEntry) => (
                     <div class="relative pl-10 md:pl-14">
                       {/* Timeline dot */}
-                      <div class="absolute left-2 md:left-4 top-6 w-3 h-3 bg-gold rounded-full border-2 border-white shadow-sm" />
+                      <div class="absolute left-2 md:left-4 top-6 w-3 h-3 bg-[#0e666b] rounded-full border-2 border-white shadow-sm" />
 
-                      {/* Quote card */}
-                      <div class="bg-gray-50 rounded-xl p-6 shadow-sm border border-gray-100 hover:shadow-md hover:border-gold/30 transition-all duration-200">
-                        {/* Quote text */}
-                        <blockquote class="text-gray-800 leading-relaxed mb-4">
-                          <Icon
-                            name="fa6-solid:quote-left"
-                            class="w-4 h-4 text-gold inline-block mr-2 -mt-1 opacity-60"
-                          />
-                          <span class="whitespace-pre-line">{entry.quote}</span>
-                        </blockquote>
+                      {/* Quote card - entire card links to source */}
+                      <a
+                        href={entry.sourceUrl || '#'}
+                        target={entry.sourceUrl ? '_blank' : undefined}
+                        rel={entry.sourceUrl ? 'noopener noreferrer' : undefined}
+                        class:list={[
+                          'block rounded-lg overflow-hidden shadow-sm transition-all duration-200',
+                          entry.sourceUrl ? 'hover:shadow-md cursor-pointer' : 'cursor-default',
+                        ]}
+                      >
+                        <div class="flex">
+                          {/* Teal left bar */}
+                          <div class="w-1 bg-[#0e666b] flex-shrink-0" />
 
-                        {/* Attribution row */}
-                        <div class="flex flex-wrap items-center justify-between gap-3 pt-4 border-t border-gray-200">
-                          {/* Author info */}
-                          <div class="flex items-center gap-3">
-                            <div class="flex items-center justify-center w-8 h-8 rounded-full bg-navy/10">
+                          {/* Card content */}
+                          <div class="flex-1 bg-[#faf9f7] p-5 md:p-6">
+                            {/* Quote text with large quote mark */}
+                            <blockquote class="mb-4">
+                              <Icon
+                                name="fa6-solid:quote-left"
+                                class="w-8 h-8 text-[#0e666b] mb-2 block"
+                              />
+                              <p class="text-gray-900 text-lg md:text-xl font-bold leading-relaxed whitespace-pre-line">
+                                {cleanQuoteText(entry.quote)}
+                              </p>
+                            </blockquote>
+
+                            {/* Footer: Author · Event · Year | Platform icon */}
+                            <div class="flex items-center justify-between pt-3 border-t border-gray-200">
+                              <div class="flex flex-wrap items-center gap-x-1 text-sm">
+                                <span class="font-bold text-gray-900">{entry.author}</span>
+                                {shouldShowHandle(entry) && (
+                                  <span class="text-gray-500">{entry.handle}</span>
+                                )}
+                                {entry.event && !entry.eventInferred && (
+                                  <>
+                                    <span class="text-[#0e666b] mx-1">·</span>
+                                    <span class="text-[#0e666b]">{entry.event}</span>
+                                  </>
+                                )}
+                                <span class="text-[#0e666b] mx-1">·</span>
+                                <span class="text-[#0e666b]">{getYear(entry.date)}</span>
+                              </div>
                               <Icon
                                 name={platformIcons[entry.platform] || platformIcons.Other}
-                                class="w-4 h-4 text-navy"
+                                class="w-4 h-4 text-gray-400 flex-shrink-0 ml-2"
                               />
                             </div>
-                            <div>
-                              <div class="font-semibold text-navy text-sm">{entry.author}</div>
-                              {entry.handle && (
-                                <div class="text-xs text-gray-500">{entry.handle}</div>
-                              )}
-                            </div>
-                          </div>
-
-                          {/* Event and date */}
-                          <div class="text-right text-xs">
-                            {entry.event && (
-                              <div
-                                class:list={[
-                                  'mb-0.5',
-                                  entry.eventInferred
-                                    ? 'text-gray-400 italic'
-                                    : 'font-medium text-navy-600',
-                                ]}
-                              >
-                                {entry.event}
-                              </div>
-                            )}
-                            <div class="text-gray-400">{formatDate(entry.date)}</div>
                           </div>
                         </div>
-
-                        {/* Source link */}
-                        {entry.sourceUrl && (
-                          <a
-                            href={entry.sourceUrl}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            class="inline-flex items-center gap-1.5 text-xs text-navy/70 hover:text-gold transition-colors mt-3"
-                          >
-                            <span>View on {entry.platform}</span>
-                            <Icon name="fa6-solid:arrow-up-right-from-square" class="w-2.5 h-2.5" />
-                          </a>
-                        )}
-                      </div>
+                      </a>
                     </div>
                   ))}
                 </div>

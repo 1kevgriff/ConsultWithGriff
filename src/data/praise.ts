@@ -31,14 +31,7 @@
  */
 
 export type Platform =
-  | 'X'
-  | 'LinkedIn'
-  | 'Bluesky'
-  | 'Mastodon'
-  | 'Email'
-  | 'Sessionize'
-  | 'Blog'
-  | 'Other';
+  'X' | 'LinkedIn' | 'Bluesky' | 'Mastodon' | 'Email' | 'Sessionize' | 'Blog' | 'Other';
 
 export interface PraiseEntry {
   /** The testimonial quote text */
@@ -356,8 +349,7 @@ export const PRAISE: PraiseEntry[] = [
     event: 'JetBrains webinar – Dapper',
   },
   {
-    quote:
-      '@boyersnet @plantpowerjames @davidfowl @TheCodeTraveler Check out @1kevgriff\'s work.',
+    quote: "@boyersnet @plantpowerjames @davidfowl @TheCodeTraveler Check out @1kevgriff's work.",
     author: 'Chuck Boyer',
     handle: '@boyersnet',
     platform: 'X',
@@ -378,7 +370,7 @@ export const PRAISE: PraiseEntry[] = [
   // 2021
   {
     quote:
-      'Hi Kevin. Read your article about SignalR and message delivery guarantees. Very informative! I think this is not SignalR\'s responsibility. Could implememt queues and have services determing which connected clients have pending messages for delivery. and process those.',
+      "Hi Kevin. Read your article about SignalR and message delivery guarantees. Very informative! I think this is not SignalR's responsibility. Could implememt queues and have services determing which connected clients have pending messages for delivery. and process those.",
     author: 'Panos Anastasiadis',
     handle: '@panos_pd',
     platform: 'X',
@@ -545,7 +537,7 @@ export const PRAISE: PraiseEntry[] = [
   },
   {
     quote:
-      "@1kevgriff, thanks for the talk on masterminds. It was insightful and is pushing me to start one. You are the straw that broke the camels back. #kcdc2019 https://t.co/vTwytEI5LU",
+      '@1kevgriff, thanks for the talk on masterminds. It was insightful and is pushing me to start one. You are the straw that broke the camels back. #kcdc2019 https://t.co/vTwytEI5LU',
     author: 'Amos King - lucky husband',
     handle: '@Adkron',
     platform: 'X',
@@ -565,7 +557,7 @@ export const PRAISE: PraiseEntry[] = [
   },
   {
     quote:
-      "Really enjoyed @revconf this year. The event was well planned, the talks were great, and the atmosphere was inviting. Hampton Roads is incredible. Thank you @lynnaloo @1kevgriff @keithprivette @tealMage @alexproaps @taylorka.",
+      'Really enjoyed @revconf this year. The event was well planned, the talks were great, and the atmosphere was inviting. Hampton Roads is incredible. Thank you @lynnaloo @1kevgriff @keithprivette @tealMage @alexproaps @taylorka.',
     author: 'guillermo is around',
     handle: '@guillermoandrae',
     platform: 'X',
@@ -575,7 +567,7 @@ export const PRAISE: PraiseEntry[] = [
   },
   {
     quote:
-      "My first technology conference was amazing!!! Thanks to @ParissAthena for creating #BlackTechTwitter because without it I would have never found out about @revconf #RevConf!!\n\nThank you @1kevgriff @keithprivette & the rest of the team for so much love! #diversityscholarship 🌊💻 https://t.co/JWCk0Nw3fZ",
+      'My first technology conference was amazing!!! Thanks to @ParissAthena for creating #BlackTechTwitter because without it I would have never found out about @revconf #RevConf!!\n\nThank you @1kevgriff @keithprivette & the rest of the team for so much love! #diversityscholarship 🌊💻 https://t.co/JWCk0Nw3fZ',
     author: '🇵🇦 Anji Ray™ 🇺🇸',
     handle: '@anjiray',
     platform: 'X',
@@ -595,7 +587,7 @@ export const PRAISE: PraiseEntry[] = [
   },
   {
     quote:
-      "@1kevgriff I was able to get the slides. Thank you very much. I was in your presentation at codemash regarding remote meetings/accountability/encouragers.\n\nThanks for all your help.",
+      '@1kevgriff I was able to get the slides. Thank you very much. I was in your presentation at codemash regarding remote meetings/accountability/encouragers.\n\nThanks for all your help.',
     author: 'Steve Graber',
     handle: '@s_graber',
     platform: 'X',
@@ -627,7 +619,7 @@ export const PRAISE: PraiseEntry[] = [
   // 2018
   {
     quote:
-      "@brendoneus @ardalis @CanadianJames @cc_jonknapp @guyroyse @1kevgriff @MaximRouiller @Poly_Sigh @sdw_de @stimms It was amazing that after 5 hours of collaboration and coding the game was functional and looked awesome. Thanks for the great experience! @code live share is great.",
+      '@brendoneus @ardalis @CanadianJames @cc_jonknapp @guyroyse @1kevgriff @MaximRouiller @Poly_Sigh @sdw_de @stimms It was amazing that after 5 hours of collaboration and coding the game was functional and looked awesome. Thanks for the great experience! @code live share is great.',
     author: 'Tosho Toshev',
     handle: '@Cracker4o',
     platform: 'X',
@@ -637,7 +629,7 @@ export const PRAISE: PraiseEntry[] = [
   },
   {
     quote:
-      "Having trouble picking your next web framework?  Check out this great episode of the Swift Kick Show with Kevin Griffin and Steve Albers where they talk about some lessons learned from the field. https://t.co/h7BZqaZXdW https://t.co/t2dqjTTr8J",
+      'Having trouble picking your next web framework?  Check out this great episode of the Swift Kick Show with Kevin Griffin and Steve Albers where they talk about some lessons learned from the field. https://t.co/h7BZqaZXdW https://t.co/t2dqjTTr8J',
     author: 'Carsten Hoffrichter',
     handle: '@carstenh1985',
     platform: 'X',
@@ -696,7 +688,7 @@ export const PRAISE: PraiseEntry[] = [
   },
   {
     quote:
-      "Really have enjoyed learning and connecting with all the outstanding professionals and outstanding people who have reminded me of just how amazing it is to be a software engineer.  Thanks so much #RevConf #best #energized @1kevgriff @nodejs @dotnet https://t.co/ZcLHdpK59Y",
+      'Really have enjoyed learning and connecting with all the outstanding professionals and outstanding people who have reminded me of just how amazing it is to be a software engineer.  Thanks so much #RevConf #best #energized @1kevgriff @nodejs @dotnet https://t.co/ZcLHdpK59Y',
     author: 'Lee Talley',
     handle: '@ALeeTalley',
     platform: 'X',
@@ -788,7 +780,7 @@ export const PRAISE: PraiseEntry[] = [
   // 2016
   {
     quote:
-      'Great #revconf planning session with @1kevgriff  and @lynnaloo. It\'s going to be amazing!',
+      "Great #revconf planning session with @1kevgriff  and @lynnaloo. It's going to be amazing!",
     author: 'Erik J. Olson',
     handle: '@iamerikjolson',
     platform: 'X',
@@ -939,7 +931,7 @@ export const PRAISE: PraiseEntry[] = [
   },
   {
     quote:
-      '@craigber The Bank of Griff is still the best SignalR demo I\'ve ever seen. // @1kevgriff',
+      "@craigber The Bank of Griff is still the best SignalR demo I've ever seen. // @1kevgriff",
     author: 'Richard Dudley',
     handle: '@rj_dudley',
     platform: 'X',
@@ -987,7 +979,7 @@ export const PRAISE: PraiseEntry[] = [
   },
   {
     quote:
-      '@1kevgriff hoping you\'ll have a link to slides for your talk on JS promises. Enjoyed your talk on #SignalR at #CodeStock #CodeStock214',
+      "@1kevgriff hoping you'll have a link to slides for your talk on JS promises. Enjoyed your talk on #SignalR at #CodeStock #CodeStock214",
     author: 'Joel',
     handle: '@joelmdev',
     platform: 'X',
@@ -1067,7 +1059,7 @@ export const PRAISE: PraiseEntry[] = [
   },
   {
     quote:
-      '@1kevgriff Great session! You have the most clear and helpful explanation of require I\'ve ever seen. Thanks!',
+      "@1kevgriff Great session! You have the most clear and helpful explanation of require I've ever seen. Thanks!",
     author: 'Nathan Honeycutt',
     handle: '@nlhoneycutt',
     platform: 'X',
@@ -1188,7 +1180,7 @@ export const PRAISE: PraiseEntry[] = [
   },
   {
     quote:
-      'thanks @1kevgriff for speaking to the @RADNUG group last night! great info on #signalR, now I\'m ready to build some #realtime apps easily!',
+      "thanks @1kevgriff for speaking to the @RADNUG group last night! great info on #signalR, now I'm ready to build some #realtime apps easily!",
     author: 'aquaseal',
     handle: '@aquaseal',
     platform: 'X',
@@ -1207,7 +1199,8 @@ export const PRAISE: PraiseEntry[] = [
     event: 'RADNUG – SignalR, Oct 2012',
   },
   {
-    quote: '@1kevgriff @madskristensen Thanks for adding that session at the last minute, enjoyed it.',
+    quote:
+      '@1kevgriff @madskristensen Thanks for adding that session at the last minute, enjoyed it.',
     author: 'Eric Rohlfs',
     handle: '@ericrohlfs',
     platform: 'X',
@@ -1256,8 +1249,7 @@ export const PRAISE: PraiseEntry[] = [
     event: 'CodeStock 2012 – Real-time dashboards',
   },
   {
-    quote:
-      '@DavidGiard @1kevgriff Nice #TechnologyAndFriends episode on #SignalR .. good stuff.',
+    quote: '@DavidGiard @1kevgriff Nice #TechnologyAndFriends episode on #SignalR .. good stuff.',
     author: 'Sam Basu',
     handle: '@samidip',
     platform: 'X',
@@ -1266,7 +1258,8 @@ export const PRAISE: PraiseEntry[] = [
     event: 'Technology and Friends – SignalR episode',
   },
   {
-    quote: '@1kevgriff Very informative presentation of MVC at #carolinacc!  Hope to hear you again!',
+    quote:
+      '@1kevgriff Very informative presentation of MVC at #carolinacc!  Hope to hear you again!',
     author: 'Worker from USA',
     handle: '@Clutthewindow',
     platform: 'X',
@@ -1379,8 +1372,7 @@ export const PRAISE: PraiseEntry[] = [
     event: 'CMAP – SignalR, Feb 2012',
   },
   {
-    quote:
-      'Funny smart excellent style @1kevgriff is my new hero what a presentation at cmap!!!',
+    quote: 'Funny smart excellent style @1kevgriff is my new hero what a presentation at cmap!!!',
     author: 'markkloch',
     handle: '@markkloch',
     platform: 'X',
@@ -1502,4 +1494,30 @@ export function getUniquePlatforms(): Platform[] {
 /** Get unique events mentioned in the praise */
 export function getUniqueEvents(): string[] {
   return [...new Set(PRAISE.filter((p) => p.event).map((p) => p.event!))];
+}
+
+/**
+ * Clean up quote text for display:
+ * - Strip leading @mentions (e.g., "@1kevgriff " at the start)
+ * - Strip trailing "// @1kevgriff"
+ * - Strip trailing URLs (https://... or http://...)
+ * - Strip trailing hashtags (#word)
+ * - Never change actual words in the quote
+ */
+export function cleanQuoteText(quote: string): string {
+  let cleaned = quote;
+
+  // Strip leading @mentions (one or more at the start, followed by space)
+  cleaned = cleaned.replace(/^(?:@\S+\s+)+/, '');
+
+  // Strip trailing "// @1kevgriff" pattern
+  cleaned = cleaned.replace(/\s*\/\/\s*@1kevgriff\s*$/i, '');
+
+  // Strip trailing URLs (can be multiple, with optional whitespace between)
+  cleaned = cleaned.replace(/(?:\s+https?:\/\/\S+)+\s*$/, '');
+
+  // Strip trailing hashtags (can be multiple, with optional whitespace between)
+  cleaned = cleaned.replace(/(?:\s+#\S+)+\s*$/, '');
+
+  return cleaned.trim();
 }
