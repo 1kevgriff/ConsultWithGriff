@@ -1,0 +1,217 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Hero from '../components/Hero.astro';
+import Card from '../components/Card.astro';
+import Button from '../components/Button.astro';
+import { Icon } from 'astro-icon/components';
+import { getPraiseSortedByDate, type PraiseEntry } from '../data/praise';
+
+const pageTitle = 'Praise | Kind Words About Kevin Griffin';
+const pageDescription =
+  "Testimonials and kind words from developers, conference attendees, and colleagues about Kevin Griffin's talks, workshops, and consulting work.";
+
+const praiseEntries = getPraiseSortedByDate();
+
+const platformIcons: Record<string, string> = {
+  X: 'fa6-brands:x-twitter',
+  LinkedIn: 'fa6-brands:linkedin',
+  Bluesky: 'fa6-brands:bluesky',
+  Mastodon: 'fa6-brands:mastodon',
+  Email: 'fa6-solid:envelope',
+  Sessionize: 'fa6-solid:microphone',
+  Other: 'fa6-solid:quote-left',
+};
+
+function formatDate(dateString: string): string {
+  const date = new Date(dateString);
+  return date.toLocaleDateString('en-US', {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric',
+  });
+}
+
+const reviewSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'ItemList',
+  name: 'Testimonials for Kevin Griffin',
+  description: pageDescription,
+  itemListElement: praiseEntries.map((entry, index) => ({
+    '@type': 'ListItem',
+    position: index + 1,
+    item: {
+      '@type': 'Review',
+      reviewBody: entry.quote,
+      author: {
+        '@type': 'Person',
+        name: entry.author,
+      },
+      datePublished: entry.date,
+      itemReviewed: {
+        '@type': 'Person',
+        name: 'Kevin Griffin',
+        url: 'https://consultwithgriff.com/about',
+      },
+    },
+  })),
+};
+---
+
+<BaseLayout title={pageTitle} description={pageDescription}>
+  <Fragment slot="head">
+    <link rel="canonical" href="https://consultwithgriff.com/praise" />
+    <script type="application/ld+json" set:html={JSON.stringify(reviewSchema)} />
+  </Fragment>
+
+  <!-- Hero Section -->
+  <Hero
+    title="Kind Words"
+    subtitle="Testimonials from developers, conference attendees, and colleagues about my talks, workshops, and work"
+    primaryCTA={{
+      text: 'Book Me to Speak',
+      href: 'https://sessionize.com/kevingriffin/',
+    }}
+    secondaryCTA={{ text: 'Work With Me', href: '/consulting' }}
+  />
+
+  <!-- Praise Section -->
+  <section class="py-20 bg-white">
+    <div class="container mx-auto px-4 lg:px-8">
+      <div class="max-w-4xl mx-auto">
+        <div class="space-y-8">
+          {
+            praiseEntries.map((entry: PraiseEntry) => (
+              <Card variant="light" hover={false}>
+                <div class="flex flex-col gap-4">
+                  {/* Quote */}
+                  <blockquote class="text-xl text-gray-800 leading-relaxed italic">
+                    <Icon
+                      name="fa6-solid:quote-left"
+                      class="w-6 h-6 text-gold inline-block mr-2 -mt-1"
+                    />
+                    {entry.quote}
+                  </blockquote>
+
+                  {/* Attribution */}
+                  <div class="flex flex-wrap items-center justify-between gap-4 pt-4 border-t border-gray-200">
+                    <div class="flex items-center gap-3">
+                      <Icon
+                        name={platformIcons[entry.platform] || platformIcons.Other}
+                        class="w-5 h-5 text-navy"
+                      />
+                      <div>
+                        <div class="font-bold text-navy">{entry.author}</div>
+                        {entry.handle && <div class="text-sm text-gray-500">{entry.handle}</div>}
+                      </div>
+                    </div>
+
+                    <div class="text-right text-sm text-gray-500">
+                      {entry.event && <div class="font-medium text-navy">{entry.event}</div>}
+                      {entry.talk && <div class="italic">"{entry.talk}"</div>}
+                      <div>{formatDate(entry.date)}</div>
+                    </div>
+                  </div>
+
+                  {/* Source Link */}
+                  {entry.sourceUrl && (
+                    <a
+                      href={entry.sourceUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      class="inline-flex items-center gap-2 text-sm text-navy hover:text-gold transition-colors self-end"
+                    >
+                      <span>View original on {entry.platform}</span>
+                      <Icon name="fa6-solid:arrow-up-right-from-square" class="w-3 h-3" />
+                    </a>
+                  )}
+                </div>
+              </Card>
+            ))
+          }
+        </div>
+
+        {
+          praiseEntries.length === 0 && (
+            <Card variant="light" hover={false} class="text-center py-12">
+              <p class="text-gray-600 text-lg">
+                No testimonials yet. Check back soon for kind words from the community!
+              </p>
+            </Card>
+          )
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- Share Your Experience CTA -->
+  <section class="py-20 bg-gray-50">
+    <div class="container mx-auto px-4 lg:px-8">
+      <div class="max-w-3xl mx-auto text-center">
+        <h2 class="text-3xl font-bold text-navy mb-6">Attended One of My Talks?</h2>
+        <p class="text-xl text-gray-700 mb-8">
+          I'd love to hear your feedback! Share your experience on social media and tag me, or send
+          me a message directly.
+        </p>
+
+        <div class="flex flex-wrap justify-center gap-6 mb-8">
+          <a
+            href="https://twitter.com/1kevgriff"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="flex items-center gap-2 text-navy hover:text-gold transition-colors"
+          >
+            <Icon name="fa6-brands:x-twitter" class="w-5 h-5" />
+            <span class="font-semibold">@1kevgriff</span>
+          </a>
+          <a
+            href="https://bsky.app/profile/consultwithgriff.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="flex items-center gap-2 text-navy hover:text-gold transition-colors"
+          >
+            <Icon name="fa6-brands:bluesky" class="w-5 h-5" />
+            <span class="font-semibold">Bluesky</span>
+          </a>
+          <a
+            href="https://www.linkedin.com/in/1kevgriff/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="flex items-center gap-2 text-navy hover:text-gold transition-colors"
+          >
+            <Icon name="fa6-brands:linkedin" class="w-5 h-5" />
+            <span class="font-semibold">LinkedIn</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="py-20 bg-gold">
+    <div class="container mx-auto px-4 lg:px-8">
+      <div class="max-w-3xl mx-auto text-center">
+        <h2 class="text-3xl lg:text-4xl font-bold text-navy mb-6">
+          Want Me to Speak at Your Event?
+        </h2>
+        <p class="text-xl text-navy mb-8">
+          I speak on SignalR, .NET architecture, Azure, and lessons learned from building production
+          systems. Let's bring practical insights to your audience.
+        </p>
+
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <Button
+            href="https://sessionize.com/kevingriffin/"
+            variant="primary"
+            size="lg"
+            class="!bg-navy !text-gold border-2 border-navy hover:!bg-navy-light"
+          >
+            View Speaker Profile
+          </Button>
+          <Button href="/contact" variant="secondary" size="lg" class="border-navy text-navy">
+            Get in Touch
+          </Button>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
