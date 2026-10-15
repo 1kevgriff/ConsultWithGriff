@@ -1,6 +1,5 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import Hero from '../components/Hero.astro';
 import Button from '../components/Button.astro';
 import { Icon } from 'astro-icon/components';
 import { getPraiseGroupedByYear, totalPraise, type PraiseEntry } from '../data/praise';
@@ -66,21 +65,13 @@ const reviewSchema = {
     <script type="application/ld+json" set:html={JSON.stringify(reviewSchema)} />
   </Fragment>
 
-  <!-- Hero Section -->
-  <Hero
-    title="Kind Words"
-    subtitle={`${totalPraise} testimonials from developers, conference attendees, and colleagues spanning ${years[years.length - 1]} to ${years[0]}`}
-    primaryCTA={{
-      text: 'Book Me to Speak',
-      href: 'https://sessionize.com/kevingriffin/',
-    }}
-    secondaryCTA={{ text: 'Work With Me', href: '/consulting' }}
-  />
-
   <!-- Timeline Section -->
-  <section class="py-16 bg-white">
+  <section class="py-12 bg-white">
     <div class="container mx-auto px-4 lg:px-8">
       <div class="max-w-4xl mx-auto">
+        <!-- Page Title -->
+        <h1 class="text-3xl font-bold text-navy mb-8">Kind Words</h1>
+
         <!-- Timeline -->
         <div class="relative">
           <!-- Timeline line -->
@@ -139,7 +130,16 @@ const reviewSchema = {
                           {/* Event and date */}
                           <div class="text-right text-xs">
                             {entry.event && (
-                              <div class="font-medium text-navy-600 mb-0.5">{entry.event}</div>
+                              <div
+                                class:list={[
+                                  'mb-0.5',
+                                  entry.eventInferred
+                                    ? 'text-gray-400 italic'
+                                    : 'font-medium text-navy-600',
+                                ]}
+                              >
+                                {entry.event}
+                              </div>
                             )}
                             <div class="text-gray-400">{formatDate(entry.date)}</div>
                           </div>
