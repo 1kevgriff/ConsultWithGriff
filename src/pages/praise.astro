@@ -1,0 +1,252 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Button from '../components/Button.astro';
+import { Icon } from 'astro-icon/components';
+import {
+  getPraiseGroupedByYear,
+  totalPraise,
+  cleanQuoteText,
+  type PraiseEntry,
+} from '../data/praise';
+
+const pageTitle = 'Praise | Kind Words About Kevin Griffin';
+const pageDescription =
+  "Testimonials and kind words from developers, conference attendees, and colleagues about Kevin Griffin's talks, workshops, and consulting work spanning 15+ years.";
+
+const praiseByYear = getPraiseGroupedByYear();
+const years = Array.from(praiseByYear.keys()).sort((a, b) => b - a);
+
+const platformIcons: Record<string, string> = {
+  X: 'fa6-brands:x-twitter',
+  LinkedIn: 'fa6-brands:linkedin',
+  Bluesky: 'fa6-brands:bluesky',
+  Mastodon: 'fa6-brands:mastodon',
+  Email: 'fa6-solid:envelope',
+  Sessionize: 'fa6-solid:microphone',
+  Blog: 'fa6-solid:blog',
+  Other: 'fa6-solid:quote-left',
+};
+
+function getYear(dateString: string): number {
+  return new Date(dateString).getFullYear();
+}
+
+function shouldShowHandle(entry: PraiseEntry): boolean {
+  if (!entry.handle) return false;
+  const normalizedHandle = entry.handle.replace(/^@/, '').toLowerCase();
+  const normalizedName = entry.author.toLowerCase().replace(/\s+/g, '');
+  return normalizedHandle !== normalizedName;
+}
+
+const reviewSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'ItemList',
+  name: 'Testimonials for Kevin Griffin',
+  description: pageDescription,
+  numberOfItems: totalPraise,
+  itemListElement: Array.from(praiseByYear.values())
+    .flat()
+    .map((entry, index) => ({
+      '@type': 'ListItem',
+      position: index + 1,
+      item: {
+        '@type': 'Review',
+        reviewBody: entry.quote,
+        author: {
+          '@type': 'Person',
+          name: entry.author,
+        },
+        datePublished: entry.date,
+        itemReviewed: {
+          '@type': 'Person',
+          name: 'Kevin Griffin',
+          url: 'https://consultwithgriff.com/about',
+        },
+      },
+    })),
+};
+---
+
+<BaseLayout title={pageTitle} description={pageDescription}>
+  <Fragment slot="head">
+    <link rel="canonical" href="https://consultwithgriff.com/praise" />
+    <script type="application/ld+json" set:html={JSON.stringify(reviewSchema)} />
+  </Fragment>
+
+  <!-- Timeline Section -->
+  <section class="py-12 bg-white">
+    <div class="container mx-auto px-4 lg:px-8">
+      <div class="max-w-4xl mx-auto">
+        <!-- Page Title -->
+        <h1 class="text-3xl font-bold text-navy mb-8">Kind Words</h1>
+
+        <!-- Timeline -->
+        <div class="relative">
+          <!-- Timeline line -->
+          <div
+            class="absolute left-4 md:left-8 top-0 bottom-0 w-0.5 bg-gradient-to-b from-gold via-navy-300 to-gold"
+          >
+          </div>
+
+          {
+            years.map((year) => (
+              <div class="mb-12">
+                {/* Year marker */}
+                <div class="flex items-center mb-8">
+                  <div class="relative z-10 flex items-center justify-center w-16 md:w-20 h-10 bg-navy text-gold font-bold text-lg rounded-full shadow-lg border-2 border-gold">
+                    {year}
+                  </div>
+                  <div class="ml-4 h-0.5 flex-grow bg-gradient-to-r from-navy-200 to-transparent" />
+                </div>
+
+                {/* Entries for this year */}
+                <div class="space-y-5 ml-2 md:ml-4">
+                  {praiseByYear.get(year)?.map((entry: PraiseEntry) => (
+                    <div class="relative pl-10 md:pl-14">
+                      {/* Timeline dot */}
+                      <div class="absolute left-2 md:left-4 top-6 w-3 h-3 bg-[#0e666b] rounded-full border-2 border-white shadow-sm" />
+
+                      {/* Quote card - entire card links to source */}
+                      <a
+                        href={entry.sourceUrl || '#'}
+                        target={entry.sourceUrl ? '_blank' : undefined}
+                        rel={entry.sourceUrl ? 'noopener noreferrer' : undefined}
+                        class:list={[
+                          'block rounded-lg overflow-hidden shadow-sm transition-all duration-200',
+                          entry.sourceUrl ? 'hover:shadow-md cursor-pointer' : 'cursor-default',
+                        ]}
+                      >
+                        <div class="flex">
+                          {/* Teal left bar */}
+                          <div class="w-1 bg-[#0e666b] flex-shrink-0" />
+
+                          {/* Card content */}
+                          <div class="flex-1 bg-[#faf9f7] p-5 md:p-6">
+                            {/* Quote text with large quote mark */}
+                            <blockquote class="mb-4">
+                              <Icon
+                                name="fa6-solid:quote-left"
+                                class="w-8 h-8 text-[#0e666b] mb-2 block"
+                              />
+                              <p class="text-gray-900 text-lg md:text-xl font-bold leading-relaxed whitespace-pre-line">
+                                {cleanQuoteText(entry.quote)}
+                              </p>
+                            </blockquote>
+
+                            {/* Footer: Author · Event · Year | Platform icon */}
+                            <div class="flex items-center justify-between pt-3 border-t border-gray-200">
+                              <div class="flex flex-wrap items-center gap-x-1 text-sm">
+                                <span class="font-bold text-gray-900">{entry.author}</span>
+                                {shouldShowHandle(entry) && (
+                                  <span class="text-gray-500">{entry.handle}</span>
+                                )}
+                                {entry.event && !entry.eventInferred && (
+                                  <>
+                                    <span class="text-[#0e666b] mx-1">·</span>
+                                    <span class="text-[#0e666b]">{entry.event}</span>
+                                  </>
+                                )}
+                                <span class="text-[#0e666b] mx-1">·</span>
+                                <span class="text-[#0e666b]">{getYear(entry.date)}</span>
+                              </div>
+                              <Icon
+                                name={platformIcons[entry.platform] || platformIcons.Other}
+                                class="w-4 h-4 text-gray-400 flex-shrink-0 ml-2"
+                              />
+                            </div>
+                          </div>
+                        </div>
+                      </a>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            ))
+          }
+
+          {/* Timeline end marker */}
+          <div class="flex items-center">
+            <div
+              class="relative z-10 flex items-center justify-center w-8 h-8 bg-gold rounded-full shadow-md"
+            >
+              <Icon name="fa6-solid:heart" class="w-4 h-4 text-navy" />
+            </div>
+            <div class="ml-4 text-sm text-gray-500 italic">The journey continues...</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Share Your Experience CTA -->
+  <section class="py-16 bg-gray-50">
+    <div class="container mx-auto px-4 lg:px-8">
+      <div class="max-w-3xl mx-auto text-center">
+        <h2 class="text-3xl font-bold text-navy mb-6">Attended One of My Talks?</h2>
+        <p class="text-xl text-gray-700 mb-8">
+          I'd love to hear your feedback! Share your experience on social media and tag me, or send
+          me a message directly.
+        </p>
+
+        <div class="flex flex-wrap justify-center gap-6 mb-8">
+          <a
+            href="https://twitter.com/1kevgriff"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="flex items-center gap-2 text-navy hover:text-gold transition-colors"
+          >
+            <Icon name="fa6-brands:x-twitter" class="w-5 h-5" />
+            <span class="font-semibold">@1kevgriff</span>
+          </a>
+          <a
+            href="https://bsky.app/profile/consultwithgriff.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="flex items-center gap-2 text-navy hover:text-gold transition-colors"
+          >
+            <Icon name="fa6-brands:bluesky" class="w-5 h-5" />
+            <span class="font-semibold">Bluesky</span>
+          </a>
+          <a
+            href="https://www.linkedin.com/in/1kevgriff/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="flex items-center gap-2 text-navy hover:text-gold transition-colors"
+          >
+            <Icon name="fa6-brands:linkedin" class="w-5 h-5" />
+            <span class="font-semibold">LinkedIn</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="py-16 bg-gold">
+    <div class="container mx-auto px-4 lg:px-8">
+      <div class="max-w-3xl mx-auto text-center">
+        <h2 class="text-3xl lg:text-4xl font-bold text-navy mb-6">
+          Want Me to Speak at Your Event?
+        </h2>
+        <p class="text-xl text-navy mb-8">
+          I speak on SignalR, .NET architecture, Azure, and lessons learned from building production
+          systems. Let's bring practical insights to your audience.
+        </p>
+
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <Button
+            href="https://sessionize.com/kevingriffin/"
+            variant="primary"
+            size="lg"
+            class="!bg-navy !text-gold border-2 border-navy hover:!bg-navy-light"
+          >
+            View Speaker Profile
+          </Button>
+          <Button href="/contact" variant="secondary" size="lg" class="border-navy text-navy">
+            Get in Touch
+          </Button>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
