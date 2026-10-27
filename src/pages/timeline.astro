@@ -1,0 +1,331 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import {
+  getEventsByYear,
+  totalEvents,
+  speakingEvents,
+  organizingEvents,
+  yearsActive,
+  type TimelineEvent,
+  type EventType,
+} from '../data/timeline';
+
+const yearGroups = getEventsByYear();
+const firstYear = yearGroups[yearGroups.length - 1]?.year ?? 2009;
+const latestYear = yearGroups[0]?.year ?? new Date().getFullYear();
+
+const pageTitle = 'Speaking & Organizing Timeline | Kevin W. Griffin';
+const pageDescription = `${totalEvents} speaking engagements and events from ${firstYear} to ${latestYear}. Conferences, code camps, user groups, and community organizing across ${yearsActive} years.`;
+const canonicalUrl = 'https://consultwithgriff.com/timeline';
+
+function formatDate(dateStr: string): string {
+  if (!dateStr) return '';
+  if (dateStr.length === 4) return dateStr;
+  if (dateStr.length === 7) {
+    const [year, month] = dateStr.split('-');
+    const monthNames = [
+      'Jan',
+      'Feb',
+      'Mar',
+      'Apr',
+      'May',
+      'Jun',
+      'Jul',
+      'Aug',
+      'Sep',
+      'Oct',
+      'Nov',
+      'Dec',
+    ];
+    return `${monthNames[parseInt(month, 10) - 1]} ${year}`;
+  }
+  const date = new Date(dateStr);
+  return date.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+}
+
+function getBadgeClasses(type: EventType): string {
+  if (type === 'organizing') {
+    return 'bg-gold text-navy';
+  }
+  return 'bg-navy text-white';
+}
+
+function getBadgeLabel(type: EventType): string {
+  return type === 'organizing' ? 'Organizing' : 'Speaking';
+}
+---
+
+<BaseLayout title={pageTitle} description={pageDescription}>
+  <Fragment slot="head">
+    <link rel="canonical" href={canonicalUrl} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={pageTitle} />
+    <meta name="twitter:description" content={pageDescription} />
+    <meta name="twitter:image" content="https://consultwithgriff.com/og/default.png" />
+    <meta name="twitter:site" content="@1kevgriff" />
+    <meta name="twitter:creator" content="@1kevgriff" />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={pageDescription} />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="https://consultwithgriff.com/og/default.png" />
+  </Fragment>
+
+  <!-- Hero -->
+  <section class="bg-navy text-white py-16 lg:py-24 relative overflow-hidden">
+    <div class="container mx-auto px-4 lg:px-8 relative">
+      <div class="max-w-5xl mx-auto text-center">
+        <p class="text-sm lg:text-base uppercase tracking-[0.3em] text-gold font-semibold mb-4">
+          Speaking & Organizing
+        </p>
+        <h1 class="text-4xl lg:text-6xl font-bold mb-6">Timeline</h1>
+        <p class="text-xl lg:text-2xl text-gray-200 mb-8 max-w-3xl mx-auto">
+          {yearsActive} years of conferences, code camps, user groups, and community building.
+        </p>
+        <div class="flex flex-wrap justify-center gap-4 text-sm">
+          <span
+            class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 backdrop-blur"
+          >
+            <span class="font-bold text-gold">{totalEvents}</span>
+            <span class="text-gray-300">total events</span>
+          </span>
+          <span
+            class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 backdrop-blur"
+          >
+            <span class="font-bold text-gold">{speakingEvents}</span>
+            <span class="text-gray-300">speaking</span>
+          </span>
+          <span
+            class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 backdrop-blur"
+          >
+            <span class="font-bold text-gold">{organizingEvents}</span>
+            <span class="text-gray-300">organizing</span>
+          </span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Filter Controls -->
+  <section class="sticky top-20 z-30 bg-white/95 backdrop-blur border-b border-gray-200 shadow-sm">
+    <div class="container mx-auto px-4 lg:px-8">
+      <div class="flex flex-wrap items-center justify-between gap-4 py-4">
+        <div class="flex items-center gap-2">
+          <span class="text-sm font-semibold text-gray-600">Filter:</span>
+          <button
+            id="filter-all"
+            class="filter-btn active px-4 py-1.5 rounded-full text-sm font-semibold transition-colors"
+            data-filter="all"
+            aria-pressed="true"
+          >
+            All
+          </button>
+          <button
+            id="filter-speaking"
+            class="filter-btn px-4 py-1.5 rounded-full text-sm font-semibold transition-colors"
+            data-filter="speaking"
+            aria-pressed="false"
+          >
+            Speaking
+          </button>
+          <button
+            id="filter-organizing"
+            class="filter-btn px-4 py-1.5 rounded-full text-sm font-semibold transition-colors"
+            data-filter="organizing"
+            aria-pressed="false"
+          >
+            Organizing
+          </button>
+        </div>
+        <div class="text-sm text-gray-500">
+          <span id="visible-count">{totalEvents}</span> of {totalEvents} events
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Timeline -->
+  <section class="bg-gray-50 py-12 lg:py-16">
+    <div class="container mx-auto px-4 lg:px-8">
+      <div class="max-w-4xl mx-auto">
+        {
+          yearGroups.map((group) => (
+            <div class="year-group mb-12" data-year={group.year}>
+              <div class="sticky top-36 z-20 mb-6">
+                <div class="inline-flex items-center gap-3 bg-navy text-white px-5 py-2 rounded-full shadow-lg">
+                  <span class="text-2xl font-bold">{group.year}</span>
+                  <span class="text-sm text-gray-300 year-event-count">
+                    {group.events.length} {group.events.length === 1 ? 'event' : 'events'}
+                  </span>
+                </div>
+              </div>
+
+              <div class="relative pl-6 lg:pl-8 border-l-2 border-gold/30 space-y-6">
+                {group.events.map((event) => (
+                  <article
+                    class="timeline-event relative bg-white rounded-lg shadow-sm border border-gray-200 p-5 hover:shadow-md transition-shadow"
+                    data-type={event.type}
+                  >
+                    <div
+                      class="absolute -left-[calc(1.5rem+5px)] lg:-left-[calc(2rem+5px)] top-6 w-3 h-3 rounded-full bg-gold border-2 border-white shadow"
+                      aria-hidden="true"
+                    />
+
+                    <div class="flex flex-wrap items-start justify-between gap-3 mb-3">
+                      <div class="flex-1 min-w-0">
+                        <h3 class="text-lg font-bold text-navy leading-tight">{event.event}</h3>
+                        <div class="flex flex-wrap items-center gap-2 mt-1 text-sm text-gray-500">
+                          {event.date && (
+                            <time datetime={event.date}>{formatDate(event.date)}</time>
+                          )}
+                          {event.location && (
+                            <>
+                              <span aria-hidden="true">•</span>
+                              <span>{event.location}</span>
+                            </>
+                          )}
+                        </div>
+                      </div>
+                      <span
+                        class={`flex-shrink-0 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wide ${getBadgeClasses(event.type)}`}
+                      >
+                        {getBadgeLabel(event.type)}
+                      </span>
+                    </div>
+
+                    {event.talks.length > 0 && (
+                      <div class="mt-3">
+                        <h4 class="sr-only">Talks</h4>
+                        <ul class="flex flex-wrap gap-2">
+                          {event.talks.map((talk) => (
+                            <li class="inline-flex items-center px-3 py-1.5 bg-gray-100 text-gray-700 text-sm rounded-md">
+                              <span class="text-gold mr-2" aria-hidden="true">
+                                🎤
+                              </span>
+                              {talk}
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    )}
+                  </article>
+                ))}
+              </div>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="py-16 bg-gold">
+    <div class="container mx-auto px-4 lg:px-8">
+      <div class="max-w-3xl mx-auto text-center">
+        <h2 class="text-2xl lg:text-3xl font-bold text-navy mb-4">
+          Want Me to Speak at Your Event?
+        </h2>
+        <p class="text-lg text-navy mb-6">
+          I speak on .NET, Azure, SignalR, and lessons learned from two decades of production
+          systems.
+        </p>
+        <div class="flex flex-wrap justify-center gap-4">
+          <a
+            href="https://sessionize.com/kevingriffin/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center px-6 py-3 bg-navy text-gold font-bold rounded-xl hover:bg-navy-light transition-colors"
+          >
+            View Speaker Profile
+          </a>
+          <a
+            href="/contact"
+            class="inline-flex items-center px-6 py-3 bg-white text-navy font-bold rounded-xl border-2 border-navy hover:bg-gray-50 transition-colors"
+          >
+            Get in Touch
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .filter-btn {
+    background-color: var(--bg-background-tertiary);
+    color: var(--text-copy-primary);
+  }
+
+  .filter-btn:hover {
+    background-color: var(--color-navy-100);
+  }
+
+  .filter-btn.active {
+    background-color: var(--color-navy);
+    color: white;
+  }
+
+  .timeline-event.hidden {
+    display: none;
+  }
+
+  .year-group.empty {
+    display: none;
+  }
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const filterButtons = document.querySelectorAll<HTMLButtonElement>('.filter-btn');
+    const timelineEvents = document.querySelectorAll<HTMLElement>('.timeline-event');
+    const yearGroups = document.querySelectorAll<HTMLElement>('.year-group');
+    const visibleCountEl = document.getElementById('visible-count');
+
+    function updateFilter(filter: string) {
+      let visibleCount = 0;
+
+      timelineEvents.forEach((event) => {
+        const type = event.dataset.type;
+        const shouldShow = filter === 'all' || type === filter;
+
+        if (shouldShow) {
+          event.classList.remove('hidden');
+          visibleCount++;
+        } else {
+          event.classList.add('hidden');
+        }
+      });
+
+      yearGroups.forEach((group) => {
+        const visibleEvents = group.querySelectorAll('.timeline-event:not(.hidden)');
+        const countEl = group.querySelector('.year-event-count');
+
+        if (visibleEvents.length === 0) {
+          group.classList.add('empty');
+        } else {
+          group.classList.remove('empty');
+          if (countEl) {
+            countEl.textContent = `${visibleEvents.length} ${visibleEvents.length === 1 ? 'event' : 'events'}`;
+          }
+        }
+      });
+
+      if (visibleCountEl) {
+        visibleCountEl.textContent = String(visibleCount);
+      }
+
+      filterButtons.forEach((btn) => {
+        const isActive = btn.dataset.filter === filter;
+        btn.classList.toggle('active', isActive);
+        btn.setAttribute('aria-pressed', String(isActive));
+      });
+    }
+
+    filterButtons.forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const filter = btn.dataset.filter || 'all';
+        updateFilter(filter);
+      });
+    });
+  });
+</script>
