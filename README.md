@@ -60,6 +60,10 @@ The site uses Astro's Content Collections API:
 - **Blog** (`src/content/blog/`) - Markdown articles with frontmatter for title, date, tags, categories, and more
 - **Docs** (`src/content/docs/`) - Static documentation pages for consulting, courses, and other content
 
+## Data Files
+
+- **Praise** (`src/data/praise.ts`) - Testimonials displayed on the /praise page. See the file for instructions on adding new entries.
+
 ## Learn More
 
 - [Astro Documentation](https://docs.astro.build)
