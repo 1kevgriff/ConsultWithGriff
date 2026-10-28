@@ -1,4 +1,5 @@
 // Speaking and organizing history data
+// Source: curated Speaking History Page (Sessionize, public lineups, calendar)
 // Source of truth for the /timeline page
 
 export type EventType = 'speaking' | 'organizing';
@@ -10,40 +11,6 @@ export interface TimelineEvent {
   location: string;
   type: EventType;
   talks: string[];
-}
-
-function parseYear(dateStr: string): number {
-  if (!dateStr) return 0;
-  const match = dateStr.match(/^(\d{4})/);
-  return match ? parseInt(match[1], 10) : 0;
-}
-
-function parseTalks(talksStr: string): string[] {
-  if (!talksStr || talksStr.trim() === '') return [];
-  return talksStr
-    .split(/\s*;\s*/)
-    .map((t) => t.trim())
-    .filter((t) => t.length > 0);
-}
-
-function categorizeRole(role: string): EventType | null {
-  const r = role.toLowerCase();
-  if (r.includes('organizer') || r.includes('hosting') || r.includes('speaker coordinator')) {
-    return 'organizing';
-  }
-  if (
-    r.includes('speaking') ||
-    r.includes('speaker') ||
-    r.includes('user group talk') ||
-    r.includes('webinar') ||
-    r.includes('university talk')
-  ) {
-    return 'speaking';
-  }
-  if (r.includes('attended') || r.includes('not given') || r.includes('accepted')) {
-    return null;
-  }
-  return 'speaking';
 }
 
 export const TIMELINE_EVENTS: TimelineEvent[] = [
@@ -259,7 +226,7 @@ export const TIMELINE_EVENTS: TimelineEvent[] = [
     event: 'DC .NET UG',
     date: '2011-01-18',
     year: 2011,
-    location: 'Washington, DC',
+    location: 'Washington DC',
     type: 'speaking',
     talks: ['jQuery Mobile'],
   },
@@ -267,7 +234,7 @@ export const TIMELINE_EVENTS: TimelineEvent[] = [
     event: 'Dahlgren .NET UG',
     date: '2011-02-15',
     year: 2011,
-    location: 'Dahlgren, VA',
+    location: 'Dahlgren VA',
     type: 'speaking',
     talks: ['ASP.NET MVC 3'],
   },
@@ -291,7 +258,7 @@ export const TIMELINE_EVENTS: TimelineEvent[] = [
     event: 'TriNUG',
     date: '2011-10-12',
     year: 2011,
-    location: 'Raleigh, NC',
+    location: 'Raleigh NC',
     type: 'speaking',
     talks: ['Swift Kick in the AJAX'],
   },
@@ -419,7 +386,7 @@ export const TIMELINE_EVENTS: TimelineEvent[] = [
     event: 'HRNUG',
     date: '2012-09-11',
     year: 2012,
-    location: 'Hampton Roads, VA',
+    location: 'Hampton Roads VA',
     type: 'speaking',
     talks: ['Checking Out Node.js'],
   },
@@ -483,7 +450,7 @@ export const TIMELINE_EVENTS: TimelineEvent[] = [
     event: 'CapArea .NET UG',
     date: '2013-05-28',
     year: 2013,
-    location: 'Washington DC area',
+    location: 'Washington DC',
     type: 'speaking',
     talks: ['Node.js'],
   },
@@ -501,7 +468,7 @@ export const TIMELINE_EVENTS: TimelineEvent[] = [
     year: 2013,
     location: 'Chattanooga TN',
     type: 'speaking',
-    talks: ["Awesome JavaScript Libraries That Aren't jQuery"],
+    talks: ['Awesome JavaScript Libraries That Aren\'t jQuery'],
   },
   {
     event: 'RVNUG (Roanoke Valley .NET)',
@@ -531,7 +498,7 @@ export const TIMELINE_EVENTS: TimelineEvent[] = [
     event: 'Richmond .NET UG',
     date: '2014-03-06',
     year: 2014,
-    location: 'Richmond, VA',
+    location: 'Richmond VA',
     type: 'speaking',
     talks: ['SignalR Level Up'],
   },
@@ -541,10 +508,7 @@ export const TIMELINE_EVENTS: TimelineEvent[] = [
     year: 2014,
     location: 'Sanford FL',
     type: 'speaking',
-    talks: [
-      'Building Scalable Web Farms in Windows Azure',
-      'Robust Web APIs with node.js and Express',
-    ],
+    talks: ['Building Scalable Web Farms in Windows Azure', 'Robust Web APIs with node.js and Express'],
   },
   {
     event: 'Desert Code Camp 2014',
@@ -552,10 +516,7 @@ export const TIMELINE_EVENTS: TimelineEvent[] = [
     year: 2014,
     location: 'Chandler AZ',
     type: 'speaking',
-    talks: [
-      'Robust Web APIs with node.js and Express',
-      'Using SignalR to Build Real Time Applications',
-    ],
+    talks: ['Robust Web APIs with node.js and Express', 'Using SignalR to Build Real Time Applications'],
   },
   {
     event: 'RVNUG (Roanoke Valley .NET)',
@@ -603,19 +564,15 @@ export const TIMELINE_EVENTS: TimelineEvent[] = [
     year: 2014,
     location: 'Las Vegas NV',
     type: 'speaking',
-    talks: [
-      'Enhancing Existing Web Applications with SignalR',
-      'Building Single-Page Applications with AngularJS',
-      'Escaping Callbacks: Using Promises in JavaScript',
-    ],
+    talks: ['Enhancing Existing Web Applications with SignalR', 'Building Single-Page Applications with AngularJS', 'Escaping Callbacks: Using Promises in JavaScript'],
   },
   {
     event: 'rvajs',
     date: '2014-10-07',
     year: 2014,
-    location: 'Richmond, VA',
+    location: 'Richmond VA',
     type: 'speaking',
-    talks: ['node.js / Express'],
+    talks: ['Node.js / Express'],
   },
   {
     event: 'GANG',
@@ -637,7 +594,7 @@ export const TIMELINE_EVENTS: TimelineEvent[] = [
     event: 'Richmond .NET UG',
     date: '2014-12-04',
     year: 2014,
-    location: 'Richmond, VA',
+    location: 'Richmond VA',
     type: 'speaking',
     talks: ['ASP.NET Performance'],
   },
@@ -679,10 +636,7 @@ export const TIMELINE_EVENTS: TimelineEvent[] = [
     year: 2015,
     location: 'Charlotte NC',
     type: 'speaking',
-    talks: [
-      'ASP.NET Performance Tips and Tricks',
-      'Using SignalR to Build Real Time Web Applications',
-    ],
+    talks: ['ASP.NET Performance Tips and Tricks', 'Using SignalR to Build Real Time Web Applications'],
   },
   {
     event: 'HRNUG',
@@ -698,10 +652,7 @@ export const TIMELINE_EVENTS: TimelineEvent[] = [
     year: 2015,
     location: 'Las Vegas NV',
     type: 'speaking',
-    talks: [
-      'ASP.NET Quick Wins: 20 Tips and Tricks to Shift Your Application into High Gear',
-      'Scalable SignalR Applications',
-    ],
+    talks: ['ASP.NET Quick Wins: 20 Tips and Tricks to Shift Your Application into High Gear', 'Scalable SignalR Applications'],
   },
   {
     event: 'Richmond .NET UG',
@@ -723,7 +674,7 @@ export const TIMELINE_EVENTS: TimelineEvent[] = [
     event: 'CapArea .NET UG',
     date: '2015-11-17',
     year: 2015,
-    location: 'Washington DC area',
+    location: 'Washington DC',
     type: 'speaking',
     talks: ['ASP.NET Performance Quick Wins'],
   },
@@ -771,7 +722,7 @@ export const TIMELINE_EVENTS: TimelineEvent[] = [
     event: 'Cape Fear .NET UG',
     date: '2016-06-21',
     year: 2016,
-    location: 'Wilmington, NC (virtual)',
+    location: 'virtual',
     type: 'speaking',
     talks: ['Twilio and .NET'],
   },
@@ -779,7 +730,7 @@ export const TIMELINE_EVENTS: TimelineEvent[] = [
     event: 'Innsbrook .NET UG',
     date: '2016-09-20',
     year: 2016,
-    location: 'Richmond, VA',
+    location: 'Richmond VA',
     type: 'speaking',
     talks: ['ASP.NET Core'],
   },
@@ -797,11 +748,7 @@ export const TIMELINE_EVENTS: TimelineEvent[] = [
     year: 2016,
     location: 'Las Vegas NV',
     type: 'speaking',
-    talks: [
-      'ASP.NET Quick Wins: 20 Tips and Tricks for Better Performance',
-      'ASP.NET Development without Windows',
-      'Faster Deployments by Dockerizing ASP.NET Core Applications',
-    ],
+    talks: ['ASP.NET Quick Wins: 20 Tips and Tricks for Better Performance', 'ASP.NET Development without Windows', 'Faster Deployments by Dockerizing ASP.NET Core Applications'],
   },
   {
     event: 'Richmond Code Camp 2016',
@@ -873,10 +820,7 @@ export const TIMELINE_EVENTS: TimelineEvent[] = [
     year: 2017,
     location: 'Hampton Roads VA',
     type: 'speaking',
-    talks: [
-      'Faster Deployments by Dockerizing ASP.NET Core Applications',
-      'C# 7 features (lightning)',
-    ],
+    talks: ['Faster Deployments by Dockerizing ASP.NET Core Applications', 'C# 7 features (lightning)'],
   },
   {
     event: 'RVNUG (Roanoke Valley .NET)',
@@ -890,7 +834,7 @@ export const TIMELINE_EVENTS: TimelineEvent[] = [
     event: 'DC .NET UG',
     date: '2017-03-21',
     year: 2017,
-    location: 'Washington, DC',
+    location: 'Washington DC',
     type: 'speaking',
     talks: ['.NET Core'],
   },
@@ -906,7 +850,7 @@ export const TIMELINE_EVENTS: TimelineEvent[] = [
     event: 'CapArea .NET UG',
     date: '2017-05-23',
     year: 2017,
-    location: 'Washington DC area',
+    location: 'Washington DC',
     type: 'speaking',
     talks: ['Application Insights'],
   },
@@ -924,10 +868,7 @@ export const TIMELINE_EVENTS: TimelineEvent[] = [
     year: 2017,
     location: 'San Francisco CA',
     type: 'speaking',
-    talks: [
-      'Knowing the Insides Out of your Web Application with Application Insights',
-      'Designing Cross Platform Applications on .NET Core',
-    ],
+    talks: ['Knowing the Insides Out of your Web Application with Application Insights', 'Designing Cross Platform Applications on .NET Core'],
   },
   {
     event: 'Hampton Roads DevFest 2017',
@@ -965,9 +906,9 @@ export const TIMELINE_EVENTS: TimelineEvent[] = [
     event: 'CapArea .NET UG',
     date: '2018-02-27',
     year: 2018,
-    location: 'Washington DC area',
+    location: 'Washington DC',
     type: 'speaking',
-    talks: ["What's New in SignalR Core 2"],
+    talks: ['What\'s New in SignalR Core 2'],
   },
   {
     event: 'RVNUG (Roanoke Valley .NET)',
@@ -975,7 +916,7 @@ export const TIMELINE_EVENTS: TimelineEvent[] = [
     year: 2018,
     location: 'Roanoke VA',
     type: 'speaking',
-    talks: ["What's New In SignalR Core 2"],
+    talks: ['What\'s New In SignalR Core 2'],
   },
   {
     event: 'CodeStock 2018',
@@ -989,7 +930,7 @@ export const TIMELINE_EVENTS: TimelineEvent[] = [
     event: 'Richmond .NET UG',
     date: '2018-05-03',
     year: 2018,
-    location: 'Richmond, VA',
+    location: 'Richmond VA',
     type: 'speaking',
     talks: ['SignalR for ASP.NET Core'],
   },
@@ -1026,20 +967,28 @@ export const TIMELINE_EVENTS: TimelineEvent[] = [
     talks: ['A Modern Architectural Review of Text-Based Adventure Games'],
   },
   {
+    event: 'CodeMash 2019',
+    date: '2019-01-07',
+    year: 2019,
+    location: '',
+    type: 'speaking',
+    talks: ['Enhance Your Career with a Mastermind Group'],
+  },
+  {
     event: 'HRNUG',
     date: '2019-02-12',
     year: 2019,
-    location: 'Hampton Roads, VA',
+    location: 'Hampton Roads VA',
     type: 'speaking',
     talks: ['10th anniversary meeting talk'],
   },
   {
     event: 'CodeStock 2019',
-    date: '2019-04',
+    date: '2019-04-12',
     year: 2019,
     location: 'Knoxville TN',
     type: 'speaking',
-    talks: [],
+    talks: ['Upgrading Your ASP.NET 4.0+ Skills to ASP.NET Core'],
   },
   {
     event: 'InedoCon 2019',
@@ -1063,10 +1012,7 @@ export const TIMELINE_EVENTS: TimelineEvent[] = [
     year: 2019,
     location: 'Kansas City MO',
     type: 'speaking',
-    talks: [
-      'A Modern Architectural Review of Text-Based Adventure Games',
-      'Enhance Your Career with a Mastermind Group',
-    ],
+    talks: ['A Modern Architectural Review of Text-Based Adventure Games', 'Enhance Your Career with a Mastermind Group'],
   },
   {
     event: 'RVNUG (Roanoke Valley .NET)',
@@ -1085,6 +1031,14 @@ export const TIMELINE_EVENTS: TimelineEvent[] = [
     talks: ['Dapper'],
   },
   {
+    event: 'TechBash 2019',
+    date: '2019-11-12',
+    year: 2019,
+    location: '',
+    type: 'speaking',
+    talks: ['Single Page Architectures with VueJS and ASP.NET Core', 'Better Object Mapping in .NET with Dapper'],
+  },
+  {
     event: 'Ocean Lakes High School (Hour of Code)',
     date: '2019-12-16',
     year: 2019,
@@ -1093,10 +1047,26 @@ export const TIMELINE_EVENTS: TimelineEvent[] = [
     talks: ['Career path from AP Comp Sci at OLHS to software development (plus Q&A)'],
   },
   {
+    event: 'Virtual Azure Community Day 2020',
+    date: '2020',
+    year: 2020,
+    location: '',
+    type: 'speaking',
+    talks: ['21st Century Background Services with Azure Logic Apps and Azure Functions'],
+  },
+  {
+    event: 'NDC London 2020',
+    date: '2020-01-27',
+    year: 2020,
+    location: '',
+    type: 'speaking',
+    talks: ['Single Page Architectures with VueJS and ASP.NET Core'],
+  },
+  {
     event: 'TriNUG',
     date: '2020-02-12',
     year: 2020,
-    location: 'Raleigh, NC',
+    location: 'Raleigh NC',
     type: 'speaking',
     talks: ['VueJS + ASP.NET Core SPA'],
   },
@@ -1107,6 +1077,14 @@ export const TIMELINE_EVENTS: TimelineEvent[] = [
     location: 'Roanoke VA',
     type: 'speaking',
     talks: ['Single Page Architectures with VueJS and ASP.NET Core'],
+  },
+  {
+    event: 'philly.NET Code Camp 2020.1',
+    date: '2020-04-17',
+    year: 2020,
+    location: '',
+    type: 'speaking',
+    talks: ['Workshop: Building Single Page Applications with VueJS and ASP.NET Core', 'Upgrading Your ASP.NET 4.0+ Skills to ASP.NET Core', 'Better Object Mapping in .NET with Dapper'],
   },
   {
     event: 'Boston Azure / North Boston Azure',
@@ -1157,6 +1135,14 @@ export const TIMELINE_EVENTS: TimelineEvent[] = [
     talks: ['Build Your First VueJS Plugin'],
   },
   {
+    event: 'Code PaLOUsa 2020',
+    date: '2020-08-19',
+    year: 2020,
+    location: '',
+    type: 'speaking',
+    talks: ['Single Page Architectures with VueJS and ASP.NET Core', 'Better Object Mapping in .NET with Dapper'],
+  },
+  {
     event: 'Northern VA CodeCamp Fall 2020',
     date: '2020-09-26',
     year: 2020,
@@ -1171,6 +1157,14 @@ export const TIMELINE_EVENTS: TimelineEvent[] = [
     location: 'virtual',
     type: 'speaking',
     talks: ['Single Page Architectures with VueJS and ASP.NET Core'],
+  },
+  {
+    event: 'Azure Summit 2021',
+    date: '2021',
+    year: 2021,
+    location: '',
+    type: 'speaking',
+    talks: ['Crazy Web Performance with Azure Static Web Apps'],
   },
   {
     event: 'philly.NET Code Camp 2021',
@@ -1210,18 +1204,15 @@ export const TIMELINE_EVENTS: TimelineEvent[] = [
     year: 2021,
     location: 'virtual',
     type: 'speaking',
-    talks: [],
+    talks: ['Workshop: Building Single Page Applications with VueJS and ASP.NET Core', 'Real-Time Revolution: SignalR in Action'],
   },
   {
     event: 'KCDC 2021',
-    date: '2021-09',
+    date: '2021-09-15',
     year: 2021,
     location: 'Kansas City MO',
     type: 'speaking',
-    talks: [
-      'Building Single Page Applications with VueJS and ASP.NET Core',
-      'Refactoring Background Services to Azure Logic Apps and Azure Functions',
-    ],
+    talks: ['Building Single Page Applications with VueJS and ASP.NET Core', 'Refactoring Background Services to Azure Logic Apps and Azure Functions'],
   },
   {
     event: 'Cloud Summit 2021',
@@ -1232,39 +1223,68 @@ export const TIMELINE_EVENTS: TimelineEvent[] = [
     talks: [],
   },
   {
+    event: 'Northern VA CodeCamp Fall 2021',
+    date: '2021-10-16',
+    year: 2021,
+    location: '',
+    type: 'speaking',
+    talks: ['Refactoring Background Services to Azure Logic Apps and Azure Functions'],
+  },
+  {
+    event: 'TechBash 2021',
+    date: '2021-10-19',
+    year: 2021,
+    location: '',
+    type: 'speaking',
+    talks: ['Better Object Mapping in .NET with Dapper', 'Crazy Web Performance with Azure Static Web Apps', 'Workshop: Building Single Page Applications with VueJS and ASP.NET Core'],
+  },
+  {
     event: 'TDevConf 2021',
     date: '2021-11-05',
     year: 2021,
     location: 'virtual',
     type: 'speaking',
-    talks: [
-      'Real-Time Revolution: SignalR in Action',
-      '21st Century Background Services with Azure Logic Apps and Azure Functions',
-    ],
+    talks: ['Real-Time Revolution: SignalR in Action', '21st Century Background Services with Azure Logic Apps and Azure Functions'],
   },
   {
-    event: 'Code PaLOUsa 2022',
-    date: '2022',
+    event: 'CodeMash 2022',
+    date: '2022-01-11',
     year: 2022,
-    location: 'virtual',
+    location: '',
     type: 'speaking',
-    talks: [],
+    talks: ['Prepare Your ASP.NET Core Application for Liftoff: Hardening Your Applications for Production 1/2', 'Prepare Your ASP.NET Core Application for Liftoff: Hardening Your Applications for Production 2/2'],
+  },
+  {
+    event: 'CodeStock 2022',
+    date: '2022-04-07',
+    year: 2022,
+    location: '',
+    type: 'speaking',
+    talks: ['Tailwind CSS Essentials for Developers', 'Saving Lives with SignalR and .NET'],
   },
   {
     event: 'NDC London 2022',
-    date: '2022',
+    date: '2022-05-09',
     year: 2022,
     location: 'London UK',
     type: 'speaking',
-    talks: [],
+    talks: ['Real-Time Revolution: SignalR in Action'],
   },
   {
     event: 'Scenic City Summit 2022',
-    date: '2022-07-21',
+    date: '2022-07-22',
     year: 2022,
     location: 'Chattanooga TN',
     type: 'speaking',
-    talks: [],
+    talks: ['Real-Time Revolution: SignalR in Action', 'Tailwind CSS Essentials for Developers'],
+  },
+  {
+    event: 'Code PaLOUsa 2022',
+    date: '2022-08-17',
+    year: 2022,
+    location: 'virtual',
+    type: 'speaking',
+    talks: ['Tailwind CSS Essentials for Developers', 'Real-Time Revolution: SignalR in Action'],
   },
   {
     event: 'RVNUG (Roanoke Valley .NET)',
@@ -1273,6 +1293,14 @@ export const TIMELINE_EVENTS: TimelineEvent[] = [
     location: 'virtual',
     type: 'speaking',
     talks: ['Tailwind Essentials for Developers'],
+  },
+  {
+    event: 'TechBash 2022',
+    date: '2022-11-08',
+    year: 2022,
+    location: '',
+    type: 'speaking',
+    talks: ['Real-Time Revolution: SignalR in Action', 'Saving Lives with SignalR and .NET'],
   },
   {
     event: 'HRNUG',
@@ -1284,11 +1312,11 @@ export const TIMELINE_EVENTS: TimelineEvent[] = [
   },
   {
     event: 'NDC London 2023',
-    date: '2023-01-25',
+    date: '2023-01-23',
     year: 2023,
     location: 'London UK',
     type: 'speaking',
-    talks: [],
+    talks: ['Tactics for Building Background Services in .NET'],
   },
   {
     event: 'ConFoo 2023',
@@ -1296,13 +1324,29 @@ export const TIMELINE_EVENTS: TimelineEvent[] = [
     year: 2023,
     location: 'Montreal QC',
     type: 'speaking',
-    talks: [],
+    talks: ['Better Object Mapping in .NET with Dapper', 'Saving Lives with SignalR and .NET'],
   },
   {
     event: 'Orlando Code Camp 2023',
     date: '2023-03-25',
     year: 2023,
     location: 'Sanford FL',
+    type: 'speaking',
+    talks: ['Annihilating Workloads with Azure Functions'],
+  },
+  {
+    event: 'NDC Oslo 2023',
+    date: '2023-05-22',
+    year: 2023,
+    location: '',
+    type: 'speaking',
+    talks: ['Tactics for Building Background Services in .NET'],
+  },
+  {
+    event: 'Scenic City Summit 2023',
+    date: '2023-06-02',
+    year: 2023,
+    location: '',
     type: 'speaking',
     talks: ['Annihilating Workloads with Azure Functions'],
   },
@@ -1331,20 +1375,36 @@ export const TIMELINE_EVENTS: TimelineEvent[] = [
     talks: ['Tactics for Building Background Services with .NET'],
   },
   {
+    event: 'TechBash 2023',
+    date: '2023-11-07',
+    year: 2023,
+    location: '',
+    type: 'speaking',
+    talks: ['Annihilating Workloads with Azure Functions', 'Tactics for Building Background Services in .NET'],
+  },
+  {
+    event: 'CodeMash 2024',
+    date: '2024-01-09',
+    year: 2024,
+    location: '',
+    type: 'speaking',
+    talks: ['Tactics for Building Background Services in .NET', 'Multithreaded Income: How Developers Can Achieve Parallel Success'],
+  },
+  {
     event: 'ConFoo 2024',
     date: '2024-02-20',
     year: 2024,
     location: 'Montreal QC',
     type: 'speaking',
-    talks: [],
+    talks: ['Gauntlet: 30 Rapid Fire Tips and Tricks for .NET and C# Devs', 'Tactics for Building Background Services in .NET'],
   },
   {
     event: 'Stir Trek 2024',
-    date: '2024-05',
+    date: '2024-05-03',
     year: 2024,
     location: 'Columbus OH',
     type: 'speaking',
-    talks: [],
+    talks: ['Let\'s Build A Simple Web Server From Scratch'],
   },
   {
     event: 'Hampton Roads DevFest 2024',
@@ -1356,11 +1416,11 @@ export const TIMELINE_EVENTS: TimelineEvent[] = [
   },
   {
     event: 'KCDC 2024',
-    date: '2024-06-28',
+    date: '2024-06-26',
     year: 2024,
     location: 'Kansas City MO',
     type: 'speaking',
-    talks: ["Dumb Mistakes I've Made with Relational Databases as a Developer"],
+    talks: ['Dumb Mistakes I\'ve Made with Relational Databases as a Developer'],
   },
   {
     event: 'Cleveland C# UG',
@@ -1368,7 +1428,15 @@ export const TIMELINE_EVENTS: TimelineEvent[] = [
     year: 2024,
     location: 'virtual',
     type: 'speaking',
-    talks: ["Mistakes I've Made with Relational Databases as a Developer"],
+    talks: ['Mistakes I\'ve Made with Relational Databases as a Developer'],
+  },
+  {
+    event: 'TechBash 2024',
+    date: '2024-09-24',
+    year: 2024,
+    location: '',
+    type: 'speaking',
+    talks: ['Gauntlet: 30 Rapid Fire Tips and Tricks for .NET and C# Developers', 'Tactics for Building Background Services in .NET'],
   },
   {
     event: 'RVNUG (Roanoke Valley .NET)',
@@ -1380,11 +1448,11 @@ export const TIMELINE_EVENTS: TimelineEvent[] = [
   },
   {
     event: '.NET Conf 2024',
-    date: '2024-11-14',
+    date: '2024-11-12',
     year: 2024,
     location: 'virtual',
     type: 'speaking',
-    talks: [],
+    talks: ['State of the .NET Foundation and .NET Open Source'],
   },
   {
     event: 'Commit Your Code 2024',
@@ -1400,7 +1468,7 @@ export const TIMELINE_EVENTS: TimelineEvent[] = [
     year: 2025,
     location: 'Washington DC',
     type: 'speaking',
-    talks: ["Dumb Mistakes I've Made with Relational Databases"],
+    talks: ['Dumb Mistakes I\'ve Made with Relational Databases'],
   },
   {
     event: 'dev up 2025',
@@ -1408,7 +1476,7 @@ export const TIMELINE_EVENTS: TimelineEvent[] = [
     year: 2025,
     location: 'St. Louis MO',
     type: 'speaking',
-    talks: [],
+    talks: ['Traits of Stable Production Applications', 'Tactics for Building Background Services in .NET'],
   },
   {
     event: 'Commit Your Code 2025',
@@ -1427,12 +1495,20 @@ export const TIMELINE_EVENTS: TimelineEvent[] = [
     talks: ['Traits of Stable Production Applications'],
   },
   {
-    event: 'CodeStock 2026',
-    date: '2026',
-    year: 2026,
-    location: 'Knoxville TN',
+    event: 'TechBash 2025',
+    date: '2025-11-04',
+    year: 2025,
+    location: '',
     type: 'speaking',
-    talks: [],
+    talks: ['State of the .NET Foundation and .NET Open Source', 'Dumb Mistakes I\'ve Made with Relational Databases as a Developer'],
+  },
+  {
+    event: '.NET Conf 2025',
+    date: '2025-11-11',
+    year: 2025,
+    location: '',
+    type: 'speaking',
+    talks: ['State of the .NET Foundation and .NET Open Source'],
   },
   {
     event: 'Hampton Roads DevFest 2026',
@@ -1443,8 +1519,16 @@ export const TIMELINE_EVENTS: TimelineEvent[] = [
     talks: [],
   },
   {
+    event: 'CodeStock 2026',
+    date: '2026-04-09',
+    year: 2026,
+    location: 'Knoxville TN',
+    type: 'speaking',
+    talks: ['Traits of Stable Production Applications', 'Dumb Mistakes I\'ve Made with Relational Databases as a Developer'],
+  },
+  {
     event: 'Stir Trek 2026',
-    date: '2026-05',
+    date: '2026-05-01',
     year: 2026,
     location: 'Columbus OH',
     type: 'organizing',
@@ -1456,7 +1540,7 @@ export const TIMELINE_EVENTS: TimelineEvent[] = [
     year: 2026,
     location: 'virtual',
     type: 'speaking',
-    talks: [],
+    talks: ['Modern .NET Configuration', 'My $8,000 Serverless Mistake'],
   },
   {
     event: 'TechBash 2026',
@@ -1464,27 +1548,40 @@ export const TIMELINE_EVENTS: TimelineEvent[] = [
     year: 2026,
     location: 'Pocono Manor PA',
     type: 'speaking',
-    talks: [],
+    talks: ['Building MCP Servers in .NET', 'Modern .NET Configuration'],
   },
   {
     event: 'RVNUG (Roanoke Valley .NET)',
     date: '2026-11-05',
     year: 2026,
-    location: 'Salem, VA',
+    location: 'Salem VA',
     type: 'speaking',
     talks: ['"So our solo developer died..." Software archaeology with AI'],
   },
+  {
+    event: 'CodeMash 2027',
+    date: '2027',
+    year: 2027,
+    location: '',
+    type: 'speaking',
+    talks: ['Dumb Mistakes I\'ve Made with Relational Databases as a Developer'],
+  },
 ];
 
-// Sort by date descending (newest first)
+// Sort by date descending (newest first).
+// Year-only dates sort to the end of their year; month-only after that month's day-dated events.
+function sortDateKey(dateStr: string, year: number): string {
+  if (!dateStr) return `${year}-00-00`;
+  if (dateStr.length === 4) return `${dateStr}-00-00`;
+  if (dateStr.length === 7) return `${dateStr}-00`;
+  return dateStr;
+}
+
 export const sortedEvents = [...TIMELINE_EVENTS].sort((a, b) => {
   if (a.year !== b.year) return b.year - a.year;
-  const dateA = a.date.length > 4 ? a.date : `${a.year}-12-31`;
-  const dateB = b.date.length > 4 ? b.date : `${b.year}-12-31`;
-  return dateB.localeCompare(dateA);
+  return sortDateKey(b.date, b.year).localeCompare(sortDateKey(a.date, a.year));
 });
 
-// Group by year
 export interface YearGroup {
   year: number;
   events: TimelineEvent[];

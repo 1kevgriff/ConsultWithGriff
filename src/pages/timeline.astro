@@ -20,24 +20,29 @@ const canonicalUrl = 'https://consultwithgriff.com/timeline';
 
 function formatDate(dateStr: string): string {
   if (!dateStr) return '';
+  const monthNames = [
+    'Jan',
+    'Feb',
+    'Mar',
+    'Apr',
+    'May',
+    'Jun',
+    'Jul',
+    'Aug',
+    'Sep',
+    'Oct',
+    'Nov',
+    'Dec',
+  ];
   if (dateStr.length === 4) return dateStr;
   if (dateStr.length === 7) {
     const [year, month] = dateStr.split('-');
-    const monthNames = [
-      'Jan',
-      'Feb',
-      'Mar',
-      'Apr',
-      'May',
-      'Jun',
-      'Jul',
-      'Aug',
-      'Sep',
-      'Oct',
-      'Nov',
-      'Dec',
-    ];
     return `${monthNames[parseInt(month, 10) - 1]} ${year}`;
+  }
+  // Parse YYYY-MM-DD as a calendar date (avoid UTC midnight shifting the day)
+  const m = dateStr.match(/^(\d{4})-(\d{2})-(\d{2})$/);
+  if (m) {
+    return `${monthNames[parseInt(m[2], 10) - 1]} ${parseInt(m[3], 10)}, ${m[1]}`;
   }
   const date = new Date(dateStr);
   return date.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
