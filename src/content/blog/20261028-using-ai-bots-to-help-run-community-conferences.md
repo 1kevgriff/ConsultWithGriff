@@ -1,7 +1,7 @@
 ---
-title: 'AI Bots are the Ultimate Community Conference Unlock'
+title: 'Using AI Bots to Help Run Community Conferences'
 date: 2026-10-28T00:00:00Z
-permalink: ai-bots-conference-unlock
+permalink: using-ai-bots-to-help-run-community-conferences
 description: "How I'm using an AI bot named Jimothy to transform community conference organizing — from sponsor research and social media to email management and task tracking."
 summary: "For Hampton Roads DevFest 2027, I've been experimenting with an AI bot named Jimothy to handle sponsor research, social media scheduling, email triage, and task management. Here's what's working and why I think bots will change how we run community events."
 tags:
