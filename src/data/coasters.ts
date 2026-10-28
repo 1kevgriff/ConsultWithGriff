@@ -68,6 +68,8 @@ export const PARKS: Park[] = [
       { name: 'Verbolten' },
       { name: 'InvadR' },
       { name: 'Pantheon' },
+      { name: 'DarKoaster' },
+      { name: "Big Bad Wolf: The Wolf's Revenge" },
     ],
   },
   {
@@ -116,6 +118,7 @@ export const PARKS: Park[] = [
       { name: 'Racer 75 (South)', altName: 'Rebel Yell' },
       { name: 'Shockwave' },
       { name: 'Volcano: The Blast Coaster', defunct: true },
+      { name: 'Rapterra' },
     ],
   },
   {
