@@ -24,7 +24,9 @@ So why do we keep signing up for it?
 
 For the latest edition of Hampton Roads DevFest, I've been experimenting with bringing an AI bot into a lot of my workflow. His name is Jimothy, and he has a few different jobs on the event. In this article, I'll walk through what Jimothy does for the event, what he does for me, and why I think he'll make a real difference for DevFest going forward.
 
-![Jimothy, my AI bot for Hampton Roads DevFest](./images/20261028-jimothy.png)
+<p style="text-align: center;">
+  <img src="./images/20261028-jimothy.png" alt="Jimothy, my AI bot for Hampton Roads DevFest" style="max-width: 200px;" />
+</p>
 
 ## The Council
 
