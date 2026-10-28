@@ -347,3 +347,10 @@ html {
   scroll-behavior: smooth;
   scroll-padding-top: 100px; /* Accounts for sticky header */
 }
+
+/* Centered image utility */
+.img-centered {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
