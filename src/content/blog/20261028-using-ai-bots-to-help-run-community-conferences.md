@@ -36,7 +36,7 @@ Here's an example. I've been working on the sponsor prospectus for DevFest, so I
 
 This has been invaluable. The council kept raising issues I'd never considered, and I don't think anyone else on our organizing team would have either. We don't think like an engineering manager at a defense contractor, because none of us is one.
 
-I've put many of the personas we've used for Hampton Roads DevFest in a GitHub repo, [conference-council-personas](https://github.com/1kevgriff/conference-council-personas). Pull some down, push up your own, or suggest changes. I'd love for this to become a community resource we can all use.
+> **Community Resource:** I've published many of the personas we use for Hampton Roads DevFest in a GitHub repo: [conference-council-personas](https://github.com/1kevgriff/conference-council-personas). Pull some down, contribute your own, or suggest changes. I'd love for this to become a shared resource the whole community can build on.
 
 ## Finding Sponsors
 
