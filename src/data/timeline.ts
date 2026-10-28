@@ -15,7 +15,7 @@ export interface TimelineEvent {
 
 export const TIMELINE_EVENTS: TimelineEvent[] = [
   {
-    event: 'HRNUG',
+    event: 'Hampton Roads .NET Users Group',
     date: '2009-02-10',
     year: 2009,
     location: 'Hampton Roads VA',
@@ -39,7 +39,7 @@ export const TIMELINE_EVENTS: TimelineEvent[] = [
     talks: ['What Is This WPF Thing?!'],
   },
   {
-    event: 'NoVA Code Camp 2009.1',
+    event: 'Northern Virginia Code Camp 2009.1',
     date: '2009-05-23',
     year: 2009,
     location: 'Northern VA',
@@ -63,7 +63,7 @@ export const TIMELINE_EVENTS: TimelineEvent[] = [
     talks: ['jQuery From The Ground Up'],
   },
   {
-    event: 'NoVA Code Camp 2009',
+    event: 'Northern Virginia Code Camp 2009',
     date: '2009-10-10',
     year: 2009,
     location: 'Northern VA',
@@ -87,7 +87,7 @@ export const TIMELINE_EVENTS: TimelineEvent[] = [
     talks: ['Windows 7 development'],
   },
   {
-    event: 'TriNUG',
+    event: 'Triangle .NET User Group',
     date: '2010-02-10',
     year: 2010,
     location: 'Raleigh NC',
@@ -103,7 +103,7 @@ export const TIMELINE_EVENTS: TimelineEvent[] = [
     talks: ['jQuery From The Ground Up'],
   },
   {
-    event: 'RVNUG (Roanoke Valley .NET)',
+    event: 'Roanoke Valley .NET User Group',
     date: '2010-04-01',
     year: 2010,
     location: 'Roanoke VA',
@@ -119,7 +119,7 @@ export const TIMELINE_EVENTS: TimelineEvent[] = [
     talks: ['ASP.NET MVC From The Ground Up', 'jQuery From The Ground Up'],
   },
   {
-    event: 'CMAP',
+    event: 'Central Maryland Association of .NET Professionals',
     date: '2010-05-04',
     year: 2010,
     location: 'Columbia MD',
@@ -127,7 +127,7 @@ export const TIMELINE_EVENTS: TimelineEvent[] = [
     talks: ['Awesomize Your Windows Apps'],
   },
   {
-    event: 'FredNUG (Frederick .NET)',
+    event: 'Frederick .NET User Group',
     date: '2010-05-18',
     year: 2010,
     location: 'Frederick MD',
@@ -135,7 +135,7 @@ export const TIMELINE_EVENTS: TimelineEvent[] = [
     talks: ['Awesomize Your Windows Apps'],
   },
   {
-    event: 'NoVA Code Camp 2010.1',
+    event: 'Northern Virginia Code Camp 2010.1',
     date: '2010-06-12',
     year: 2010,
     location: 'Northern VA',
@@ -151,7 +151,7 @@ export const TIMELINE_EVENTS: TimelineEvent[] = [
     talks: ['jQuery From The Ground Up', 'Community Megaphone Podcast: Speaker Horror Stories'],
   },
   {
-    event: 'HRNUG',
+    event: 'Hampton Roads .NET Users Group',
     date: '2010-07-13',
     year: 2010,
     location: 'Hampton Roads VA',
@@ -167,7 +167,7 @@ export const TIMELINE_EVENTS: TimelineEvent[] = [
     talks: ['Intro to ASP.NET MVC', 'jQuery From The Ground Up'],
   },
   {
-    event: 'HRSSUG',
+    event: 'Hampton Roads SQL Server User Group',
     date: '2010-08-18',
     year: 2010,
     location: 'Hampton Roads VA',
@@ -191,7 +191,7 @@ export const TIMELINE_EVENTS: TimelineEvent[] = [
     talks: ['XNA for Windows Phone 7'],
   },
   {
-    event: 'Richmond .NET UG',
+    event: 'Richmond .NET User Group',
     date: '2010-11-04',
     year: 2010,
     location: 'Richmond VA',
@@ -207,7 +207,7 @@ export const TIMELINE_EVENTS: TimelineEvent[] = [
     talks: ['Asynchronise with jQuery'],
   },
   {
-    event: 'SoMD .NET UG',
+    event: 'Southern Maryland .NET User Group',
     date: '2010-11-08',
     year: 2010,
     location: 'Southern MD',
@@ -215,7 +215,7 @@ export const TIMELINE_EVENTS: TimelineEvent[] = [
     talks: ['Asynchronize with jQuery'],
   },
   {
-    event: 'NoVA Code Camp 2010.2',
+    event: 'Northern Virginia Code Camp 2010.2',
     date: '2010-12-11',
     year: 2010,
     location: 'Northern VA',
@@ -223,7 +223,7 @@ export const TIMELINE_EVENTS: TimelineEvent[] = [
     talks: ['Getting Started in Community Speaking'],
   },
   {
-    event: 'DC .NET UG',
+    event: 'DC .NET User Group',
     date: '2011-01-18',
     year: 2011,
     location: 'Washington DC',
@@ -231,7 +231,7 @@ export const TIMELINE_EVENTS: TimelineEvent[] = [
     talks: ['jQuery Mobile'],
   },
   {
-    event: 'Dahlgren .NET UG',
+    event: 'Dahlgren .NET User Group',
     date: '2011-02-15',
     year: 2011,
     location: 'Dahlgren VA',
@@ -247,7 +247,7 @@ export const TIMELINE_EVENTS: TimelineEvent[] = [
     talks: [],
   },
   {
-    event: 'RVNUG (Roanoke Valley .NET)',
+    event: 'Roanoke Valley .NET User Group',
     date: '2011-09-01',
     year: 2011,
     location: 'Roanoke VA',
@@ -255,7 +255,7 @@ export const TIMELINE_EVENTS: TimelineEvent[] = [
     talks: ['jQuery Mobile'],
   },
   {
-    event: 'TriNUG',
+    event: 'Triangle .NET User Group',
     date: '2011-10-12',
     year: 2011,
     location: 'Raleigh NC',
@@ -263,7 +263,7 @@ export const TIMELINE_EVENTS: TimelineEvent[] = [
     talks: ['Swift Kick in the AJAX'],
   },
   {
-    event: 'CMAP',
+    event: 'Central Maryland Association of .NET Professionals',
     date: '2012-02-07',
     year: 2012,
     location: 'Columbia MD',
@@ -271,7 +271,7 @@ export const TIMELINE_EVENTS: TimelineEvent[] = [
     talks: ['Getting Started with SignalR'],
   },
   {
-    event: 'Richmond SQL Server UG',
+    event: 'Richmond SQL Server User Group',
     date: '2012-02-09',
     year: 2012,
     location: 'Richmond VA',
@@ -279,7 +279,7 @@ export const TIMELINE_EVENTS: TimelineEvent[] = [
     talks: ['Windows Azure'],
   },
   {
-    event: 'Philly .NET UG',
+    event: 'Philly .NET User Group',
     date: '2012-02-15',
     year: 2012,
     location: 'Philadelphia PA',
@@ -287,7 +287,7 @@ export const TIMELINE_EVENTS: TimelineEvent[] = [
     talks: ['Getting Started with SignalR'],
   },
   {
-    event: 'SEVDNUG',
+    event: 'Southeast Valley .NET User Group',
     date: '2012-02-23',
     year: 2012,
     location: 'Chandler AZ',
@@ -295,7 +295,7 @@ export const TIMELINE_EVENTS: TimelineEvent[] = [
     talks: ['SignalR'],
   },
   {
-    event: 'HRNUG',
+    event: 'Hampton Roads .NET Users Group',
     date: '2012-03-13',
     year: 2012,
     location: 'Hampton Roads VA',
@@ -311,7 +311,7 @@ export const TIMELINE_EVENTS: TimelineEvent[] = [
     talks: ['Getting Started with SignalR', 'Zero to Hero in jQuery'],
   },
   {
-    event: 'Richmond .NET UG',
+    event: 'Richmond .NET User Group',
     date: '2012-04-05',
     year: 2012,
     location: 'Richmond VA',
@@ -319,7 +319,7 @@ export const TIMELINE_EVENTS: TimelineEvent[] = [
     talks: [],
   },
   {
-    event: 'DC .NET UG',
+    event: 'DC .NET User Group',
     date: '2012-04-17',
     year: 2012,
     location: 'Washington DC',
@@ -383,7 +383,7 @@ export const TIMELINE_EVENTS: TimelineEvent[] = [
     talks: [],
   },
   {
-    event: 'HRNUG',
+    event: 'Hampton Roads .NET Users Group',
     date: '2012-09-11',
     year: 2012,
     location: 'Hampton Roads VA',
@@ -415,7 +415,7 @@ export const TIMELINE_EVENTS: TimelineEvent[] = [
     talks: ['SignalR'],
   },
   {
-    event: 'CMAP Code Camp 2012',
+    event: 'Central Maryland Association of .NET Professionals Code Camp 2012',
     date: '2012-12-01',
     year: 2012,
     location: 'Columbia MD',
@@ -431,7 +431,7 @@ export const TIMELINE_EVENTS: TimelineEvent[] = [
     talks: ['Building Real Time Web Applications'],
   },
   {
-    event: 'Richmond .NET UG',
+    event: 'Richmond .NET User Group',
     date: '2013-04-04',
     year: 2013,
     location: 'Richmond VA',
@@ -447,7 +447,7 @@ export const TIMELINE_EVENTS: TimelineEvent[] = [
     talks: ['Using SignalR to Build Real Time Applications'],
   },
   {
-    event: 'CapArea .NET UG',
+    event: 'Capital Area .NET Users Group',
     date: '2013-05-28',
     year: 2013,
     location: 'Washington DC',
@@ -455,7 +455,7 @@ export const TIMELINE_EVENTS: TimelineEvent[] = [
     talks: ['Node.js'],
   },
   {
-    event: 'DC .NET UG',
+    event: 'DC .NET User Group',
     date: '2013-08-20',
     year: 2013,
     location: 'Washington DC',
@@ -471,7 +471,7 @@ export const TIMELINE_EVENTS: TimelineEvent[] = [
     talks: ['Awesome JavaScript Libraries That Aren\'t jQuery'],
   },
   {
-    event: 'RVNUG (Roanoke Valley .NET)',
+    event: 'Roanoke Valley .NET User Group',
     date: '2013-10-03',
     year: 2013,
     location: 'Roanoke VA',
@@ -487,7 +487,7 @@ export const TIMELINE_EVENTS: TimelineEvent[] = [
     talks: ['Single Page Web Application: Design and Implementation'],
   },
   {
-    event: 'TriNUG/Raleigh Code Camp 2013',
+    event: 'Triangle .NET User Group / Raleigh Code Camp 2013',
     date: '2013-11-09',
     year: 2013,
     location: 'Raleigh NC',
@@ -495,7 +495,7 @@ export const TIMELINE_EVENTS: TimelineEvent[] = [
     talks: ['Building Real Time Web Applications with SignalR'],
   },
   {
-    event: 'Richmond .NET UG',
+    event: 'Richmond .NET User Group',
     date: '2014-03-06',
     year: 2014,
     location: 'Richmond VA',
@@ -519,7 +519,7 @@ export const TIMELINE_EVENTS: TimelineEvent[] = [
     talks: ['Robust Web APIs with node.js and Express', 'Using SignalR to Build Real Time Applications'],
   },
   {
-    event: 'RVNUG (Roanoke Valley .NET)',
+    event: 'Roanoke Valley .NET User Group',
     date: '2014-06-05',
     year: 2014,
     location: 'Roanoke VA',
@@ -535,7 +535,7 @@ export const TIMELINE_EVENTS: TimelineEvent[] = [
     talks: ['JavaScript Promises'],
   },
   {
-    event: 'CapArea .NET UG',
+    event: 'Capital Area .NET Users Group',
     date: '2014-07-22',
     year: 2014,
     location: 'Washington DC',
@@ -543,7 +543,7 @@ export const TIMELINE_EVENTS: TimelineEvent[] = [
     talks: ['ASP.NET - The vNext Generation'],
   },
   {
-    event: 'CMAP',
+    event: 'Central Maryland Association of .NET Professionals',
     date: '2014-08',
     year: 2014,
     location: 'Columbia MD',
@@ -567,7 +567,7 @@ export const TIMELINE_EVENTS: TimelineEvent[] = [
     talks: ['Enhancing Existing Web Applications with SignalR', 'Building Single-Page Applications with AngularJS', 'Escaping Callbacks: Using Promises in JavaScript'],
   },
   {
-    event: 'rvajs',
+    event: 'RVA.js',
     date: '2014-10-07',
     year: 2014,
     location: 'Richmond VA',
@@ -575,7 +575,7 @@ export const TIMELINE_EVENTS: TimelineEvent[] = [
     talks: ['Node.js / Express'],
   },
   {
-    event: 'GANG',
+    event: 'Great Lakes Area .NET User Group',
     date: '2014-10-15',
     year: 2014,
     location: 'Detroit MI',
@@ -583,7 +583,7 @@ export const TIMELINE_EVENTS: TimelineEvent[] = [
     talks: ['ASP.NET Performance'],
   },
   {
-    event: 'GLUGnet',
+    event: 'Greater Lansing User Group for .NET Developers',
     date: '2014-10-16',
     year: 2014,
     location: 'Michigan',
@@ -591,7 +591,7 @@ export const TIMELINE_EVENTS: TimelineEvent[] = [
     talks: ['ASP.NET Performance'],
   },
   {
-    event: 'Richmond .NET UG',
+    event: 'Richmond .NET User Group',
     date: '2014-12-04',
     year: 2014,
     location: 'Richmond VA',
@@ -607,7 +607,7 @@ export const TIMELINE_EVENTS: TimelineEvent[] = [
     talks: ['ASP.NET Performance Tips and Tricks', 'Building Custom node.js Modules'],
   },
   {
-    event: 'HRNUG',
+    event: 'Hampton Roads .NET Users Group',
     date: '2015-03-10',
     year: 2015,
     location: 'Hampton Roads VA',
@@ -623,7 +623,7 @@ export const TIMELINE_EVENTS: TimelineEvent[] = [
     talks: ['Building Real Time Web Applications with SignalR'],
   },
   {
-    event: 'NoVA Code Camp 2015',
+    event: 'Northern Virginia Code Camp 2015',
     date: '2015-04-17',
     year: 2015,
     location: 'Northern VA',
@@ -639,7 +639,7 @@ export const TIMELINE_EVENTS: TimelineEvent[] = [
     talks: ['ASP.NET Performance Tips and Tricks', 'Using SignalR to Build Real Time Web Applications'],
   },
   {
-    event: 'HRNUG',
+    event: 'Hampton Roads .NET Users Group',
     date: '2015-08-11',
     year: 2015,
     location: 'Hampton Roads VA',
@@ -655,7 +655,7 @@ export const TIMELINE_EVENTS: TimelineEvent[] = [
     talks: ['ASP.NET Quick Wins: 20 Tips and Tricks to Shift Your Application into High Gear', 'Scalable SignalR Applications'],
   },
   {
-    event: 'Richmond .NET UG',
+    event: 'Richmond .NET User Group',
     date: '2015-10-01',
     year: 2015,
     location: 'Glen Allen VA',
@@ -671,7 +671,7 @@ export const TIMELINE_EVENTS: TimelineEvent[] = [
     talks: [],
   },
   {
-    event: 'CapArea .NET UG',
+    event: 'Capital Area .NET Users Group',
     date: '2015-11-17',
     year: 2015,
     location: 'Washington DC',
@@ -695,7 +695,7 @@ export const TIMELINE_EVENTS: TimelineEvent[] = [
     talks: ['ASP.NET Quick Wins: 20 Tips and Tricks for Better Performance'],
   },
   {
-    event: 'HRNUG',
+    event: 'Hampton Roads .NET Users Group',
     date: '2016-01-12',
     year: 2016,
     location: 'Hampton Roads VA',
@@ -703,7 +703,7 @@ export const TIMELINE_EVENTS: TimelineEvent[] = [
     talks: ['SMS and Phone Call Automation with Twilio'],
   },
   {
-    event: 'RVNUG (Roanoke Valley .NET)',
+    event: 'Roanoke Valley .NET User Group',
     date: '2016-02-04',
     year: 2016,
     location: 'Roanoke VA',
@@ -719,7 +719,7 @@ export const TIMELINE_EVENTS: TimelineEvent[] = [
     talks: [],
   },
   {
-    event: 'Cape Fear .NET UG',
+    event: 'Cape Fear .NET User Group',
     date: '2016-06-21',
     year: 2016,
     location: 'virtual',
@@ -727,7 +727,7 @@ export const TIMELINE_EVENTS: TimelineEvent[] = [
     talks: ['Twilio and .NET'],
   },
   {
-    event: 'Innsbrook .NET UG',
+    event: 'Innsbrook .NET User Group',
     date: '2016-09-20',
     year: 2016,
     location: 'Richmond VA',
@@ -735,7 +735,7 @@ export const TIMELINE_EVENTS: TimelineEvent[] = [
     talks: ['ASP.NET Core'],
   },
   {
-    event: 'NoVA Code Camp 2016',
+    event: 'Northern Virginia Code Camp 2016',
     date: '2016-10-08',
     year: 2016,
     location: 'Northern VA',
@@ -783,7 +783,7 @@ export const TIMELINE_EVENTS: TimelineEvent[] = [
     talks: ['ASP.NET Development without Microsoft Windows'],
   },
   {
-    event: 'Richmond .NET UG',
+    event: 'Richmond .NET User Group',
     date: '2016-12-01',
     year: 2016,
     location: 'Richmond VA',
@@ -791,7 +791,7 @@ export const TIMELINE_EVENTS: TimelineEvent[] = [
     talks: ['Faster Deployments by Dockerizing ASP.NET Core Applications'],
   },
   {
-    event: 'CMAP',
+    event: 'Central Maryland Association of .NET Professionals',
     date: '2016-12-06',
     year: 2016,
     location: 'Columbia MD',
@@ -807,7 +807,7 @@ export const TIMELINE_EVENTS: TimelineEvent[] = [
     talks: ['A Cross-Platform Introduction to Azure Search'],
   },
   {
-    event: 'HRNUG',
+    event: 'Hampton Roads .NET Users Group',
     date: '2016-12-13',
     year: 2016,
     location: 'Hampton Roads VA',
@@ -815,7 +815,7 @@ export const TIMELINE_EVENTS: TimelineEvent[] = [
     talks: ['Git Workflow (lightning)'],
   },
   {
-    event: 'HRNUG',
+    event: 'Hampton Roads .NET Users Group',
     date: '2017-01-10',
     year: 2017,
     location: 'Hampton Roads VA',
@@ -823,7 +823,7 @@ export const TIMELINE_EVENTS: TimelineEvent[] = [
     talks: ['Faster Deployments by Dockerizing ASP.NET Core Applications', 'C# 7 features (lightning)'],
   },
   {
-    event: 'RVNUG (Roanoke Valley .NET)',
+    event: 'Roanoke Valley .NET User Group',
     date: '2017-02-02',
     year: 2017,
     location: 'Roanoke VA',
@@ -831,7 +831,7 @@ export const TIMELINE_EVENTS: TimelineEvent[] = [
     talks: ['Faster Deployments by Dockerizing ASP.NET Core Applications'],
   },
   {
-    event: 'DC .NET UG',
+    event: 'DC .NET User Group',
     date: '2017-03-21',
     year: 2017,
     location: 'Washington DC',
@@ -839,7 +839,7 @@ export const TIMELINE_EVENTS: TimelineEvent[] = [
     talks: ['.NET Core'],
   },
   {
-    event: 'NoVA Code Camp 2017',
+    event: 'Northern Virginia Code Camp 2017',
     date: '2017-04-01',
     year: 2017,
     location: 'Northern VA',
@@ -847,7 +847,7 @@ export const TIMELINE_EVENTS: TimelineEvent[] = [
     talks: ['Twilio and .NET'],
   },
   {
-    event: 'CapArea .NET UG',
+    event: 'Capital Area .NET Users Group',
     date: '2017-05-23',
     year: 2017,
     location: 'Washington DC',
@@ -879,7 +879,7 @@ export const TIMELINE_EVENTS: TimelineEvent[] = [
     talks: [],
   },
   {
-    event: 'HRNUG',
+    event: 'Hampton Roads .NET Users Group',
     date: '2017-12-12',
     year: 2017,
     location: 'Hampton Roads VA',
@@ -903,7 +903,7 @@ export const TIMELINE_EVENTS: TimelineEvent[] = [
     talks: ['Designing Cross Platform Applications on .NET Core', 'Application Insights'],
   },
   {
-    event: 'CapArea .NET UG',
+    event: 'Capital Area .NET Users Group',
     date: '2018-02-27',
     year: 2018,
     location: 'Washington DC',
@@ -911,7 +911,7 @@ export const TIMELINE_EVENTS: TimelineEvent[] = [
     talks: ['What\'s New in SignalR Core 2'],
   },
   {
-    event: 'RVNUG (Roanoke Valley .NET)',
+    event: 'Roanoke Valley .NET User Group',
     date: '2018-04-05',
     year: 2018,
     location: 'Roanoke VA',
@@ -927,7 +927,7 @@ export const TIMELINE_EVENTS: TimelineEvent[] = [
     talks: ['Enhance Your Career with a Mastermind Group'],
   },
   {
-    event: 'Richmond .NET UG',
+    event: 'Richmond .NET User Group',
     date: '2018-05-03',
     year: 2018,
     location: 'Richmond VA',
@@ -943,7 +943,7 @@ export const TIMELINE_EVENTS: TimelineEvent[] = [
     talks: [],
   },
   {
-    event: 'HRNUG',
+    event: 'Hampton Roads .NET Users Group',
     date: '2018-11-13',
     year: 2018,
     location: 'Hampton Roads VA',
@@ -975,7 +975,7 @@ export const TIMELINE_EVENTS: TimelineEvent[] = [
     talks: ['Enhance Your Career with a Mastermind Group'],
   },
   {
-    event: 'HRNUG',
+    event: 'Hampton Roads .NET Users Group',
     date: '2019-02-12',
     year: 2019,
     location: 'Hampton Roads VA',
@@ -1015,7 +1015,7 @@ export const TIMELINE_EVENTS: TimelineEvent[] = [
     talks: ['A Modern Architectural Review of Text-Based Adventure Games', 'Enhance Your Career with a Mastermind Group'],
   },
   {
-    event: 'RVNUG (Roanoke Valley .NET)',
+    event: 'Roanoke Valley .NET User Group',
     date: '2019-08-01',
     year: 2019,
     location: 'Roanoke VA',
@@ -1023,7 +1023,7 @@ export const TIMELINE_EVENTS: TimelineEvent[] = [
     talks: ['Upgrading Your ASP.NET 4.0+ Skills to ASP.NET Core'],
   },
   {
-    event: 'HRNUG',
+    event: 'Hampton Roads .NET Users Group',
     date: '2019-10-08',
     year: 2019,
     location: 'Hampton Roads VA',
@@ -1063,7 +1063,7 @@ export const TIMELINE_EVENTS: TimelineEvent[] = [
     talks: ['Single Page Architectures with VueJS and ASP.NET Core'],
   },
   {
-    event: 'TriNUG',
+    event: 'Triangle .NET User Group',
     date: '2020-02-12',
     year: 2020,
     location: 'Raleigh NC',
@@ -1071,7 +1071,7 @@ export const TIMELINE_EVENTS: TimelineEvent[] = [
     talks: ['VueJS + ASP.NET Core SPA'],
   },
   {
-    event: 'RVNUG (Roanoke Valley .NET)',
+    event: 'Roanoke Valley .NET User Group',
     date: '2020-03-05',
     year: 2020,
     location: 'Roanoke VA',
@@ -1103,7 +1103,7 @@ export const TIMELINE_EVENTS: TimelineEvent[] = [
     talks: ['Better Object Mapping in .NET with Dapper'],
   },
   {
-    event: 'Louisville Azure UG',
+    event: 'Louisville Azure User Group',
     date: '2020-05-28',
     year: 2020,
     location: 'virtual',
@@ -1111,7 +1111,7 @@ export const TIMELINE_EVENTS: TimelineEvent[] = [
     talks: ['Logic Apps and Azure Functions'],
   },
   {
-    event: 'CMH AppDev UG (Columbus)',
+    event: 'Columbus AppDev User Group',
     date: '2020-06',
     year: 2020,
     location: 'virtual',
@@ -1119,7 +1119,7 @@ export const TIMELINE_EVENTS: TimelineEvent[] = [
     talks: ['Azure Logic Apps & Functions'],
   },
   {
-    event: 'Las Vegas .NET UG',
+    event: 'Las Vegas .NET User Group',
     date: '2020-06-11',
     year: 2020,
     location: 'virtual',
@@ -1143,7 +1143,7 @@ export const TIMELINE_EVENTS: TimelineEvent[] = [
     talks: ['Single Page Architectures with VueJS and ASP.NET Core', 'Better Object Mapping in .NET with Dapper'],
   },
   {
-    event: 'Northern VA CodeCamp Fall 2020',
+    event: 'Northern Virginia Code Camp Fall 2020',
     date: '2020-09-26',
     year: 2020,
     location: 'virtual',
@@ -1175,12 +1175,20 @@ export const TIMELINE_EVENTS: TimelineEvent[] = [
     talks: ['21st Century Background Services with Azure Logic Apps and Azure Functions'],
   },
   {
-    event: 'CONDG + NWVDNUG/SEVDNUG',
+    event: 'Central Ohio .NET Developer\'s Group',
     date: '2021-03-25',
     year: 2021,
     location: 'virtual',
     type: 'speaking',
     talks: ['Better Database Object Mapping in .NET with Dapper'],
+  },
+  {
+    event: 'North West Valley .NET User Group / Southeast Valley .NET User Group',
+    date: '2021-03-25',
+    year: 2021,
+    location: 'virtual',
+    type: 'speaking',
+    talks: ['Crazy Web Performance with Azure Static Web Apps'],
   },
   {
     event: '#MetaConference 2021',
@@ -1191,7 +1199,7 @@ export const TIMELINE_EVENTS: TimelineEvent[] = [
     talks: [],
   },
   {
-    event: 'Tulsa .NET UG',
+    event: 'Tulsa .NET User Group',
     date: '2021-07-08',
     year: 2021,
     location: 'virtual',
@@ -1223,7 +1231,7 @@ export const TIMELINE_EVENTS: TimelineEvent[] = [
     talks: [],
   },
   {
-    event: 'Northern VA CodeCamp Fall 2021',
+    event: 'Northern Virginia Code Camp Fall 2021',
     date: '2021-10-16',
     year: 2021,
     location: '',
@@ -1287,7 +1295,7 @@ export const TIMELINE_EVENTS: TimelineEvent[] = [
     talks: ['Tailwind CSS Essentials for Developers', 'Real-Time Revolution: SignalR in Action'],
   },
   {
-    event: 'RVNUG (Roanoke Valley .NET)',
+    event: 'Roanoke Valley .NET User Group',
     date: '2022-09-01',
     year: 2022,
     location: 'virtual',
@@ -1303,7 +1311,7 @@ export const TIMELINE_EVENTS: TimelineEvent[] = [
     talks: ['Real-Time Revolution: SignalR in Action', 'Saving Lives with SignalR and .NET'],
   },
   {
-    event: 'HRNUG',
+    event: 'Hampton Roads .NET Users Group',
     date: '2022-12-13',
     year: 2022,
     location: 'Hampton Roads VA',
@@ -1351,7 +1359,7 @@ export const TIMELINE_EVENTS: TimelineEvent[] = [
     talks: ['Annihilating Workloads with Azure Functions'],
   },
   {
-    event: 'CapArea .NET UG',
+    event: 'Capital Area .NET Users Group',
     date: '2023-06-27',
     year: 2023,
     location: 'Arlington VA',
@@ -1359,7 +1367,7 @@ export const TIMELINE_EVENTS: TimelineEvent[] = [
     talks: ['Tactics for Building Background Services with .NET'],
   },
   {
-    event: 'Global App Dev UG',
+    event: 'Global App Dev User Group',
     date: '2023-08-21',
     year: 2023,
     location: 'virtual',
@@ -1367,7 +1375,7 @@ export const TIMELINE_EVENTS: TimelineEvent[] = [
     talks: ['Tactics for Building Background Services in .NET'],
   },
   {
-    event: 'RVNUG (Roanoke Valley .NET)',
+    event: 'Roanoke Valley .NET User Group',
     date: '2023-09-07',
     year: 2023,
     location: 'Salem VA',
@@ -1423,7 +1431,7 @@ export const TIMELINE_EVENTS: TimelineEvent[] = [
     talks: ['Dumb Mistakes I\'ve Made with Relational Databases as a Developer'],
   },
   {
-    event: 'Cleveland C# UG',
+    event: 'Cleveland C# User Group',
     date: '2024-08-28',
     year: 2024,
     location: 'virtual',
@@ -1439,7 +1447,7 @@ export const TIMELINE_EVENTS: TimelineEvent[] = [
     talks: ['Gauntlet: 30 Rapid Fire Tips and Tricks for .NET and C# Developers', 'Tactics for Building Background Services in .NET'],
   },
   {
-    event: 'RVNUG (Roanoke Valley .NET)',
+    event: 'Roanoke Valley .NET User Group',
     date: '2024-10-03',
     year: 2024,
     location: 'Blacksburg VA',
@@ -1463,7 +1471,7 @@ export const TIMELINE_EVENTS: TimelineEvent[] = [
     talks: ['My $8,000 Serverless Mistake'],
   },
   {
-    event: 'CapArea .NET UG',
+    event: 'Capital Area .NET Users Group',
     date: '2025-06-03',
     year: 2025,
     location: 'Washington DC',
@@ -1487,7 +1495,7 @@ export const TIMELINE_EVENTS: TimelineEvent[] = [
     talks: ['Crazy Web Performance with Azure Static Web Apps'],
   },
   {
-    event: 'RVNUG (Roanoke Valley .NET)',
+    event: 'Roanoke Valley .NET User Group',
     date: '2025-10-02',
     year: 2025,
     location: 'Salem VA',
@@ -1551,7 +1559,7 @@ export const TIMELINE_EVENTS: TimelineEvent[] = [
     talks: ['Building MCP Servers in .NET', 'Modern .NET Configuration'],
   },
   {
-    event: 'RVNUG (Roanoke Valley .NET)',
+    event: 'Roanoke Valley .NET User Group',
     date: '2026-11-05',
     year: 2026,
     location: 'Salem VA',
