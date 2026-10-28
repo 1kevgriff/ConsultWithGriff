@@ -16,7 +16,7 @@ categories:
   - Deep Thoughts
 ---
 
-I've been running community events for a long time. I helped run my first code camp back in 2010, and now I'm organizing the seventh edition of Hampton Roads DevFest.
+I've been running community events for a long time. I helped run my first code camp back in 2010, and now I'm organizing the seventh edition of [Hampton Roads DevFest](https://hrdevfest.org).
 
 A lot of tasks fall on organizers and volunteers, and they usually get done only as well as whoever picks them up. It's easy to be all in at the start, then fade into going through the motions as the event gets closer. Running these events is hard. It takes a lot of time. And plenty of it is just boring work nobody wants to do.
 
@@ -56,7 +56,7 @@ I know some people will push back here and call this automated marketing. To a d
 
 It also helps a ton with follow-up. One email or message easily gets lost, and people who mean to reply often forget. Jimothy tracks all of it like a glorified CRM, so I know when to follow up, or whether I even need to.
 
-We're still experimenting with this one, and I'll write a follow-up once I've seen how it plays out. But I'm hoping it pays off, and I think it's going to be a huge help for Hampton Roads DevFest.
+We're still experimenting with this one, and I'll write a follow-up once I've seen how it plays out. But I'm hoping it pays off, and I think it's going to be a huge help for [Hampton Roads DevFest](https://hrdevfest.org).
 
 ## Social Media
 
@@ -106,9 +106,4 @@ But it's exhausting. I've watched conferences and user groups come and go, and p
 
 So here's where I land. A bot, whichever one you choose, is a game changer for the tasks that fall through the cracks. Sometimes that's because you don't have time. More often, it's because a volunteer with good intentions drops out at the last minute or halfway through planning.
 
-I hope you picked up a few ideas here. If you want to talk about how I actually set all this up, I'd love to. I use a variety of bot systems, including Hermes, OpenAI Dots and Grok Bots, and they all have pros and cons. I definitely have opinions about which ones I like best. If you want to hear more, hit me up on social media. My links are below, and I'd love to chat.
-
-- X: [@1kevgriff](https://x.com/1kevgriff)
-- Bluesky: [@consultwithgriff.com](https://bsky.app/profile/consultwithgriff.com)
-- LinkedIn: [Kevin Griffin](https://www.linkedin.com/in/1kevgriff)
-- Mastodon: [@1kevgriff@bbiz.io](https://bbiz.io/@1kevgriff)
+I hope you picked up a few ideas here. If you want to talk about how I actually set all this up, I'd love to. I use a variety of bot systems, including Hermes, OpenAI Dots and Grok Bots, and they all have pros and cons. I definitely have opinions about which ones I like best. If you want to hear more, hit me up on [X](https://x.com/1kevgriff), [Bluesky](https://bsky.app/profile/consultwithgriff.com), [LinkedIn](https://www.linkedin.com/in/1kevgriff), or [Mastodon](https://bbiz.io/@1kevgriff). I'd love to chat.
