@@ -367,12 +367,12 @@ export const TIMELINE_EVENTS: TimelineEvent[] = [
     talks: ['Getting Started with SignalR', 'Real-Time Dashboards with ASP.NET MVC'],
   },
   {
-    event: 'CMDG (Central Maryland)',
+    event: 'Charlottesville Microsoft Developer Group',
     date: '2012-08-16',
     year: 2012,
-    location: 'Maryland',
+    location: 'Charlottesville VA',
     type: 'speaking',
-    talks: ['SignalR'],
+    talks: ['Getting Started with SignalR'],
   },
   {
     event: 'devLink 2012',
@@ -407,10 +407,10 @@ export const TIMELINE_EVENTS: TimelineEvent[] = [
     talks: ['TypeScript (ad-hoc session)'],
   },
   {
-    event: 'RADNUG',
+    event: 'Rappahannock Area Developers .NET Users Group',
     date: '2012-10-23',
     year: 2012,
-    location: 'Raleigh NC',
+    location: 'Spotsylvania VA',
     type: 'speaking',
     talks: ['SignalR'],
   },
