@@ -15,6 +15,15 @@ const { title, description } = Astro.props;
 <!doctype html>
 <html lang="en" class="theme-light">
   <head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-G6TPE6V0YJ"></script>
+    <script is:inline>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag('js', new Date());
+      gtag('config', 'G-G6TPE6V0YJ');
+    </script>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/x-icon" href="/favicon.ico" />
