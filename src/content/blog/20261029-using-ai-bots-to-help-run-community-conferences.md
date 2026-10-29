@@ -2,7 +2,7 @@
 title: 'Using AI Bots to Help Run Community Conferences'
 date: 2026-10-29T00:00:00Z
 permalink: using-ai-bots-to-help-run-community-conferences
-description: "How I'm using an AI bot named Jimothy to transform community conference organizing — from sponsor research and social media to email management and task tracking."
+description: "How I'm using an AI bot named Jimothy to help run Hampton Roads DevFest — from sponsor research and social media to email management and task tracking."
 summary: "For Hampton Roads DevFest 2027, I've been experimenting with an AI bot named Jimothy to handle sponsor research, social media scheduling, email triage, and task management. Here's what's working and why I think bots will change how we run community events."
 tags:
   - AI
@@ -38,7 +38,7 @@ Here's an example. I've been working on the sponsor prospectus for DevFest, so I
 
 This has been invaluable. The council kept raising issues I'd never considered, and I don't think anyone else on our organizing team would have either. We don't think like an engineering manager at a defense contractor, because none of us is one.
 
-One of the big things the council helped with was a new post-event report. The council suggested that after the event, we give sponsors information about who attended: not just how many, but what companies or industries they came from, whether they were looking for work, or whether their company was hiring. We can ask all of this during registration, and it makes a really good set of charts and graphs for sponsors to understand where people came from. We wouldn't give away any personal information, and much of it is opt-in for attendees, so it won't be perfect, but it's a better snapshot of who comes to Hampton Roads DevFest than a sponsor would get just sitting at their table. It also gives us data for next year, so we can go to sponsors with more concrete numbers about who attends.
+The council helped us plan a new post-event report for sponsors. The council suggested that after the event, we give them information about who attended: not just how many, but what companies or industries they came from, whether they were looking for work, or whether their company was hiring. We can ask all of this during registration, and it makes a really good set of charts and graphs for sponsors to understand where people came from. We wouldn't give away any personal information, and much of it is opt-in for attendees, so it won't be perfect, but it's a better snapshot of who comes to Hampton Roads DevFest than a sponsor would get just sitting at their table. It also gives us data for next year, so we can go to sponsors with more concrete numbers about who attends.
 
 > **Community Resource:** I've published many of the personas we use for Hampton Roads DevFest in a GitHub repo: [conference-council-personas](https://github.com/1kevgriff/conference-council-personas). Pull some down, contribute your own, or suggest changes. I'd love for this to become a shared resource the whole community can build on.
 
@@ -60,7 +60,7 @@ We're still experimenting with this one, and I'll write a follow-up once I've se
 
 Honestly, this is where I've failed most as a conference organizer: keeping up with social media. When you run an event, there's so much you need to post. You need to post that your prospectus is out and you're looking for sponsors, who your sponsors are, who your speakers are, and when your call for speakers is open. You need FOMO photos from past years. And keeping a consistent posting schedule—even just once a day—takes real effort when you're juggling everything else.
 
-For a normal person, and especially for a developer, this is the part of running a conference I just hate. I hate scheduling posts. I hate making images for Instagram and videos for TikTok. There are so many platforms now that getting it all scheduled is exhausting.
+This is the part of running a conference I just hate. I hate scheduling posts. I hate making images for Instagram and videos for TikTok. There are so many platforms now that getting it all scheduled is exhausting.
 
 This is where a bot helps the most. With the right integrations, it can work across all your accounts—Bluesky, X, Threads, Instagram, TikTok. Tell it you want to post once or twice a day, and it helps build the schedule and makes sure the posts actually go out. It can also track engagement, so you can see whether you're doing better on LinkedIn than on X. I think this is one of the best things bots can do for us.
 
@@ -82,7 +82,7 @@ Here's where it could get even better: if the bot could handle that ticket trans
 
 Email also helps with follow-up. When I'm doing cold outreach to a potential sponsor, I want to know if and when they reply. Do they have questions? Are they asking about something that isn't in the prospectus? Jimothy takes all of that in, brings me the questions, and then makes the updates we need. That might mean replying to the sponsor or updating the website, both of which we let him do.
 
-One rule I hold to: no email goes out on my behalf automatically. Jimothy drafts, I review, and I approve each one before it sends. The email is usually close to my own voice, and I either hit send or tell the bot, "This is nice, but I'd like a couple of changes." The bot remembers those changes and uses them in future emails. Nine times out of ten, I like what it wrote. The tenth time, I turn it down and send the reply myself, or rewrite the email completely because I didn't like how it was presented.
+One rule I hold to: no email goes out on my behalf automatically. Jimothy drafts, I review, and I approve each one before it's sent. The email is usually close to my own voice, and I either hit send or tell the bot, "This is nice, but I'd like a couple of changes." The bot remembers those changes and uses them in future emails. Nine times out of ten, I like what it wrote. The tenth time, I turn it down and send the reply myself, or rewrite the email completely because I didn't like how it was presented.
 
 ## Keeping the To-Do List
 
@@ -90,7 +90,7 @@ Every conference I've been part of has a to-do list. It might be in GitHub issue
 
 One thing I've always done poorly, and I think a lot of conferences do too, is keep that list up to date and make sure it turns into a to-done list. The bot is incredibly good at managing to-do lists and following up on them. In a lot of cases, it can even do the tasks for you.
 
-I won't go into detail here about exactly what a bot can do, because that depends on which bot system you use and how much access you give it. But here's an example. Say you need to email all your speakers. We already covered email: the bot drafts the messages, I review and approve each one, and the bot sends them. That to-do becomes a to-done.
+I won't go into detail here about exactly what a bot can do, because that depends on which bot system you use and how much access you give it. But here's an example. Say I need to email all our speakers. Jimothy drafts the messages, I review and approve each one, and he sends them. That to-do becomes a to-done.
 
 Or say you need to look up a speaker's social media to see whether they're a good fit for the event. That might take a person a few minutes, but it's still a to-do. The bot can do it much faster and turn it into a to-done.
 
