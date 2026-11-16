@@ -23,7 +23,7 @@ Every time I create a new Git repo, I always have to go look for a previous copy
 
 For most projects, I recommend using [gitignore.io](https://gitignore.io) to generate a tailored .gitignore. But here's my default starting point:
 
-```gitignore
+```text
 # Build outputs
 [Bb]in/
 [Oo]bj/

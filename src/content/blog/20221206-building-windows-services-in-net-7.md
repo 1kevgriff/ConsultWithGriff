@@ -53,7 +53,7 @@ This will create a new project with the following structure:
 
 Inside of the Program.cs, you'll see the following code:
 
-```CSharp
+```csharp
 using WindowsService;
 
 IHost host = Host.CreateDefaultBuilder(args)
@@ -78,7 +78,7 @@ Back at the terminal, install the appropriate NuGet package for Window Services:
 
 Update the Program.cs to look like the following:
 
-```CSharp
+```csharp
 using WindowsService;
 
 IHost host = Host.CreateDefaultBuilder(args)
@@ -109,7 +109,7 @@ This was a cool little feature added to .NET Core 2.1. It allows you to run code
 
 Open up Workers.cs, and you'll see the following code:
 
-```CSharp
+```csharp
 namespace WindowsService;
 
 public class Worker : BackgroundService
@@ -142,7 +142,7 @@ The simple example we'd like to build is an application that monitors a folder f
 
 Here is the code for our new Worker.cs looks like this:
 
-```CSharp
+```csharp
 public class Worker : BackgroundService
 {
     private readonly ILogger<Worker> _logger;

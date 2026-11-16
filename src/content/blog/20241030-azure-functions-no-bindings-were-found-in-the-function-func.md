@@ -22,7 +22,7 @@ Don't you just hate errors that will tell you something is wrong, but not tell y
 
 ![No bindings found in function](./images/20241031-azure-functions-host-error.jpg)
 
-```cli
+```bash
 Worker failed to index functions
 Result: Failure
 Exception: System.InvalidOperationException: Functions must declare at least one binding. No bindings were found in the function $func.
