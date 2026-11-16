@@ -34,13 +34,13 @@ Full disclosure: I barely watched Day 2. I had obligations that pulled me out of
 
 ## Visual Studio's everyday improvements
 
-Mads Kristensen's _Visual Studio Now and Next_ keynote mixed AI features with plain old IDE improvements.
+[Mads Kristensen](https://x.com/madskristensen)'s _Visual Studio Now and Next_ keynote mixed AI features with plain old IDE improvements.
 
 Example: stop a solution build after the first project fails. On a failing OrchardCore build, average elapsed time dropped from 26.0 seconds to 1.5 seconds. That's 94% less time waiting to find out your build is broken.
 
 ![Visual Studio stop-on-first-failure benchmark on a failing OrchardCore build](/images/20261118-dotnetconf-vs-stop-on-failure.jpg)
 
-Jason Chlus's _What's new in Visual Studio_ went through the settings and a pile of editor features:
+[Jason Chlus](https://x.com/JasonChlus)'s _What's new in Visual Studio_ went through the settings and a pile of editor features:
 
 - Test Explorer shows expected-versus-actual string diffs.
 - HTML class names navigate to their CSS definitions.
@@ -57,7 +57,7 @@ Sebastian Hernandez's version-control session followed a change through worktree
 
 ## The new Visual Studio agent
 
-In _The State of AI in Visual Studio_, Rachel Kang and Barbara Boyajian explained that the agent experience now runs on the same Copilot SDK foundation as the other Copilot clients.
+In _The State of AI in Visual Studio_, [Rachel Kang](https://x.com/therachelkang) and Barbara Boyajian explained that the agent experience now runs on the same Copilot SDK foundation as the other Copilot clients.
 
 Their benchmark kept the model fixed at GPT-5.6 Sol. Across 157 SWE-Bench-CSharp-General tasks, the old experience resolved 103 and the new one resolved 124. "Resolved" meant the failing tests pass without breaking tests that already passed. One run per experience, so take it as a directional signal.
 
@@ -75,7 +75,7 @@ She also moved a Copilot CLI performance investigation into Visual Studio's prof
 
 ## Blazor Server gets resilient
 
-Daniel Roth's _Blazor Server in .NET 11: Fast, resilient, and scalable_ started with static server-side rendering. QuickGrid gained sorting and paging links. Enhanced forms gained client-side validation. And apps can use TempData, session state, `CacheView`, and output caching without holding an interactive circuit open.
+[Daniel Roth](https://x.com/danroth27)'s _Blazor Server in .NET 11: Fast, resilient, and scalable_ started with static server-side rendering. QuickGrid gained sorting and paging links. Enhanced forms gained client-side validation. And apps can use TempData, session state, `CacheView`, and output caching without holding an interactive circuit open.
 
 ![Slide listing the new static SSR capabilities in .NET 11](/images/20261118-dotnetconf-blazor-ssr.jpg)
 
@@ -90,7 +90,7 @@ Where the state goes depends on the scenario. State saved before a disconnected 
 
 ## MCP and AG-UI
 
-Stephen Halter's _What's new in the MCP C# SDK_ demoed an MCP App that rendered fireworks inside a compatible client and used SignalR to keep a second screen in sync. HTTP transport now defaults to stateless mode. The SDK is split into packages: the core SDK, hosting, and ASP.NET Core integration, plus extensions for Apps, long-running Tasks, and experimental Skills.
+[Stephen Halter](https://x.com/halter73)'s _What's new in the MCP C# SDK_ demoed an MCP App that rendered fireworks inside a compatible client and used SignalR to keep a second screen in sync. HTTP transport now defaults to stateless mode. The SDK is split into packages: the core SDK, hosting, and ASP.NET Core integration, plus extensions for Apps, long-running Tasks, and experimental Skills.
 
 ![Diagram of the MCP C# SDK packages and their dependencies](/images/20261118-dotnetconf-mcp-sdk.jpg)
 
@@ -104,19 +104,19 @@ The experimental Blazor AI components let an agent fill out a form through a fro
 
 ## Windows apps
 
-Niels Laute and Morten Nielsen's _Building great Windows apps with WinUI and agents_ covered WinUI development moving to GitHub, new Chart, TableView, and Ink controls, and the WinApp CLI. The CLI plus agent skills let an agent run, inspect, and debug a native app. In the demo, Copilot read a comment attached to the running UI, built a GitHub issues view, and checked its own result.
+[Niels Laute](https://x.com/Niels9001) and [Morten Nielsen](https://x.com/dotMorten)'s _Building great Windows apps with WinUI and agents_ covered WinUI development moving to GitHub, new Chart, TableView, and Ink controls, and the WinApp CLI. The CLI plus agent skills let an agent run, inspect, and debug a native app. In the demo, Copilot read a comment attached to the running UI, built a GitHub issues view, and checked its own result.
 
 ![What's new in WinUI: open source, new controls, performance, fundamentals, and developer experience](/images/20261118-dotnetconf-winui.jpg)
 
 The performance demo used `winapp perf` on a 1.53-second frame where rendering took only 0.34 seconds. The culprit was redundant load and save work on the UI thread, at 816 ms and 772 ms.
 
-Manodasan Wignarajah and Sergio Pedri's _CsWinRT 3.0_ session showed what a redesigned projection and interop generator buys you. The Microsoft Store app shrank from 129.34 MB to 107.86 MB. Contoso Camera went from 5.61 MB to 5.08 MB. Both sides of the Store comparison already used .NET 10 and Native AOT, so the difference is purely CsWinRT 2 to CsWinRT 3.
+[Manodasan Wignarajah](https://x.com/ManodasanW) and [Sergio Pedri](https://x.com/SergioPedri)'s _CsWinRT 3.0_ session showed what a redesigned projection and interop generator buys you. The Microsoft Store app shrank from 129.34 MB to 107.86 MB. Contoso Camera went from 5.61 MB to 5.08 MB. Both sides of the Store comparison already used .NET 10 and Native AOT, so the difference is purely CsWinRT 2 to CsWinRT 3.
 
 ![CsWinRT 3.0 app size comparison for Microsoft Store and Contoso Camera](/images/20261118-dotnetconf-cswinrt.jpg)
 
 Generator time for the Store dropped from 115 seconds to 9 seconds on a clean build and from 24 seconds to 4 seconds incrementally. Those numbers are for the generator step only, so your full build won't drop by the same amount. CsWinRT 3.0 also removes several old AOT workarounds and lets apps pick up projection fixes without waiting for every dependency to republish. It's an opt-in breaking change, selected through the Windows target framework version.
 
-Alexandre Zollinger Chohfi's _No XAML Required_ introduced Microsoft.UI.Reactor, an experimental, MIT-licensed way to build native WinUI apps in C#. It uses model-view-update components with real WinUI controls. The single-file counter demo ran with `dotnet run`, and more than 60 Roslyn analyzers check things like hook ordering, accessibility names, and UI-thread access.
+[Alexandre Zollinger Chohfi](https://x.com/AlexandreChohfi)'s _No XAML Required_ introduced Microsoft.UI.Reactor, an experimental, MIT-licensed way to build native WinUI apps in C#. It uses model-view-update components with real WinUI controls. The single-file counter demo ran with `dotnet run`, and more than 60 Roslyn analyzers check things like hook ordering, accessibility names, and UI-thread access.
 
 ![Microsoft.UI.Reactor slide: MVU for WinUI, real WinUI controls, an open experiment](/images/20261118-dotnetconf-ui-reactor.jpg)
 
@@ -124,13 +124,13 @@ Reactor and XAML can live in the same visual tree. Chohfi was clear that XAML is
 
 ## Modernization and mobile
 
-Mika Dumont's _GitHub Copilot modernization_ demo took a Web Forms app through assessment, planning, migration, and validation. The plan stood up an ASP.NET Core host next to the existing app and kept Entity Framework 6 to limit data-access changes. It supports automatic and guided modes, editable plans, and progress tracking.
+[Mika Dumont](https://x.com/mika_dumont)'s _GitHub Copilot modernization_ demo took a Web Forms app through assessment, planning, migration, and validation. The plan stood up an ASP.NET Core host next to the existing app and kept Entity Framework 6 to limit data-access changes. It supports automatic and guided modes, editable plans, and progress tracking.
 
 ![GitHub Copilot upgrade agent title slide](/images/20261118-dotnetconf-copilot-upgrade.jpg)
 
 The dashboard showed about 1 hour and 21 minutes of elapsed work and 698 changed files, and the build passed with zero errors. Those results are for one example app. The upgrade tooling works across Visual Studio, VS Code, Copilot clients, and the Modernize CLI.
 
-Gerald Versluis's _Beyond Code Generation: Give AI Eyes and Hands for .NET MAUI_ was about checking the running app:
+[Gerald Versluis](https://x.com/jfversluis)'s _Beyond Code Generation: Give AI Eyes and Hands for .NET MAUI_ was about checking the running app:
 
 - `maui doctor` diagnoses your dev machine setup.
 - `maui ai init` configures skills.
@@ -145,7 +145,7 @@ The session also showed Mobile Canvas, a community tool from Jonathan Dick (Redt
 
 ## Azure
 
-Matt Soucoup and Paul Yuknewicz presented _Azure's new lineup for .NET developers_ across two back-to-back sessions.
+[Matt Soucoup](https://x.com/codemillmatt) and [Paul Yuknewicz](https://x.com/paulyuki99) presented _Azure's new lineup for .NET developers_ across two back-to-back sessions.
 
 ![Meet the cast: ACA Sandboxes, hosted skills, AI Gateway, and SRE Agent](/images/20261118-dotnetconf-azure-cast.jpg)
 
@@ -159,7 +159,7 @@ The rest covered AI Gateway (model aliases, failover, per-caller budgets and pol
 
 ## File-based C# apps
 
-Damian Edwards's _C# File-based apps turned up to 11!_ covered running C# files directly. You can run `dotnet hello.cs` directly, pipe C# in through standard input, and use includes, app references, and custom SDKs. `#:include` pulls in source files. `#:ref` references another file-based app's types without running its entry point. Sidecar files hold settings and run configuration.
+[Damian Edwards](https://x.com/DamianEdwards)'s _C# File-based apps turned up to 11!_ covered running C# files directly. You can run `dotnet hello.cs` directly, pipe C# in through standard input, and use includes, app references, and custom SDKs. `#:include` pulls in source files. `#:ref` references another file-based app's types without running its entry point. Sidecar files hold settings and run configuration.
 
 The launch numbers used .NET SDK 11.0.100, pre-warmed build servers, and five runs per case:
 
@@ -179,7 +179,7 @@ Nearly every SDK command now works with file-based apps, including formatting an
 
 ## Foundry and EF Core 11
 
-Bruno Capuano's _.NET + Foundry: Better Together_ laid out three ways to build:
+[Bruno Capuano](https://x.com/elbruno)'s _.NET + Foundry: Better Together_ laid out three ways to build:
 
 1. Call a Foundry model deployment through `IChatClient`.
 2. Run your own `AIAgent` that uses Foundry models and tools.
@@ -189,7 +189,7 @@ Bruno Capuano's _.NET + Foundry: Better Together_ laid out three ways to build:
 
 The demos reused the same Microsoft.Extensions.AI code across model deployments with managed identity, then moved a local .NET agent into Foundry hosting. The hosted version added tracing, evaluations, jailbreak controls, and network allow/deny rules. Blocked tool calls showed up in the traces.
 
-Jiri Cincura's _EF Core 11: Vector Search, Smarter LINQ, and a Friendlier dotnet ef_ closed out the technical program. `VectorSearch(...)` expresses exact nearest-neighbor searches in LINQ, and `.WithApproximate()` switches to approximate search through a DiskANN index. You can combine vector search with `Where` filters.
+[Jiri Cincura](https://x.com/cincura_net)'s _EF Core 11: Vector Search, Smarter LINQ, and a Friendlier dotnet ef_ closed out the technical program. `VectorSearch(...)` expresses exact nearest-neighbor searches in LINQ, and `.WithApproximate()` switches to approximate search through a DiskANN index. You can combine vector search with `Where` filters.
 
 ![Slide listing EF Core 11 LINQ and SQL improvements](/images/20261118-dotnetconf-ef-core.jpg)
 
