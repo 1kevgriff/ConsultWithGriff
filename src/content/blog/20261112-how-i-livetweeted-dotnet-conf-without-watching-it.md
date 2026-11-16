@@ -120,7 +120,7 @@ On top of the Claude Code instance doing the capture and the livetweeting, I had
 
 And here's the thing: the fundamental win of this whole experiment was that livetweeting individual takes during sessions turned out to be a huge indicator of what people liked and what they didn't.
 
-What I probably would've thought were the wins early on turned out not to be the things people cared about most. And the things I didn't think anyone would care about turned out to be the biggest wins. It's kind of amazing how this community works. I've put some of the takes at the end of this article so you can see for yourself.
+What I probably would've thought were the wins early on turned out not to be the things people cared about most. And the things I didn't think anyone would care about turned out to be the biggest wins. It's kind of amazing how this community works. Here's what that looked like.
 
 Over four days, the bot published 176 posts. On X alone, they picked up 103,116 impressions, 1,123 likes, 397 bookmarks, and 119 replies.
 
@@ -209,12 +209,6 @@ No. I approved direct Typefully scheduling once, for the rest of the conference,
 | Windows PC | Capture, the watcher, Claude Code   |
 | Mac mini   | Whisper transcription               |
 | Typefully  | Posting to X, Bluesky, and Mastodon |
-
-## Some of the takes
-
-<!-- TODO(Kevin): Add the .NET Conf takes you promised above (which posts landed and which didn't). Screenshots or embeds work. -->
-
-TODO(Kevin)
 
 So I'd love to know your thoughts. Did you read any of the posts? Have you experimented with something like this in your own work? I'd love to hear more. Let's talk on [X](https://x.com/1kevgriff), [Bluesky](https://bsky.app/profile/consultwithgriff.com), or [LinkedIn](https://www.linkedin.com/in/1kevgriff/).
 
