@@ -24,13 +24,13 @@ I had an agent watching the stream for me all day (I wrote up [how I livetweeted
 
 ## The short version
 
-- **.NET 11 is GA.** C# 15 brings unions, closed hierarchies, collection expression arguments, labeled `break` and `continue`, and extension indexers.
-- **The tooling got faster.** The keynote showed 66% to 75% faster startup for selected CLI commands. C# Dev Kit's BuildX took a single-change build of the Aspire repo from 36.1 seconds to 2.1 seconds.
-- **Runtime async is opt-in.** The synchronous-completion benchmark allocated 0 bytes per operation, compared with 216 to 504 bytes for the compiler-generated state machines.
-- **ASP.NET Core got header-based CSRF protection** that showed roughly 4x the form-post throughput of token validation.
-- **MAUI moved to CoreCLR** on every supported platform. Android Native AOT is still experimental.
-- **Aspire keeps going beyond C#.** TypeScript AppHosts are GA, and Go is in preview for Aspire 17.
-- **Security research exploded.** [Barry Dorrans](https://x.com/blowdart) reported 2,622 MSRC cases and 97 CVEs for 2026. In 2025, it was 84 cases and 12 CVEs.
+- .NET 11 is GA, and C# 15 brings unions, closed hierarchies, collection expression arguments, labeled `break` and `continue`, and extension indexers.
+- The keynote showed 66% to 75% faster startup for selected CLI commands, and C# Dev Kit's BuildX took a single-change build of the Aspire repo from 36.1 seconds to 2.1 seconds.
+- Runtime async is opt-in. Its synchronous-completion benchmark allocated 0 bytes per operation, compared with 216 to 504 bytes for compiler-generated state machines.
+- ASP.NET Core added header-based CSRF protection, with roughly 4x the form-post throughput of token validation.
+- MAUI moved to CoreCLR on every supported platform.
+- Aspire's TypeScript AppHosts are GA, and Go is in preview for Aspire 17.
+- [Barry Dorrans](https://x.com/blowdart) reported 2,622 MSRC cases and 97 CVEs for 2026, up from 84 cases and 12 CVEs in 2025.
 
 ![The .NET 11 release announcement from the .NET Conf 2026 keynote](/images/20261117-dotnetconf-net11-ga.jpg)
 
@@ -38,15 +38,15 @@ I had an agent watching the stream for me all day (I wrote up [how I livetweeted
 
 In _What's new in C#_, [Mads Torgersen](https://x.com/MadsTorgersen) and Dustin Campbell showed what unions change in ordinary code.
 
-They started with a `List<object>` holding unrelated types. You know the pattern. Every switch over it needs a catch-all arm, because the compiler has no idea what could be in there. Swap that for a union, and the compiler knows the full set of possible types. Now it can tell you when your switch misses a case.
+They started with a `List<object>` holding unrelated types. Every switch over it needs a catch-all arm, because the compiler has no idea what could be in there. Swap that for a union, and the compiler knows the full set of possible types. Now it can tell you when your switch misses a case.
 
 ![Visual Studio showing a C# 15 union of Dog, Cat, and Bird, with the compiler flagging a Shark case that isn't part of the union](/images/20261117-dotnetconf-csharp-unions.jpg)
 
-A few details worth knowing:
+From the session:
 
 - The cases can be types from libraries you don't own. They don't need a shared base class.
 - The compiler generates a struct for the union. You can also implement the union pattern yourself, including storage that avoids boxing value types.
-- **Closed hierarchies** solve the same problem for inheritance. A public `closed` class only allows direct inheritance inside its own assembly, so the compiler can check your switches for exhaustiveness.
+- Closed hierarchies solve the same problem for inheritance. A public `closed` class only allows direct inheritance inside its own assembly, so the compiler can check your switches for exhaustiveness.
 
 The session also covered collection expression arguments (handy for passing comparers), labeled loop exits, and extension indexers. If you liked [C# 14 extension members](/csharp-14-extension-members), extension indexers fill in the next obvious gap. The new memory safety rules were shown separately as a preview.
 
@@ -58,7 +58,7 @@ A lot of Day 1 was about making the inner loop shorter.
 
 ![Bar chart of managed versus Native AOT timings for dotnet --version, dotnet tool list --local, and dotnet user-secrets list on macOS arm64](/images/20261117-dotnetconf-cli-aot.jpg)
 
-It isn't free. Moving tool-command resolution into AOT added 2.19 MiB to the SDK while saving roughly 100 ms per tool execution. The team offset that with SDK-wide deduplication that saved 53 MB in the compressed Linux x64 SDK.
+The AOT work has a size cost. Moving tool-command resolution into AOT added 2.19 MiB to the SDK while saving roughly 100 ms per tool execution. The team offset that with SDK-wide deduplication that saved 53 MB in the compressed Linux x64 SDK.
 
 In _C# Dev Kit 11_, [Drew Noakes](https://x.com/drewnoakes) and Emanuel Fernandez Dell'Oca showed shared project caches and a build system that knows the difference between rebuilding a project, copying its outputs, and skipping it entirely. Warm workspace loads for the Roslyn repo went from 89.0 seconds to 15.9 seconds. Aspire went from 87.9 to 19.9.
 
@@ -66,7 +66,7 @@ In _C# Dev Kit 11_, [Drew Noakes](https://x.com/drewnoakes) and Emanuel Fernande
 
 On the 407-project Aspire solution, BuildX cut a single-change build from 36.1 seconds to 2.1 seconds, and a no-change build from 34.4 seconds to 0.9 seconds. Those are medians of five runs on the session's Windows machine. With the shared cache, the IDE can reuse work that an agent or another build already did.
 
-Husk came back later for _More Processes, More Problems: Multithreaded MSBuild_. The `-mt` switch cuts process overhead and still works with existing tasks. Fair warning: the OrchardCore numbers in this session and the keynote came from different machines, so they don't match.
+Husk came back later for _More Processes, More Problems: Multithreaded MSBuild_. The `-mt` switch cuts process overhead and still works with existing tasks. The OrchardCore numbers in this session and the keynote came from different machines, so they don't match.
 
 | OrchardCore benchmark  | Keynote, Windows          | MSBuild session, Windows      | MSBuild session, Linux       |
 | ---------------------- | ------------------------- | ----------------------------- | ---------------------------- |
@@ -99,7 +99,7 @@ The WinForms post was my most-viewed post of the conference.
 
 [Gerald Versluis](https://x.com/jfversluis)'s _What's New in .NET MAUI in .NET 11_ covered the move to CoreCLR on Android, iOS, Mac Catalyst, and Windows. XAML source generation is on by default. C# expressions in XAML cover a lot of cases where you used to write a converter. And an Avalonia backend adds Linux and WebAssembly targets in preview.
 
-The keynote led with "2.4x faster Native AOT startup." The dedicated session had the device-level details. On a Pixel 5 running Android 14, the BaristaNotes sample started in a median of 973.5 ms with full ReadyToRun and 280.0 ms with Native AOT. That was a .NET 11 RC2 benchmark with 1,000 drinks and 30 launches per configuration. On an iPhone 15 Pro, it was 490 ms versus 322 ms. Remember that Android Native AOT is still experimental.
+The keynote led with "2.4x faster Native AOT startup." The dedicated session had the device-level details. On a Pixel 5 running Android 14, the BaristaNotes sample started in a median of 973.5 ms with full ReadyToRun and 280.0 ms with Native AOT. That was a .NET 11 RC2 benchmark with 1,000 drinks and 30 launches per configuration. On an iPhone 15 Pro, it was 490 ms versus 322 ms. Android Native AOT is still experimental.
 
 ![.NET MAUI Android startup and package size measurements for the BaristaNotes sample](/images/20261117-dotnetconf-maui-startup.jpg)
 

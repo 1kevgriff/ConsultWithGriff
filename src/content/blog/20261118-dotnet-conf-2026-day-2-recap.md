@@ -24,13 +24,13 @@ Full disclosure: I barely watched Day 2. I had obligations that pulled me out of
 
 ## The short version
 
-- **Visual Studio 18.12 ships a new agent built on the Copilot SDK.** On a 157-task C# benchmark with the same model, it resolved 124 tasks. The previous experience resolved 103.
-- **Bring Your Own Model is GA in Visual Studio 18.12.** Use approved cloud providers, compatible gateways, or local model servers. No GitHub sign-in required.
-- **Blazor Server can restore persisted state after a circuit is evicted.** Planned shutdowns and hidden-tab auto-pause got explicit support too.
-- **The official AG-UI .NET SDK is stable.** The Microsoft Agent Framework adapter is still in preview, and the Blazor AI components are experimental.
-- **CsWinRT 3.0 shrinks Native AOT apps.** The Microsoft Store app went from 129.34 MB to 107.86 MB, a 16.61% reduction.
-- **File-based apps got a lot more capable.** An unchanged file launched in a median of 106.7 ms, compared with 972.9 ms for an uncached build.
-- **EF Core 11 adds vector search** with DiskANN, unused-join pruning, JSON query improvements, and simpler `dotnet ef` configuration.
+- Visual Studio 18.12 ships a new agent built on the Copilot SDK. With the same model, it resolved 124 of 157 C# benchmark tasks. The previous experience resolved 103.
+- Bring Your Own Model is GA in Visual Studio 18.12. It works with approved cloud providers, compatible gateways, or local model servers, and it doesn't need a GitHub sign-in.
+- Blazor Server can restore persisted state after a circuit is evicted, and it has explicit support for planned shutdowns and hidden-tab auto-pause.
+- The official AG-UI .NET SDK is stable. The Microsoft Agent Framework adapter is in preview, and the Blazor AI components are experimental.
+- CsWinRT 3.0 cut the Microsoft Store app from 129.34 MB to 107.86 MB, a 16.61% reduction.
+- An unchanged file-based app launched in a median of 106.7 ms, compared with 972.9 ms for an uncached build.
+- EF Core 11 adds DiskANN vector search, unused-join pruning, JSON query improvements, and simpler `dotnet ef` configuration.
 
 ## Visual Studio's everyday improvements
 
@@ -71,7 +71,7 @@ Harshada Hole's _What's New in Visual Studio Diagnostics_ had an agent reproduce
 
 ![Title slide for What's New in Visual Studio Diagnostics with Harshada Hole](/images/20261118-dotnetconf-vs-diagnostics.jpg)
 
-She also moved a Copilot CLI performance investigation into Visual Studio's profiler. A SharpZipLib Adler32 benchmark improved 27.9% on .NET 6 and 13.0% on .NET Framework 4.8.1 after the change. Be careful with this one: Hole said the CLI-to-Visual-Studio diagnostics flow **isn't released yet**. It was a look at upcoming work.
+She also moved a Copilot CLI performance investigation into Visual Studio's profiler. A SharpZipLib Adler32 benchmark improved 27.9% on .NET 6 and 13.0% on .NET Framework 4.8.1 after the change. Hole said the CLI-to-Visual-Studio diagnostics flow **isn't released yet**. It was a look at upcoming work.
 
 ## Blazor Server gets resilient
 
@@ -94,7 +94,7 @@ Where the state goes depends on the scenario. State saved before a disconnected 
 
 ![Diagram of the MCP C# SDK packages and their dependencies](/images/20261118-dotnetconf-mcp-sdk.jpg)
 
-Other demos used typed elicitation forms to ask the user for missing info, then asked for approval before running anything. Auth uses normal ASP.NET Core authorization. Tools get the caller's `ClaimsPrincipal`, and the model never sees the token.
+Other demos used typed elicitation forms to ask the user for missing info, then asked for approval before running anything. Auth uses normal ASP.NET Core authorization. Tools get the caller's `ClaimsPrincipal`, and the token isn't passed to the model.
 
 Roth came back for _Building the future of agentic UI with Blazor_. The official AG-UI .NET SDK, built with CopilotKit, is stable and MIT-licensed. `AGUI.Client` consumes an endpoint as an `IChatClient`, and `AGUI.Server` exposes an `IChatClient` over AG-UI. The Microsoft Agent Framework integration is a separate adapter, still in preview.
 
@@ -120,7 +120,7 @@ Generator time for the Store dropped from 115 seconds to 9 seconds on a clean bu
 
 ![Microsoft.UI.Reactor slide: MVU for WinUI, real WinUI controls, an open experiment](/images/20261118-dotnetconf-ui-reactor.jpg)
 
-Reactor and XAML can live in the same visual tree. Chohfi was clear that XAML isn't deprecated. The suggested path is trying Reactor on one new screen in an existing app.
+You can mix Reactor and XAML in the same visual tree. Chohfi was clear that XAML isn't deprecated. The suggested path is trying Reactor on one new screen in an existing app.
 
 ## Modernization and mobile
 
@@ -151,7 +151,7 @@ The session also showed Mobile Canvas, a community tool from Jonathan Dick (Redt
 
 Part 1 showed Container Apps Sandboxes isolating tool execution in microVMs. In a loan-document example, default-deny egress blocked an exfiltration attempt, turning off managed identity made a token request return HTTP 401, and sensitive fields were redacted before reaching the model. A provisioning demo spun up 100 .NET 10 sandboxes in bursts of 10: 100 verified, zero failures, 17.8 seconds total. Hosted skills then wired a Markdown `.agent.md` definition to Azure Functions triggers and existing C# tools for package-damage analysis.
 
-Part 2 added Durable Task Scheduler. The model built a plan from the skill, and the durable workflow processed 20 photos, up to 10 at a time. Result: six claims filed, nine photos tagged as fine, and five retakes requested.
+Part 2 added Durable Task Scheduler. The model built a plan from the skill, and the durable workflow processed 20 photos, up to 10 at a time. It filed six claims, tagged nine photos as fine, and requested five retakes.
 
 ![The completed claims batch: claims filed, tagged OK, and retake requested](/images/20261118-dotnetconf-azure-claims.jpg)
 
@@ -159,7 +159,7 @@ The rest covered AI Gateway (model aliases, failover, per-caller budgets and pol
 
 ## File-based C# apps
 
-[Damian Edwards](https://x.com/DamianEdwards)'s _C# File-based apps turned up to 11!_ covered running C# files directly. You can run `dotnet hello.cs` directly, pipe C# in through standard input, and use includes, app references, and custom SDKs. `#:include` pulls in source files. `#:ref` references another file-based app's types without running its entry point. Sidecar files hold settings and run configuration.
+[Damian Edwards](https://x.com/DamianEdwards)'s _C# File-based apps turned up to 11!_ covered running C# files without a project. You can run `dotnet hello.cs`, pipe C# in through standard input, and use includes, app references, and custom SDKs. `#:include` pulls in source files. `#:ref` references another file-based app's types without running its entry point. Sidecar files hold settings and run configuration.
 
 The launch numbers used .NET SDK 11.0.100, pre-warmed build servers, and five runs per case:
 
@@ -222,4 +222,4 @@ Times are the scheduled ET times. Each session title links to the start of that 
 
 That's Day 2. If you missed the launch day, catch up with my [.NET Conf 2026 Day 1 recap](/dotnet-conf-2026-day-1-recap) for .NET 11, C# 15 unions, and the build speedups.
 
-Which of these are you actually going to use? Blazor circuit recovery? File-based apps? The new Visual Studio agent? I'd love to hear what you think. Hit me up on [X](https://x.com/1kevgriff), [Bluesky](https://bsky.app/profile/consultwithgriff.com), or [LinkedIn](https://www.linkedin.com/in/1kevgriff/).
+Which of these are you going to try first? I'd love to hear what you think. Hit me up on [X](https://x.com/1kevgriff), [Bluesky](https://bsky.app/profile/consultwithgriff.com), or [LinkedIn](https://www.linkedin.com/in/1kevgriff/).
