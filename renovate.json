@@ -5,13 +5,9 @@
   "schedule": ["before 6am on Monday"],
   "automerge": false,
   "rangeStrategy": "bump",
+  "prConcurrentLimit": 3,
+  "prHourlyLimit": 2,
   "packageRules": [
-    {
-      "matchUpdateTypes": ["minor", "patch"],
-      "matchCurrentVersion": "!/^0/",
-      "automerge": true,
-      "automergeType": "pr"
-    },
     {
       "groupName": "Astro monorepo",
       "matchPackageNames": ["/^astro/", "/^@astrojs//"]
@@ -19,6 +15,21 @@
     {
       "groupName": "TailwindCSS",
       "matchPackageNames": ["/^tailwindcss/", "/^@tailwindcss//"]
+    },
+    {
+      "description": "One weekly PR for every minor and patch bump, automerged when the build passes",
+      "matchUpdateTypes": ["minor", "patch"],
+      "matchCurrentVersion": "!/^0/",
+      "groupName": "all non-major dependencies",
+      "groupSlug": "all-minor-patch",
+      "automerge": true,
+      "automergeType": "pr"
+    },
+    {
+      "description": "Node major upgrades wait until Azure Static Web Apps supports them; bump by hand",
+      "matchPackageNames": ["node"],
+      "matchUpdateTypes": ["major"],
+      "enabled": false
     }
   ],
   "vulnerabilityAlerts": {
