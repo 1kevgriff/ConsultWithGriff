@@ -122,14 +122,24 @@ And here's the thing: the fundamental win of this whole experiment was that live
 
 What I probably would've thought were the wins early on turned out not to be the things people cared about most. And the things I didn't think anyone would care about turned out to be the biggest wins. It's kind of amazing how this community works. I've put some of the takes at the end of this article so you can see for yourself.
 
-|              | Day 1       | Day 2 | Day 3 |
-| ------------ | ----------- | ----- | ----- |
-| Posts queued | 53          | 71    | 31    |
-| Screenshots  | TODO(Kevin) | 957   | 1,068 |
+Over four days, the bot published 176 posts. On X alone, they picked up 103,116 impressions, 1,123 likes, 397 bookmarks, and 119 replies.
 
-<!-- TODO(Kevin): add the Day 4 column and the Day 1 screenshot count. -->
+|                 | Day 1  | Day 2  | Day 3 | Day 4 |
+| --------------- | ------ | ------ | ----- | ----- |
+| Posts published | 60     | 75     | 21    | 20    |
+| X impressions   | 59,309 | 33,236 | 5,777 | 4,794 |
+| X likes         | 527    | 414    | 103   | 79    |
 
-Day 3 dropped to 31 posts because of the quieter Community Day format.
+Days 3 and 4 were Community Days, so the bot switched to one "now on" post per session. Fewer posts, quieter numbers.
+
+Here's the part that surprised me. The median post got about 170 impressions, but four posts pulled in nearly half of all impressions:
+
+- **WinForms getting visual styles in .NET 11:** 26,418 impressions, 179 likes, 35 replies. A 20+ year old UI framework was the biggest post of the week by a mile.
+- **UI Reactor, a full UI app in a single file:** 11,017 impressions, 175 likes, 80 bookmarks.
+- **Visual Studio treating code as an asset:** 6,655 impressions, and the best argument in my replies.
+- **The keynote's .NET skills eval dashboard:** 6,359 impressions and 105 bookmarks, the most saved post I made.
+
+And the stuff I _thought_ would be the headline? The ".NET 11 is available now" post got 144 impressions. The C# 15 unions post got 56. Big announcements get covered by everyone. The specific, slightly unexpected take is what people stop for.
 
 All in all, I think it was an epic success. I now have fully detailed notes with screenshots from the live stream.
 
