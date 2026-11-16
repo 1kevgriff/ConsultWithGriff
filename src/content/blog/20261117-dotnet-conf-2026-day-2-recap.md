@@ -1,6 +1,6 @@
 ---
 title: '.NET Conf 2026 Day 2: Visual Studio, Resilient Blazor, and AI Workflows'
-date: 2026-11-18T00:00:00Z
+date: 2026-11-17T00:00:00Z
 permalink: dotnet-conf-2026-day-2-recap
 description: 'A recap of .NET Conf 2026 Day 2: the new Visual Studio agent, Bring Your Own Model, Blazor circuit recovery, MCP and AG-UI, CsWinRT 3.0, file-based apps, and EF Core 11.'
 summary: 'Everything that stood out from Day 2 of .NET Conf 2026, from the new Visual Studio agent and Blazor Server resilience to WinUI, Azure, file-based C# apps, and EF Core 11 vector search, with links to jump into the replay.'
