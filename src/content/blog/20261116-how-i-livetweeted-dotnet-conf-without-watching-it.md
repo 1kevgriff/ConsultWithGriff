@@ -177,7 +177,7 @@ This part surprised me. The median post got about 170 impressions, but four post
 
 And the stuff I _thought_ would be the headline? The .NET 11 launch post got 144 impressions. One of the C# 15 unions posts got 56. Big announcements get covered by everyone. The specific, slightly unexpected take is what people stop for.
 
-All in all, I think it was an epic success. I now have fully detailed notes with screenshots from the live stream.
+All in all, I think it was an epic success. I now have fully detailed notes with screenshots from the live stream. I turned them into full recaps of [Day 1](/dotnet-conf-2026-day-1-recap) and [Day 2](/dotnet-conf-2026-day-2-recap).
 
 One more cool thing: I asked my agent to take the high-level learnings from Day 1 and build a simple slide deck. I took that deck to my local .NET user group, and we talked about everything that happened on Day 1, all from material my bot generated.
 
@@ -197,4 +197,4 @@ It's a really exciting time to be a developer, and it's fun to experiment with a
 
 So I'd love to know your thoughts. Did you read any of the posts? Have you experimented with something like this in your own work? I'd love to hear more. Let's talk on [X](https://x.com/1kevgriff), [Bluesky](https://bsky.app/profile/consultwithgriff.com), or [LinkedIn](https://www.linkedin.com/in/1kevgriff/).
 
-If you want more on how I use bots for community work, check out [Using AI Bots to Help Run Community Conferences](/using-ai-bots-to-help-run-community-conferences).
+If you want more on how I use bots for community work, check out [Using AI Bots to Help Run Community Conferences](/using-ai-bots-to-help-run-community-conferences). And if you want to know what the bot actually learned, read my [.NET Conf 2026 Day 1 recap](/dotnet-conf-2026-day-1-recap) and [Day 2 recap](/dotnet-conf-2026-day-2-recap).
