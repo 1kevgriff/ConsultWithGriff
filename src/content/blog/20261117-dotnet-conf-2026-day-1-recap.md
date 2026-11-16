@@ -159,18 +159,20 @@ Jeremy Barton's _Post-Quantum Cryptography with .NET 11_ covered Composite ML-KE
 
 ![Slide explaining Composite ML-KEM](/images/20261117-dotnetconf-ml-kem.jpg)
 
-## Sessions worth the replay
+## Session replays
 
-Times are the scheduled ET times, and each link jumps straight to the session in the Day 1 replay.
+Times are the scheduled ET times. Each session title links to the start of that session in the Day 1 replay.
 
-- **12:00 PM: C# 15 unions and closed hierarchies** with Mads Torgersen and Dustin Campbell. Watch the compiler catch invalid cases and incomplete switches. [Jump to the session](https://www.youtube.com/watch?v=SIBdHRrk8os&t=4165s).
-- **12:30 PM: ASP.NET Core and Blazor** with Daniel Roth. CSRF protection, auth refresh, and union-based API contracts. [Jump to the session](https://www.youtube.com/watch?v=SIBdHRrk8os&t=5965s).
-- **2:00 PM: The .NET AI Stack** with Luis Quintanilla. Extraction, model routing, generation, and agent-driven UI in one app. [Jump to the session](https://www.youtube.com/watch?v=SIBdHRrk8os&t=11425s).
-- **3:00 PM: C# Dev Kit 11** with Drew Noakes and Emanuel Fernandez Dell'Oca. Shared caches and BuildX. [Jump to the session](https://www.youtube.com/watch?v=SIBdHRrk8os&t=15025s).
-- **3:30 PM: Multithreaded MSBuild** with Chet Husk. The Windows and Linux results, plus what makes a task safe to run multithreaded. [Jump to the session](https://www.youtube.com/watch?v=SIBdHRrk8os&t=16825s).
-- **6:00 PM: Aspire's language support** with Maddy Montaquila and Jose Perez Rodriguez. The TypeScript AppHost and the AOT dashboard. [Jump to the session](https://www.youtube.com/watch?v=SIBdHRrk8os&t=25825s).
-- **6:30 PM: Runtime async and memory safety** with Richard Lander and Andy Gocke. Lowered code, call stacks, and allocations. [Jump to the session](https://www.youtube.com/watch?v=SIBdHRrk8os&t=27685s).
-- **7:30 PM: MAUI run, test, and watch** with Jonathan Peppers. Deployment, Hot Reload, and tests on real devices. [Jump to the session](https://www.youtube.com/watch?v=SIBdHRrk8os&t=31165s).
+| Time (ET) | Session                                                                                    | Speakers                                |
+| --------- | ------------------------------------------------------------------------------------------ | --------------------------------------- |
+| 12:00 PM  | [C# 15 unions and closed hierarchies](https://www.youtube.com/watch?v=SIBdHRrk8os&t=4165s) | Mads Torgersen, Dustin Campbell         |
+| 12:30 PM  | [ASP.NET Core and Blazor](https://www.youtube.com/watch?v=SIBdHRrk8os&t=5965s)             | Daniel Roth                             |
+| 2:00 PM   | [The .NET AI Stack](https://www.youtube.com/watch?v=SIBdHRrk8os&t=11425s)                  | Luis Quintanilla                        |
+| 3:00 PM   | [C# Dev Kit 11](https://www.youtube.com/watch?v=SIBdHRrk8os&t=15025s)                      | Drew Noakes, Emanuel Fernandez Dell'Oca |
+| 3:30 PM   | [Multithreaded MSBuild](https://www.youtube.com/watch?v=SIBdHRrk8os&t=16825s)              | Chet Husk                               |
+| 6:00 PM   | [Aspire's language support](https://www.youtube.com/watch?v=SIBdHRrk8os&t=25825s)          | Maddy Montaquila, Jose Perez Rodriguez  |
+| 6:30 PM   | [Runtime async and memory safety](https://www.youtube.com/watch?v=SIBdHRrk8os&t=27685s)    | Richard Lander, Andy Gocke              |
+| 7:30 PM   | [MAUI run, test, and watch](https://www.youtube.com/watch?v=SIBdHRrk8os&t=31165s)          | Jonathan Peppers                        |
 
 ## What caught your eye?
 

@@ -201,19 +201,22 @@ Watch out for a few provider changes when you upgrade:
 - Cosmos DB added transactional batches and switched to System.Text.Json, which removes `__jObject`.
 - The SQLite provider's version 11 drops .NET Standard 2.0 and needs .NET 10 or later.
 
-## Sessions worth the replay
+## Session replays
 
-Times are the scheduled ET times. Some sessions started late, so the links jump to where each one actually starts in the Day 2 replay.
+Times are the scheduled ET times. Each session title links to the start of that session in the Day 2 replay.
 
-- **11:30 AM: The State of AI in Visual Studio** with Rachel Kang and Barbara Boyajian. Mid-task steering, regression-test repair, and model connections without a GitHub sign-in. [Jump to the session](https://www.youtube.com/watch?v=2UpjQ01cBGE&t=1818s).
-- **1:00 PM: Visual Studio Diagnostics** with Harshada Hole. UI-assisted debugging in Insiders, plus the unreleased connected-profiler demo. [Jump to the session](https://www.youtube.com/watch?v=2UpjQ01cBGE&t=7513s).
-- **1:30 PM: Blazor Server resilience** with Daniel Roth. Watch the circuit count hit zero and the state come back. [Jump to the session](https://www.youtube.com/watch?v=2UpjQ01cBGE&t=9073s).
-- **2:00 PM: MCP C# SDK** with Stephen Halter. The fireworks MCP App, SignalR, typed elicitation, and authenticated tools. [Jump to the session](https://www.youtube.com/watch?v=2UpjQ01cBGE&t=10828s).
-- **3:00 PM: Agentic UI with Blazor** with Daniel Roth. Shared form state and the accept-or-reject flow for tool calls. [Jump to the session](https://www.youtube.com/watch?v=2UpjQ01cBGE&t=14478s).
-- **3:30 PM: CsWinRT 3.0** with Manodasan Wignarajah and Sergio Pedri. App sizes, generator timing, and the opt-in migration. [Jump to the session](https://www.youtube.com/watch?v=2UpjQ01cBGE&t=16278s).
-- **5:30 PM and 6:00 PM: Azure's new lineup** with Matt Soucoup and Paul Yuknewicz. Start with [tool isolation and hosted skills](https://www.youtube.com/watch?v=2UpjQ01cBGE&t=23498s), then [durable photo processing, AI Gateway, and SRE Agent](https://www.youtube.com/watch?v=2UpjQ01cBGE&t=25198s).
-- **6:30 PM: File-based apps** with Damian Edwards. Cache behavior, includes, app references, and SDK commands. [Jump to the session](https://www.youtube.com/watch?v=2UpjQ01cBGE&t=27118s).
-- **7:30 PM: EF Core 11** with Jiri Cincura. Vector search, join pruning, JSON mapping, and `dotnet ef` configuration. [Jump to the session](https://www.youtube.com/watch?v=2UpjQ01cBGE&t=30808s).
+| Time (ET) | Session                                                                                 | Speakers                           |
+| --------- | --------------------------------------------------------------------------------------- | ---------------------------------- |
+| 11:30 AM  | [The State of AI in Visual Studio](https://www.youtube.com/watch?v=2UpjQ01cBGE&t=1818s) | Rachel Kang, Barbara Boyajian      |
+| 1:00 PM   | [Visual Studio Diagnostics](https://www.youtube.com/watch?v=2UpjQ01cBGE&t=7513s)        | Harshada Hole                      |
+| 1:30 PM   | [Blazor Server resilience](https://www.youtube.com/watch?v=2UpjQ01cBGE&t=9073s)         | Daniel Roth                        |
+| 2:00 PM   | [MCP C# SDK](https://www.youtube.com/watch?v=2UpjQ01cBGE&t=10828s)                      | Stephen Halter                     |
+| 3:00 PM   | [Agentic UI with Blazor](https://www.youtube.com/watch?v=2UpjQ01cBGE&t=14478s)          | Daniel Roth                        |
+| 3:30 PM   | [CsWinRT 3.0](https://www.youtube.com/watch?v=2UpjQ01cBGE&t=16278s)                     | Manodasan Wignarajah, Sergio Pedri |
+| 5:30 PM   | [Azure's new lineup, part 1](https://www.youtube.com/watch?v=2UpjQ01cBGE&t=23498s)      | Matt Soucoup, Paul Yuknewicz       |
+| 6:00 PM   | [Azure's new lineup, part 2](https://www.youtube.com/watch?v=2UpjQ01cBGE&t=25198s)      | Matt Soucoup, Paul Yuknewicz       |
+| 6:30 PM   | [File-based apps](https://www.youtube.com/watch?v=2UpjQ01cBGE&t=27118s)                 | Damian Edwards                     |
+| 7:30 PM   | [EF Core 11](https://www.youtube.com/watch?v=2UpjQ01cBGE&t=30808s)                      | Jiri Cincura                       |
 
 ## What are you trying first?
 
